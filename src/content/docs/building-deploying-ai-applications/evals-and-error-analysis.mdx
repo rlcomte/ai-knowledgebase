@@ -14,10 +14,15 @@ import EvaluationCheck from '@components/EvaluationCheck.astro';
 import FailureMode from '@components/FailureMode.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
+import conceptEvalsErrorAnalysis from '../../../assets/concept-evals-error-analysis.png';
 
 <Definition term={"Evals and Error Analysis"}>
-Structured tests and qualitative inspection for improving probabilistic AI-system behaviour.
+Evals are repeatable measurements that test whether an AI system performs acceptably on representative tasks, edge cases and risk scenarios. Error analysis is the structured inspection of failures to identify patterns, root causes and improvement actions, such as better instructions, retrieval, data cleaning, tool design, guardrails or human review.
 </Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptEvalsErrorAnalysis.src} alt="Diagram of an evaluation and error-analysis loop from test set through run, scoring, failures, improvement and regression checks." loading="lazy" decoding="async" />
+</figure>
 
 ## Why It Matters
 
@@ -38,5 +43,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Testing and testability","href":"/software-engineering-fundamentals/testing-and-testability/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI, <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Evaluation best practices</a>, and Hamel Husain, <a href="https://hamel.dev/blog/posts/evals/">Your AI Product Needs Evals</a>.
 </SourceNote>

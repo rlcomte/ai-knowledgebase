@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Coordination Risks and Concurrency Safety"}>
-Cost, context, communication, conflict and stopping-condition risks in multi-agent work.
+Coordination risks are failures introduced by splitting work across agents: duplicated exploration, inconsistent assumptions, lost context, excessive token cost and premature conclusions. Concurrency safety concerns conflicting edits, stale file views, race conditions in commands and unclear ownership of shared artifacts. Safe multi-agent work requires task partitioning, locking or ownership rules, merge review and explicit stop conditions.
 </Definition>
 
 ## Why It Matters
@@ -38,5 +38,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Multiple agents and subagents","href":"/using-coding-agents/multiple-agents-and-subagents/"},{"label":"Code quality and version control","href":"/software-engineering-fundamentals/code-quality-and-version-control/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: Martin Kleppmann, <em>Designing Data-Intensive Applications</em>, chapters on distributed systems, and OpenAI subagent guidance.
 </SourceNote>

@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Context, Instructions and Planning"}>
-Managing finite context, persistent project guidance, skills and adaptive plans.
+Context is the finite set of information an agent can use in a given step, including files, prompts, instructions, tool outputs and conversation history. Instructions define durable rules such as coding standards, design constraints and safety policies. Planning decomposes a goal into verifiable steps that can adapt as new evidence appears. Together they determine whether an agent works from the right evidence or merely guesses.
 </Definition>
 
 ## Why It Matters
@@ -38,5 +38,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Task briefs and examples","href":"/using-coding-agents/task-briefs-and-examples/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">Custom instructions with AGENTS.md</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/claude-code/memory">How Claude remembers your project</a>.
 </SourceNote>

@@ -14,10 +14,15 @@ import EvaluationCheck from '@components/EvaluationCheck.astro';
 import FailureMode from '@components/FailureMode.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
+import conceptAgenticWorkflowHarness from '../../../assets/concept-agentic-workflow-harness.png';
 
 <Definition term={"Agentic Workflows and Harnesses"}>
-Multi-step model workflows, harness responsibilities, state, memory and reusable workflow patterns.
+An agentic workflow is a multi-step process in which a model plans, selects tools, observes results and adapts its next action toward a goal. The harness is the software layer that supplies tools, state, memory, permissions, retries, tracing, stopping conditions and user approvals; it is often as important as the underlying model for reliability and safety.
 </Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptAgenticWorkflowHarness.src} alt="Diagram of an agentic workflow harness around a model with planner, state, tools, approvals, trace, retries and stop controls." loading="lazy" decoding="async" />
+</figure>
 
 ## Why It Matters
 
@@ -38,5 +43,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Multi-agent patterns","href":"/using-coding-agents/multi-agent-patterns/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI, <a href="https://developers.openai.com/tracks/building-agents">Building agents</a>, and Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>.
 </SourceNote>

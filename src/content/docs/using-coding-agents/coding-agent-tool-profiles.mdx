@@ -14,10 +14,15 @@ import EvaluationCheck from '@components/EvaluationCheck.astro';
 import FailureMode from '@components/FailureMode.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
+import conceptCodingAgentToolProfiles from '../../../assets/concept-coding-agent-tool-profiles.png';
 
 <Definition term={"Coding Agent Tool Profiles"}>
-A practical comparison of how specific coding agents support project instructions, context, tools, permissions, reusable workflows, evaluation and orchestration.
+A coding-agent tool profile describes how a specific product implements the same engineering control points: project instructions, context loading, file and shell tools, permissions, reusable workflows, evaluation evidence, subagents and orchestration. The profile helps teams choose and configure an agent by workflow fit rather than brand preference or benchmark claims alone.
 </Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptCodingAgentToolProfiles.src} alt="Comparison diagram for coding agent tool profiles across instructions, context, tools, permissions, evals and orchestration." loading="lazy" decoding="async" />
+</figure>
 
 ## Shared Principles
 
@@ -104,5 +109,5 @@ For each agent, ask: which instruction file was loaded, what context was inspect
 <RelatedConcepts links={[{"label":"Model, harness, tools and workspace","href":"/using-coding-agents/model-harness-tools-and-workspace/"},{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"},{"label":"Multiple agents and subagents","href":"/using-coding-agents/multiple-agents-and-subagents/"},{"label":"Evaluating coding agents","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
 
 <SourceNote>
-Product-specific details were checked against official documentation for OpenAI Codex, Anthropic Claude Code and Google Gemini Code Assist on 2026-08-25. Product behaviour changes quickly; verify tool availability and naming before using this page for procurement or policy decisions.
+Further study: official OpenAI Codex, Anthropic Claude Code and Google Gemini Code Assist documentation. Product-specific details were checked on 2026-08-25; verify tool availability and naming before using this page for procurement or policy decisions.
 </SourceNote>

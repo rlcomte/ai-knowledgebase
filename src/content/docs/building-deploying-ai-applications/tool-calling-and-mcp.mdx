@@ -14,10 +14,15 @@ import EvaluationCheck from '@components/EvaluationCheck.astro';
 import FailureMode from '@components/FailureMode.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
+import conceptToolCallingMcp from '../../../assets/concept-tool-calling-mcp.png';
 
 <Definition term={"Tool Calling and MCP"}>
-Allowing models to request controlled operations through validated tools and standard interfaces.
+Tool calling lets a model request a structured operation, such as a database lookup, calculation, file action or API call, while the surrounding application validates arguments, executes the operation and returns results. MCP, the Model Context Protocol, standardises how hosts connect models to external tools and data sources so integrations can be reasoned about as explicit capability boundaries.
 </Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptToolCallingMcp.src} alt="Diagram showing a model, host application, schema, MCP server, tools and returned results." loading="lazy" decoding="async" />
+</figure>
 
 ## Why It Matters
 
@@ -36,5 +41,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"API and contract design","href":"/software-engineering-fundamentals/architecture-and-interfaces/"},{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: Anthropic, <a href="https://docs.anthropic.com/en/docs/mcp">Model Context Protocol</a>, and OpenAI, <a href="https://platform.openai.com/docs/guides/function-calling">Function calling</a>.
 </SourceNote>

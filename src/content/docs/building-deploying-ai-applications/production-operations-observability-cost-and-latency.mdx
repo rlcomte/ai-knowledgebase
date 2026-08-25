@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Production Operations, Observability, Cost and Latency"}>
-Running AI systems under real deployment, tracing, reliability, cost and performance constraints.
+Production operations for AI systems cover the deployment, monitoring and continuous control of systems whose behaviour depends on model calls, retrieval, tools and human feedback. Observability must capture prompts, context, tool calls, latency, cost, errors, safety events and user outcomes while respecting privacy. Cost and latency are design constraints that influence model choice, caching, batching, routing and fallback behaviour.
 </Definition>
 
 ## Why It Matters
@@ -38,5 +38,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"DevOps, deployment and observability","href":"/software-engineering-fundamentals/devops-deployment-and-observability/"},{"label":"Quality model for AI software","href":"/cross-cutting-knowledge/quality-model-for-ai-software/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: Google SRE, <a href="https://sre.google/sre-book/monitoring-distributed-systems/">Monitoring Distributed Systems</a>, and OpenAI, <a href="https://platform.openai.com/docs/guides/latency-optimization">Latency optimization</a>.
 </SourceNote>

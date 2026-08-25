@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Specifications, Quality Attributes and Acceptance Criteria"}>
-Turning desired behaviour, constraints and quality into verifiable conditions.
+Specifications describe expected system behaviour, inputs, outputs, constraints and integration contracts. Quality attributes define non-functional requirements such as accuracy, latency, privacy, reliability, explainability, accessibility, maintainability and cost. Acceptance criteria convert both into observable checks that determine whether a feature, model workflow or release is good enough to use.
 </Definition>
 
 ## Why It Matters
@@ -38,5 +38,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Testing and testability","href":"/software-engineering-fundamentals/testing-and-testability/"},{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: ISO/IEC/IEEE 29148 for requirements, and Len Bass et al., <em>Software Architecture in Practice</em>, for quality attributes.
 </SourceNote>

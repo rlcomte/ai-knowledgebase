@@ -14,10 +14,15 @@ import EvaluationCheck from '@components/EvaluationCheck.astro';
 import FailureMode from '@components/FailureMode.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
+import conceptDeterministicProbabilisticBoundary from '../../../assets/concept-deterministic-probabilistic-boundary.png';
 
 <Definition term={"Deterministic-Probabilistic Boundaries"}>
-Deciding what belongs in rules or conventional code and what can responsibly use a model.
+Deterministic-probabilistic boundaries separate behaviour that must be implemented with explicit rules, typed code or transactions from behaviour that can tolerate model uncertainty. Good boundaries keep identity, permissions, accounting, compliance, irreversible actions and safety-critical checks deterministic, while using models for interpretation, drafting, ranking, summarisation or uncertain judgment where errors can be detected and corrected.
 </Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptDeterministicProbabilisticBoundary.src} alt="Diagram splitting deterministic rules, code and transactions from probabilistic model behaviour through guardrails and review." loading="lazy" decoding="async" />
+</figure>
 
 ## Why It Matters
 
@@ -36,5 +41,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Architecture and interfaces","href":"/software-engineering-fundamentals/architecture-and-interfaces/"},{"label":"Guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI safety and structured-output documentation, plus conventional software architecture references on clear system boundaries.
 </SourceNote>

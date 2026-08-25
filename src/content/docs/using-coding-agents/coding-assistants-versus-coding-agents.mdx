@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Coding Assistants Versus Coding Agents"}>
-The difference between local code help and goal-directed multi-step agent work.
+A coding assistant primarily responds to local developer prompts, such as explaining a file, completing code or suggesting a refactor. A coding agent is a goal-directed system that can inspect a repository, choose tools, edit files, run commands, observe results and iterate until a stopping condition is reached. The distinction matters because agents need stronger task boundaries, permissions, evidence and review than conversational assistance.
 </Definition>
 
 ## Why It Matters
@@ -36,5 +36,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Principles for effective use","href":"/using-coding-agents/principles-for-effective-use/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>, and OpenAI Codex documentation.
 </SourceNote>

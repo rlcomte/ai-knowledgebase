@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Evaluating Coding Agents"}>
-Evidence dimensions for judging agent output, process quality, safety and robustness.
+Evaluating coding agents means measuring both the final artifact and the process that produced it. Useful evaluation covers task success, code quality, test evidence, security, permission discipline, context use, cost, latency, robustness across repositories and quality of handoff. The unit of evaluation is often a workflow trace plus a diff, not a single model response.
 </Definition>
 
 ## Why It Matters
@@ -46,5 +46,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI, <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Evaluation best practices</a>, and SWE-bench for software engineering agent evaluation.
 </SourceNote>

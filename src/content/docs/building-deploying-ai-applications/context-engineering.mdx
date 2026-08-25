@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Context Engineering"}>
-Designing the complete information environment available to a model at a particular step.
+Context engineering is the deliberate construction of the information state available to a model at a particular step of a workflow. It covers system instructions, user task framing, retrieved documents, tool results, memory, conversation history, schemas and constraints, with attention to token budgets, recency, source authority, privacy and the risk of injecting irrelevant or hostile context.
 </Definition>
 
 ## Why It Matters
@@ -36,5 +36,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructions and planning","href":"/using-coding-agents/context-instructions-and-planning/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI, <a href="https://platform.openai.com/docs/guides/text-generation">Text generation</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">Context windows</a>.
 </SourceNote>

@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Model, Harness, Tools and Workspace"}>
-The practical components that determine what a coding agent can do.
+A coding agent's capability is the product of four layers: the model that reasons and generates text, the harness that manages state and execution, the tools that expose concrete actions, and the workspace that supplies files, environment, credentials and repository history. Changing any layer can change the agent's behaviour, risk profile and evidence quality even when the user prompt stays the same.
 </Definition>
 
 ## Why It Matters
@@ -38,5 +38,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Tool calling and MCP","href":"/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/customization/overview">Codex customization</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/mcp">Model Context Protocol</a>.
 </SourceNote>

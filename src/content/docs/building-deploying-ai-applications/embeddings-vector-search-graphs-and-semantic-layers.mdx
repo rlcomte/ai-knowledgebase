@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Embeddings, Vector Search, Graphs and Semantic Layers"}>
-Retrieval building blocks and their trade-offs for semantic, structured and relationship-heavy information.
+Embeddings are dense numeric representations that place semantically related items near each other in vector space. Vector search uses those representations for approximate semantic retrieval, while graphs and semantic layers encode entities, relationships, business meaning and constraints that pure vector similarity may miss. Robust AI systems often combine these techniques with metadata filters, ranking, provenance and evaluation.
 </Definition>
 
 ## Why It Matters
@@ -36,5 +36,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"Data modelling and data engineering","href":"/software-engineering-fundamentals/data-modelling-and-data-engineering/"},{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI, <a href="https://platform.openai.com/docs/guides/embeddings">Embeddings</a>, and Stanford CS224W materials on graph machine learning.
 </SourceNote>

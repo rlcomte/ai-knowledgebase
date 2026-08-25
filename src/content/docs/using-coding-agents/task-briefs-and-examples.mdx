@@ -16,7 +16,7 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Task Briefs and Examples"}>
-A reusable task brief structure for bounded, verifiable agent work.
+A task brief is a compact specification for an agent run: goal, scope, relevant files, constraints, allowed actions, non-goals, acceptance criteria and required evidence. Good examples show both the desired output and the boundaries of acceptable implementation, which helps agents avoid broad rewrites, hidden assumptions and unverified claims of completion.
 </Definition>
 
 ## Why It Matters
@@ -62,5 +62,5 @@ Ask what observable evidence would show that this concept has been applied well 
 <RelatedConcepts links={[{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"},{"label":"Acceptance criteria","href":"/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"}]} />
 
 <SourceNote>
-Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+Further study: OpenAI Codex task guidance and GitHub issue/PR templates for reproducible engineering work.
 </SourceNote>
