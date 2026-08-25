@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+  href: string;
+  area: 'area-1' | 'area-2' | 'area-3' | 'area-4';
+  kicker?: string;
+  description: string;
+}
+
+const { title, href, area, kicker, description } = Astro.props;
+---
+
+<a class={`area-card ${area}`} href={href}>
+  {kicker && <span class="area-card__kicker">{kicker}</span>}
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="area-card__action" aria-hidden="true">Explore</span>
+</a>

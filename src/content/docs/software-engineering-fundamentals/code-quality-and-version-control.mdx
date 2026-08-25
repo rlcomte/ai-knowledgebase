@@ -1,0 +1,40 @@
+---
+title: "Code Quality and Version Control"
+description: "Maintainability, readable diffs and reversible change in human and agent-written code."
+area: "Software engineering fundamentals"
+order: 5
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Code Quality and Version Control"}>
+Maintainability, readable diffs and reversible change in human and agent-written code.
+</Definition>
+
+## Why It Matters
+
+Code quality covers readability, cohesion, low coupling, appropriate abstraction, consistency and explicit intent. Generated code must meet the same maintainability standard as human-written code.
+
+Version control records and reviews changes using branches, commits, diffs and merge workflows. Small, coherent changes make agent output easier to inspect and reverse.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Principles for effective use","href":"/using-coding-agents/principles-for-effective-use/"},{"label":"Technical debt, documentation and teamwork","href":"/software-engineering-fundamentals/technical-debt-documentation-and-teamwork/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

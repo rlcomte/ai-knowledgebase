@@ -1,0 +1,42 @@
+---
+title: "Delegation, Handoffs and Orchestration"
+description: "How orchestrators assign, combine and account for work across agents."
+area: "Using coding agents"
+order: 11
+tags: ["architecture","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 11
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Delegation, Handoffs and Orchestration"}>
+How orchestrators assign, combine and account for work across agents.
+</Definition>
+
+## Why It Matters
+
+Parallel delegation runs independent work simultaneously, such as security review, test-gap analysis and maintainability review. It improves elapsed time when dependencies are low.
+
+Specialised roles help when responsibilities and outputs are clear. An orchestrator decomposes work, assigns tasks, manages dependencies, resolves results and owns the final synthesis.
+
+A handoff transfers task, context, decisions, artifacts and remaining uncertainty. Loose handoffs lose essential information. Shared artifacts are where agents coordinate, but concurrent writes to the same artifact create conflict risk.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Multi-agent patterns","href":"/using-coding-agents/multi-agent-patterns/"},{"label":"Trace and provenance","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

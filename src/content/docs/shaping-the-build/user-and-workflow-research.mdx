@@ -1,0 +1,40 @@
+---
+title: "User and Workflow Research"
+description: "Understanding tasks, handoffs, exceptions and user progress before changing a workflow."
+area: "Shaping the build"
+order: 3
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 3
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"User and Workflow Research"}>
+Understanding tasks, handoffs, exceptions and user progress before changing a workflow.
+</Definition>
+
+## Why It Matters
+
+User and workflow research studies actual tasks, handoffs, exceptions, information needs and workarounds. AI should fit or deliberately reshape a real workflow.
+
+Jobs to be done describe the progress a user seeks rather than starting from a feature. This helps distinguish the underlying need from a preferred implementation.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Problem framing and stakeholder analysis","href":"/shaping-the-build/problem-framing-and-stakeholder-analysis/"},{"label":"Accessibility and inclusive design","href":"/software-engineering-fundamentals/security-privacy-and-accessibility/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

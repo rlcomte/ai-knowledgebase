@@ -1,0 +1,24 @@
+---
+import AreaCard from './AreaCard.astro';
+---
+
+<section class="four-area-map" aria-labelledby="four-area-map-title">
+  <div class="map-center">
+    <p class="eyebrow">Cycle</p>
+    <h2 id="four-area-map-title">Four Areas Reinforce Each Other</h2>
+    <p>Shape the problem, build the AI capability, engineer the system, and use coding agents to accelerate verified change.</p>
+  </div>
+  <div class="map-grid">
+    <AreaCard area="area-1" kicker="Area 1" title="Build AI applications" href="/building-deploying-ai-applications/" description="Add model capability, context, grounding, tools, evals and production controls." />
+    <AreaCard area="area-2" kicker="Area 2" title="Engineer reliable systems" href="/software-engineering-fundamentals/" description="Use architecture, testing, security, data and operations to make software sustainable." />
+    <AreaCard area="area-3" kicker="Area 3" title="Use coding agents" href="/using-coding-agents/" description="Direct agents through bounded tasks, context, tools, permissions and evidence." />
+    <AreaCard area="area-4" kicker="Area 4" title="Shape the build" href="/shaping-the-build/" description="Turn ambiguous needs into valuable, feasible and responsible interventions." />
+  </div>
+  <ol class="map-steps" aria-label="Cycle order">
+    <li>Shape</li>
+    <li>Build</li>
+    <li>Engineer</li>
+    <li>Agent-assist</li>
+    <li>Evaluate outcomes</li>
+  </ol>
+</section>

@@ -1,0 +1,28 @@
+---
+title: "Shaping the build"
+description: "Overview of shaping valuable, feasible, responsible and testable AI interventions."
+area: "Shaping the build"
+order: 1
+tags: ["foundation","governance","evaluation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 1
+---
+
+import ConceptGrid from '@components/ConceptGrid.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+
+<KeyIdea>
+<strong>Key movement:</strong> interesting technology -> meaningful problem -> shaped intervention -> demonstrable outcome
+</KeyIdea>
+
+## Conceptual Story
+
+When implementation becomes faster, choosing and defining the right build becomes the scarce skill. Shaping the build means turning an ambiguous situation into a valuable, feasible, responsible and testable intervention. It includes deciding whether AI belongs in the solution at all, which part of a workflow it should support, what remains deterministic and where humans retain authority.
+
+The engineer studies users, work practices, domain rules, organisational constraints and potential harms. Alternatives are expressed as small testable slices. Quality is translated into acceptance criteria and evals before large-scale implementation begins. Success is measured in outcomes, not in model impressiveness or quantity of generated code.
+
+## Concepts in This Area
+
+<ConceptGrid concepts={[{"title":"Problem Framing and Stakeholder Analysis","href":"/shaping-the-build/problem-framing-and-stakeholder-analysis/","description":"Defining the situation, affected people, desired change and competing interests before selecting an AI solution.","tags":["foundation","governance"]},{"title":"User and Workflow Research","href":"/shaping-the-build/user-and-workflow-research/","description":"Understanding tasks, handoffs, exceptions and user progress before changing a workflow.","tags":["practice"]},{"title":"AI Suitability","href":"/shaping-the-build/ai-suitability/","description":"Assessing whether AI belongs in the task and whether errors are detectable, tolerable and recoverable.","tags":["foundation","risk"]},{"title":"Deterministic-Probabilistic Boundaries","href":"/shaping-the-build/deterministic-probabilistic-boundaries/","description":"Deciding what belongs in rules or conventional code and what can responsibly use a model.","tags":["architecture","risk"]},{"title":"Value, Feasibility, Viability and Responsibility","href":"/shaping-the-build/value-feasibility-viability-and-responsibility/","description":"Four tests for deciding whether a shaped AI intervention deserves further investment.","tags":["governance"]},{"title":"Product Hypotheses and Prototypes","href":"/shaping-the-build/product-hypotheses-and-prototypes/","description":"Testing falsifiable product hypotheses with prototypes and vertical slices.","tags":["practice"]},{"title":"Specifications, Quality Attributes and Acceptance Criteria","href":"/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/","description":"Turning desired behaviour, constraints and quality into verifiable conditions.","tags":["evaluation","architecture"]},{"title":"Risk and Responsible AI","href":"/shaping-the-build/risk-and-responsible-ai/","description":"Assessing hazards and designing accountable AI systems with meaningful human oversight.","tags":["risk","governance"]},{"title":"Outcomes and Learning Loops","href":"/shaping-the-build/outcomes-and-learning-loops/","description":"Outcome metrics, guardrail metrics, build-measure-learn loops and decision records.","tags":["evaluation","practice"]}]} />

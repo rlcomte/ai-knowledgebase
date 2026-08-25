@@ -1,0 +1,42 @@
+---
+title: "Context, Instructions and Planning"
+description: "Managing finite context, persistent project guidance, skills and adaptive plans."
+area: "Using coding agents"
+order: 5
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Context, Instructions and Planning"}>
+Managing finite context, persistent project guidance, skills and adaptive plans.
+</Definition>
+
+## Why It Matters
+
+The context window is finite. Long raw logs and irrelevant files can bury decisions; concise instructions, selected files and summaries preserve signal.
+
+Persistent project instructions, often in a file such as AGENTS.md, record build commands, conventions, constraints and the definition of done. Layered instructions combine personal, organisational, repository and directory-specific guidance.
+
+A plan is a provisional decomposition into verifiable steps. Planning is most useful for ambiguous, risky or multi-stage work and should adapt when evidence changes. Agent skills convert repeatable prompting into managed capability.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Task briefs and examples","href":"/using-coding-agents/task-briefs-and-examples/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

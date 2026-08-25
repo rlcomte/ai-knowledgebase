@@ -1,0 +1,12 @@
+---
+export interface Props {
+  links: { label: string; href: string }[];
+}
+const { links } = Astro.props;
+---
+<nav class="related-concepts" aria-label="Related concepts">
+  <h2>Related Concepts</h2>
+  <ul>
+    {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+  </ul>
+</nav>

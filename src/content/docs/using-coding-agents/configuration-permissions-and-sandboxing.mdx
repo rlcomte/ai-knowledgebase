@@ -1,0 +1,42 @@
+---
+title: "Configuration, Permissions and Sandboxing"
+description: "Model configuration, MCP integrations, execution boundaries, approvals and secrets."
+area: "Using coding agents"
+order: 6
+tags: ["governance","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 6
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Configuration, Permissions and Sandboxing"}>
+Model configuration, MCP integrations, execution boundaries, approvals and secrets.
+</Definition>
+
+## Why It Matters
+
+Model and reasoning configuration should match task complexity, latency and cost. Easy, bounded edits may not need the most expensive setting.
+
+A sandbox is an execution boundary that restricts file, process or network access. It reduces blast radius but does not replace secure review. Approval policy governs which actions require human consent; high-impact, external, destructive or credential-sensitive actions deserve tighter approval.
+
+MCP integrations expose external tools and resources. Each integration still needs scoped credentials, clear tool contracts and safe defaults. Secrets should come from managed mechanisms, not prompts or committed files.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Security, privacy and accessibility","href":"/software-engineering-fundamentals/security-privacy-and-accessibility/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

@@ -1,0 +1,40 @@
+---
+title: "AI Suitability"
+description: "Assessing whether AI belongs in the task and whether errors are detectable, tolerable and recoverable."
+area: "Shaping the build"
+order: 4
+tags: ["foundation","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 4
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"AI Suitability"}>
+Assessing whether AI belongs in the task and whether errors are detectable, tolerable and recoverable.
+</Definition>
+
+## Why It Matters
+
+AI suitability asks whether the task benefits from pattern recognition, generation or flexible reasoning and whether errors are detectable, tolerable and recoverable.
+
+The point is not whether AI can produce something plausible. The point is whether probabilistic behaviour can be responsibly embedded in the workflow with the right evidence, controls and human authority.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Deterministic-probabilistic boundaries","href":"/shaping-the-build/deterministic-probabilistic-boundaries/"},{"label":"Machine learning","href":"/building-deploying-ai-applications/machine-learning/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

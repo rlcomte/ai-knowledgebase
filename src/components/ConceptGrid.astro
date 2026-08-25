@@ -1,0 +1,28 @@
+---
+export interface Concept {
+  title: string;
+  href: string;
+  description: string;
+  tags?: string[];
+}
+
+export interface Props {
+  concepts: Concept[];
+}
+
+const { concepts } = Astro.props;
+---
+
+<div class="concept-grid">
+  {concepts.map((concept) => (
+    <a class="concept-card" href={concept.href}>
+      <h3>{concept.title}</h3>
+      <p>{concept.description}</p>
+      {concept.tags?.length ? (
+        <ul class="tag-list" aria-label="Tags">
+          {concept.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      ) : null}
+    </a>
+  ))}
+</div>

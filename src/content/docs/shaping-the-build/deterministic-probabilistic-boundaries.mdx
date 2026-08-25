@@ -1,0 +1,40 @@
+---
+title: "Deterministic-Probabilistic Boundaries"
+description: "Deciding what belongs in rules or conventional code and what can responsibly use a model."
+area: "Shaping the build"
+order: 5
+tags: ["architecture","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Deterministic-Probabilistic Boundaries"}>
+Deciding what belongs in rules or conventional code and what can responsibly use a model.
+</Definition>
+
+## Why It Matters
+
+The deterministic-probabilistic boundary decides which behaviour belongs in rules or conventional code and which can responsibly use a model.
+
+Legal constraints, calculations, permissions and irreversible side effects often need deterministic enforcement. Model behaviour is most useful where flexible interpretation, language generation or pattern recognition is valuable and mistakes can be detected or recovered.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Architecture and interfaces","href":"/software-engineering-fundamentals/architecture-and-interfaces/"},{"label":"Guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

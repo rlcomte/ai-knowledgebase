@@ -1,0 +1,50 @@
+---
+title: "Evaluating Coding Agents"
+description: "Evidence dimensions for judging agent output, process quality, safety and robustness."
+area: "Using coding agents"
+order: 14
+tags: ["evaluation","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 14
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Evaluating Coding Agents"}>
+Evidence dimensions for judging agent output, process quality, safety and robustness.
+</Definition>
+
+## Why It Matters
+
+Evaluate more than whether a task appears completed.
+
+| Dimension | Example evidence |
+|---|---|
+| Task success | Acceptance tests and user-visible behaviour |
+| Engineering quality | Review of architecture, readability and maintainability |
+| Process quality | Appropriate exploration, tool use and adherence to instructions |
+| Safety | No unauthorised access, secret exposure or unsafe action |
+| Efficiency | Time, tokens, tool calls and unnecessary churn |
+| Robustness | Success across varied repositories and ambiguous cases |
+| Collaboration | Clear handoffs, bounded diffs and useful progress communication |
+
+Trace and provenance record task assignment, actions, results and artifact ownership. They support debugging, audit and workflow evaluation.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

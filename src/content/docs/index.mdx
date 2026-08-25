@@ -1,0 +1,62 @@
+---
+title: "Build AI systems that are useful, reliable and responsible"
+description: "A modern learning and reference site for AI Engineering, organised around four mutually reinforcing skill areas."
+area: "Home"
+order: 0
+tags: ["foundation","overview"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 0
+---
+
+import FourAreaMap from '@components/FourAreaMap.astro';
+import LearningPath from '@components/LearningPath.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<section class="kb-hero">
+  <div class="kb-hero__content">
+    <p class="eyebrow">AI Engineering Knowledge Base</p>
+    <h1>Build AI systems that are useful, reliable and responsible</h1>
+    <p class="lede">AI Engineering is the discipline of designing, building, evaluating, deploying and improving software systems in which AI models perform part of the system's work.</p>
+    <div class="hero-actions">
+      <a class="button-primary" href="/start-here/what-is-ai-engineering/">Start with the foundations</a>
+      <a class="button-secondary" href="/using-coding-agents/">Explore coding agents</a>
+    </div>
+  </div>
+</section>
+
+<FourAreaMap />
+
+<aside class="evals-callout">
+  <p class="eyebrow">Evals connect everything</p>
+  <h2>Evals turn intent into evidence.</h2>
+  <p>Shaping defines desirable behaviour, AI application engineering converts it into datasets and graders, software engineering automates the checks, and coding agents use the same evidence to improve work.</p>
+</aside>
+
+<div class="path-grid">
+  <LearningPath title="Foundation path" prior="General programming familiarity." outcome="Understand the four-area map and the baseline concepts needed for AI Engineering study." steps={[
+    { label: 'What is AI Engineering?', href: '/start-here/what-is-ai-engineering/' },
+    { label: 'The four-area skills map', href: '/start-here/the-four-area-skills-map/' },
+    { label: 'Machine learning', href: '/building-deploying-ai-applications/machine-learning/' },
+    { label: 'Requirements and design', href: '/software-engineering-fundamentals/requirements-and-design/' },
+    { label: 'AI suitability', href: '/shaping-the-build/ai-suitability/' }
+  ]} />
+  <LearningPath title="Builder path" prior="Software engineering experience and basic AI literacy." outcome="Design, evaluate and operate grounded AI application workflows." steps={[
+    { label: 'Foundation models and LLMs', href: '/building-deploying-ai-applications/foundation-models-and-llms/' },
+    { label: 'Context engineering', href: '/building-deploying-ai-applications/context-engineering/' },
+    { label: 'Grounding and RAG', href: '/building-deploying-ai-applications/grounding-and-rag/' },
+    { label: 'Tool calling and MCP', href: '/building-deploying-ai-applications/tool-calling-and-mcp/' },
+    { label: 'Evals and error analysis', href: '/building-deploying-ai-applications/evals-and-error-analysis/' }
+  ]} />
+  <LearningPath title="Agentic development path" prior="Comfort with repositories, tests and code review." outcome="Use coding agents deliberately, safely and with evidence-based completion." steps={[
+    { label: 'Coding assistants versus coding agents', href: '/using-coding-agents/coding-assistants-versus-coding-agents/' },
+    { label: 'The agent loop', href: '/using-coding-agents/the-agent-loop/' },
+    { label: 'Configuration and permissions', href: '/using-coding-agents/configuration-permissions-and-sandboxing/' },
+    { label: 'The ten-step working method', href: '/using-coding-agents/the-ten-step-working-method/' },
+    { label: 'Multi-agent orchestration', href: '/using-coding-agents/delegation-handoffs-and-orchestration/' }
+  ]} />
+</div>
+
+<SourceNote>
+The four top-level areas follow Andrew Ng's AI Engineering Skills Map. Ng has elaborated Area 1 in more detail; the detailed structures for Areas 2-4 are a reasoned extension for this knowledge base, not a claim of direct attribution or endorsement.
+</SourceNote>

@@ -1,0 +1,42 @@
+---
+title: "Outcomes and Learning Loops"
+description: "Outcome metrics, guardrail metrics, build-measure-learn loops and decision records."
+area: "Shaping the build"
+order: 10
+tags: ["evaluation","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 10
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Outcomes and Learning Loops"}>
+Outcome metrics, guardrail metrics, build-measure-learn loops and decision records.
+</Definition>
+
+## Why It Matters
+
+An outcome metric measures beneficial change in user or organisational reality. It differs from an output metric such as number of generated answers.
+
+A leading metric gives an early signal of progress; a guardrail metric detects unacceptable side effects such as error, exclusion, cost or workload transfer.
+
+The build-measure-learn loop delivers the smallest useful experiment, collects evidence and uses it to adapt the problem, solution or quality bar. Decision records preserve product and technical judgement for humans and agents.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Shaping canvas","href":"/shaping-the-build/shaping-canvas/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

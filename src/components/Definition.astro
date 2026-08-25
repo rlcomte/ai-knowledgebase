@@ -1,0 +1,11 @@
+---
+export interface Props {
+  term: string;
+}
+const { term } = Astro.props;
+---
+<aside class="definition-box">
+  <p class="eyebrow">Definition</p>
+  <h2 id={term.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>{term}</h2>
+  <slot />
+</aside>

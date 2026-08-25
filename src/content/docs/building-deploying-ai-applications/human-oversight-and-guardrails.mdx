@@ -1,0 +1,40 @@
+---
+title: "Human Oversight and Guardrails"
+description: "Controls that constrain AI inputs, outputs or actions and keep human authority meaningful."
+area: "Building and deploying AI applications"
+order: 13
+tags: ["governance","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 13
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Human Oversight and Guardrails"}>
+Controls that constrain AI inputs, outputs or actions and keep human authority meaningful.
+</Definition>
+
+## Why It Matters
+
+A guardrail constrains inputs, outputs or actions. Guardrails may be deterministic rules, classifiers, policy checks, permission gates or human review. They complement rather than replace system design and evaluation.
+
+Human in/on the loop describes meaningful human authority. In the loop usually means approval or contribution is required; on the loop means people supervise and can intervene. The control must match consequence and reversibility.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Risk and responsible AI","href":"/shaping-the-build/risk-and-responsible-ai/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

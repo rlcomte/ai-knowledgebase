@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AI Engineering Knowledge Base logo">
+  <rect width="64" height="64" rx="14" fill="#071426"/>
+  <path d="M18 42V22h8c6 0 10 4 10 10s-4 10-10 10h-8zm7-6h1c2.8 0 4.7-1.5 4.7-4S28.8 28 26 28h-1v8z" fill="#f8f4ea"/>
+  <path d="M40 22h7v20h-7z" fill="#14b8d4"/>
+  <path d="M15 49h34M15 15h34M49 15v34M15 15v34" stroke="#f2b94b" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,40 @@
+---
+title: "Testing and Testability"
+description: "Traditional tests for deterministic behaviour and evals for probabilistic behaviour."
+area: "Software engineering fundamentals"
+order: 6
+tags: ["evaluation","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 6
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Testing and Testability"}>
+Traditional tests for deterministic behaviour and evals for probabilistic behaviour.
+</Definition>
+
+## Why It Matters
+
+The testing pyramid combines unit, integration, contract, system and acceptance tests. Traditional tests verify deterministic behaviour; evals verify probabilistic behaviour. Both are needed in AI applications.
+
+Testability means designing components so dependencies, data and model calls can be controlled or substituted. It makes failures reproducible and lowers evaluation cost.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Evaluating coding agents","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

@@ -1,0 +1,33 @@
+---
+title: "Building and deploying AI applications"
+description: "Overview of AI application engineering from model capability to reliable production systems."
+area: "Building and deploying AI applications"
+order: 1
+tags: ["foundation","architecture","evaluation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 1
+---
+
+import ConceptGrid from '@components/ConceptGrid.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import area1Building from '../../../assets/area1-building.png';
+
+<KeyIdea>
+<strong>Key movement:</strong> model capability -> relevant context -> controlled action -> measured behaviour -> reliable production system
+</KeyIdea>
+
+<figure class="area-overview-image">
+  <img src={area1Building.src} alt="Visual overview for Area 1: building and deploying AI applications." loading="eager" decoding="async" />
+</figure>
+
+## Conceptual Story
+
+An AI application is not simply an ordinary application with a model attached. Part of its behaviour is probabilistic: the same type of input can produce different outputs, and plausible output can still be wrong. The AI engineer therefore creates reliability around an inherently imperfect component.
+
+The story starts with understanding the model family. Classical machine learning learns mappings from data; deep learning learns representations with neural networks; LLMs generate language and other modalities token by token. A useful application then supplies the model with the right context, grounds it in trusted data, gives it tools where necessary and arranges model calls into a workflow. Evals guide every iteration. Production engineering adds security, observability, cost control, latency management and feedback loops.
+
+## Concepts in This Area
+
+<ConceptGrid concepts={[{"title":"Machine Learning","href":"/building-deploying-ai-applications/machine-learning/","description":"Methods that learn patterns from data instead of expressing every rule explicitly.","tags":["foundation","evaluation"]},{"title":"Deep Learning","href":"/building-deploying-ai-applications/deep-learning/","description":"Machine learning using multilayer neural networks, underpinning modern vision, speech, multimodal systems and LLMs.","tags":["foundation"]},{"title":"Foundation Models and LLMs","href":"/building-deploying-ai-applications/foundation-models-and-llms/","description":"Foundation models, LLMs, multimodal models and model selection as production engineering choices.","tags":["foundation","architecture"]},{"title":"Prompt Engineering","href":"/building-deploying-ai-applications/prompt-engineering/","description":"Designing instructions and examples that elicit useful model behaviour.","tags":["practice"]},{"title":"Context Engineering","href":"/building-deploying-ai-applications/context-engineering/","description":"Designing the complete information environment available to a model at a particular step.","tags":["practice","architecture"]},{"title":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/","description":"Connecting model output to trusted, task-relevant sources or system state.","tags":["architecture","evaluation"]},{"title":"Embeddings, Vector Search, Graphs and Semantic Layers","href":"/building-deploying-ai-applications/embeddings-vector-search-graphs-and-semantic-layers/","description":"Retrieval building blocks and their trade-offs for semantic, structured and relationship-heavy information.","tags":["architecture","data"]},{"title":"Tool Calling and MCP","href":"/building-deploying-ai-applications/tool-calling-and-mcp/","description":"Allowing models to request controlled operations through validated tools and standard interfaces.","tags":["architecture","governance"]},{"title":"Agentic Workflows and Harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/","description":"Multi-step model workflows, harness responsibilities, state, memory and reusable workflow patterns.","tags":["architecture","practice"]},{"title":"Evals and Error Analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/","description":"Structured tests and qualitative inspection for improving probabilistic AI-system behaviour.","tags":["evaluation","practice"]},{"title":"Production Operations, Observability, Cost and Latency","href":"/building-deploying-ai-applications/production-operations-observability-cost-and-latency/","description":"Running AI systems under real deployment, tracing, reliability, cost and performance constraints.","tags":["operations","evaluation"]},{"title":"Human Oversight and Guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/","description":"Controls that constrain AI inputs, outputs or actions and keep human authority meaningful.","tags":["governance","risk"]}]} />

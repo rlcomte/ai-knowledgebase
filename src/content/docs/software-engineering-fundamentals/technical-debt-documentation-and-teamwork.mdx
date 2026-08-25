@@ -1,0 +1,42 @@
+---
+title: "Technical Debt, Documentation and Teamwork"
+description: "Managing future cost, decision records, collaboration and review in fast-moving AI projects."
+area: "Software engineering fundamentals"
+order: 9
+tags: ["practice","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 9
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Technical Debt, Documentation and Teamwork"}>
+Managing future cost, decision records, collaboration and review in fast-moving AI projects.
+</Definition>
+
+## Why It Matters
+
+Technical debt is the future cost created by expedient decisions. Agent-generated duplication, unnecessary dependencies and undocumented abstractions can accumulate debt unusually quickly.
+
+Documentation and decision records explain how to use the system and why consequential decisions were made. Architecture decision records preserve context that code alone cannot express.
+
+Collaboration and review depend on shared standards, code review, issue tracking, ownership and constructive challenge. Human review should focus on risk and system intent, not only formatting.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"AGENTS.md and project instructions","href":"/using-coding-agents/context-instructions-and-planning/"},{"label":"Decision records","href":"/shaping-the-build/outcomes-and-learning-loops/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

@@ -1,0 +1,40 @@
+---
+title: "The Agent Loop"
+description: "Observe, reason, act, inspect, update and stop or continue."
+area: "Using coding agents"
+order: 4
+tags: ["foundation","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 4
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"The Agent Loop"}>
+Observe, reason, act, inspect, update and stop or continue.
+</Definition>
+
+## Why It Matters
+
+The agent loop is the recurring cycle: observe context, reason about the next step, act through a tool, inspect the result, update the plan and stop or continue. The exact internal implementation differs by product.
+
+Evidence-based completion means declaring success based on inspected diffs, passing checks, rendered output or other concrete evidence, not the agent's own confidence. The loop is only useful when observations are reliable and stopping conditions are clear.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Evaluation-driven development","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

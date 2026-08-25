@@ -1,0 +1,40 @@
+---
+title: "Machine Learning"
+description: "Methods that learn patterns from data instead of expressing every rule explicitly."
+area: "Building and deploying AI applications"
+order: 2
+tags: ["foundation","evaluation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 2
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Machine Learning"}>
+Methods that learn patterns from data instead of expressing every rule explicitly.
+</Definition>
+
+## Why It Matters
+
+Machine learning methods learn patterns from data instead of expressing every rule explicitly. Core forms include supervised, unsupervised, self-supervised and reinforcement learning.
+
+Engineers need a working grasp of data splits, loss functions, metrics, generalisation, bias-variance reasoning and error analysis. In this knowledge base, machine learning is treated as engineering material: useful only when its behaviour can be measured against real tasks and connected to software constraints.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"AI suitability","href":"/shaping-the-build/ai-suitability/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

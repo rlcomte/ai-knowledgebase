@@ -1,0 +1,42 @@
+---
+title: "Security, Privacy and Accessibility"
+description: "Security, privacy and inclusive design constraints for AI-supported applications."
+area: "Software engineering fundamentals"
+order: 7
+tags: ["governance","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 7
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Security, Privacy and Accessibility"}>
+Security, privacy and inclusive design constraints for AI-supported applications.
+</Definition>
+
+## Why It Matters
+
+Security engineering includes threat modelling, least privilege, secure defaults, secrets management, dependency control, input validation and incident response. AI-specific threats include prompt injection, data exfiltration and unsafe tool use.
+
+Privacy engineering covers data minimisation, purpose limitation, consent or lawful basis, retention, access control and privacy-preserving logs. Context and traces can contain more sensitive information than developers expect.
+
+Accessibility and inclusive design ensure applications work for people with diverse abilities, languages, devices and contexts. AI output must not undermine otherwise accessible interaction.
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"},{"label":"Risk and responsible AI","href":"/shaping-the-build/risk-and-responsible-ai/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>

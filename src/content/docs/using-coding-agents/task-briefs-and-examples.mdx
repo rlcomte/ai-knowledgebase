@@ -1,0 +1,66 @@
+---
+title: "Task Briefs and Examples"
+description: "A reusable task brief structure for bounded, verifiable agent work."
+area: "Using coding agents"
+order: 9
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 9
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import FailureMode from '@components/FailureMode.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Task Briefs and Examples"}>
+A reusable task brief structure for bounded, verifiable agent work.
+</Definition>
+
+## Why It Matters
+
+A useful task brief separates outcome, user need, scope, constraints, acceptance criteria and verification. It gives the agent enough context to make local choices while keeping the human in charge of intent and risk.
+
+```markdown
+# Outcome
+Add document citations to the answer view.
+
+# User need
+Users must be able to inspect the source behind an AI-generated claim.
+
+# Scope
+- API response schema and web answer component
+- Existing retrieval pipeline only
+
+# Constraints
+- Preserve backward compatibility
+- No new production dependency
+- Do not expose internal storage identifiers
+
+# Acceptance criteria
+- Every grounded claim can show one or more source links
+- Missing citations degrade gracefully
+- Contract and UI tests pass
+- Accessibility is verified by keyboard
+
+# Verification
+- Run: npm test
+- Run: npm run lint
+- Render and inspect the answer view
+```
+
+<FailureMode>
+The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
+</FailureMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RelatedConcepts links={[{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"},{"label":"Acceptance criteria","href":"/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"}]} />
+
+<SourceNote>
+Imported and adapted from <code>AI-Engineering-Knowledge-Base-Foundation.md</code>. Detailed Area 2-4 structures are a reasoned extension of Andrew Ng's four top-level areas.
+</SourceNote>
