@@ -1,0 +1,47 @@
+---
+title: "DevOps, deployment en observability"
+description: "Build, release and operations practices for observable and recoverable AI software."
+area: "Basisprincipes van software engineering"
+order: 8
+tags: ["operations","evaluation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 8
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"DevOps, deployment en observability"}>
+DevOps combines development, delivery and operations practices so software can be released reliably and recovered quickly. Deployment covers packaging, configuration, rollout, rollback and environment control. Observability provides telemetry that explains what the system is doing in production. AI systems extend this with prompt/model versions, retrieval traces, tool-call logs, cost metrics and safety events.
+</Definition>
+
+## Waarom dit ertoe doet
+
+DevOps and CI/CD automate build, test, evaluation, security checks and deployment. Model, prompt, retrieval and eval changes should pass controlled release gates.
+
+Infrastructure and deployment cover environments, containers, compute, networking, scaling, resilience and rollback. Managed APIs, self-hosted models and hybrid setups have different operational burdens.
+
+Observability uses logs, metrics and traces to understand system health and investigate incidents. AI traces extend observability into prompts, retrieval and tool decisions. Performance engineering measures and improves latency, throughput, resource use and cost under realistic load.
+
+<EngineeringMode>
+DevOps for AI means releases must cover model behavior as well as code. Architecture needs deployment stages, feature flags, telemetry and rollback. Design should handle degraded or unavailable AI gracefully. Build work includes CI, eval gates and configuration management. Operations watch latency, cost, quality and safety incidents. The risk is treating the model endpoint as a black box outside normal release discipline.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Deploying an AI call-center summarizer should use standard DevOps discipline. Release it behind a feature flag, watch latency, cost, summary quality and escalation rates, compare against human-reviewed samples and keep rollback ready. The AI part changes what to observe, not the need for operational control.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Production operations","href":"/building-deploying-ai-applications/production-operations-observability-cost-and-latency/"},{"label":"Outcomes and learning loops","href":"/shaping-the-build/outcomes-and-learning-loops/"}]} />
+
+<SourceNote>
+Further study: Google SRE, <a href="https://sre.google/sre-book/table-of-contents/">Site Reliability Engineering</a>, and Forsgren, Humble and Kim, <em>Accelerate</em>.
+</SourceNote>

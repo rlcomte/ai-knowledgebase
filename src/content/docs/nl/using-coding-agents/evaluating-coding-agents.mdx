@@ -1,0 +1,55 @@
+---
+title: "Coding agents evalueren"
+description: "Evidence dimensions for judging agent output, process quality, safety and robustness."
+area: "Coding agents gebruiken"
+order: 14
+tags: ["evaluation","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 14
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Coding agents evalueren"}>
+Evaluating coding agents means measuring both the final artifact and the process that produced it. Useful evaluation covers task success, code quality, test evidence, security, permission discipline, context use, cost, latency, robustness across repositories and quality of handoff. The unit of evaluation is often a workflow trace plus a diff, not a single model response.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Evaluate more than whether a task appears completed.
+
+| Dimension | Example evidence |
+|---|---|
+| Task success | Acceptance tests and user-visible behaviour |
+| Engineering quality | Review of architecture, readability and maintainability |
+| Process quality | Appropriate exploration, tool use and adherence to instructions |
+| Safety | No unauthorised access, secret exposure or unsafe action |
+| Efficiency | Time, tokens, tool calls and unnecessary churn |
+| Robustness | Success across varied repositories and ambiguous cases |
+| Collaboration | Clear handoffs, bounded diffs and useful progress communication |
+
+Trace and provenance record task assignment, actions, results and artifact ownership. They support debugging, audit and workflow evaluation.
+
+<EngineeringMode>
+Evaluating coding agents requires task-level evidence, not anecdotes. Architecture should record prompts, context, tool calls, diffs and command output. Design defines scoring rubrics and human review points. Build work creates representative tasks and hidden checks. Operations track regressions as models, tools or repository conventions change. The risk is trusting benchmark headlines that do not match the team's actual work.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+SWE-bench is a well-known coding-agent evaluation case because it checks patches against real repository issues and tests. A credible local eval can copy the pattern: choose representative tasks, hide the solution, run the agent, execute objective checks and review failures before trusting productivity claims.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Evaluation best practices</a>, and SWE-bench for software engineering agent evaluation.
+</SourceNote>

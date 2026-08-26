@@ -1,0 +1,45 @@
+---
+title: "Waarde, haalbaarheid, levensvatbaarheid en verantwoordelijkheid"
+description: "Four tests for deciding whether a shaped AI intervention deserves further investment."
+area: "De bouwopgave vormgeven"
+order: 6
+tags: ["governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 6
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Waarde, haalbaarheid, levensvatbaarheid en verantwoordelijkheid"}>
+Value, feasibility, viability and responsibility are four decision lenses for judging whether an AI intervention deserves more investment. Value asks whether the change improves an outcome users or the organisation care about. Feasibility asks whether the data, models, integration and operations can work. Viability asks whether the economics and organisational ownership make sense. Responsibility asks whether risks, rights and harms are acceptable and governed.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Value, feasibility, viability and responsibility are four complementary tests: does it help users, can it be built, can it be sustained and should it be deployed under the applicable values and risks?
+
+These tests keep teams from over-optimising model performance while ignoring adoption, operational cost, organisational constraints or harm.
+
+<EngineeringMode>
+This lens prevents narrow technical success from becoming product failure. Architecture must be feasible to operate, secure and integrate. Design must deliver user value without hiding risks. Build work tests the smallest path that proves viability. Operations measure cost, reliability and consequences for stakeholders. The recurring risk is treating the concept as a label rather than a decision framework for what should be built.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A bank considering an AI loan assistant must evaluate more than accuracy. The team should ask whether customers gain value, whether the model can integrate with legacy systems, whether support costs make business sense and whether fairness, explainability and appeal rights are acceptable before using the tool in credit workflows.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Risk and responsible AI","href":"/shaping-the-build/risk-and-responsible-ai/"},{"label":"Quality model for AI software","href":"/cross-cutting-knowledge/quality-model-for-ai-software/"}]} />
+
+<SourceNote>
+Further study: Marty Cagan, <em>Inspired</em>, and NIST AI RMF for responsibility and risk framing.
+</SourceNote>

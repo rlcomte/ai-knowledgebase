@@ -1,0 +1,52 @@
+---
+title: "Agentic workflows en harnesses"
+description: "Multi-step model workflows, harness responsibilities, state, memory and reusable workflow patterns."
+area: "AI-applicaties bouwen en uitrollen"
+order: 10
+tags: ["architecture","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 10
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import conceptAgenticWorkflowHarness from '../../../../assets/concept-agentic-workflow-harness.png';
+
+<Definition term={"Agentic workflows en harnesses"}>
+An agentic workflow is a multi-step process in which a model plans, selects tools, observes results and adapts its next action toward a goal. The harness is the software layer that supplies tools, state, memory, permissions, retries, tracing, stopping conditions and user approvals; it is often as important as the underlying model for reliability and safety.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptAgenticWorkflowHarness.src} alt="Diagram of an agentic workflow harness around a model with planner, state, tools, approvals, trace, retries and stop controls." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom dit ertoe doet
+
+An agentic workflow uses one or more model calls to perform a multi-step task. Some workflows have a fixed graph; more autonomous agents repeatedly select their own next action within a harness.
+
+The agent harness manages instructions, tools, state, memory, permissions, stopping conditions, retries, traces and human intervention. Much of an agent's practical capability comes from the harness, not only the model.
+
+Reusable workflow patterns include prompt chaining, routing, parallelisation, orchestrator-worker, evaluator-optimizer and human approval. State records what is true during a workflow; memory makes selected information available across steps or sessions.
+
+<EngineeringMode>
+Agentic workflows require architecture for state, tools, permissions and stopping conditions. Product design must clarify when the agent is planning, acting, waiting or asking for approval. Build work includes task decomposition, workspace isolation, idempotent tools and trace capture. Operations monitor loops, runaway cost, failed actions and unsafe autonomy. The risk is treating agency as intelligence while ignoring the harness that makes action accountable.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Devin-style software agents and repository-aware coding agents show why the harness matters. The model proposes actions, but the harness stores state, exposes file and shell tools, requests permissions, captures test output and lets the agent iterate. Without that loop, the system is mostly chat with code suggestions.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Multi-agent patterns","href":"/using-coding-agents/multi-agent-patterns/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://developers.openai.com/tracks/building-agents">Building agents</a>, and Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>.
+</SourceNote>

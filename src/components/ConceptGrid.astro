@@ -1,4 +1,6 @@
 ---
+import { localizedPath, ui } from '../utils/locale';
+
 export interface Concept {
   title: string;
   href: string;
@@ -11,15 +13,17 @@ export interface Props {
 }
 
 const { concepts } = Astro.props;
+const locale = Astro.locals.starlightRoute.locale;
+const t = ui(locale).component;
 ---
 
 <div class="concept-grid">
   {concepts.map((concept) => (
-    <a class="concept-card" href={concept.href}>
+    <a class="concept-card" href={localizedPath(concept.href, locale)}>
       <h3>{concept.title}</h3>
       <p>{concept.description}</p>
       {concept.tags?.length ? (
-        <ul class="tag-list" aria-label="Tags">
+        <ul class="tag-list" aria-label={t.tags}>
           {concept.tags.map((tag) => <li>{tag}</li>)}
         </ul>
       ) : null}

@@ -1,11 +1,14 @@
 ---
+import { ui } from '../utils/locale';
+
 export interface Props {
   term: string;
 }
 const { term } = Astro.props;
+const t = ui(Astro.locals.starlightRoute.locale).component;
 ---
 <aside class="definition-box">
-  <p class="eyebrow">Definition</p>
+  <p class="eyebrow">{t.definition}</p>
   <h2 id={term.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>{term}</h2>
   <slot />
 </aside>

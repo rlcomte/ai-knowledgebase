@@ -1,0 +1,64 @@
+---
+title: "Bouw nuttige, betrouwbare AI-systemen"
+description: "Een moderne leer- en referentiesite voor AI Engineering, georganiseerd rond vier elkaar versterkende vaardigheidsgebieden."
+area: "Home"
+order: 0
+tags: ["foundation","overview"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 0
+---
+
+import FourAreaMap from '@components/FourAreaMap.astro';
+import LearningPath from '@components/LearningPath.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<section class="kb-hero">
+  <div class="kb-hero__content">
+    <p class="eyebrow">AI Engineering Kennisbank</p>
+    <h1>Bouw nuttige, betrouwbare AI-systemen</h1>
+    <p class="lede">AI Engineering is de discipline van het ontwerpen, bouwen, evalueren, uitrollen en verbeteren van softwaresystemen waarin AI-modellen een deel van het werk van het systeem uitvoeren.</p>
+    <div class="hero-actions">
+      <a class="button-primary" href="/nl/start-here/what-is-ai-engineering/">Begin met de basis</a>
+      <a class="button-secondary" href="/nl/using-coding-agents/">Verken coding agents</a>
+    </div>
+  </div>
+</section>
+
+<FourAreaMap />
+
+<aside class="evals-callout">
+  <p class="eyebrow">Evals verbinden alles</p>
+  <h2>Evals zetten intentie om in bewijs.</h2>
+  <p>Shaping definieert gewenst gedrag, AI-applicatie-engineering zet dat om in datasets en beoordelaars, software engineering automatiseert de checks, en coding agents gebruiken hetzelfde bewijs om werk te verbeteren.</p>
+</aside>
+
+<div class="path-grid">
+  <LearningPath title="Basisleerpad" prior="Algemene vertrouwdheid met programmeren." outcome="Begrijp de viergebiedenkaart en de basisconcepten die nodig zijn om AI Engineering te bestuderen." steps={[
+    { label: 'What is AI Engineering?', href: '/start-here/what-is-ai-engineering/' },
+    { label: 'De AI engineer', href: '/start-here/the-ai-engineer/' },
+    { label: 'AI Engineering: Two Directions', href: '/start-here/ai-engineering-two-directions/' },
+    { label: 'De viergebiedenkaart', href: '/start-here/the-four-area-skills-map/' },
+    { label: 'Machine learning', href: '/building-deploying-ai-applications/machine-learning/' },
+    { label: 'Requirements en ontwerp', href: '/software-engineering-fundamentals/requirements-and-design/' },
+    { label: 'AI-geschiktheid', href: '/shaping-the-build/ai-suitability/' }
+  ]} />
+  <LearningPath title="Bouwersleerpad" prior="Ervaring met software engineering en basiskennis van AI." outcome="Ontwerp, evalueer en beheer grounded AI-applicatieworkflows." steps={[
+    { label: 'Foundation models en LLMs', href: '/building-deploying-ai-applications/foundation-models-and-llms/' },
+    { label: 'Context engineering', href: '/building-deploying-ai-applications/context-engineering/' },
+    { label: 'Grounding and RAG', href: '/building-deploying-ai-applications/grounding-and-rag/' },
+    { label: 'Tool calling and MCP', href: '/building-deploying-ai-applications/tool-calling-and-mcp/' },
+    { label: 'Evals en foutanalyse', href: '/building-deploying-ai-applications/evals-and-error-analysis/' }
+  ]} />
+  <LearningPath title="Agentic-development-leerpad" prior="Vertrouwdheid met repositories, tests en code review." outcome="Gebruik coding agents doelbewust, veilig en met evidence-based afronding." steps={[
+    { label: 'Coding assistants versus coding agents', href: '/using-coding-agents/coding-assistants-versus-coding-agents/' },
+    { label: 'De agent loop', href: '/using-coding-agents/the-agent-loop/' },
+    { label: 'Configuratie en permissies', href: '/using-coding-agents/configuration-permissions-and-sandboxing/' },
+    { label: 'De tien-stappen-werkwijze', href: '/using-coding-agents/the-ten-step-working-method/' },
+    { label: 'Multi-agent-orchestratie', href: '/using-coding-agents/delegation-handoffs-and-orchestration/' }
+  ]} />
+</div>
+
+<SourceNote>
+Deze kennisbank is georganiseerd rond Andrew Ng's <a href="https://www.deeplearning.ai/the-batch/the-ai-engineering-skills-map/">AI Engineering Skills Map</a>, gepubliceerd in DeepLearning.AI's <em>The Batch</em>. Ng's werk bij DeepLearning.AI en zijn latere teksten over het bouwen en uitrollen van AI-applicaties zijn de primaire bron voor het viergebiedenkader en Gebied 1. De gedetailleerde structuren voor Gebieden 2-4 zijn een beredeneerde uitbreiding van deze site, geen claim van directe toeschrijving of endorsement.
+</SourceNote>

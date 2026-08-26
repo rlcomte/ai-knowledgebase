@@ -1,0 +1,45 @@
+---
+title: "Prompt engineering"
+description: "Designing instructions and examples that elicit useful model behaviour."
+area: "AI-applicaties bouwen en uitrollen"
+order: 5
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Prompt engineering"}>
+Prompt engineering is the design of instructions, examples, constraints, schemas and interaction patterns that steer a model toward useful, testable behaviour for a specific task. In production it is not just wording: it includes prompt versioning, input validation, structured outputs, retrieval context, refusal boundaries, regression tests and measurement of failure cases.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Prompt engineering designs instructions and examples that elicit useful model behaviour. It includes task definition, constraints, output schemas, examples and explicit uncertainty handling.
+
+A prompt is only one part of the context. Treat it as an interface contract for a model call, then verify the resulting behaviour with representative examples rather than relying on phrasing alone.
+
+<EngineeringMode>
+In engineering terms, prompts are part of the application contract. Architecture must decide where prompts live, how versions are deployed and what context may enter them. Design must specify tone, refusal boundaries and output shape. Build work includes schemas, fixtures and regression tests. Operations monitor drift, cost and failure clusters. The recurring risk is treating phrasing as magic instead of maintaining it like code.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Khan Academy’s Khanmigo-style tutoring scenario shows prompt engineering beyond wording. The system prompt must guide the tutor to ask questions, avoid simply giving answers, respect student safety boundaries and produce age-appropriate explanations. Good prompts become testable instructional policy, not just clever phrasing.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Task briefs and examples","href":"/using-coding-agents/task-briefs-and-examples/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://platform.openai.com/docs/guides/prompt-engineering">Prompt engineering</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">Prompt engineering overview</a>.
+</SourceNote>

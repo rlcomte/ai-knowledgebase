@@ -1,0 +1,35 @@
+---
+title: "Coding agents gebruiken"
+description: "Overview of coding agents, their working environment, multi-agent orchestration and evidence-based completion."
+area: "Coding agents gebruiken"
+order: 1
+tags: ["foundation","practice","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 1
+---
+
+import ConceptGrid from '@components/ConceptGrid.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import area3CodingAgents from '../../../../assets/area3-coding-agents.png';
+
+<KeyIdea>
+<strong>Key movement:</strong> prompting an assistant -> directing an agent -> engineering its environment -> orchestrating verified work
+</KeyIdea>
+
+<figure class="area-overview-image">
+  <img src={area3CodingAgents.src} alt="Visual overview for Area 3: using coding agents." loading="eager" decoding="async" />
+</figure>
+
+## Conceptual Story
+
+A coding assistant proposes code in response to a local request. A coding agent can pursue a goal through multiple steps: inspect a repository, search files, form a plan, edit code, run commands, observe test results and revise its work. Its practical competence comes from the combination of model, harness, tools, context, permissions and feedback.
+
+The human role shifts from writing every line to shaping the agent's working environment and controlling the engineering loop. High-quality agent work begins with a bounded task, relevant context, clear constraints and verifiable completion criteria. The engineer then reviews evidence, not merely fluent explanations or a large diff.
+
+Multiple agents add another level. Independent tasks can be delegated in parallel, or specialised roles can be coordinated in a workflow. This can reduce context pollution and elapsed time, but it adds token cost, communication loss, edit conflicts and orchestration overhead. Multi-agent design is therefore an engineering choice, not a maturity badge.
+
+## Concepts in This Area
+
+<ConceptGrid concepts={[{"title":"Coding Assistants Versus Coding Agents","href":"/using-coding-agents/coding-assistants-versus-coding-agents/","description":"The difference between local code help and goal-directed multi-step agent work.","tags":["foundation"]},{"title":"Model, Harness, Tools and Workspace","href":"/using-coding-agents/model-harness-tools-and-workspace/","description":"The practical components that determine what a coding agent can do.","tags":["foundation","architecture"]},{"title":"The Agent Loop","href":"/using-coding-agents/the-agent-loop/","description":"Observe, reason, act, inspect, update and stop or continue.","tags":["foundation","practice"]},{"title":"Context, Instructions and Planning","href":"/using-coding-agents/context-instructions-and-planning/","description":"Managing finite context, persistent project guidance, skills and adaptive plans.","tags":["practice"]},{"title":"Configuration, Permissions and Sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/","description":"Model configuration, MCP integrations, execution boundaries, approvals and secrets.","tags":["governance","risk"]},{"title":"Principles for Effective Use","href":"/using-coding-agents/principles-for-effective-use/","description":"Operational principles for getting useful, reviewable and reversible work from coding agents.","tags":["practice","governance"]},{"title":"The Ten-Step Working Method","href":"/using-coding-agents/the-ten-step-working-method/","description":"A readable process for directing coding agents from task framing through shipping and observation.","tags":["practice"]},{"title":"Task Briefs and Examples","href":"/using-coding-agents/task-briefs-and-examples/","description":"A reusable task brief structure for bounded, verifiable agent work.","tags":["practice"]},{"title":"Multiple Agents and Subagents","href":"/using-coding-agents/multiple-agents-and-subagents/","description":"When separate agents help and when a single agent is the better engineering choice.","tags":["practice","architecture"]},{"title":"Delegation, Handoffs and Orchestration","href":"/using-coding-agents/delegation-handoffs-and-orchestration/","description":"How orchestrators assign, combine and account for work across agents.","tags":["architecture","governance"]},{"title":"Multi-Agent Patterns","href":"/using-coding-agents/multi-agent-patterns/","description":"Fan-out/fan-in, pipelines, reviewer patterns and debate patterns.","tags":["architecture","practice"]},{"title":"Coordination Risks and Concurrency Safety","href":"/using-coding-agents/coordination-risks-and-concurrency-safety/","description":"Cost, context, communication, conflict and stopping-condition risks in multi-agent work.","tags":["risk","governance"]},{"title":"Evaluating Coding Agents","href":"/using-coding-agents/evaluating-coding-agents/","description":"Evidence dimensions for judging agent output, process quality, safety and robustness.","tags":["evaluation","governance"]},{"title":"Governance and Human Decision Boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/","description":"Where humans retain authority over risk, irreversible action and release decisions.","tags":["governance","risk"]},{"title":"Coding Agent Tool Profiles","href":"/using-coding-agents/coding-agent-tool-profiles/","description":"Concrete operating principles for Codex, Claude Code and Gemini Code Assist.","tags":["practice","tools","governance"]}]} />

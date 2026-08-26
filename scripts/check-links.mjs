@@ -17,6 +17,7 @@ function walk(dir) {
 function slugForFile(file) {
   const rel = relative(docsRoot, file).replace(/\.(md|mdx)$/, '');
   if (rel === 'index') return '/';
+  if (rel === 'nl/index') return '/nl/';
   return `/${rel.replace(/\/index$/, '')}/`;
 }
 

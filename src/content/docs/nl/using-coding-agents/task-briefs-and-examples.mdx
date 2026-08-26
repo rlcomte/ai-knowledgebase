@@ -1,0 +1,71 @@
+---
+title: "Taakbriefs en voorbeelden"
+description: "A reusable task brief structure for bounded, verifiable agent work."
+area: "Coding agents gebruiken"
+order: 9
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 9
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Taakbriefs en voorbeelden"}>
+A task brief is a compact specification for an agent run: goal, scope, relevant files, constraints, allowed actions, non-goals, acceptance criteria and required evidence. Good examples show both the desired output and the boundaries of acceptable implementation, which helps agents avoid broad rewrites, hidden assumptions and unverified claims of completion.
+</Definition>
+
+## Waarom dit ertoe doet
+
+A useful task brief separates outcome, user need, scope, constraints, acceptance criteria and verification. It gives the agent enough context to make local choices while keeping the human in charge of intent and risk.
+
+```markdown
+# Outcome
+Add document citations to the answer view.
+
+# User need
+Users must be able to inspect the source behind an AI-generated claim.
+
+# Scope
+- API response schema and web answer component
+- Existing retrieval pipeline only
+
+# Constraints
+- Preserve backward compatibility
+- No new production dependency
+- Do not expose internal storage identifiers
+
+# Acceptance criteria
+- Every grounded claim can show one or more source links
+- Missing citations degrade gracefully
+- Contract and UI tests pass
+- Accessibility is verified by keyboard
+
+# Verification
+- Run: npm test
+- Run: npm run lint
+- Render and inspect the answer view
+```
+
+<EngineeringMode>
+Task briefs are requirements engineering for agent work. Architecture and design constraints must be stated before the agent edits. Build work benefits from examples, target files, acceptance criteria and validation commands. Operations reuse good briefs for recurring work and compare outcomes. The risk is giving vague goals, then blaming the agent for optimizing against unstated constraints.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A strong task brief for an AI coding agent is specific enough to test. For example: “Add CSV export for filtered invoices, preserve current permissions, include empty-state behavior and run npm test.” The agent can then inspect the right files and produce evidence instead of guessing intent.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"},{"label":"Acceptance criteria","href":"/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"}]} />
+
+<SourceNote>
+Further study: OpenAI Codex task guidance and GitHub issue/PR templates for reproducible engineering work.
+</SourceNote>

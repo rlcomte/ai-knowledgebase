@@ -1,0 +1,50 @@
+---
+title: "Meerdere agents en subagents"
+description: "When separate agents help and when a single agent is the better engineering choice."
+area: "Coding agents gebruiken"
+order: 10
+tags: ["practice","architecture"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 10
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import conceptMultipleAgentsSubagents from '../../../../assets/concept-multiple-agents-subagents.png';
+
+<Definition term={"Meerdere agents en subagents"}>
+Multiple agents are independent model-driven workers assigned separate parts of a larger task. Subagents are specialised agents with narrower roles, instructions, tools or context. They are useful for parallel exploration, review, testing or domain-specific analysis, but they add cost, coordination overhead and merge risk. Use them only when the work can be separated and reconciled with clear evidence.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptMultipleAgentsSubagents.src} alt="Diagram of a lead agent delegating work to explorer, builder and reviewer subagents before merging evidence." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom dit ertoe doet
+
+A subagent is a separately running agent delegated a bounded task by a primary agent. It normally returns a distilled result rather than its entire working context.
+
+Use multiple agents when tasks are genuinely independent, large context can be partitioned, specialists require different instructions, or independent review adds valuable challenge. Prefer one agent when work is tightly coupled, small, write-heavy in the same files, or difficult to decompose without repeated coordination.
+
+<EngineeringMode>
+Subagents imply distributed work inside the engineering process. Architecture must isolate contexts, permissions and outputs. Design defines roles such as explorer, implementer and reviewer. Build work needs non-overlapping file scopes and structured handoffs. Operations monitor extra cost, inconsistent assumptions and stale findings. The risk is adding more agents when the real need is clearer ownership and verification.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A large framework migration can use subagents safely when work is separable. One agent inventories deprecated APIs, another drafts edits in a single package and a reviewer inspects the patch. A lead thread still owns conflict resolution, final tests and the decision to merge.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Delegation, handoffs and orchestration","href":"/using-coding-agents/delegation-handoffs-and-orchestration/"},{"label":"Coordination risks and concurrency safety","href":"/using-coding-agents/coordination-risks-and-concurrency-safety/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents">Subagents</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents">Create custom subagents</a>.
+</SourceNote>

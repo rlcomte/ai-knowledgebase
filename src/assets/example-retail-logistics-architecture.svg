@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Solution architecture for a retail logistics intelligent agent</title>
+  <desc id="desc">Diagram showing humans, an agent experience, model workflow, operational harness, governance, and existing retail logistics systems.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#30576b" />
+    </marker>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbfa" />
+      <stop offset="1" stop-color="#edf5f2" />
+    </linearGradient>
+    <style>
+      .bg { fill: #f7f8f5; }
+      .band { fill: #e8f0ec; }
+      .box { fill: #ffffff; stroke: #6a8580; stroke-width: 2; rx: 12; }
+      .box-alt { fill: url(#panel); stroke: #5c7f8f; stroke-width: 2; rx: 12; }
+      .box-safe { fill: #fff9ea; stroke: #b6812e; stroke-width: 2; rx: 12; }
+      .box-system { fill: #eef6fb; stroke: #557f9d; stroke-width: 2; rx: 12; }
+      .title { font: 700 28px Arial, sans-serif; fill: #17313b; }
+      .subtitle { font: 400 16px Arial, sans-serif; fill: #45616a; }
+      .label { font: 700 18px Arial, sans-serif; fill: #17313b; }
+      .small { font: 400 14px Arial, sans-serif; fill: #314b55; }
+      .tiny { font: 400 12px Arial, sans-serif; fill: #51666c; }
+      .arrow { stroke: #30576b; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #9a7130; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1280" height="760" />
+  <rect class="band" x="0" y="0" width="1280" height="96" />
+  <text class="title" x="48" y="48">Retail Logistics Intelligent Agent</text>
+  <text class="subtitle" x="48" y="76">Advises planners, executes bounded tasks through controlled tools, and reports evidence back to humans.</text>
+
+  <rect class="box" x="46" y="136" width="230" height="210" />
+  <text class="label" x="72" y="174">Human users</text>
+  <text class="small" x="72" y="212">Fulfillment planners</text>
+  <text class="small" x="72" y="242">Warehouse supervisors</text>
+  <text class="small" x="72" y="272">Distribution planners</text>
+  <text class="small" x="72" y="302">Customer operations</text>
+
+  <rect class="box-alt" x="348" y="124" width="260" height="234" />
+  <text class="label" x="374" y="162">Agent experience</text>
+  <text class="small" x="374" y="200">Questions and analysis</text>
+  <text class="small" x="374" y="230">Recommendations</text>
+  <text class="small" x="374" y="260">Approval requests</text>
+  <text class="small" x="374" y="290">Action receipts</text>
+  <text class="small" x="374" y="320">Exception reports</text>
+
+  <rect class="box-alt" x="680" y="124" width="252" height="234" />
+  <text class="label" x="706" y="162">Model workflow</text>
+  <text class="small" x="706" y="200">Intent understanding</text>
+  <text class="small" x="706" y="230">Planning and critique</text>
+  <text class="small" x="706" y="260">Trade-off explanation</text>
+  <text class="small" x="706" y="290">Confidence calibration</text>
+  <text class="small" x="706" y="320">Report generation</text>
+
+  <rect class="box-safe" x="1002" y="124" width="230" height="234" />
+  <text class="label" x="1028" y="162">Human authority</text>
+  <text class="small" x="1028" y="200">Risk thresholds</text>
+  <text class="small" x="1028" y="230">Approvals</text>
+  <text class="small" x="1028" y="260">Escalation policy</text>
+  <text class="small" x="1028" y="290">Incident review</text>
+  <text class="small" x="1028" y="320">Autonomy limits</text>
+
+  <rect class="box" x="272" y="430" width="734" height="210" />
+  <text class="label" x="302" y="468">Operational harness</text>
+  <text class="small" x="302" y="506">Identity, roles, permissions</text>
+  <text class="small" x="302" y="536">State, memory, traces, audit logs</text>
+  <text class="small" x="302" y="566">Grounding from policies, SOPs, contracts and incident history</text>
+  <text class="small" x="652" y="506">Typed tools with validation</text>
+  <text class="small" x="652" y="536">Dry-runs and idempotency keys</text>
+  <text class="small" x="652" y="566">Monitoring, retries, fallback and rollback support</text>
+  <text class="tiny" x="302" y="610">All writes to logistics systems pass through this layer; the model never mutates systems directly.</text>
+
+  <rect class="box-system" x="46" y="672" width="156" height="48" />
+  <text class="small" x="82" y="702">OMS</text>
+  <rect class="box-system" x="228" y="672" width="156" height="48" />
+  <text class="small" x="264" y="702">WMS</text>
+  <rect class="box-system" x="410" y="672" width="156" height="48" />
+  <text class="small" x="446" y="702">TMS</text>
+  <rect class="box-system" x="592" y="672" width="156" height="48" />
+  <text class="small" x="620" y="702">Inventory</text>
+  <rect class="box-system" x="774" y="672" width="156" height="48" />
+  <text class="small" x="798" y="702">Carrier APIs</text>
+  <rect class="box-system" x="956" y="672" width="156" height="48" />
+  <text class="small" x="992" y="702">Tickets</text>
+  <rect class="box-system" x="1138" y="672" width="96" height="48" />
+  <text class="small" x="1166" y="702">ERP</text>
+
+  <path class="arrow" d="M276 238 H348" />
+  <path class="arrow" d="M608 238 H680" />
+  <path class="arrow" d="M806 358 V430" />
+  <path class="arrow" d="M640 430 V358" />
+  <path class="dash" d="M932 238 H1002" />
+  <path class="dash" d="M1002 300 C942 402 904 422 904 430" />
+  <path class="arrow" d="M478 358 C478 392 518 402 518 430" />
+  <path class="arrow" d="M638 640 V672" />
+  <path class="arrow" d="M444 640 C360 658 306 650 306 672" />
+  <path class="arrow" d="M538 640 C464 656 488 650 488 672" />
+  <path class="arrow" d="M732 640 C780 658 852 650 852 672" />
+  <path class="arrow" d="M814 640 C896 658 1034 650 1034 672" />
+  <path class="arrow" d="M348 640 C210 656 124 650 124 672" />
+  <path class="arrow" d="M906 640 C1032 658 1186 650 1186 672" />
+
+  <text class="tiny" x="292" y="228">requests</text>
+  <text class="tiny" x="622" y="228">tasks</text>
+  <text class="tiny" x="826" y="398">plans</text>
+  <text class="tiny" x="570" y="398">context</text>
+  <text class="tiny" x="944" y="222">approvals</text>
+  <text class="tiny" x="914" y="394">limits</text>
+  <text class="tiny" x="504" y="386">receipts</text>
+</svg>

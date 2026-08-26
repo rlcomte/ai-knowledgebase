@@ -1,0 +1,47 @@
+---
+title: "Uitkomsten en leerlussen"
+description: "Outcome metrics, guardrail metrics, build-measure-learn loops and decision records."
+area: "De bouwopgave vormgeven"
+order: 10
+tags: ["evaluation","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 10
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Uitkomsten en leerlussen"}>
+Outcomes are the measurable changes a product or system is intended to create in user behaviour, operational performance or risk reduction. Learning loops connect shipped changes, telemetry, user feedback, evals and decision records so teams can revise assumptions. For AI systems the loop must include model-quality signals, safety guardrails, drift indicators and evidence about human trust and correction.
+</Definition>
+
+## Waarom dit ertoe doet
+
+An outcome metric measures beneficial change in user or organisational reality. It differs from an output metric such as number of generated answers.
+
+A leading metric gives an early signal of progress; a guardrail metric detects unacceptable side effects such as error, exclusion, cost or workload transfer.
+
+The build-measure-learn loop delivers the smallest useful experiment, collects evidence and uses it to adapt the problem, solution or quality bar. Decision records preserve product and technical judgement for humans and agents.
+
+<EngineeringMode>
+Outcomes connect AI engineering to product learning. Architecture must collect signals that relate model behavior to user or business results. Design defines what success, harm and recovery look like in the workflow. Build work adds experiment hooks, evals and feedback capture. Operations review trends and regressions after release. The risk is improving offline metrics while the actual user outcome gets worse.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Netflix recommendation work is driven by measured outcomes, not only model scores. A ranking change may look better offline, then fail if people watch less, abandon sessions or dislike the suggestions. The learning loop connects experiments, user behavior, qualitative signals and model-error analysis before scaling changes.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Shaping canvas","href":"/shaping-the-build/shaping-canvas/"}]} />
+
+<SourceNote>
+Further study: Eric Ries, <em>The Lean Startup</em>, and Teresa Torres, <em>Continuous Discovery Habits</em>.
+</SourceNote>

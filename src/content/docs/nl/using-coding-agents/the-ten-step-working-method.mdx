@@ -1,0 +1,63 @@
+---
+title: "De tien-stappen-werkwijze"
+description: "A readable process for directing coding agents from task framing through shipping and observation."
+area: "Coding agents gebruiken"
+order: 8
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 8
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"De tien-stappen-werkwijze"}>
+The ten-step working method is a structured operating procedure for moving an agent task from problem framing to verified completion. It separates intent, context gathering, plan review, implementation, testing, evidence collection, human review, commit hygiene, release decision and post-change observation so that an agent's speed does not bypass engineering control.
+</Definition>
+
+## Waarom dit ertoe doet
+
+The recommended working method turns agent use into an engineering loop:
+
+<ol class="process-list">
+  <li><strong>Frame</strong><span>Describe the outcome, user need, scope and non-goals.</span></li>
+  <li><strong>Ground</strong><span>Point to relevant repository areas, standards and examples.</span></li>
+  <li><strong>Specify</strong><span>Provide acceptance criteria, quality attributes and expected evidence.</span></li>
+  <li><strong>Explore</strong><span>Let the agent inspect before it edits; require clarification for material ambiguity.</span></li>
+  <li><strong>Plan</strong><span>For complex work, agree on decomposition and risk points.</span></li>
+  <li><strong>Implement</strong><span>Work in small coherent increments.</span></li>
+  <li><strong>Verify</strong><span>Run tests, linters, type checks, security checks, evals or visual inspection.</span></li>
+  <li><strong>Review</strong><span>Inspect behaviour, diff, architecture and unintended changes.</span></li>
+  <li><strong>Reflect</strong><span>Capture recurring mistakes in tests, instructions or reusable skills.</span></li>
+  <li><strong>Ship and observe</strong><span>Release through normal controls and monitor real behaviour.</span></li>
+</ol>
+
+<EngineeringMode>
+The working method turns agent use into a repeatable engineering process. Architecture and repository setup should make inspection, editing and verification fast. Design decisions are captured before implementation. Build work proceeds in small checked steps. Operations reuse the method for reviews, migrations and incidents. The risk is skipping steps because the agent appears confident.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A Codex task to add invoice CSV export can follow the method directly:
+
+1. Define behavior and constraints.
+2. Inspect existing routes and tests.
+3. Edit narrowly.
+4. Run validation.
+5. Review the diff.
+6. Report what changed and what remains risky.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Task briefs and examples","href":"/using-coding-agents/task-briefs-and-examples/"},{"label":"Evaluating coding agents","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://learn.chatgpt.com/guides/best-practices">Codex best practices</a>, and Google SRE guidance on safe change management.
+</SourceNote>

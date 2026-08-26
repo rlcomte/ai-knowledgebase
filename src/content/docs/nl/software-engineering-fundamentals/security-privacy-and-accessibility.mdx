@@ -1,0 +1,47 @@
+---
+title: "Security, privacy en toegankelijkheid"
+description: "Security, privacy and inclusive design constraints for AI-supported applications."
+area: "Basisprincipes van software engineering"
+order: 7
+tags: ["governance","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 7
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Security, privacy en toegankelijkheid"}>
+Security protects systems, data and users from unauthorised access or misuse. Privacy governs how personal or sensitive data is collected, processed, retained and exposed. Accessibility ensures people with different abilities can use the system effectively. AI applications add specific concerns such as prompt injection, tool abuse, data leakage, unsafe outputs, consent, trace retention and accessible review of generated content.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Security engineering includes threat modelling, least privilege, secure defaults, secrets management, dependency control, input validation and incident response. AI-specific threats include prompt injection, data exfiltration and unsafe tool use.
+
+Privacy engineering covers data minimisation, purpose limitation, consent or lawful basis, retention, access control and privacy-preserving logs. Context and traces can contain more sensitive information than developers expect.
+
+Accessibility and inclusive design ensure applications work for people with diverse abilities, languages, devices and contexts. AI output must not undermine otherwise accessible interaction.
+
+<EngineeringMode>
+Security, privacy and accessibility constrain every AI design choice. Architecture must protect prompts, retrieved context, tools, logs and generated outputs. Design must work for keyboard users, screen readers and people who need clear consent or correction paths. Build work includes threat modeling and privacy tests. Operations monitor abuse, leakage and exclusion. The risk is treating AI features as exempt from normal software duties.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A ChatGPT Enterprise rollout shows ordinary engineering concerns around AI. Administrators must configure identity access, connector permissions, retention policy and sensitive-data controls, while designers check accessibility for generated summaries, keyboard flows and screen-reader output. AI features inherit the same security and inclusion obligations as other software.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"},{"label":"Risk and responsible AI","href":"/shaping-the-build/risk-and-responsible-ai/"}]} />
+
+<SourceNote>
+Further study: OWASP, <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">Top 10 for LLM Applications</a>, and W3C, <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG</a>.
+</SourceNote>

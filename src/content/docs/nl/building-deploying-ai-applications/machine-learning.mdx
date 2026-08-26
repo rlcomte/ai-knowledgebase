@@ -1,0 +1,45 @@
+---
+title: "Machine learning"
+description: "Methods that learn patterns from data instead of expressing every rule explicitly."
+area: "AI-applicaties bouwen en uitrollen"
+order: 2
+tags: ["foundation","evaluation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 2
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Machine learning"}>
+Machine learning is the engineering discipline of fitting statistical models to data so a system can make predictions, classifications, recommendations or decisions without every rule being hand-coded. In AI applications this includes defining target variables, choosing features or representations, selecting model families, splitting data, measuring generalisation and monitoring drift after deployment.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Machine learning methods learn patterns from data instead of expressing every rule explicitly. Core forms include supervised, unsupervised, self-supervised and reinforcement learning.
+
+Engineers need a working grasp of data splits, loss functions, metrics, generalisation, bias-variance reasoning and error analysis. In this knowledge base, machine learning is treated as engineering material: useful only when its behaviour can be measured against real tasks and connected to software constraints.
+
+<EngineeringMode>
+Machine learning shifts behavior into data and feedback loops. Architecture must support training data, inference paths, model versioning and rollback. Design must define acceptable errors and human review points. Build work covers features, labels, evaluation sets and monitoring hooks. Operations watch drift, bias, latency and data quality. The recurring risk is treating the model as a black box instead of an evolving production dependency.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Gmail spam filtering is a durable machine-learning example. Engineers do not write every spam rule by hand; they train models from labelled mail, sender signals and user feedback. The system then predicts whether new messages are unwanted, while monitoring false positives because blocking legitimate mail is costly.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"AI suitability","href":"/shaping-the-build/ai-suitability/"}]} />
+
+<SourceNote>
+Further study: Andrew Ng's Machine Learning Specialization and Google, <a href="https://developers.google.com/machine-learning/crash-course">Machine Learning Crash Course</a>.
+</SourceNote>
