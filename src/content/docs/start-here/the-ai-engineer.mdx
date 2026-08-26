@@ -1,0 +1,140 @@
+---
+title: "The AI Engineer"
+description: "The professional role, attitude, competencies and oversight responsibilities of the AI engineer."
+area: "Start here"
+order: 2
+tags: ["foundation","governance","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 2
+---
+
+import SourceNote from '@components/SourceNote.astro';
+import overviewAiEngineer from '../../../assets/overview-ai-engineer.png';
+
+The AI engineer is the professional who turns AI capability into useful, reliable and responsible software. The role is not defined by prompting alone, model selection alone or coding speed alone. It is defined by the ability to shape a problem, design a socio-technical system, build it well, evaluate its behaviour and maintain human responsibility for its effects.
+
+AI engineering sits between product shaping, software engineering, machine learning, operations and governance. The AI engineer therefore needs a professional identity that is broader than "model user" and more concrete than "AI strategist". The work is practical, but it carries judgement duties because AI systems often influence information, decisions, opportunities, trust and institutional power.
+
+<figure class="overview-infographic">
+  <img src={overviewAiEngineer.src} alt="Infographic showing the AI engineer at the center of identity, judgement, competencies, ethics, oversight, evals and operations." loading="eager" decoding="async" />
+  <figcaption>
+    The AI engineer stands at the center of technical capability and human responsibility. Professional identity, judgement, competencies, ethics, oversight, evals and operations all shape the work. The role is to turn AI into useful systems while preserving evidence, human agency, risk awareness and thoughtful design.
+  </figcaption>
+</figure>
+
+## Professional Identity
+
+An AI engineer should understand themselves as a builder of accountable systems. The artifact is not just a prompt, model or agent workflow. It is a working system of users, data, interfaces, models, tools, evaluations, controls, deployment processes and organisational decisions.
+
+This identity has several consequences:
+
+1. The engineer owns evidence, not just output.
+2. The engineer treats uncertainty as a design condition, not an embarrassment.
+3. The engineer preserves human agency where consequences matter.
+4. The engineer knows when a deterministic system is better than an AI system.
+5. The engineer can explain risks and trade-offs to non-engineering stakeholders.
+
+Professional maturity means resisting both hype and cynicism. AI systems can be genuinely useful, but their usefulness must be earned through problem framing, disciplined engineering, evaluation, monitoring and ethical care.
+
+## Professional Attitude
+
+The right attitude is neither blind trust nor blanket suspicion. It is disciplined critical engagement.
+
+| Attitude | What it means in practice |
+|---|---|
+| Curiosity | Explore what models, tools and agents can do, but test claims against real tasks. |
+| Humility | Assume the first working demo is incomplete until it survives edge cases, users and operations. |
+| Responsibility | Keep ownership of design decisions, risk acceptance and release choices with accountable humans. |
+| Skepticism | Ask what evidence supports a generated answer, evaluation score or vendor claim. |
+| Pragmatism | Choose the simplest reliable system, even when it uses less AI than expected. |
+| Care | Consider who benefits, who is burdened and who may be harmed by the system. |
+
+This attitude matters because AI engineering often happens under pressure: new models appear quickly, stakeholders expect speed, and demos can look persuasive before the system is ready. The professional response is to slow down the right decisions while accelerating reversible learning.
+
+## Core Competencies
+
+An AI engineer needs competence across several areas. Few people are experts in all of them, but the role requires enough fluency to collaborate, ask good questions and recognise weak assumptions.
+
+| Area of expertise | Competency |
+|---|---|
+| AI and machine learning | Understand model behaviour, prompting, embeddings, retrieval, fine-tuning boundaries, uncertainty and evaluation. |
+| Software engineering | Design maintainable systems with clear interfaces, tests, version control, security and deployment practices. |
+| Product and workflow design | Translate user needs, stakeholder goals and workflow constraints into useful AI-supported behaviour. |
+| Data and knowledge engineering | Handle data quality, metadata, lineage, permissions, retrieval indexes and freshness. |
+| Evaluation and observability | Build evals, inspect errors, trace model calls and monitor quality, cost, latency and incidents. |
+| Governance and risk | Identify harms, define oversight, document decisions and manage residual risk. |
+| Agentic development | Use coding agents productively while preserving review, verification and human judgement. |
+
+The practical skill is integration. A strong AI engineer can connect a prompt failure to a missing requirement, a retrieval failure to poor metadata, a safety failure to unclear governance, or an agent mistake to weak task briefing.
+
+## Levels of Knowledge
+
+AI engineers need knowledge at multiple levels:
+
+1. **Conceptual knowledge**: what models, evals, RAG, agents, guardrails and human oversight are.
+2. **Technical knowledge**: how to implement interfaces, retrieval, tool calls, traces, tests and deployment workflows.
+3. **Domain knowledge**: what matters in the specific context, such as healthcare, education, finance, law or internal operations.
+4. **Organisational knowledge**: who owns decisions, what policies apply, how incidents are handled and what constraints shape adoption.
+5. **Normative knowledge**: which values, duties and rights are at stake when the system affects people.
+
+The last level is often neglected. Normative knowledge does not mean adding abstract ethics language at the end. It means understanding why some design choices are unacceptable, why some stakeholders need voice, and why some decisions should remain outside automation.
+
+## Critical Thinking and Sound Judgement
+
+Critical thinking in AI engineering is the habit of asking better questions before accepting an answer, score or design. The AI engineer should regularly ask:
+
+1. What task is the system really performing?
+2. Which part should be deterministic, probabilistic or human-owned?
+3. What evidence would show that this works well enough?
+4. What failure would be costly, unfair, misleading or hard to reverse?
+5. Which users or indirect stakeholders are missing from the conversation?
+6. What changes when this moves from demo conditions to production operations?
+
+Sound judgement is the ability to act on those answers. Sometimes it means improving a prompt. Sometimes it means changing architecture, adding review, narrowing scope, refusing a use case or recommending that the system should not be built.
+
+## Ethical Sensitivity
+
+Ethical sensitivity is the ability to notice when an engineering decision has human consequences. AI engineers need it because model-backed systems can classify people, summarise evidence, allocate attention, recommend actions, automate communication and influence institutional decisions.
+
+Several traditions are useful:
+
+| Tradition | Relevance to AI engineering |
+|---|---|
+| Value-sensitive design | Helps identify direct and indirect stakeholders, affected values and design choices that support human flourishing. |
+| Normative professional ethics | Grounds duties such as public interest, competence, honesty, confidentiality, quality and professional review. |
+| Guidance ethics | Treats ethics as accompaniment during design, implementation and use, not only external assessment after the fact. |
+| Human-centered AI | Keeps human needs, agency, augmentation, fairness and transparency central to AI system design. |
+
+These traditions should influence concrete artifacts: requirements, user research, acceptance criteria, eval cases, audit logs, escalation paths, permissions, documentation and release decisions.
+
+## Maintaining Oversight
+
+Oversight is not the same as watching an AI system after it acts. Meaningful oversight is designed into the lifecycle.
+
+An AI engineer maintains oversight by:
+
+1. Defining human decision boundaries before implementation.
+2. Making model inputs, retrieved context, tool calls and outputs traceable.
+3. Using evals to test normal cases, edge cases and risk scenarios.
+4. Keeping high-impact actions behind review or approval gates.
+5. Monitoring production quality, drift, incidents, cost and user feedback.
+6. Documenting assumptions, model choices, prompts, data sources and known limitations.
+7. Escalating when uncertainty, harm or organisational authority exceeds the engineer's mandate.
+
+The point is not to make every system slow or bureaucratic. Oversight should be proportional to risk, reversibility and blast radius. A writing suggestion needs different controls than a clinical triage tool, credit workflow or autonomous code deployment.
+
+## Related Concepts
+
+- [What is AI Engineering?](/start-here/what-is-ai-engineering/)
+- [The Four-Area Skills Map](/start-here/the-four-area-skills-map/)
+- [Problem Framing and Stakeholder Analysis](/shaping-the-build/problem-framing-and-stakeholder-analysis/)
+- [Value, Feasibility, Viability and Responsibility](/shaping-the-build/value-feasibility-viability-and-responsibility/)
+- [Risk and Responsible AI](/shaping-the-build/risk-and-responsible-ai/)
+- [Human Oversight and Guardrails](/building-deploying-ai-applications/human-oversight-and-guardrails/)
+- [Evals as the Spine](/cross-cutting-knowledge/evals-as-the-spine/)
+- [Governance and Human Decision Boundaries](/using-coding-agents/governance-and-human-decision-boundaries/)
+
+<SourceNote>
+Further study: University of Washington, <a href="https://vsdesign.org/">Value Sensitive Design Lab</a>; IEEE-CS/ACM, <a href="https://www.computer.org/education/code-of-ethics">Software Engineering Code of Ethics</a>; Peter-Paul Verbeek and ECP, <a href="https://ecp.nl/publicatie/guidance-ethics-approach/">Guidance ethics approach</a>; and Stanford HAI, <a href="https://hai.stanford.edu/about">Human-Centered AI</a>.
+</SourceNote>

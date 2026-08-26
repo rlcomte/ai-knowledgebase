@@ -16,8 +16,95 @@ Evals connect intent to evidence:
 3. **Software engineering** automates the checks in release and monitoring workflows.
 4. **Coding agents** use the same checks to implement, verify and improve work.
 
+Calling evals the spine means they carry the main load of learning and control across the whole AI engineering lifecycle. They translate product intent into observable behaviour, make model-backed systems changeable, and give teams a shared way to discuss quality that is more concrete than "the model seems good".
+
+An eval is not only a benchmark. In an AI product, evals are the connective tissue between requirements, prompts, retrieval, tools, guardrails, monitoring and release decisions. They help answer a practical engineering question: if we change the model, prompt, data pipeline, tool schema or workflow, did the system become better, worse or merely different?
+
 <aside class="evals-callout">
   <p class="eyebrow">Educational principle</p>
   <h2>Do not only teach how to generate an output.</h2>
   <p>Teach how to specify, inspect and improve its quality.</p>
 </aside>
+
+## What the Spine Connects
+
+Evals connect the four areas of this knowledge base because each area produces or consumes evidence.
+
+| Area | What evals contribute |
+|---|---|
+| Shaping the build | Convert user outcomes, stakeholder concerns, risk boundaries and acceptance criteria into observable cases. |
+| Building AI applications | Measure whether prompts, retrieval, tools, models and guardrails produce acceptable behaviour. |
+| Software engineering fundamentals | Place AI checks inside normal engineering systems: tests, CI, release gates, dashboards and incident review. |
+| Using coding agents | Give agents objective commands and examples for implementation, repair, review and regression checking. |
+
+Without evals, these areas drift apart. Product teams may describe value in vague terms, model teams may optimize disconnected metrics, engineers may ship untested prompt changes, and coding agents may claim completion without evidence.
+
+## What to Evaluate
+
+A useful eval suite covers more than answer quality. It should reflect the system that users actually experience.
+
+| Evaluation target | Example question |
+|---|---|
+| Task success | Does the system solve the user request in representative cases? |
+| Grounding | Are claims supported by retrieved evidence or trusted tools? |
+| Safety and policy | Does the system refuse, escalate or constrain risky requests correctly? |
+| Robustness | What happens with ambiguous, adversarial, incomplete or messy inputs? |
+| Tool behavior | Are tool calls valid, necessary, permissioned and recoverable when they fail? |
+| User workflow | Does the AI reduce work without hiding uncertainty or increasing review burden? |
+| Operations | Does quality hold under latency, cost, rate-limit and data-freshness constraints? |
+
+This is why application-level evals matter. A raw model benchmark may be useful background, but production quality depends on prompts, context assembly, retrieval, tool contracts, UI affordances, policies, data freshness and human review.
+
+## The Evaluation Loop
+
+Evaluation-driven AI development is iterative:
+
+1. Define the intended behaviour and unacceptable failures.
+2. Collect representative cases from real tasks, expert examples, support logs, synthetic edge cases or incident reviews.
+3. Run the current system to establish a baseline.
+4. Score outputs with deterministic checks, model graders, human review or a combination.
+5. Inspect failures qualitatively and group them into causes.
+6. Change one part of the system: prompt, retrieval, data, model, tool design, guardrail or workflow.
+7. Rerun the suite and compare against the baseline.
+8. Promote the change only when improvements outweigh regressions and risks.
+
+The important habit is error analysis. Aggregate scores tell a team whether something changed; inspected failures explain what to build next.
+
+## Designing Good Evals
+
+Good evals are small enough to run often, realistic enough to matter and explicit enough to guide decisions. They usually combine three kinds of checks:
+
+| Check type | Use it for |
+|---|---|
+| Deterministic checks | Schemas, citations, exact tool arguments, permissions, latency budgets and required fields. |
+| Human review | High-stakes judgement, tone, usefulness, fairness, workflow fit and ambiguous cases. |
+| Model grading | Scalable semantic checks where the rubric is clear and periodically audited by humans. |
+
+The best suites include ordinary cases, boundary cases and risk cases. For example, a RAG support assistant should be tested on common questions, outdated documentation, missing answers, conflicting sources, private data, malformed queries and cases that require escalation.
+
+## Operational Implications
+
+Once an AI feature is live, evals should continue to shape operations. Offline evals catch regressions before release; online monitoring catches drift after release. Production traces can feed new eval cases when users find failures the original test set missed.
+
+In practice, evals influence architecture:
+
+1. Prompts, model versions, retrieval settings and tool schemas need version identifiers.
+2. Runs need traces that connect inputs, retrieved context, tool calls, outputs and scores.
+3. CI should run fast regression suites for common changes.
+4. Release gates should include risk-specific evals for sensitive workflows.
+5. Dashboards should track quality signals alongside latency, cost and errors.
+
+## Common Mistakes
+
+The recurring mistake is treating evals as a late-stage report rather than an engineering control system.
+
+Other common failures include:
+
+1. Evaluating only the base model instead of the full application.
+2. Using a test set that is too clean, small or disconnected from real work.
+3. Reporting only pass rates without reading failures.
+4. Changing prompts, retrieval and models at the same time, then losing causal understanding.
+5. Letting model-graded evals drift without human calibration.
+6. Ignoring operational constraints such as latency, cost, permissions and rollback.
+
+Evals are the spine because they keep the system upright while it changes. They do not remove judgement, but they make judgement inspectable, repeatable and tied to the actual behaviour of the AI software.
