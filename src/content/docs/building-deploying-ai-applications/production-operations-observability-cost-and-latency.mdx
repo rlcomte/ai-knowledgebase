@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ AI observability captures inputs, retrieved context, tool calls, outputs, latenc
 
 Cost and latency engineering controls model choice, token volume, caching, retrieval, parallelism and number of calls. Quality, speed and cost must be evaluated as a system-level trade-off.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+This concept turns AI features into managed services. Architecture must expose metrics for model calls, retrieval, tools, queues and fallbacks. Design must handle slow responses, degraded answers and user-visible uncertainty. Build work adds tracing, budgets, caching and feature flags. Operations manage incidents, cost spikes and quality regressions. The risk is shipping a demo that cannot be explained, rolled back or paid for at scale.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+A call-center summarization feature should be launched like other production software: first to a small traffic slice, then watched for latency, token cost, failed tool calls and complaint rates. Teams at companies using contact-center AI often keep rollback switches because one model or prompt change can affect thousands of conversations.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"DevOps, deployment and observability","href":"/software-engineering-fundamentals/devops-deployment-and-observability/"},{"label":"Quality model for AI software","href":"/cross-cutting-knowledge/quality-model-for-ai-software/"}]} />
 

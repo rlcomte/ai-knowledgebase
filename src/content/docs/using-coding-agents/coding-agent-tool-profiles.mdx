@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 import conceptCodingAgentToolProfiles from '../../../assets/concept-coding-agent-tool-profiles.png';
@@ -98,13 +99,17 @@ Choose the agent by workflow fit, not by brand.
 | High-risk production change | Any agent only with narrow permissions, human approval and independent verification |
 | Broad exploration across many files | Codex or Claude Code with subagents; Gemini Code Assist when the work is naturally IDE-scoped |
 
-<FailureMode>
-The recurring failure is asking which agent is "best" without defining the workflow, authority boundaries, verification standard and handoff path.
-</FailureMode>
+<EngineeringMode>
+Tool profiles translate product differences into engineering consequences. Architecture teams must compare context loading, tool access, permissions, subagents, hooks and evidence capture. Design work defines which workflows each tool may support. Build work validates claims with real repository tasks. Operations track vendor changes and policy fit. The risk is choosing a coding agent by brand or benchmark instead of workflow control.
+</EngineeringMode>
 
 <EvaluationCheck>
 For each agent, ask: which instruction file was loaded, what context was inspected, which tools were allowed, what evidence proves completion, and who owns the final decision?
 </EvaluationCheck>
+
+<RealExample>
+A team comparing Codex, Claude Code and Gemini Code Assist can run the same bug-fix task through each tool. The useful comparison is not brand preference: check which instructions were loaded, which files changed, what permissions were requested, which tests ran and how clearly each tool explained residual risk.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Model, harness, tools and workspace","href":"/using-coding-agents/model-harness-tools-and-workspace/"},{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"},{"label":"Multiple agents and subagents","href":"/using-coding-agents/multiple-agents-and-subagents/"},{"label":"Evaluating coding agents","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
 

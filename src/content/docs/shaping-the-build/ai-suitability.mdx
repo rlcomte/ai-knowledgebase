@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -25,13 +26,17 @@ AI suitability asks whether the task benefits from pattern recognition, generati
 
 The point is not whether AI can produce something plausible. The point is whether probabilistic behaviour can be responsibly embedded in the workflow with the right evidence, controls and human authority.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+AI suitability is an architecture and risk decision. Design should separate tasks needing judgment, language or perception from tasks needing exact rules. Build work may prototype the uncertain part while preserving deterministic paths for critical calculations. Operations compare model value against cost, latency and error recovery. The risk is using AI because it is available rather than because the task benefits from probabilistic behavior.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+Meeting summarization is often AI-suitable because transcripts are messy, summaries are reviewable and users can tolerate some editing. Payroll calculation is usually not suitable for generative AI because the rules are explicit, mistakes are costly and deterministic software can provide more reliable, auditable results.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Deterministic-probabilistic boundaries","href":"/shaping-the-build/deterministic-probabilistic-boundaries/"},{"label":"Machine learning","href":"/building-deploying-ai-applications/machine-learning/"}]} />
 

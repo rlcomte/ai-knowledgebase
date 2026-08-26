@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -25,13 +26,17 @@ Deep learning uses multilayer neural networks. It underpins modern vision, speec
 
 Important concepts include tensors, embeddings, architectures, training, inference, optimisation, transfer learning and compute requirements. For AI engineers, deep learning matters because model capabilities and constraints shape product design, evaluation cost and deployment choices.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Deep learning usually increases scale and opacity. Architecture decisions cover accelerators, batching, model serving, storage, fine-tuning boundaries and fallback behavior. Design must account for confidence, explanation limits and user correction. Build work emphasizes data pipelines, eval coverage and reproducible training or adaptation. Operations manage cost, capacity, drift and safety regressions. The risk is assuming higher model capacity removes the need for system design.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+AlphaGo showed deep learning in a high-profile setting. Neural networks learned to evaluate board positions and suggest promising Go moves, while search explored possible continuations. The result was not a hand-coded rule book, but a learned representation strong enough to defeat world-class human players.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Foundation models and LLMs","href":"/building-deploying-ai-applications/foundation-models-and-llms/"},{"label":"Embeddings and vector search","href":"/building-deploying-ai-applications/embeddings-vector-search-graphs-and-semantic-layers/"}]} />
 

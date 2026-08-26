@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -25,13 +26,17 @@ The testing pyramid combines unit, integration, contract, system and acceptance 
 
 Testability means designing components so dependencies, data and model calls can be controlled or substituted. It makes failures reproducible and lowers evaluation cost.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Testability means the AI system can prove behavior repeatedly enough to change safely. Architecture should expose deterministic seams, traces, fixtures and isolated model boundaries. Design must define observable outcomes and recovery states. Build work combines unit tests, integration tests, evals and manual review. Operations track regressions after model, prompt or data changes. The risk is accepting impressive examples that cannot be reproduced.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+A support-ticket classifier can be made testable with labelled historical tickets, boundary examples and regression suites. When the prompt or model changes, the team reruns the set and inspects routing errors. This catches silent degradation before customers wait in the wrong queue.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Evaluating coding agents","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
 

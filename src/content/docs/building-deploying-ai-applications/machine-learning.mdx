@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -25,13 +26,17 @@ Machine learning methods learn patterns from data instead of expressing every ru
 
 Engineers need a working grasp of data splits, loss functions, metrics, generalisation, bias-variance reasoning and error analysis. In this knowledge base, machine learning is treated as engineering material: useful only when its behaviour can be measured against real tasks and connected to software constraints.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Machine learning shifts behavior into data and feedback loops. Architecture must support training data, inference paths, model versioning and rollback. Design must define acceptable errors and human review points. Build work covers features, labels, evaluation sets and monitoring hooks. Operations watch drift, bias, latency and data quality. The recurring risk is treating the model as a black box instead of an evolving production dependency.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+Gmail spam filtering is a durable machine-learning example. Engineers do not write every spam rule by hand; they train models from labelled mail, sender signals and user feedback. The system then predicts whether new messages are unwanted, while monitoring false positives because blocking legitimate mail is costly.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"AI suitability","href":"/shaping-the-build/ai-suitability/"}]} />
 

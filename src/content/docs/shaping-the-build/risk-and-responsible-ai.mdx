@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ Responsible AI designs for human agency, fairness, transparency, privacy, safety
 
 Human oversight design specifies what people can see, decide, contest, override and repair. A nominal approval button is not meaningful oversight if the person lacks time or information.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Responsible AI changes architecture, product design and governance. Engineers must identify affected groups, failure severity, data sensitivity and accountability paths. Design must support transparency, appeal and human intervention where needed. Build work includes policy checks, evals and audit trails. Operations handle incidents and monitor disparate impact. The risk is treating responsibility as documentation rather than constraints that shape what gets built.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+The COMPAS recidivism-risk controversy is a widely cited responsible-AI case. Even when a scoring tool appears operationally useful, stakeholders questioned bias, transparency, contestability and institutional accountability. The lesson is that model performance cannot be separated from who is affected and how decisions are made.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Human oversight and guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"},{"label":"Security, privacy and accessibility","href":"/software-engineering-fundamentals/security-privacy-and-accessibility/"}]} />
 

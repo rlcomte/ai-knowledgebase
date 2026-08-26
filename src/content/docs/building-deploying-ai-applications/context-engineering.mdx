@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -25,13 +26,17 @@ Context engineering designs the complete information environment available to a 
 
 It also includes selecting, compressing, ordering and refreshing context. The central engineering judgement is deciding what the model needs now, what should remain outside the model, and how stale, conflicting or sensitive context should be handled.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Context engineering turns a model call into a designed information system. Architecture must choose which instructions, memories, retrieved records, tool definitions and user state are available at each step. Design work decides what the model should know and what it must not see. Build work implements selection, ordering and truncation. Operations watch leakage, stale context, latency and cases where missing context causes bad answers.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+GitHub Copilot Chat is useful only when the surrounding context is assembled well. The model may need the open file, selected lines, repository search results, test output and team instructions. Without that context design, the same model can give generic advice that ignores the actual codebase.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructions and planning","href":"/using-coding-agents/context-instructions-and-planning/"}]} />
 

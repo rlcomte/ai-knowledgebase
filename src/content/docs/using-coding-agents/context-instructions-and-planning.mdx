@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ Persistent project instructions, often in a file such as AGENTS.md, record build
 
 A plan is a provisional decomposition into verifiable steps. Planning is most useful for ambiguous, risky or multi-stage work and should adapt when evidence changes. Agent skills convert repeatable prompting into managed capability.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Instructions and planning shape the agent's engineering behavior before tools run. Architecture must decide where durable instructions live and how they compose across repositories and subdirectories. Design clarifies planning depth and approval points. Build work keeps instructions current with commands and conventions. Operations review failures caused by stale guidance. The risk is expecting reliable agent behavior from context that is missing, contradictory or obsolete.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+Repositories that include AGENTS.md, CLAUDE.md or GEMINI.md give agents durable operating context. A useful file names build commands, coding conventions, design constraints and verification expectations. The plan then starts from project evidence instead of re-negotiating basic rules in every chat.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Task briefs and examples","href":"/using-coding-agents/task-briefs-and-examples/"}]} />
 

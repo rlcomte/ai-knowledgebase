@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,22 @@ An acceptance criterion is a verifiable condition for completing a feature. Some
 
 A quality attribute is a cross-cutting property such as security, privacy, accessibility, reliability, latency, cost or maintainability. Attributes shape architecture and release decisions.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Specifications turn AI ambition into buildable constraints. Architecture must support required latency, privacy, auditability, fallback and human review. Design must describe acceptable user outcomes, not just model behavior. Build work encodes acceptance criteria as tests, evals and release gates. Operations monitor whether those qualities hold after model or data changes. The risk is accepting vague performance claims without operationally testable standards.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+For a healthcare triage chatbot, acceptance criteria should be concrete:
+
+1. Emergency symptoms trigger escalation language.
+2. No diagnosis is stated as certain.
+3. Average latency stays within the support target.
+4. Every release passes high-risk scenario evals reviewed by clinical and legal stakeholders.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Testing and testability","href":"/software-engineering-fundamentals/testing-and-testability/"},{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
 

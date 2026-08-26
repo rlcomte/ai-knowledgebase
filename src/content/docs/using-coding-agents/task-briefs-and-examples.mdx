@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -51,13 +52,17 @@ Users must be able to inspect the source behind an AI-generated claim.
 - Render and inspect the answer view
 ```
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Task briefs are requirements engineering for agent work. Architecture and design constraints must be stated before the agent edits. Build work benefits from examples, target files, acceptance criteria and validation commands. Operations reuse good briefs for recurring work and compare outcomes. The risk is giving vague goals, then blaming the agent for optimizing against unstated constraints.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+A strong task brief for an AI coding agent is specific enough to test. For example: “Add CSV export for filtered invoices, preserve current permissions, include empty-state behavior and run npm test.” The agent can then inspect the right files and produce evidence instead of guessing intent.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"},{"label":"Acceptance criteria","href":"/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"}]} />
 

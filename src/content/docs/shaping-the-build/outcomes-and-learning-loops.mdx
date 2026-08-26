@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ A leading metric gives an early signal of progress; a guardrail metric detects u
 
 The build-measure-learn loop delivers the smallest useful experiment, collects evidence and uses it to adapt the problem, solution or quality bar. Decision records preserve product and technical judgement for humans and agents.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Outcomes connect AI engineering to product learning. Architecture must collect signals that relate model behavior to user or business results. Design defines what success, harm and recovery look like in the workflow. Build work adds experiment hooks, evals and feedback capture. Operations review trends and regressions after release. The risk is improving offline metrics while the actual user outcome gets worse.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+Netflix recommendation work is driven by measured outcomes, not only model scores. A ranking change may look better offline, then fail if people watch less, abandon sessions or dislike the suggestions. The learning loop connects experiments, user behavior, qualitative signals and model-error analysis before scaling changes.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Shaping canvas","href":"/shaping-the-build/shaping-canvas/"}]} />
 

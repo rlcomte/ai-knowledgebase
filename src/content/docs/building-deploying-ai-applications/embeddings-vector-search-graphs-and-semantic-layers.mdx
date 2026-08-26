@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -25,13 +26,17 @@ Embeddings represent content as numerical vectors; vector search retrieves items
 
 Knowledge graphs and semantic layers complement vector retrieval. A knowledge graph makes entities and relationships explicit. A semantic layer gives consistent business meaning to structured data and metrics.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+These techniques imply a retrieval architecture, not just a model feature. Engineers must design source pipelines, chunking, metadata, vector indexes, graph relationships and permission filters. Product design should expose uncertainty when matches are weak. Build work covers freshness, deduplication and ranking tests. Operations monitor recall, stale indexes and access leaks. The risk is treating semantic similarity as truth rather than a candidate-selection mechanism.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+Spotify and YouTube recommendations illustrate the core idea behind embeddings: items and users can be represented by learned similarity signals. In enterprise search, the same pattern lets a question about “refund after cancelled flight” retrieve policy passages even when the document uses different wording.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Data modelling and data engineering","href":"/software-engineering-fundamentals/data-modelling-and-data-engineering/"},{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"}]} />
 

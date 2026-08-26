@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ Specialised roles help when responsibilities and outputs are clear. An orchestra
 
 A handoff transfers task, context, decisions, artifacts and remaining uncertainty. Loose handoffs lose essential information. Shared artifacts are where agents coordinate, but concurrent writes to the same artifact create conflict risk.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Delegation requires explicit contracts between workers. Architecture should support separate workspaces, scoped tools and traceable outputs. Design defines what a useful handoff contains and who resolves conflicts. Build work records files touched, commands run and uncertainties. Operations monitor duplicated work and missed context. The risk is accepting a handoff that sounds confident but lacks evidence needed for integration.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+A lead agent can delegate flaky-test investigation to a subagent, but the handoff must be useful: files inspected, commands run, suspected cause, confidence and unresolved questions. The lead then decides whether to implement the fix, ask for more evidence or reject the finding.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Multi-agent patterns","href":"/using-coding-agents/multi-agent-patterns/"},{"label":"Trace and provenance","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
 

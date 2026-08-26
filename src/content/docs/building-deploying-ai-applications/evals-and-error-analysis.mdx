@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 import conceptEvalsErrorAnalysis from '../../../assets/concept-evals-error-analysis.png';
@@ -32,13 +33,22 @@ Evaluation-driven development states desired behaviour as evaluable criteria, me
 
 Error analysis means inspecting failures, clustering them into meaningful categories and deciding which change is most likely to improve the system. Aggregate scores without qualitative error analysis rarely indicate what to build next.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Evals turn AI behavior into an engineering feedback system. Architecture should make runs reproducible and connect prompts, models, data and traces to scores. Design must define what good, unsafe and unacceptable look like. Build work creates datasets, graders and review workflows. Operations track regressions after releases. The risk is relying on aggregate scores without inspecting the concrete failures that explain what to fix.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+SWE-bench made coding-agent evaluation concrete by using real GitHub issues and checking whether generated patches pass repository tests. The useful lesson is procedural:
+
+1. Define the task set.
+2. Run the agent.
+3. Score against objective checks.
+4. Inspect failures before changing the system.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Testing and testability","href":"/software-engineering-fundamentals/testing-and-testability/"}]} />
 

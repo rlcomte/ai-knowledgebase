@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ Infrastructure and deployment cover environments, containers, compute, networkin
 
 Observability uses logs, metrics and traces to understand system health and investigate incidents. AI traces extend observability into prompts, retrieval and tool decisions. Performance engineering measures and improves latency, throughput, resource use and cost under realistic load.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+DevOps for AI means releases must cover model behavior as well as code. Architecture needs deployment stages, feature flags, telemetry and rollback. Design should handle degraded or unavailable AI gracefully. Build work includes CI, eval gates and configuration management. Operations watch latency, cost, quality and safety incidents. The risk is treating the model endpoint as a black box outside normal release discipline.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+Deploying an AI call-center summarizer should use standard DevOps discipline. Release it behind a feature flag, watch latency, cost, summary quality and escalation rates, compare against human-reviewed samples and keep rollback ready. The AI part changes what to observe, not the need for operational control.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Production operations","href":"/building-deploying-ai-applications/production-operations-observability-cost-and-latency/"},{"label":"Outcomes and learning loops","href":"/shaping-the-build/outcomes-and-learning-loops/"}]} />
 

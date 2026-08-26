@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ Documentation and decision records explain how to use the system and why consequ
 
 Collaboration and review depend on shared standards, code review, issue tracking, ownership and constructive challenge. Human review should focus on risk and system intent, not only formatting.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+AI systems create technical debt in prompts, eval sets, data assumptions, model choices and undocumented workflows. Architecture needs decision records and ownership boundaries. Design needs shared language for review and escalation. Build work should update docs when behavior changes. Operations need runbooks and incident learning. The risk is a system that still works today but cannot be safely changed by the team tomorrow.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+A team that repeatedly patches prompts without recording why will accumulate AI technical debt. Later engineers cannot tell which examples prevent regressions, which model assumptions changed or which failures were accepted. Documentation, decision records and shared eval results keep the system maintainable.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"AGENTS.md and project instructions","href":"/using-coding-agents/context-instructions-and-planning/"},{"label":"Decision records","href":"/shaping-the-build/outcomes-and-learning-loops/"}]} />
 

@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -25,13 +26,17 @@ User and workflow research studies actual tasks, handoffs, exceptions, informati
 
 Jobs to be done describe the progress a user seeks rather than starting from a feature. This helps distinguish the underlying need from a preferred implementation.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Workflow research affects where AI belongs in the interface and architecture. Engineers learn which tasks need automation, suggestion, review or explanation. Design must fit the AI into real interruptions, handoffs and accessibility needs. Build work captures events and feedback at the right moments. Operations watch adoption, overrides and failure recovery. The risk is designing for an imagined user who never appears in production.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+AI writing assistants in Google Docs or Microsoft Word depend on workflow research. Teams need to observe where writers pause, accept suggestions, reject tone changes, collaborate with editors and recover from bad drafts. The AI should appear where it reduces friction, not where it interrupts judgment.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Problem framing and stakeholder analysis","href":"/shaping-the-build/problem-framing-and-stakeholder-analysis/"},{"label":"Accessibility and inclusive design","href":"/software-engineering-fundamentals/security-privacy-and-accessibility/"}]} />
 

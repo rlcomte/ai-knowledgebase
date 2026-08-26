@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 import conceptDeterministicProbabilisticBoundary from '../../../assets/concept-deterministic-probabilistic-boundary.png';
@@ -30,13 +31,17 @@ The deterministic-probabilistic boundary decides which behaviour belongs in rule
 
 Legal constraints, calculations, permissions and irreversible side effects often need deterministic enforcement. Model behaviour is most useful where flexible interpretation, language generation or pattern recognition is valuable and mistakes can be detected or recovered.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+This boundary decides where uncertainty may enter the system. Architecture should isolate probabilistic components behind explicit interfaces, with deterministic validation for permissions, calculations and irreversible actions. Design must show when output is a suggestion versus a decision. Build work includes schemas, confidence handling and fallback paths. Operations watch boundary violations. The risk is allowing fluent text to overwrite rules that should remain auditable.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+Tax-preparation software is a useful boundary example. Deterministic code should calculate totals, eligibility and filing rules because those outputs must be auditable. An LLM might explain a form field or summarize documentation, but the workflow should keep probabilistic text separate from legally consequential calculations.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Architecture and interfaces","href":"/software-engineering-fundamentals/architecture-and-interfaces/"},{"label":"Guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
 

@@ -222,6 +222,7 @@ body {
 .learning-path,
 .callout,
 .definition-box,
+.real-example-panel,
 .related-concepts,
 .source-note,
 .evals-callout,
@@ -319,6 +320,7 @@ body {
 .learning-path,
 .callout,
 .definition-box,
+.real-example-panel,
 .related-concepts,
 .source-note,
 .evals-callout {
@@ -337,6 +339,7 @@ body {
 
 .callout,
 .definition-box,
+.real-example-panel,
 .evals-callout {
   border-left: 0.35rem solid var(--kb-primary);
   background: var(--kb-primary-container);
@@ -345,11 +348,17 @@ body {
 
 .callout p,
 .definition-box p,
+.real-example-panel p,
 .evals-callout p {
   color: inherit;
 }
 
-.failure-mode {
+.real-example-panel {
+  border-left-color: var(--kb-tertiary);
+  background: color-mix(in srgb, var(--kb-tertiary) 10%, var(--kb-surface));
+}
+
+.engineering-mode {
   border-left-color: var(--kb-area-3);
   background: color-mix(in srgb, var(--kb-area-3) 11%, var(--kb-surface));
 }
@@ -402,6 +411,30 @@ body {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.overview-infographic {
+  margin: 1.5rem 0 2rem;
+  overflow: hidden;
+  border: 1px solid var(--kb-outline-variant);
+  border-radius: var(--kb-radius-lg);
+  background: var(--kb-surface);
+  box-shadow: var(--kb-elevation-1);
+}
+
+.overview-infographic img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overview-infographic figcaption {
+  margin: 0;
+  border-top: 1px solid var(--kb-outline-variant);
+  padding: 1rem;
+  color: var(--kb-on-surface-variant);
+  font-size: 0.96rem;
+  line-height: 1.65;
 }
 
 .canvas-grid,
@@ -470,6 +503,7 @@ body {
   .learning-path,
   .callout,
   .definition-box,
+  .real-example-panel,
   .related-concepts,
   .source-note,
   .evals-callout {

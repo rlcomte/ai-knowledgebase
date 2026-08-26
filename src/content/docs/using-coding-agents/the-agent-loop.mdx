@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 import conceptAgentLoop from '../../../assets/concept-agent-loop.png';
@@ -30,13 +31,17 @@ The agent loop is the recurring cycle: observe context, reason about the next st
 
 Evidence-based completion means declaring success based on inspected diffs, passing checks, rendered output or other concrete evidence, not the agent's own confidence. The loop is only useful when observations are reliable and stopping conditions are clear.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+The agent loop makes verification part of action. Architecture should expose tools for reading state, changing files and observing results. Design must show when the agent is iterating, blocked or asking for authority. Build work depends on fast tests and inspectable traces. Operations watch loops that repeat without progress. The risk is letting the agent continue acting after evidence says the plan is wrong.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+A coding agent fixing a failing checkout test demonstrates the loop. It reads the failure, inspects the payment code, edits a validation branch, reruns the test and uses the new output to decide the next move. The loop stops only when verification supports the change.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Evaluation-driven development","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"}]} />
 

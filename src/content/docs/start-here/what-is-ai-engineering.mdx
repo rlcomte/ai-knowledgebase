@@ -11,12 +11,26 @@ sidebar:
 
 import SourceNote from '@components/SourceNote.astro';
 import FourAreaMap from '@components/FourAreaMap.astro';
+import overviewAiArtifactProduction from '../../../assets/overview-ai-artifact-production.png';
+import overviewAiEngineeringArchitecture from '../../../assets/overview-ai-engineering-architecture.png';
 
 AI Engineering combines AI knowledge, software engineering, effective use of coding agents and the judgement required to decide what should be built.
 
 The field is not only model prompting. It includes shaping the user problem, building model-backed application behaviour, engineering reliable software around probabilistic components, and using coding agents without giving up human responsibility for quality and risk.
 
+<figure class="overview-infographic">
+  <img src={overviewAiArtifactProduction.src} alt="Infographic showing AI artifact production as a loop from frame, design, build, evaluate, deploy, operate and learn around model, data, prompt, tools, evals and guardrails." loading="eager" decoding="async" />
+  <figcaption>
+    This view frames AI engineering as a production loop: teams shape the problem, design the behaviour, build the model-backed artifact, evaluate it, deploy it, operate it and learn from evidence. The artifact includes model, data, prompts, tools, evals and guardrails because production quality depends on the whole system.
+  </figcaption>
+</figure>
 
+<figure class="overview-infographic">
+  <img src={overviewAiEngineeringArchitecture.src} alt="Infographic showing AI engineering architecture around a model with user experience, application logic, model gateway, context and retrieval, tools and APIs, evaluation, observability and governance." loading="lazy" decoding="async" />
+  <figcaption>
+    This view treats AI engineering as architecture around probabilistic capability. The model is only one component. User experience, application logic, model gateways, retrieval, tools, evaluation, observability and governance create the control points that make behaviour useful, measurable, secure and changeable after deployment.
+  </figcaption>
+</figure>
 
 <SourceNote>
 The four top-level areas follow Andrew Ng's AI Engineering Skills Map. Area 1 has been elaborated by Ng; detailed Areas 2-4 structures are this knowledge base's reasoned extension.

@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -29,13 +30,17 @@ Multimodal models process or generate more than one modality, such as text, imag
 
 Model selection is a system decision based on capability, reliability, latency, cost, privacy, context size, modality and deployment constraints. The largest model is not automatically the best production choice.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Foundation models are platform dependencies. Architecture must isolate model providers behind interfaces, manage context windows, rate limits, fallback models and data boundaries. Design must decide where generative behavior helps users and where deterministic flows remain safer. Build work includes prompting, retrieval, evals and guardrails. Operations manage cost, latency and vendor change. The risk is building the product around one model's current quirks.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+GPT-4, Claude and Gemini are foundation-model examples because one pretrained model can support many tasks: chat, summarization, coding, extraction, tutoring and multimodal analysis. The product work happens around the model through prompting, retrieval, safety policy, latency control, evaluation and workflow integration.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Cost and latency","href":"/building-deploying-ai-applications/production-operations-observability-cost-and-latency/"}]} />
 

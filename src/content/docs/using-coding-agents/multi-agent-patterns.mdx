@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -27,13 +28,17 @@ Pipelines are sequential: each agent transforms or checks the previous output. P
 
 The reviewer pattern has one agent create an artifact and another critique it against explicit criteria. The creator then repairs verified issues. Debate patterns use several agents to propose or challenge alternatives before an adjudicator decides; this may improve coverage but can amplify cost and correlated model bias.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Multi-agent patterns are orchestration architecture. Work must be partitioned so agents do not overwrite each other, duplicate effort or produce unverifiable summaries. Design defines roles, handoff format and decision ownership. Build work isolates workspaces and captures evidence. Operations monitor cost, conflicts and quality. The risk is mistaking parallel chat output for coordinated engineering progress.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+A practical multi-agent pattern is research-build-review. One agent investigates documentation and existing code, one implements a scoped change and one reviews the diff for regressions. The pattern works only when a lead thread compares evidence, resolves contradictions and runs final verification.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Delegation, handoffs and orchestration","href":"/using-coding-agents/delegation-handoffs-and-orchestration/"},{"label":"Evaluation-driven development","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
 

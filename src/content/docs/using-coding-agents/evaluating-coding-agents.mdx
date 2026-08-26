@@ -11,7 +11,8 @@ sidebar:
 
 import Definition from '@components/Definition.astro';
 import EvaluationCheck from '@components/EvaluationCheck.astro';
-import FailureMode from '@components/FailureMode.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
@@ -35,13 +36,17 @@ Evaluate more than whether a task appears completed.
 
 Trace and provenance record task assignment, actions, results and artifact ownership. They support debugging, audit and workflow evaluation.
 
-<FailureMode>
-The recurring risk is treating this concept as a label rather than an engineering decision with trade-offs, evidence needs and operational consequences.
-</FailureMode>
+<EngineeringMode>
+Evaluating coding agents requires task-level evidence, not anecdotes. Architecture should record prompts, context, tool calls, diffs and command output. Design defines scoring rubrics and human review points. Build work creates representative tasks and hidden checks. Operations track regressions as models, tools or repository conventions change. The risk is trusting benchmark headlines that do not match the team's actual work.
+</EngineeringMode>
 
 <EvaluationCheck>
 Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
 </EvaluationCheck>
+
+<RealExample>
+SWE-bench is a well-known coding-agent evaluation case because it checks patches against real repository issues and tests. A credible local eval can copy the pattern: choose representative tasks, hide the solution, run the agent, execute objective checks and review failures before trusting productivity claims.
+</RealExample>
 
 <RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
 
