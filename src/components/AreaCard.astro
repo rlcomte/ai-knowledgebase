@@ -1,4 +1,6 @@
 ---
+import { localizedPath, ui } from '../utils/locale';
+
 export interface Props {
   title: string;
   href: string;
@@ -8,11 +10,13 @@ export interface Props {
 }
 
 const { title, href, area, kicker, description } = Astro.props;
+const locale = Astro.locals.starlightRoute.locale;
+const t = ui(locale);
 ---
 
-<a class={`area-card ${area}`} href={href}>
-  {kicker && <span class="area-card__kicker">{kicker}</span>}
+<a class={`area-card ${area}`} href={localizedPath(href, locale)}>
+  {kicker && <span class="area-card__kicker">{t.areaLabel(kicker)}</span>}
   <h3>{title}</h3>
   <p>{description}</p>
-  <span class="area-card__action" aria-hidden="true">Explore</span>
+  <span class="area-card__action" aria-hidden="true">{t.component.explore}</span>
 </a>

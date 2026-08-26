@@ -1,0 +1,47 @@
+---
+title: "Multi-agent-patterns"
+description: "Fan-out/fan-in, pipelines, reviewer patterns and debate patterns."
+area: "Coding agents gebruiken"
+order: 12
+tags: ["architecture","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 12
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Multi-agent-patterns"}>
+Multi-agent patterns are repeatable coordination structures for dividing model work across roles. Fan-out/fan-in explores independent branches and reconciles results; pipelines pass artifacts through ordered stages; reviewer patterns separate creation from critique; debate patterns compare alternative analyses before adjudication. Each pattern needs explicit ownership, merge rules and verification criteria.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Fan-out/fan-in distributes independent subtasks and later combines their results. It is effective for exploration, review, evaluation and option generation.
+
+Pipelines are sequential: each agent transforms or checks the previous output. Pipelines are useful when roles have real dependencies.
+
+The reviewer pattern has one agent create an artifact and another critique it against explicit criteria. The creator then repairs verified issues. Debate patterns use several agents to propose or challenge alternatives before an adjudicator decides; this may improve coverage but can amplify cost and correlated model bias.
+
+<EngineeringMode>
+Multi-agent patterns are orchestration architecture. Work must be partitioned so agents do not overwrite each other, duplicate effort or produce unverifiable summaries. Design defines roles, handoff format and decision ownership. Build work isolates workspaces and captures evidence. Operations monitor cost, conflicts and quality. The risk is mistaking parallel chat output for coordinated engineering progress.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A practical multi-agent pattern is research-build-review. One agent investigates documentation and existing code, one implements a scoped change and one reviews the diff for regressions. The pattern works only when a lead thread compares evidence, resolves contradictions and runs final verification.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Delegation, handoffs and orchestration","href":"/using-coding-agents/delegation-handoffs-and-orchestration/"},{"label":"Evaluation-driven development","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents">Subagents</a>, and research on multi-agent LLM collaboration patterns.
+</SourceNote>

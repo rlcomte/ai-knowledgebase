@@ -1,0 +1,57 @@
+---
+title: "Evals en foutanalyse"
+description: "Structured tests and qualitative inspection for improving probabilistic AI-system behaviour."
+area: "AI-applicaties bouwen en uitrollen"
+order: 11
+tags: ["evaluation","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 11
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import conceptEvalsErrorAnalysis from '../../../../assets/concept-evals-error-analysis.png';
+
+<Definition term={"Evals en foutanalyse"}>
+Evals are repeatable measurements that test whether an AI system performs acceptably on representative tasks, edge cases and risk scenarios. Error analysis is the structured inspection of failures to identify patterns, root causes and improvement actions, such as better instructions, retrieval, data cleaning, tool design, guardrails or human review.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptEvalsErrorAnalysis.src} alt="Diagram of an evaluation and error-analysis loop from test set through run, scoring, failures, improvement and regression checks." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom dit ertoe doet
+
+An eval is a structured test of AI-system behaviour using representative inputs, expected properties and scoring methods. Scores may be deterministic, model-based or human. Evals should measure the application, not just the underlying model.
+
+Evaluation-driven development states desired behaviour as evaluable criteria, measures a baseline, analyses errors, changes one thing and checks regressions. Evals play a role analogous to tests, while accounting for probabilistic output.
+
+Error analysis means inspecting failures, clustering them into meaningful categories and deciding which change is most likely to improve the system. Aggregate scores without qualitative error analysis rarely indicate what to build next.
+
+<EngineeringMode>
+Evals turn AI behavior into an engineering feedback system. Architecture should make runs reproducible and connect prompts, models, data and traces to scores. Design must define what good, unsafe and unacceptable look like. Build work creates datasets, graders and review workflows. Operations track regressions after releases. The risk is relying on aggregate scores without inspecting the concrete failures that explain what to fix.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+SWE-bench made coding-agent evaluation concrete by using real GitHub issues and checking whether generated patches pass repository tests. The useful lesson is procedural:
+
+1. Define the task set.
+2. Run the agent.
+3. Score against objective checks.
+4. Inspect failures before changing the system.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Testing and testability","href":"/software-engineering-fundamentals/testing-and-testability/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Evaluation best practices</a>, and Hamel Husain, <a href="https://hamel.dev/blog/posts/evals/">Your AI Product Needs Evals</a>.
+</SourceNote>

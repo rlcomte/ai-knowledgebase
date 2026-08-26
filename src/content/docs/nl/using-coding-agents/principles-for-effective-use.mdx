@@ -1,0 +1,45 @@
+---
+title: "Principes voor effectief gebruik"
+description: "Operational principles for getting useful, reviewable and reversible work from coding agents."
+area: "Coding agents gebruiken"
+order: 7
+tags: ["practice","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 7
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Principes voor effectief gebruik"}>
+Principles for effective coding-agent use are operating rules that make agent work bounded, reviewable and reversible. They include writing precise task briefs, loading project instructions, limiting permissions, requiring tests or evals, keeping diffs small, asking for evidence, separating exploration from edits and preserving human ownership of consequential decisions.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Effective coding-agent use starts by bounding the task, supplying intent, defining done and making context discoverable.
+
+Prefer small diffs, use progressive autonomy, keep humans at decision boundaries, trust verification rather than fluency, turn corrections into infrastructure and preserve reversibility. These principles make agent work reviewable and reduce the chance that speed hides weak engineering.
+
+<EngineeringMode>
+Effective use is an engineering operating model. Architecture, tasks and repositories should be shaped so agents can load context, make narrow changes and verify outcomes. Design decisions remain human-owned when trade-offs affect users or risk. Build work should preserve tests and readable diffs. Operations measure agent impact and failures. The risk is replacing disciplined development with unreviewed generated output.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Teams using GitHub Copilot, Codex or Claude Code effectively treat agent output as draft engineering work. They keep tasks small, provide local context, review diffs, run tests and retain human responsibility for architecture, security and release decisions rather than accepting generated code on authority.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Code quality and version control","href":"/software-engineering-fundamentals/code-quality-and-version-control/"},{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://learn.chatgpt.com/guides/best-practices">Codex best practices</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/claude-code/common-workflows">Claude Code common workflows</a>.
+</SourceNote>

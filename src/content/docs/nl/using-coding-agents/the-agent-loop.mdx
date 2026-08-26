@@ -1,0 +1,50 @@
+---
+title: "De agent loop"
+description: "Observe, reason, act, inspect, update and stop or continue."
+area: "Coding agents gebruiken"
+order: 4
+tags: ["foundation","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 4
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import conceptAgentLoop from '../../../../assets/concept-agent-loop.png';
+
+<Definition term={"De agent loop"}>
+The agent loop is the repeated control cycle in which an agent observes the current task state, reasons about the next step, performs an action through a tool or message, inspects the result and decides whether to continue, revise or stop. Reliable loops need explicit stopping conditions, bounded tool access, progress checks and verification so the agent does not drift, loop indefinitely or optimise for plausible narration instead of completed work.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptAgentLoop.src} alt="Diagram of the agent loop: observe, reason, act, inspect, update and decide whether to stop." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom dit ertoe doet
+
+The agent loop is the recurring cycle: observe context, reason about the next step, act through a tool, inspect the result, update the plan and stop or continue. The exact internal implementation differs by product.
+
+Evidence-based completion means declaring success based on inspected diffs, passing checks, rendered output or other concrete evidence, not the agent's own confidence. The loop is only useful when observations are reliable and stopping conditions are clear.
+
+<EngineeringMode>
+The agent loop makes verification part of action. Architecture should expose tools for reading state, changing files and observing results. Design must show when the agent is iterating, blocked or asking for authority. Build work depends on fast tests and inspectable traces. Operations watch loops that repeat without progress. The risk is letting the agent continue acting after evidence says the plan is wrong.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A coding agent fixing a failing checkout test demonstrates the loop. It reads the failure, inspects the payment code, edits a validation branch, reruns the test and uses the new output to decide the next move. The loop stops only when verification supports the change.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Evaluation-driven development","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"}]} />
+
+<SourceNote>
+Further study: Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>, and OpenAI, <a href="https://platform.openai.com/docs/agents">Agents</a>.
+</SourceNote>

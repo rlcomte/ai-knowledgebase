@@ -1,0 +1,45 @@
+---
+title: "Codekwaliteit en versiebeheer"
+description: "Maintainability, readable diffs and reversible change in human and agent-written code."
+area: "Basisprincipes van software engineering"
+order: 5
+tags: ["practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Codekwaliteit en versiebeheer"}>
+Code quality is the set of properties that make software understandable, maintainable, testable and safe to change. Version control records the history, intent and review trail of those changes. In agent-assisted development, clean diffs, small commits, naming discipline, dependency control and reviewable change boundaries are essential because humans still own correctness and maintainability.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Code quality covers readability, cohesion, low coupling, appropriate abstraction, consistency and explicit intent. Generated code must meet the same maintainability standard as human-written code.
+
+Version control records and reviews changes using branches, commits, diffs and merge workflows. Small, coherent changes make agent output easier to inspect and reverse.
+
+<EngineeringMode>
+Code quality and version control make AI-assisted changes accountable. Architecture decisions should be visible in diffs and reviewable modules. Design changes need traceable rationale. Build work stays small, tested and reversible. Operations rely on history for rollback and incident analysis. The risk is letting generated code accumulate without ownership, tests or understandable change history.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+When an AI agent opens a pull request, normal engineering controls still matter. Reviewers should expect readable diffs, focused commits, tests, style consistency and a rollback path. Version control turns agent work into inspectable change history instead of an opaque conversation transcript.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Principles for effective use","href":"/using-coding-agents/principles-for-effective-use/"},{"label":"Technical debt, documentation and teamwork","href":"/software-engineering-fundamentals/technical-debt-documentation-and-teamwork/"}]} />
+
+<SourceNote>
+Further study: Robert C. Martin, <em>Clean Code</em>, and Pro Git, <a href="https://git-scm.com/book/en/v2">the official Git book</a>.
+</SourceNote>

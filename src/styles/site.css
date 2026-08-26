@@ -126,13 +126,14 @@ body {
 }
 
 .kb-hero h1 {
-  max-width: 13ch;
+  max-width: 17ch;
   margin: 0;
   color: var(--kb-on-surface);
   font-size: var(--sl-text-h1);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: 0;
+  text-wrap: balance;
 }
 
 .kb-hero .lede {
@@ -477,7 +478,7 @@ body {
   }
 
   .kb-hero h1 {
-    max-width: 13ch;
+    max-width: 16ch;
   }
 
   .map-grid,

@@ -1,0 +1,45 @@
+---
+title: "Datamodellering en data engineering"
+description: "Representing entities, relations, events and lifecycle so AI has meaningful data to work with."
+area: "Basisprincipes van software engineering"
+order: 4
+tags: ["data","architecture"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 4
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Datamodellering en data engineering"}>
+Data modelling defines the entities, relationships, events, identifiers, semantics and lifecycle states that software relies on. Data engineering builds the pipelines, storage, validation, lineage and access patterns that make data usable. AI systems need both: models can only reason well over data that is coherent, current, governed and connected to the business meaning of the task.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Data modelling represents entities, relations, events, constraints, lineage and lifecycle. AI does not compensate for ambiguous semantics or poor-quality source data.
+
+For AI applications, data engineering also includes provenance, freshness, retention and access policies for retrieved context, traces, feedback and eval datasets.
+
+<EngineeringMode>
+Data engineering defines the raw material of AI behavior. Architecture must handle lineage, consent, permissions, freshness, schemas and retrieval indexes. Design must account for missing or uncertain data in the user experience. Build work includes validation, migration and backfill paths. Operations monitor data drift and quality incidents. The risk is blaming the model for failures caused by broken or poorly governed data.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A product-search assistant is only as good as its data pipeline. Catalog records need consistent names, prices, availability, variants, permissions and embeddings. If discontinued items or restricted products leak into the index, the language model may confidently recommend something users cannot buy.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Embeddings, vector search, graphs and semantic layers","href":"/building-deploying-ai-applications/embeddings-vector-search-graphs-and-semantic-layers/"},{"label":"Data and context in the shaping canvas","href":"/shaping-the-build/shaping-canvas/"}]} />
+
+<SourceNote>
+Further study: Martin Kleppmann, <em>Designing Data-Intensive Applications</em>, and Joe Reis and Matt Housley, <em>Fundamentals of Data Engineering</em>.
+</SourceNote>

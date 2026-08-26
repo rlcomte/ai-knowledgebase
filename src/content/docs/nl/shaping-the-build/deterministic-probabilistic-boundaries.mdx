@@ -1,0 +1,50 @@
+---
+title: "Deterministische-probabilistische grenzen"
+description: "Deciding what belongs in rules or conventional code and what can responsibly use a model."
+area: "De bouwopgave vormgeven"
+order: 5
+tags: ["architecture","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import conceptDeterministicProbabilisticBoundary from '../../../../assets/concept-deterministic-probabilistic-boundary.png';
+
+<Definition term={"Deterministische-probabilistische grenzen"}>
+Deterministic-probabilistic boundaries separate behaviour that must be implemented with explicit rules, typed code or transactions from behaviour that can tolerate model uncertainty. Good boundaries keep identity, permissions, accounting, compliance, irreversible actions and safety-critical checks deterministic, while using models for interpretation, drafting, ranking, summarisation or uncertain judgment where errors can be detected and corrected.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={conceptDeterministicProbabilisticBoundary.src} alt="Diagram splitting deterministic rules, code and transactions from probabilistic model behaviour through guardrails and review." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom dit ertoe doet
+
+The deterministic-probabilistic boundary decides which behaviour belongs in rules or conventional code and which can responsibly use a model.
+
+Legal constraints, calculations, permissions and irreversible side effects often need deterministic enforcement. Model behaviour is most useful where flexible interpretation, language generation or pattern recognition is valuable and mistakes can be detected or recovered.
+
+<EngineeringMode>
+This boundary decides where uncertainty may enter the system. Architecture should isolate probabilistic components behind explicit interfaces, with deterministic validation for permissions, calculations and irreversible actions. Design must show when output is a suggestion versus a decision. Build work includes schemas, confidence handling and fallback paths. Operations watch boundary violations. The risk is allowing fluent text to overwrite rules that should remain auditable.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Tax-preparation software is a useful boundary example. Deterministic code should calculate totals, eligibility and filing rules because those outputs must be auditable. An LLM might explain a form field or summarize documentation, but the workflow should keep probabilistic text separate from legally consequential calculations.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Architecture and interfaces","href":"/software-engineering-fundamentals/architecture-and-interfaces/"},{"label":"Guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
+
+<SourceNote>
+Further study: OpenAI safety and structured-output documentation, plus conventional software architecture references on clear system boundaries.
+</SourceNote>

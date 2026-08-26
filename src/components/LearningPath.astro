@@ -1,4 +1,6 @@
 ---
+import { localizedPath, ui } from '../utils/locale';
+
 export interface Props {
   title: string;
   prior: string;
@@ -7,18 +9,20 @@ export interface Props {
 }
 
 const { title, prior, outcome, steps } = Astro.props;
+const locale = Astro.locals.starlightRoute.locale;
+const t = ui(locale).component;
 ---
 
 <section class="learning-path">
   <div>
-    <p class="eyebrow">Learning path</p>
+    <p class="eyebrow">{t.learningPath}</p>
     <h3>{title}</h3>
-    <p><strong>Prior knowledge:</strong> {prior}</p>
-    <p><strong>Outcome:</strong> {outcome}</p>
+    <p><strong>{t.priorKnowledge}</strong> {prior}</p>
+    <p><strong>{t.outcome}</strong> {outcome}</p>
   </div>
   <ol>
     {steps.map((step) => (
-      <li><a href={step.href}>{step.label}</a></li>
+      <li><a href={localizedPath(step.href, locale)}>{step.label}</a></li>
     ))}
   </ol>
 </section>

@@ -1,4 +1,6 @@
 ---
+import { localizedPath, ui } from '../utils/locale';
+
 export interface Props {
   title: string;
   href: string;
@@ -7,13 +9,15 @@ export interface Props {
 }
 
 const { title, href, description, tags = [] } = Astro.props;
+const locale = Astro.locals.starlightRoute.locale;
+const t = ui(locale).component;
 ---
 
-<a class="concept-card" href={href}>
+<a class="concept-card" href={localizedPath(href, locale)}>
   <h3>{title}</h3>
   <p>{description}</p>
   {tags.length > 0 && (
-    <ul class="tag-list" aria-label="Tags">
+    <ul class="tag-list" aria-label={t.tags}>
       {tags.map((tag) => <li>{tag}</li>)}
     </ul>
   )}

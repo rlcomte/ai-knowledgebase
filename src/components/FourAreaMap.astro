@@ -1,24 +1,29 @@
 ---
 import AreaCard from './AreaCard.astro';
+import { isDutchLocale, ui } from '../utils/locale';
+
+const locale = Astro.locals.starlightRoute.locale;
+const isDutch = isDutchLocale(locale);
+const t = ui(locale).component;
 ---
 
 <section class="four-area-map" aria-labelledby="four-area-map-title">
   <div class="map-center">
-    <p class="eyebrow">Cycle</p>
-    <h2 id="four-area-map-title">Four Areas Reinforce Each Other</h2>
-    <p>Shape the problem, build the AI capability, engineer the system, and use coding agents to accelerate verified change.</p>
+    <p class="eyebrow">{t.cycle}</p>
+    <h2 id="four-area-map-title">{isDutch ? 'Vier gebieden versterken elkaar' : 'Four Areas Reinforce Each Other'}</h2>
+    <p>{isDutch ? 'Geef het probleem vorm, bouw de AI-capaciteit, ontwerp het systeem en gebruik coding agents om geverifieerde verandering te versnellen.' : 'Shape the problem, build the AI capability, engineer the system, and use coding agents to accelerate verified change.'}</p>
   </div>
   <div class="map-grid">
-    <AreaCard area="area-1" kicker="Area 1" title="Build AI applications" href="/building-deploying-ai-applications/" description="Add model capability, context, grounding, tools, evals and production controls." />
-    <AreaCard area="area-2" kicker="Area 2" title="Engineer reliable systems" href="/software-engineering-fundamentals/" description="Use architecture, testing, security, data and operations to make software sustainable." />
-    <AreaCard area="area-3" kicker="Area 3" title="Use coding agents" href="/using-coding-agents/" description="Direct agents through bounded tasks, context, tools, permissions and evidence." />
-    <AreaCard area="area-4" kicker="Area 4" title="Shape the build" href="/shaping-the-build/" description="Turn ambiguous needs into valuable, feasible and responsible interventions." />
+    <AreaCard area="area-1" kicker="Area 1" title={isDutch ? 'AI-applicaties bouwen' : 'Build AI applications'} href="/building-deploying-ai-applications/" description={isDutch ? 'Voeg modelcapaciteit, context, grounding, tools, evals en productiecontroles toe.' : 'Add model capability, context, grounding, tools, evals and production controls.'} />
+    <AreaCard area="area-2" kicker="Area 2" title={isDutch ? 'Betrouwbare systemen ontwerpen' : 'Engineer reliable systems'} href="/software-engineering-fundamentals/" description={isDutch ? 'Gebruik architectuur, tests, security, data en operations om software duurzaam te maken.' : 'Use architecture, testing, security, data and operations to make software sustainable.'} />
+    <AreaCard area="area-3" kicker="Area 3" title={isDutch ? 'Coding agents gebruiken' : 'Use coding agents'} href="/using-coding-agents/" description={isDutch ? 'Stuur agents met afgebakende taken, context, tools, permissies en bewijs.' : 'Direct agents through bounded tasks, context, tools, permissions and evidence.'} />
+    <AreaCard area="area-4" kicker="Area 4" title={isDutch ? 'De bouwopgave vormgeven' : 'Shape the build'} href="/shaping-the-build/" description={isDutch ? 'Vertaal ambigue behoeften naar waardevolle, haalbare en verantwoorde interventies.' : 'Turn ambiguous needs into valuable, feasible and responsible interventions.'} />
   </div>
-  <ol class="map-steps" aria-label="Cycle order">
-    <li>Shape</li>
-    <li>Build</li>
-    <li>Engineer</li>
-    <li>Agent-assist</li>
-    <li>Evaluate outcomes</li>
+  <ol class="map-steps" aria-label={t.cycleOrder}>
+    <li>{isDutch ? 'Vormgeven' : 'Shape'}</li>
+    <li>{isDutch ? 'Bouwen' : 'Build'}</li>
+    <li>{isDutch ? 'Engineeren' : 'Engineer'}</li>
+    <li>{isDutch ? 'Agent-assistentie' : 'Agent-assist'}</li>
+    <li>{isDutch ? 'Uitkomsten evalueren' : 'Evaluate outcomes'}</li>
   </ol>
 </section>

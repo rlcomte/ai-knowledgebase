@@ -1,0 +1,47 @@
+---
+title: "Delegatie, handoffs en orchestratie"
+description: "How orchestrators assign, combine and account for work across agents."
+area: "Coding agents gebruiken"
+order: 11
+tags: ["architecture","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 11
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Delegatie, handoffs en orchestratie"}>
+Delegation assigns a bounded piece of work to another agent, tool or human. A handoff transfers results with enough context to continue safely: scope, files touched, assumptions, evidence and unresolved risks. Orchestration is the control layer that sequences or parallelises work, resolves conflicts, enforces permissions and decides when the overall workflow is complete.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Parallel delegation runs independent work simultaneously, such as security review, test-gap analysis and maintainability review. It improves elapsed time when dependencies are low.
+
+Specialised roles help when responsibilities and outputs are clear. An orchestrator decomposes work, assigns tasks, manages dependencies, resolves results and owns the final synthesis.
+
+A handoff transfers task, context, decisions, artifacts and remaining uncertainty. Loose handoffs lose essential information. Shared artifacts are where agents coordinate, but concurrent writes to the same artifact create conflict risk.
+
+<EngineeringMode>
+Delegation requires explicit contracts between workers. Architecture should support separate workspaces, scoped tools and traceable outputs. Design defines what a useful handoff contains and who resolves conflicts. Build work records files touched, commands run and uncertainties. Operations monitor duplicated work and missed context. The risk is accepting a handoff that sounds confident but lacks evidence needed for integration.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A lead agent can delegate flaky-test investigation to a subagent, but the handoff must be useful: files inspected, commands run, suspected cause, confidence and unresolved questions. The lead then decides whether to implement the fix, ask for more evidence or reject the finding.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Multi-agent patterns","href":"/using-coding-agents/multi-agent-patterns/"},{"label":"Trace and provenance","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://developers.openai.com/api/docs/guides/agents">Agents SDK</a>, and Anthropic guidance on multi-agent Claude Code workflows.
+</SourceNote>

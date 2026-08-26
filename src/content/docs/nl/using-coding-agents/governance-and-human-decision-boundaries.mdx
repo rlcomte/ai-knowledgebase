@@ -1,0 +1,45 @@
+---
+title: "Governance en menselijke beslisgrenzen"
+description: "Where humans retain authority over risk, irreversible action and release decisions."
+area: "Coding agents gebruiken"
+order: 15
+tags: ["governance","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 15
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Governance en menselijke beslisgrenzen"}>
+Governance defines who may authorise agent actions, which risks require escalation, how work is logged and how responsibility is assigned. Human decision boundaries mark actions that agents may prepare but not decide alone, such as production deployment, destructive data changes, security exceptions, legal commitments, credential handling or changes with material user impact.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Humans should own problem definition, material trade-offs, risk acceptance, irreversible actions and release decisions. Autonomy should be proportional to reversibility, blast radius and quality of verification.
+
+Official OpenAI guidance describes project instructions, skills, MCP and subagents as complementary configuration layers. It also recommends using parallel agents first for read-heavy tasks and taking more care with parallel write-heavy work because of conflicts and coordination overhead.
+
+<EngineeringMode>
+Governance defines which decisions remain human-owned. Architecture should enforce approval gates for releases, data access, destructive commands and policy exceptions. Design must make responsibility visible when users or operators rely on agent output. Build work includes logs, permissions and rollback. Operations audit boundary violations. The risk is delegating accountability to a system that cannot own legal, ethical or business consequences.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+In an AI-assisted release workflow, an agent may prepare migration code, update tests and summarize risk. Governance keeps human ownership over production deployment, customer notification, data deletion and rollback decisions. The boundary should be explicit before the agent is allowed near irreversible systems.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"},{"label":"Human oversight design","href":"/shaping-the-build/risk-and-responsible-ai/"}]} />
+
+<SourceNote>
+Further study: NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>, and OpenAI safety and permissions documentation.
+</SourceNote>

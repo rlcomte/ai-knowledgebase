@@ -1,12 +1,16 @@
 ---
+import { localizedPath, ui } from '../utils/locale';
+
 export interface Props {
   links: { label: string; href: string }[];
 }
 const { links } = Astro.props;
+const locale = Astro.locals.starlightRoute.locale;
+const t = ui(locale).component;
 ---
-<nav class="related-concepts" aria-label="Related concepts">
-  <h2>Related Concepts</h2>
+<nav class="related-concepts" aria-label={t.relatedConceptsLabel}>
+  <h2>{t.relatedConcepts}</h2>
   <ul>
-    {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+    {links.map((link) => <li><a href={localizedPath(link.href, locale)}>{link.label}</a></li>)}
   </ul>
 </nav>

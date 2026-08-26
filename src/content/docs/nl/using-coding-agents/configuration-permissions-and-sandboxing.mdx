@@ -1,0 +1,47 @@
+---
+title: "Configuratie, permissies en sandboxing"
+description: "Model configuration, MCP integrations, execution boundaries, approvals and secrets."
+area: "Coding agents gebruiken"
+order: 6
+tags: ["governance","risk"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 6
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Configuratie, permissies en sandboxing"}>
+Configuration controls model choice, reasoning effort, tool availability, external integrations and runtime behaviour. Permissions define which reads, writes, commands, network calls or external actions require approval. Sandboxing constrains the file system, process and network environment in which the agent operates. These controls reduce blast radius but must be paired with secret management, audit logs and human review.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Model and reasoning configuration should match task complexity, latency and cost. Easy, bounded edits may not need the most expensive setting.
+
+A sandbox is an execution boundary that restricts file, process or network access. It reduces blast radius but does not replace secure review. Approval policy governs which actions require human consent; high-impact, external, destructive or credential-sensitive actions deserve tighter approval.
+
+MCP integrations expose external tools and resources. Each integration still needs scoped credentials, clear tool contracts and safe defaults. Secrets should come from managed mechanisms, not prompts or committed files.
+
+<EngineeringMode>
+Configuration and sandboxing define the agent's operating envelope. Architecture must separate read, edit, network and destructive capabilities. Design should make approval prompts understandable and timely. Build work encodes allowed tools, blocked paths and project instructions. Operations review logs and tighten defaults after incidents. The risk is granting broad authority to an agent whose plan, context or commands have not been verified.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+Codex and Claude Code permission prompts make sandboxing concrete. Reading a repository can be allowed by default, while network access, package installation, secret access and destructive commands require explicit approval. The configuration should match blast radius: low-risk exploration differs from production release work.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Security, privacy and accessibility","href":"/software-engineering-fundamentals/security-privacy-and-accessibility/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
+
+<SourceNote>
+Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/sandboxing">Codex sandboxing</a>, and Anthropic Claude Code CLI permission settings.
+</SourceNote>

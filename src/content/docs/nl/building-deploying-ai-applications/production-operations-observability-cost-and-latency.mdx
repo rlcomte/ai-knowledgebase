@@ -1,0 +1,47 @@
+---
+title: "Productie-operations, observability, kosten en latency"
+description: "Running AI systems under real deployment, tracing, reliability, cost and performance constraints."
+area: "AI-applicaties bouwen en uitrollen"
+order: 12
+tags: ["operations","evaluation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 12
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Productie-operations, observability, kosten en latency"}>
+Production operations for AI systems cover the deployment, monitoring and continuous control of systems whose behaviour depends on model calls, retrieval, tools and human feedback. Observability must capture prompts, context, tool calls, latency, cost, errors, safety events and user outcomes while respecting privacy. Cost and latency are design constraints that influence model choice, caching, batching, routing and fallback behaviour.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Production operation means running the system under real constraints: deployment, scaling, tracing, observability, drift detection, incident response, fallback, rollback, data freshness and version management.
+
+AI observability captures inputs, retrieved context, tool calls, outputs, latency, token use, cost, user feedback and safety signals while respecting privacy. Traces make multi-step failures diagnosable.
+
+Cost and latency engineering controls model choice, token volume, caching, retrieval, parallelism and number of calls. Quality, speed and cost must be evaluated as a system-level trade-off.
+
+<EngineeringMode>
+This concept turns AI features into managed services. Architecture must expose metrics for model calls, retrieval, tools, queues and fallbacks. Design must handle slow responses, degraded answers and user-visible uncertainty. Build work adds tracing, budgets, caching and feature flags. Operations manage incidents, cost spikes and quality regressions. The risk is shipping a demo that cannot be explained, rolled back or paid for at scale.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+</EvaluationCheck>
+
+<RealExample>
+A call-center summarization feature should be launched like other production software: first to a small traffic slice, then watched for latency, token cost, failed tool calls and complaint rates. Teams at companies using contact-center AI often keep rollback switches because one model or prompt change can affect thousands of conversations.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"DevOps, deployment and observability","href":"/software-engineering-fundamentals/devops-deployment-and-observability/"},{"label":"Quality model for AI software","href":"/cross-cutting-knowledge/quality-model-for-ai-software/"}]} />
+
+<SourceNote>
+Further study: Google SRE, <a href="https://sre.google/sre-book/monitoring-distributed-systems/">Monitoring Distributed Systems</a>, and OpenAI, <a href="https://platform.openai.com/docs/guides/latency-optimization">Latency optimization</a>.
+</SourceNote>

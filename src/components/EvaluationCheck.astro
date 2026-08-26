@@ -1,4 +1,9 @@
+---
+import { ui } from '../utils/locale';
+
+const t = ui(Astro.locals.starlightRoute.locale).component;
+---
 <aside class="callout evaluation-check">
-  <p class="eyebrow">Evaluation check</p>
+  <p class="eyebrow">{t.evaluationCheck}</p>
   <slot />
 </aside>
