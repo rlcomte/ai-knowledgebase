@@ -1,0 +1,173 @@
+---
+title: "AI Engineering: Two Directions"
+description: "How AI for software engineering and software engineering for AI form two cross-cutting perspectives in modern AI engineering."
+area: "Start here"
+order: 3
+tags: ["foundation","architecture","practice"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 3
+---
+
+import SourceNote from '@components/SourceNote.astro';
+import twoDirections from '../../../assets/concept-ai4se-se4ai-two-directions.png';
+import distributedBehaviour from '../../../assets/concept-se4ai-distributed-behaviour.png';
+import assistantToAgent from '../../../assets/concept-ai4se-assistant-to-agent.png';
+import feedbackLoops from '../../../assets/concept-ai4se-se4ai-feedback-loops.png';
+
+AI engineering can be understood through two complementary directions:
+
+1. **Software Engineering for AI (SE4AI)**: applying software-engineering discipline to systems that contain AI components.
+2. **AI for Software Engineering (AI4SE)**: applying AI to improve, automate or orchestrate software-engineering work.
+
+They should not become extra top-level areas in this knowledge base. They are better understood as cross-cutting perspectives through Andrew Ng's four-area AI Engineering Skills Map. Building and deploying AI applications is mainly SE4AI. Using coding agents is mainly AI4SE. Software engineering fundamentals support both. Shaping the build connects both to human intent, judgement and accountability.
+
+<figure class="overview-infographic">
+  <img src={twoDirections.src} alt="Infographic showing AI Engineering as two directions: SE4AI, engineer AI systems, and AI4SE, engineer with AI." loading="eager" decoding="async" />
+  <figcaption>
+    SE4AI asks how to engineer AI-based systems properly. AI4SE asks how AI can help engineers build software. AI engineering brings both directions together: the engineer may use AI agents to build software, while also building software that contains AI models, tools, data, evals and controls.
+  </figcaption>
+</figure>
+
+## SE4AI: Engineering Systems with AI
+
+SE4AI starts from the product being built. The system contains a model or AI component, so behavior is no longer located only in developer-written code. It also depends on data, prompts, retrieved context, model versions, tool calls, memory, orchestration and human review.
+
+That changes the engineering problem:
+
+| Concern | What SE4AI adds |
+|---|---|
+| Requirements | Define acceptable probabilistic behavior, refusal boundaries and human review needs. |
+| Architecture | Isolate model calls, retrieval, tools, policy checks, traces and fallback paths. |
+| Testing | Combine deterministic tests with evals, red-team cases and human review. |
+| Maintenance | Track model, prompt, data and retrieval changes as production dependencies. |
+| Operations | Monitor quality, latency, cost, drift, safety incidents and data freshness. |
+
+<figure class="overview-infographic">
+  <img src={distributedBehaviour.src} alt="Infographic showing SE4AI distributed behavior across code, model, prompts, context, data, tools, orchestration, evals and guardrails." loading="lazy" decoding="async" />
+  <figcaption>
+    In SE4AI, system behavior is distributed. Code still matters, but prompts, model behavior, context, data, tools, orchestration, evals and guardrails also shape the output. The engineer therefore designs the whole behavior-producing system, not just the API call to a model.
+  </figcaption>
+</figure>
+
+## AI4SE: Engineering with AI
+
+AI4SE starts from the engineering process. AI is used to help understand requirements, explore architecture, write code, generate tests, review changes, debug failures, document systems, triage issues and inspect observability data.
+
+The major shift is from assistant to agent:
+
+1. **Code completion** suggests local code while the developer drives.
+2. **Chat assistants** explain, draft and transform code when asked.
+3. **Coding agents** inspect repositories, plan changes, edit files, run tests and iterate.
+4. **Agentic software engineering** coordinates multiple agents or roles across architecture, coding, review, testing and documentation.
+
+<figure class="overview-infographic">
+  <img src={assistantToAgent.src} alt="Infographic showing AI4SE evolving from code completion to chat assistant, coding agent and agentic software engineering." loading="lazy" decoding="async" />
+  <figcaption>
+    AI4SE has moved from local code suggestions toward repository-aware agents. The practical difference is autonomy and workflow scope. A coding agent can inspect files, plan, edit, test and retry, so the engineer must provide clearer tasks, stronger permissions, better verification and more deliberate oversight.
+  </figcaption>
+</figure>
+
+## Why the Distinction Matters
+
+People often mix the two conversations. That creates confusion.
+
+| Confusion | Clearer framing |
+|---|---|
+| "AI engineering means using AI to code faster." | That is AI4SE, only one side of the field. |
+| "AI engineering means building LLM applications." | That is SE4AI, only one side of the field. |
+| "The prompt is the product." | In SE4AI, prompts are one part of a larger engineered system. |
+| "The agent can own implementation." | In AI4SE, agents can execute work, but humans still own intent, risk and release. |
+
+The symmetry is useful:
+
+| AI4SE | SE4AI |
+|---|---|
+| AI changes the engineering process. | AI changes the engineered product. |
+| AI assists the developer. | AI is part of the application. |
+| Coding agents work in repositories. | Application agents work in production. |
+| AI evaluates code. | Software evaluates AI. |
+| Developer controls AI. | Architecture controls AI. |
+
+## The Synthesis: AI Engineering
+
+The two directions are increasingly converging into a single professional practice: **AI Engineering**. A modern AI engineer may use AI agents to design, implement, test and document software while the software being built also contains AI models, retrieval, tools, agents, evals and guardrails.
+
+Consider an agentic customer-support system. The engineering team may use AI4SE to:
+
+1. explore requirements and architecture options;
+2. generate a first RAG implementation;
+3. write tests and eval cases;
+4. inspect failures and refactor code;
+5. configure deployment and observability.
+
+The resulting product is a SE4AI system:
+
+1. an LLM interprets user requests;
+2. context engineering supplies policies, history and retrieved knowledge;
+3. RAG grounds answers in support documentation;
+4. tools query orders, refunds or account state;
+5. an agent workflow decides when to answer, ask, escalate or stop;
+6. evals and observability check quality, safety, latency and cost.
+
+The same engineer is therefore working in both directions at once. AI helps produce the software, and software engineering makes the AI-supported product trustworthy enough to operate. That is the synthesis: AI Engineering is the disciplined practice of combining AI-assisted engineering work with engineering discipline for AI-based systems.
+
+This also changes where human expertise sits. The superficial version of AI-assisted development is "tell AI what to code." The stronger version is:
+
+```text
+intent -> specification -> execution -> evaluation
+```
+
+Humans increasingly define what should be built, why it matters, which constraints apply and how success will be judged. AI agents can execute more of the implementation loop, but they depend on human framing, architecture, task decomposition, evaluation criteria and review.
+
+In this synthesis, the four knowledge-base areas are not independent buckets:
+
+| Area | Role in the synthesis |
+|---|---|
+| Building and Deploying AI Applications | Provides the SE4AI practices for engineering systems whose behaviour depends on AI. |
+| Software Engineering Fundamentals | Provides the discipline that keeps both AI-generated work and AI-based systems maintainable. |
+| Using Coding Agents | Provides the AI4SE practices for using agents as engineering collaborators. |
+| Shaping the Build | Provides human intent, judgement, trade-off analysis, orchestration and accountability. |
+
+The result is a stronger definition of AI engineering: not just building with models, and not just coding with agents, but creating reliable feedback loops between intent, implementation, evaluation and operation.
+
+## Two Feedback Loops
+
+Both directions shift software work away from writing everything correctly once. They make fast feedback loops central.
+
+In SE4AI, teams build an AI-supported behavior, evaluate it, analyze failures and improve the system. In AI4SE, agents plan, act, observe, verify and iterate against repository evidence. In both cases, the engineer's job is to make the loop observable, bounded and useful.
+
+<figure class="overview-infographic">
+  <img src={feedbackLoops.src} alt="Infographic comparing the SE4AI evaluation loop with the AI4SE agent loop around shared evidence." loading="lazy" decoding="async" />
+  <figcaption>
+    SE4AI and AI4SE both depend on feedback. The evaluation loop improves AI application behavior; the agent loop improves software work through repeated action and verification. Evidence connects the loops. Without traces, tests, evals and review, iteration becomes motion rather than engineering progress.
+  </figcaption>
+</figure>
+
+## Mapping to the Knowledge Base
+
+| Knowledge base area | Perspective | Core question |
+|---|---|---|
+| [Building and Deploying AI Applications](/building-deploying-ai-applications/) | SE4AI | How do we engineer AI-based systems? |
+| [Software Engineering Fundamentals](/software-engineering-fundamentals/) | Shared foundation | Which engineering disciplines make both directions reliable? |
+| [Using Coding Agents](/using-coding-agents/) | AI4SE | How do we engineer software with AI assistance and agents? |
+| [Shaping the Build](/shaping-the-build/) | Integration | How do humans define intent, constraints, evaluation and oversight? |
+
+The practical conclusion is simple: AI engineering is not just adding AI to products, and it is not just using AI to write code. It is the disciplined combination of both lines under human judgement, software quality and evidence-based improvement.
+
+Petra Heck of Fontys University of Applied Sciences makes the same distinction in terms of the **AI-augmented software engineer**: a professional who can build production-ready AI systems (SE4AI) and use AI tools to build production-ready systems (AI4SE). That framing reinforces the human role in this page: the engineer remains an end-to-end problem solver who works with stakeholders, understands the domain and oversees both AI-enabled products and AI-assisted engineering work.
+
+## Related Concepts
+
+- [What is AI Engineering?](/start-here/what-is-ai-engineering/)
+- [The AI Engineer](/start-here/the-ai-engineer/)
+- [The Four-Area Skills Map](/start-here/the-four-area-skills-map/)
+- [Coding Assistants Versus Coding Agents](/using-coding-agents/coding-assistants-versus-coding-agents/)
+- [The Agent Loop](/using-coding-agents/the-agent-loop/)
+- [Agentic Workflows and Harnesses](/building-deploying-ai-applications/agentic-workflows-and-harnesses/)
+- [Evals as the Spine](/cross-cutting-knowledge/evals-as-the-spine/)
+- [Quality Model for AI Software](/cross-cutting-knowledge/quality-model-for-ai-software/)
+
+<SourceNote>
+This page interprets the local source note in <code>ai4se-se4ai.md</code> and connects it to the knowledge base. Supporting sources: Andrew Ng, DeepLearning.AI, <a href="https://www.deeplearning.ai/the-batch/the-ai-engineering-skills-map/">The AI Engineering Skills Map</a>; Petra Heck, Fontys University of Applied Sciences, <a href="https://fontysblogt.nl/competences-for-the-ai-augmented-software-engineer/">Competences for the AI-Augmented Software Engineer</a>; and Martínez-Fernández et al., <a href="https://doi.org/10.1145/3487043">Software Engineering for AI-Based Systems: A Survey</a>.
+</SourceNote>
