@@ -1,0 +1,167 @@
+---
+title: "Intelligente Agent voor Retail-Logistiek"
+description: "Een uitgewerkt AI Engineering-voorbeeld voor een agent die adviseert over fulfillment, magazijnoperaties en distributieplanning bij een retailer."
+area: "Praktijkvoorbeelden"
+order: 1
+tags: ["agents","logistiek","retail","architectuur","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 1
+---
+
+import domainImage from '../../../../assets/example-retail-logistics-domain.png';
+import architectureImage from '../../../../assets/example-retail-logistics-architecture.svg';
+
+## Scenario
+
+Een omnichannel retailer wil een intelligente logistieke agent die planners, magazijnsupervisors en customer operations-teams helpt betere operationele beslissingen te nemen. De agent werkt met bestaande logistieke systemen in plaats van ze te vervangen: ordermanagement, warehouse management, transportmanagement, voorraad, leveranciers, personeelsplanning en klantenservice blijven de systemen van record.
+
+De agent begint als adviserend hulpmiddel. Later kan hij autonoom laag-risicotaken uitvoeren, zoals transferconcepten opstellen, leveringsslots reserveren, voorstellen voor pickwaves maken of exception tickets openen. Wanneer de agent handelt, rapporteert hij terug aan verantwoordelijke mensen met wat hij deed, waarom hij dat deed, welk bewijs hij gebruikte en wat nog aandacht vraagt.
+
+<figure class="concept-explainer-image">
+  <img src={domainImage.src} alt="Retail logistics control room verbonden met magazijnoperaties en distributieplanningdashboards voor fulfillment, voorraad en route-exceptions." loading="lazy" decoding="async" />
+</figure>
+
+## Productframing
+
+De eerste AI Engineering-taak is niet modelkeuze. Het is bepalen wiens werk moet verbeteren en wat besliskwaliteit betekent.
+
+Primaire gebruikers zijn:
+
+- Fulfillmentplanners die online vraag, winkelaanvulling en voorraadbeschikbaarheid afwegen.
+- Magazijnsupervisors die waves, personeelsbeperkingen, cut-offtijden en knelpunten beheren.
+- Distributieplanners die vervoerders, routes, dockcapaciteit en leverbeloften coordineren.
+- Customer operations-teams die late, gesplitste of vervangen orders afhandelen.
+
+Nuttige uitkomsten zijn minder late orders, beter voorraadgebruik, minder handmatige escalaties, snellere planningscycli, lagere expedite-kosten en voorspelbaardere werkdruk in magazijnen en transport.
+
+De agent is geschikt waar logistieke beslissingen context uit meerdere systemen, uitleg van trade-offs en herhaald exception-management vragen. Hij is niet geschikt als enige autoriteit voor contractuele vervoerdersafspraken, veiligheidskritische magazijnbeslissingen, wijzigingen in arbeidsbeleid, financiele afboekingen of klantbeloften buiten goedgekeurd beleid.
+
+## Systeemrol
+
+De agent staat tussen mensen en operationele systemen.
+
+Hij moet kunnen:
+
+- Vragen beantwoorden zoals "Waarom lopen de same-day orders van morgen in regio West risico?"
+- Opties vergelijken, zoals laag-prioritaire aanvulling uitstellen, voorraad uit een nabijgelegen winkel verplaatsen of een ander vervoerdersniveau kiezen.
+- Acties aanbevelen, zoals een waveplan aanpassen, voorraad herverdelen of een incident voor leveranciersvertraging openen.
+- Goedgekeurde acties uitvoeren via gecontroleerde tools wanneer vertrouwen, beleid en rechten dat toelaten.
+- Na elke actie of aanbeveling een auditeerbaar rapport opleveren.
+
+De agent mag onzekerheid niet verbergen. Een nuttig antwoord bevat gebruikte data, aannames, beperkingen, verwachte impact, vertrouwen, alternatieven en vereiste menselijke goedkeuring waar nodig.
+
+## Architectuur
+
+Een praktische architectuur scheidt het model van de operationele harness.
+
+<figure class="concept-explainer-image">
+  <img src={architectureImage.src} alt="Solution architecture voor een intelligente retail-logistieke agent met gebruikers, agent experience, modelworkflow, operationele harness, menselijke autoriteit en bestaande logistieke systemen." loading="lazy" decoding="async" />
+</figure>
+
+De harness beheert:
+
+- Identiteit, rollen en permissiechecks.
+- Connectors naar ERP, OMS, WMS, TMS, voorraad-, vervoerders- en ticketsystemen.
+- Retrieval uit beleid, SOP's, productbeperkingen, vervoerderscontracten en incidenthistorie.
+- Gestructureerde planningsstate voor elk onderzoek of elke actie.
+- Toolschemas met validatie, idempotency keys en dry-run modi.
+- Menselijke goedkeuringspoorten en escalatiepaden.
+- Tracevastlegging, auditlogs, monitoring en rollback-ondersteuning.
+
+Het model beheert taalbegrip, synthese, uitleg van trade-offs en plangeneratie. Het muteert operationele systemen niet direct. Alle schrijfacties lopen via getypeerde tools die bedrijfsregels afdwingen.
+
+## Grounding En Context
+
+De agent heeft zowel live operationele toestand als stabiele referentiekennis nodig.
+
+Operationele context kan bestaan uit open orders, beloofde leverdata, voorraad per locatie, status van inbound shipments, pick-packcapaciteit, personeelsplannen, vervoerderscapaciteit, routeplannen, temperatuur- of handlingbeperkingen en exception queues.
+
+Referentiecontext kan bestaan uit fulfillmentbeleid, safety-stockregels, substitutiebeleid, service-level agreements met vervoerders, magazijn-SOP's, escalatieprocedures en eerdere incidentpostmortems.
+
+Context engineering is belangrijk omdat de agent niet elke mogelijke rij moet ontvangen. Het systeem moet de relevante horizon, regio, productgroepen, locaties en beleidsregels ophalen voor de taak, en data samenvatten of aggregeren wanneer detailrecords niet nodig zijn.
+
+## Tools En Acties
+
+Toolontwerp moet echte logistieke bevoegdheden weerspiegelen.
+
+Leestools kunnen orders, voorraad, locatiestatus, vervoerderscapaciteit, routeplannen, tickethistorie en beleidsdocumenten inspecteren. Schrijftools moeten smaller en veiliger zijn: een transferconcept maken, een wavewijziging voorstellen, voorlopige capaciteit reserveren, een ticket openen, een notificatie sturen, goedkeuring vragen of een goedgekeurde regelgebaseerde update toepassen.
+
+Elke schrijftool moet definieren:
+
+- Preconditions en permissie-eisen.
+- Een dry-run antwoord dat impact inschat zonder state te wijzigen.
+- Idempotent gedrag zodat herhaalde calls geen duplicaatwerk maken.
+- Een gestructureerd actiebewijs met gewijzigde records, bronbewijs en rollback- of correctie-instructies.
+- Een menselijke goedkeuringsdrempel op basis van risico, kosten, klantimpact en vertrouwen.
+
+## Voorbeeldworkflow
+
+Een distributieplanner vraagt: "Kunnen we de leverbelofte voor online orders in regio West morgen nog halen?"
+
+De agent:
+
+1. Haalt open orders voor morgen, cut-offs van locaties, voorraadbeschikbaarheid, vervoerderscapaciteit en huidige exception tickets op.
+2. Ziet dat een magazijn genoeg voorraad heeft, maar te weinig pickcapaciteit na een late inbound truck.
+3. Test opties in dry-run modus: sommige orders naar een tweede magazijn verplaatsen, een vervoerderslane upgraden of laag-prioritaire winkelaanvulling uitstellen.
+4. Legt de trade-offs uit: verwachte vermindering van late orders, extra transportkosten, magazijnwerkdruk en risico.
+5. Beveelt een begrensd plan aan en vraagt goedkeuring omdat de vervoerdersupgrade boven de autonome kostendrempel ligt.
+6. Maakt na goedkeuring transferconcepten en een capaciteitsverzoek aan via tools.
+7. Rapporteert terug met actiebewijzen, geraakte ordergroepen, resterende risico's en het volgende monitoringsmoment.
+
+## Evaluatie
+
+Evals moeten meer dekken dan antwoordkwaliteit. Het systeem moet worden beoordeeld als operationele software.
+
+Nuttige evalsets bevatten historische logistieke incidenten, normale planningsdagen, piekseizoenscenario's, gevallen met incomplete data, beleidsconflicten en adversariele verzoeken die de agent controles willen laten omzeilen.
+
+Meetpunten zijn:
+
+- Correctheid van opgehaalde context en aangehaald bewijs.
+- Kwaliteit van aanbevelingen vergeleken met oordeel van ervaren planners.
+- Detectie van onhaalbare, onveilige of ongeautoriseerde acties.
+- Kalibratie van vertrouwen en escalatiebeslissingen.
+- Geldigheid van toolcalls, idempotentie en foutherstel.
+- Bedrijfsimpact na release, zoals late-orderpercentage, doorlooptijd van exceptions en expedite-kosten.
+
+Menselijke review blijft essentieel. Domeinexperts moeten traces, geweigerde acties, bijna-incidenten en gevallen waarin de agent zeker maar fout zat inspecteren.
+
+## Leveringsplan
+
+Een conservatief leveringsplan beweegt van advies naar begrensde autonomie.
+
+1. Read-only assistent voor logistieke vragen en exception-uitleg.
+2. Aanbevelingsassistent met dry-run simulaties en feedbackcapture van planners.
+3. Draft-action assistent die transfers, wavewijzigingen of tickets voorbereidt voor menselijke goedkeuring.
+4. Begrensde autonome acties voor laag-risico, omkeerbare taken binnen beleidsdrempels.
+5. Continue verbetering met productietraces, incidentreviews en regressie-evals.
+
+Elke fase moet expliciete releasecriteria en rollbackvoorwaarden hebben.
+
+## Governance En Operations
+
+De agent heeft operationele governance nodig omdat hij klantbeloften, voorraadbewegingen, magazijnwerkdruk en transportkosten beinvloedt.
+
+Menselijke beslisgrenzen moeten zijn gedocumenteerd. Het systeem moet traceerbaarheid bewaren van gebruikersvraag naar opgehaald bewijs, samenvatting van modelredenering, toolcalls, goedkeuringen en einduitkomst. Monitoring moet waarschuwen bij falende toolcalls, herhaalde retries, ongebruikelijk actievolume, beleidsconflicten, dure aanbevelingen en verslechterde datafeeds.
+
+De verantwoordelijke eigenaar is niet het model. Verantwoordelijkheid ligt bij product-, logistiek- en engineeringeigenaren die beleid definieren, autonomielimieten goedkeuren en incidenten reviewen.
+
+## Hoe De Vier Gebieden Verbinden
+
+De bouwopgave vormgeven definieert logistieke workflows, besliseigenaren, autonomiebegrenzing en succesmetingen.
+
+AI-applicaties bouwen en uitrollen levert grounding, toolgebruik, agentic workflow design, guardrails, evals en model operations.
+
+Basisprincipes van software engineering leveren systeemintegratie, API-contracten, security, testbaarheid, observability, incidentrespons en onderhoudbare levering.
+
+Coding agents gebruiken kan engineers helpen connectors te implementeren, testfixtures te genereren, evalcases te schrijven, toolschemas te refactoren en documentatie te onderhouden, maar die coding agents moeten werken tegen hetzelfde engineeringbewijs: tests, traces, contracten en review.
+
+## Gerelateerde Concepten
+
+- [Agentic Workflows and Harnesses](/nl/building-deploying-ai-applications/agentic-workflows-and-harnesses/)
+- [Tool Calling and MCP](/nl/building-deploying-ai-applications/tool-calling-and-mcp/)
+- [Grounding and RAG](/nl/building-deploying-ai-applications/grounding-and-rag/)
+- [Evals and Error Analysis](/nl/building-deploying-ai-applications/evals-and-error-analysis/)
+- [Human Oversight and Guardrails](/nl/building-deploying-ai-applications/human-oversight-and-guardrails/)
+- [Requirements and Design](/nl/software-engineering-fundamentals/requirements-and-design/)
+- [AI Suitability](/nl/shaping-the-build/ai-suitability/)

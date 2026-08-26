@@ -1,0 +1,167 @@
+---
+title: "Retail Logistics Intelligent Agent"
+description: "A worked AI Engineering example for an agent that advises on fulfillment, warehouse operations and distribution planning in a retailer."
+area: "Real world examples"
+order: 1
+tags: ["agents","logistics","retail","architecture","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 1
+---
+
+import domainImage from '../../../assets/example-retail-logistics-domain.png';
+import architectureImage from '../../../assets/example-retail-logistics-architecture.svg';
+
+## Scenario
+
+A multi-channel retailer wants an intelligent logistics agent that helps planners, warehouse supervisors and customer operations teams make better operational decisions. The agent works with existing logistics systems rather than replacing them: order management, warehouse management, transport management, inventory, supplier, labor planning and customer service systems remain the systems of record.
+
+The agent starts as an advisory assistant. Over time, it may autonomously carry out low-risk tasks such as drafting transfer proposals, reserving delivery slots, creating picking wave suggestions or opening exception tickets. When it acts, it reports back to accountable humans with what it did, why it did it, what evidence it used and what still needs attention.
+
+<figure class="concept-explainer-image">
+  <img src={domainImage.src} alt="Retail logistics control room connected to warehouse operations and distribution planning dashboards for fulfillment, inventory and route exceptions." loading="lazy" decoding="async" />
+</figure>
+
+## Product Framing
+
+The first AI Engineering task is not model selection. It is to define whose work should improve and what decision quality means.
+
+Primary users include:
+
+- Fulfillment planners balancing online demand, store replenishment and stock availability.
+- Warehouse supervisors managing waves, labor constraints, cut-off times and bottlenecks.
+- Distribution planners coordinating carriers, routes, dock capacity and delivery promises.
+- Customer operations teams handling late, split or substituted orders.
+
+Useful outcomes include fewer late orders, better use of inventory, fewer manual exception escalations, faster planning cycles, lower expedite cost and more predictable workload in warehouses and transport.
+
+The agent is appropriate where logistics decisions require cross-system context, trade-off explanation and repeated exception handling. It is not appropriate as the sole authority for contractual carrier commitments, safety-critical warehouse decisions, labor policy changes, financial write-offs or customer-impacting promises beyond approved policy.
+
+## System Role
+
+The agent sits between humans and operational systems.
+
+It should be able to:
+
+- Answer questions such as "Why are tomorrow's same-day orders at risk in region West?"
+- Compare options such as delaying low-priority replenishment, moving stock from a nearby store or switching carrier service level.
+- Recommend actions such as changing a wave plan, reallocating inventory or opening a supplier delay incident.
+- Execute approved actions through controlled tools when confidence, policy and permissions allow it.
+- Produce an auditable report after each action or recommendation.
+
+The agent should not hide uncertainty. A useful response includes the data used, assumptions, constraints, likely impact, confidence, alternatives and required human approval when needed.
+
+## Architecture
+
+A practical architecture separates the model from the operational harness.
+
+<figure class="concept-explainer-image">
+  <img src={architectureImage.src} alt="Solution architecture for a retail logistics intelligent agent showing human users, agent experience, model workflow, operational harness, human authority and existing logistics systems." loading="lazy" decoding="async" />
+</figure>
+
+The harness owns:
+
+- Identity, roles and permission checks.
+- Connectors to ERP, OMS, WMS, TMS, inventory, carrier and ticketing systems.
+- Retrieval from policies, SOPs, product constraints, carrier contracts and incident history.
+- Structured planning state for each investigation or action.
+- Tool schemas with validation, idempotency keys and dry-run modes.
+- Human approval gates and escalation paths.
+- Trace capture, audit logs, monitoring and rollback support.
+
+The model owns language understanding, synthesis, trade-off explanation and plan generation. It does not directly mutate operational systems. All writes go through typed tools that enforce business rules.
+
+## Grounding And Context
+
+The agent needs both live operational state and stable reference knowledge.
+
+Operational context may include open orders, promised delivery dates, inventory by node, inbound shipment status, pick-pack capacity, labor plans, carrier capacity, route plans, temperature or handling constraints and exception queues.
+
+Reference context may include fulfillment policies, safety stock rules, substitution policies, carrier service-level agreements, warehouse SOPs, escalation procedures and previous incident postmortems.
+
+Context engineering matters because the agent should not receive every possible row. The system should retrieve the relevant horizon, region, product groups, facilities and policies for the task, then summarize or aggregate data where detailed records are not needed.
+
+## Tools And Actions
+
+Tool design should reflect real logistics authority.
+
+Read tools can inspect orders, inventory, facility status, carrier capacity, route plans, ticket history and policy documents. Write tools should be narrower and safer: create a draft transfer, propose a wave change, reserve tentative capacity, open a ticket, send a notification, request approval or apply an approved rule-based update.
+
+Every write tool should define:
+
+- Preconditions and permission requirements.
+- A dry-run response that estimates impact without changing state.
+- Idempotency behaviour so repeated calls do not duplicate work.
+- A structured action receipt containing changed records, source evidence and rollback or correction instructions.
+- A human approval threshold based on risk, cost, customer impact and confidence.
+
+## Example Workflow
+
+A distribution planner asks: "Can we still meet tomorrow's delivery promise for online orders in region West?"
+
+The agent:
+
+1. Retrieves tomorrow's open orders, facility cut-offs, inventory availability, carrier capacity and current exception tickets.
+2. Detects that one warehouse has enough inventory but insufficient pick capacity after a late inbound truck.
+3. Tests options in dry-run mode: transfer some orders to a second warehouse, upgrade a carrier lane or defer low-priority store replenishment.
+4. Explains the trade-offs: expected late-order reduction, incremental transport cost, warehouse workload and risk.
+5. Recommends a bounded plan and asks for approval because the carrier upgrade exceeds the autonomous cost threshold.
+6. After approval, creates transfer proposals and a carrier capacity request through tools.
+7. Reports back with action receipts, impacted order groups, remaining risks and the next monitoring checkpoint.
+
+## Evaluation
+
+Evals should cover more than answer quality. The system must be evaluated as operational software.
+
+Useful eval sets include historical logistics incidents, normal planning days, peak-season scenarios, incomplete-data cases, policy conflicts and adversarial requests that ask the agent to bypass controls.
+
+Metrics should include:
+
+- Correctness of retrieved context and cited evidence.
+- Quality of recommendation compared with expert planner judgment.
+- Detection of infeasible, unsafe or unauthorized actions.
+- Calibration of confidence and escalation decisions.
+- Tool-call validity, idempotency and error recovery.
+- Business impact after release, such as late-order rate, exception cycle time and expedite cost.
+
+Human review remains essential. Domain experts should inspect traces, rejected actions, near misses and cases where the agent was confidently wrong.
+
+## Delivery Plan
+
+A conservative delivery plan moves from advice to constrained autonomy.
+
+1. Read-only assistant for logistics questions and exception explanation.
+2. Recommendation assistant with dry-run simulations and planner feedback capture.
+3. Draft-action assistant that prepares transfers, wave changes or tickets for human approval.
+4. Bounded autonomous actions for low-risk, reversible tasks within policy thresholds.
+5. Continuous improvement using production traces, incident reviews and regression evals.
+
+Each stage should have explicit release criteria and rollback conditions.
+
+## Governance And Operations
+
+The agent needs operational governance because it affects customer promises, inventory movement, warehouse workload and transport cost.
+
+Human decision boundaries should be documented. The system should preserve traceability from user request to retrieved evidence, model reasoning summary, tool calls, approvals and final outcome. Monitoring should alert on failed tool calls, repeated retries, unusual action volume, policy conflicts, high-cost recommendations and degraded data feeds.
+
+The accountable owner is not the model. Accountability sits with the product, logistics and engineering owners who define policy, approve autonomy limits and review incidents.
+
+## How The Four Areas Connect
+
+Shaping the build defines the logistics workflows, decision owners, autonomy boundaries and success metrics.
+
+Building and deploying AI applications contributes grounding, tool use, agentic workflow design, guardrails, evals and model operations.
+
+Software engineering fundamentals provide system integration, API contracts, security, testability, observability, incident response and maintainable delivery.
+
+Using coding agents can help engineers implement connectors, generate test fixtures, write eval cases, refactor tool schemas and maintain documentation, but those coding agents should work against the same engineering evidence: tests, traces, contracts and review.
+
+## Related Concepts
+
+- [Agentic Workflows and Harnesses](/building-deploying-ai-applications/agentic-workflows-and-harnesses/)
+- [Tool Calling and MCP](/building-deploying-ai-applications/tool-calling-and-mcp/)
+- [Grounding and RAG](/building-deploying-ai-applications/grounding-and-rag/)
+- [Evals and Error Analysis](/building-deploying-ai-applications/evals-and-error-analysis/)
+- [Human Oversight and Guardrails](/building-deploying-ai-applications/human-oversight-and-guardrails/)
+- [Requirements and Design](/software-engineering-fundamentals/requirements-and-design/)
+- [AI Suitability](/shaping-the-build/ai-suitability/)
