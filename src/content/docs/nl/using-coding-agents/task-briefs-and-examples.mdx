@@ -1,6 +1,6 @@
 ---
-title: "Taakbriefs en voorbeelden"
-description: "A reusable task brief structure for bounded, verifiable agent work."
+title: "Taakbriefings en voorbeelden"
+description: "Een herbruikbare taakbriefing-structuur voor begrensd en verifieerbaar agentwerk."
 area: "Coding agents gebruiken"
 order: 9
 tags: ["practice"]
@@ -16,56 +16,56 @@ import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
-<Definition term={"Taakbriefs en voorbeelden"}>
-A task brief is a compact specification for an agent run: goal, scope, relevant files, constraints, allowed actions, non-goals, acceptance criteria and required evidence. Good examples show both the desired output and the boundaries of acceptable implementation, which helps agents avoid broad rewrites, hidden assumptions and unverified claims of completion.
+<Definition term={"Taakbriefings en voorbeelden"}>
+Een taakbriefing is een compacte specificatie voor een agentsessie: doel, scope, relevante bestanden, randvoorwaarden, toegestane acties, niet-doelen, acceptatiecriteria en vereist bewijs. Goede voorbeelden tonen zowel de gewenste output als de grenzen van een acceptabele implementatie. Dat helpt agents brede herschrijvingen, verborgen aannames en niet-geverifieerde claims over afronding te vermijden.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-A useful task brief separates outcome, user need, scope, constraints, acceptance criteria and verification. It gives the agent enough context to make local choices while keeping the human in charge of intent and risk.
+Een bruikbare taakbriefing scheidt uitkomst, gebruikersbehoefte, scope, randvoorwaarden, acceptatiecriteria en verificatie. Zo krijgt de agent genoeg context om lokale keuzes te maken, terwijl de mens de regie houdt over intentie en risico.
 
 ```markdown
-# Outcome
-Add document citations to the answer view.
+# Uitkomst
+Voeg bronverwijzingen toe aan de antwoordweergave.
 
-# User need
-Users must be able to inspect the source behind an AI-generated claim.
+# Gebruikersbehoefte
+Gebruikers moeten de bron achter een door AI gegenereerde bewering kunnen inspecteren.
 
 # Scope
-- API response schema and web answer component
-- Existing retrieval pipeline only
+- API-responseschema en webantwoordcomponent
+- Alleen de bestaande retrieval-pipeline
 
-# Constraints
-- Preserve backward compatibility
-- No new production dependency
-- Do not expose internal storage identifiers
+# Randvoorwaarden
+- Achterwaartse compatibiliteit behouden
+- Geen nieuwe dependency in productie
+- Maak interne opslag-ID’s niet zichtbaar
 
-# Acceptance criteria
-- Every grounded claim can show one or more source links
-- Missing citations degrade gracefully
-- Contract and UI tests pass
-- Accessibility is verified by keyboard
+# Acceptatiecriteria
+- Elke gegronde bewering kan één of meer bronlinks tonen
+- Ontbrekende bronverwijzingen worden gracieus afgehandeld
+- Contract- en UI-tests slagen
+- Toegankelijkheid is via het toetsenbord gecontroleerd
 
-# Verification
-- Run: npm test
-- Run: npm run lint
-- Render and inspect the answer view
+# Verificatie
+- Voer uit: npm test
+- Voer uit: npm run lint
+- Render en inspecteer de antwoordweergave
 ```
 
 <EngineeringMode>
-Task briefs are requirements engineering for agent work. Architecture and design constraints must be stated before the agent edits. Build work benefits from examples, target files, acceptance criteria and validation commands. Operations reuse good briefs for recurring work and compare outcomes. The risk is giving vague goals, then blaming the agent for optimizing against unstated constraints.
+Taakbriefings zijn requirements engineering voor agentwerk. Architectuur- en ontwerpbeperkingen moeten worden vastgelegd voordat de agent wijzigingen aanbrengt. Bouwtaken profiteren van voorbeelden, doelbestanden, acceptatiecriteria en validatiecommando’s. Operations hergebruikt goede briefings voor terugkerend werk en vergelijkt uitkomsten. Het risico is vage doelen geven en vervolgens de agent de schuld geven omdat die optimaliseert tegen onuitgesproken randvoorwaarden.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-A strong task brief for an AI coding agent is specific enough to test. For example: “Add CSV export for filtered invoices, preserve current permissions, include empty-state behavior and run npm test.” The agent can then inspect the right files and produce evidence instead of guessing intent.
+Een sterke taakbriefing voor een AI coding agent is voldoende specifiek om te testen. Bijvoorbeeld: “Voeg CSV-export toe voor gefilterde facturen, behoud de huidige permissies, neem leegtoestand-gedrag op en voer npm test uit.” De agent kan dan de juiste bestanden inspecteren en bewijs leveren in plaats van te gissen naar de intentie.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"The ten-step working method","href":"/using-coding-agents/the-ten-step-working-method/"},{"label":"Acceptance criteria","href":"/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"}]} />
+<RelatedConcepts links={[{"label":"De werkmethode in tien stappen","href":"/nl/using-coding-agents/the-ten-step-working-method/"},{"label":"Acceptatiecriteria","href":"/nl/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"}]} />
 
 <SourceNote>
-Further study: OpenAI Codex task guidance and GitHub issue/PR templates for reproducible engineering work.
+Verder lezen: richtlijnen voor taken in OpenAI Codex en GitHub-issue/PR-sjablonen voor reproduceerbaar engineeringwerk.
 </SourceNote>

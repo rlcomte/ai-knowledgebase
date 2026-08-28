@@ -1,6 +1,6 @@
 ---
 title: "Evals als ruggengraat"
-description: "How evals connect shaping, AI application engineering, software engineering and coding-agent work."
+description: "Hoe evals Shaping, engineering van AI-toepassingen, software engineering en werk met coding agents verbinden."
 area: "Overkoepelende kennis"
 order: 1
 tags: ["evaluation","foundation"]
@@ -9,102 +9,102 @@ sidebar:
   order: 1
 ---
 
-Evals connect intent to evidence:
+Evals verbinden intentie met bewijs:
 
-1. **Shaping** defines desirable and unacceptable behaviour.
-2. **AI application engineering** converts this into datasets, graders and traces.
-3. **Software engineering** automates the checks in release and monitoring workflows.
-4. **Coding agents** use the same checks to implement, verify and improve work.
+1. Shaping definieert gewenst en onacceptabel gedrag.
+2. Engineering van AI-toepassingen zet dit om in datasets, graders en traces.
+3. Software engineering automatiseert de checks in release- en monitoringworkflows.
+4. Coding agents gebruiken dezelfde checks om werk te implementeren, te verifiëren en te verbeteren.
 
-Calling evals the spine means they carry the main load of learning and control across the whole AI engineering lifecycle. They translate product intent into observable behaviour, make model-backed systems changeable, and give teams a shared way to discuss quality that is more concrete than "the model seems good".
+Evals de ruggengraat noemen betekent dat zij de hoofdmoot van leren en controle dragen door de hele AI-engineeringlevenscyclus. Ze vertalen productintentie naar observeerbaar gedrag, maken door modellen ondersteunde systemen aanpasbaar, en geven teams een gedeelde manier om kwaliteit te bespreken die concreter is dan "het model lijkt goed".
 
-An eval is not only a benchmark. In an AI product, evals are the connective tissue between requirements, prompts, retrieval, tools, guardrails, monitoring and release decisions. They help answer a practical engineering question: if we change the model, prompt, data pipeline, tool schema or workflow, did the system become better, worse or merely different?
+Een eval is niet alleen een benchmark. In een AI-product zijn evals het bindweefsel tussen requirements, prompts, retrieval, tools, guardrails, monitoring en releasebeslissingen. Ze helpen een praktische engineeringvraag te beantwoorden: als we het model, de prompt, datapijplijn, toolschema of workflow veranderen, is het systeem dan beter, slechter of alleen maar anders geworden?
 
 <aside class="evals-callout">
-  <p class="eyebrow">Educational principle</p>
-  <h2>Do not only teach how to generate an output.</h2>
-  <p>Teach how to specify, inspect and improve its quality.</p>
+  <p class="eyebrow">Onderwijsprincipe</p>
+  <h2>Leer niet alleen hoe je een output genereert.</h2>
+  <p>Leer ook hoe je de kwaliteit specificeert, inspecteert en verbetert.</p>
 </aside>
 
-## What the Spine Connects
+## Wat de ruggengraat verbindt
 
-Evals connect the four areas of this knowledge base because each area produces or consumes evidence.
+Evals verbinden de vier gebieden van deze kennisbank omdat elk gebied bewijs produceert of verbruikt.
 
-| Area | What evals contribute |
+| Gebied | Wat evals bijdragen |
 |---|---|
-| Shaping the build | Convert user outcomes, stakeholder concerns, risk boundaries and acceptance criteria into observable cases. |
-| Building AI applications | Measure whether prompts, retrieval, tools, models and guardrails produce acceptable behaviour. |
-| Software engineering fundamentals | Place AI checks inside normal engineering systems: tests, CI, release gates, dashboards and incident review. |
-| Using coding agents | Give agents objective commands and examples for implementation, repair, review and regression checking. |
+| Shaping van de build | Zet gebruikersuitkomsten, zorgen van stakeholders, risicogrenzen en acceptatiecriteria om in observeerbare gevallen. |
+| AI-toepassingen bouwen | Meet of prompts, retrieval, tools, modellen en guardrails acceptabel gedrag opleveren. |
+| Basis van software engineering | Plaats AI-checks in normale engineeringsystemen: tests, CI, release gates, dashboards en incident review. |
+| Coding agents gebruiken | Geef agents objectieve opdrachten en voorbeelden voor implementatie, reparatie, review en regressiecontrole. |
 
-Without evals, these areas drift apart. Product teams may describe value in vague terms, model teams may optimize disconnected metrics, engineers may ship untested prompt changes, and coding agents may claim completion without evidence.
+Zonder evals drijven deze gebieden uit elkaar. Productteams kunnen waarde in vage termen beschrijven, modelteams kunnen op niet-gekoppelde metrics optimaliseren, engineers kunnen ongeteste promptwijzigingen shippen, en coding agents kunnen afronding claimen zonder bewijs.
 
-## What to Evaluate
+## Wat je evalueert
 
-A useful eval suite covers more than answer quality. It should reflect the system that users actually experience.
+Een nuttige evalsuite dekt meer dan alleen antwoordkwaliteit. Ze moet het systeem weerspiegelen dat gebruikers daadwerkelijk ervaren.
 
-| Evaluation target | Example question |
+| Evaluatiedoel | Voorbeeldvraag |
 |---|---|
-| Task success | Does the system solve the user request in representative cases? |
-| Grounding | Are claims supported by retrieved evidence or trusted tools? |
-| Safety and policy | Does the system refuse, escalate or constrain risky requests correctly? |
-| Robustness | What happens with ambiguous, adversarial, incomplete or messy inputs? |
-| Tool behavior | Are tool calls valid, necessary, permissioned and recoverable when they fail? |
-| User workflow | Does the AI reduce work without hiding uncertainty or increasing review burden? |
-| Operations | Does quality hold under latency, cost, rate-limit and data-freshness constraints? |
+| Taaksucces | Lost het systeem het verzoek van de gebruiker op in representatieve gevallen? |
+| Grounding | Worden beweringen ondersteund door opgehaald bewijs of vertrouwde tools? |
+| Veiligheid en beleid | Weigert, escaleert of begrenst het systeem risicovolle verzoeken correct? |
+| Robuustheid | Wat gebeurt er bij ambigue, adversariële, incomplete of rommelige input? |
+| Gedrag van tools | Zijn tool-calls geldig, noodzakelijk, geautoriseerd en herstelbaar wanneer ze falen? |
+| Gebruikersworkflow | Vermindert de AI werk zonder onzekerheid te verbergen of de reviewlast te verhogen? |
+| Operations | Blijft de kwaliteit overeind onder beperkingen van latency, kosten, rate limits en dataversheid? |
 
-This is why application-level evals matter. A raw model benchmark may be useful background, but production quality depends on prompts, context assembly, retrieval, tool contracts, UI affordances, policies, data freshness and human review.
+Dit is waarom evals op applicatieniveau ertoe doen. Een ruwe modelbenchmark kan nuttige achtergrond zijn, maar productiekwaliteit hangt af van prompts, contextassemblage, retrieval, toolcontracten, UI-mogelijkheden, policies, dataversheid en menselijke review.
 
-## The Evaluation Loop
+## De evaluatielus
 
-Evaluation-driven AI development is iterative:
+Evaluatiegestuurde AI-ontwikkeling is iteratief:
 
-1. Define the intended behaviour and unacceptable failures.
-2. Collect representative cases from real tasks, expert examples, support logs, synthetic edge cases or incident reviews.
-3. Run the current system to establish a baseline.
-4. Score outputs with deterministic checks, model graders, human review or a combination.
-5. Inspect failures qualitatively and group them into causes.
-6. Change one part of the system: prompt, retrieval, data, model, tool design, guardrail or workflow.
-7. Rerun the suite and compare against the baseline.
-8. Promote the change only when improvements outweigh regressions and risks.
+1. Definieer het beoogde gedrag en onacceptabele fouten.
+2. Verzamel representatieve gevallen uit echte taken, expertvoorbeelden, supportlogs, synthetische edge cases of incidentreviews.
+3. Draai het huidige systeem om een baseline vast te stellen.
+4. Scoor outputs met deterministische checks, modelgraders, menselijke review of een combinatie.
+5. Inspecteer fouten kwalitatief en groepeer ze naar oorzaken.
+6. Wijzig één onderdeel van het systeem: prompt, retrieval, data, model, tooldesign, guardrail of workflow.
+7. Draai de suite opnieuw en vergelijk met de baseline.
+8. Promoveer de wijziging alleen wanneer de verbeteringen zwaarder wegen dan regressies en risico’s.
 
-The important habit is error analysis. Aggregate scores tell a team whether something changed; inspected failures explain what to build next.
+De cruciale gewoonte is foutenanalyse. Geaggregeerde scores vertellen een team of er iets veranderde; geïnspecteerde fouten verklaren wat je hierna moet bouwen.
 
-## Designing Good Evals
+## Goede evals ontwerpen
 
-Good evals are small enough to run often, realistic enough to matter and explicit enough to guide decisions. They usually combine three kinds of checks:
+Goede evals zijn klein genoeg om vaak te draaien, realistisch genoeg om ertoe te doen en expliciet genoeg om beslissingen te sturen. Ze combineren doorgaans drie soorten checks:
 
-| Check type | Use it for |
+| Type check | Gebruik voor |
 |---|---|
-| Deterministic checks | Schemas, citations, exact tool arguments, permissions, latency budgets and required fields. |
-| Human review | High-stakes judgement, tone, usefulness, fairness, workflow fit and ambiguous cases. |
-| Model grading | Scalable semantic checks where the rubric is clear and periodically audited by humans. |
+| Deterministische checks | Schema’s, bronverwijzingen, exacte toolargumenten, permissies, latencybudgetten en verplichte velden. |
+| Menselijke review | Oordeel met hoge inzet, toon, bruikbaarheid, eerlijkheid, passendheid bij de workflow en ambigue cases. |
+| Model grading | Schaalbare semantische checks waarbij het beoordelingskader duidelijk is en periodiek door mensen wordt geaudit. |
 
-The best suites include ordinary cases, boundary cases and risk cases. For example, a RAG support assistant should be tested on common questions, outdated documentation, missing answers, conflicting sources, private data, malformed queries and cases that require escalation.
+De beste suites bevatten gewone gevallen, grensgevallen en risicogevallen. Een RAG-supportassistent moet bijvoorbeeld getest worden op veelvoorkomende vragen, verouderde documentatie, ontbrekende antwoorden, conflicterende bronnen, private data, ongeldige of misvormde queries en gevallen die escalatie vereisen.
 
-## Operational Implications
+## Operationele implicaties
 
-Once an AI feature is live, evals should continue to shape operations. Offline evals catch regressions before release; online monitoring catches drift after release. Production traces can feed new eval cases when users find failures the original test set missed.
+Zodra een AI‑feature live is, moeten evals de operatie blijven vormen. Offline evals vangen regressies vóór release; online monitoring vangt drift ná release. Productietraces kunnen nieuwe evalcases voeden wanneer gebruikers fouten vinden die de oorspronkelijke testset miste.
 
-In practice, evals influence architecture:
+In de praktijk beïnvloeden evals de architectuur:
 
-1. Prompts, model versions, retrieval settings and tool schemas need version identifiers.
-2. Runs need traces that connect inputs, retrieved context, tool calls, outputs and scores.
-3. CI should run fast regression suites for common changes.
-4. Release gates should include risk-specific evals for sensitive workflows.
-5. Dashboards should track quality signals alongside latency, cost and errors.
+1. Prompts, modelversies, retrievalinstellingen en toolschema’s hebben versie‑ID’s nodig.
+2. Runs hebben traces nodig die inputs, opgehaalde context, tool-calls, outputs en scores verbinden.
+3. CI zou snelle regressiesuites moeten draaien voor veelvoorkomende wijzigingen.
+4. Release gates moeten riskspecifieke evals bevatten voor gevoelige workflows.
+5. Dashboards moeten kwaliteitssignalen volgen naast latency, kosten en fouten.
 
-## Common Mistakes
+## Veelgemaakte fouten
 
-The recurring mistake is treating evals as a late-stage report rather than an engineering control system.
+De terugkerende fout is evals behandelen als een laatstadiumrapport in plaats van als een engineeringssturingssysteem.
 
-Other common failures include:
+Andere veelvoorkomende missers zijn:
 
-1. Evaluating only the base model instead of the full application.
-2. Using a test set that is too clean, small or disconnected from real work.
-3. Reporting only pass rates without reading failures.
-4. Changing prompts, retrieval and models at the same time, then losing causal understanding.
-5. Letting model-graded evals drift without human calibration.
-6. Ignoring operational constraints such as latency, cost, permissions and rollback.
+1. Alleen het basismodel evalueren in plaats van de volledige applicatie.
+2. Een testset gebruiken die te schoon, te klein of losgezongen is van echt werk.
+3. Alleen slagingspercentages rapporteren zonder fouten te lezen.
+4. Prompts, retrieval en modellen tegelijk wijzigen en daardoor het causale begrip verliezen.
+5. Door modellen beoordeelde evals laten driften zonder menselijke kalibratie.
+6. Operationele randvoorwaarden negeren, zoals latency, kosten, permissies en rollback.
 
-Evals are the spine because they keep the system upright while it changes. They do not remove judgement, but they make judgement inspectable, repeatable and tied to the actual behaviour of the AI software.
+Evals zijn de ruggengraat omdat ze het systeem rechtop houden terwijl het verandert. Ze nemen oordeel niet weg, maar maken oordeel inspecteerbaar, herhaalbaar en gekoppeld aan het daadwerkelijke gedrag van de AI‑software.

@@ -1,6 +1,6 @@
 ---
 title: "Delegatie, handoffs en orchestratie"
-description: "How orchestrators assign, combine and account for work across agents."
+description: "Hoe orkestratoren werk toewijzen, combineren en verantwoorden over agents."
 area: "Coding agents gebruiken"
 order: 11
 tags: ["architecture","governance"]
@@ -17,31 +17,31 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Delegatie, handoffs en orchestratie"}>
-Delegation assigns a bounded piece of work to another agent, tool or human. A handoff transfers results with enough context to continue safely: scope, files touched, assumptions, evidence and unresolved risks. Orchestration is the control layer that sequences or parallelises work, resolves conflicts, enforces permissions and decides when the overall workflow is complete.
+Delegatie kent een afgebakend stuk werk toe aan een andere agent, tool of mens. Een handoff draagt resultaten over met voldoende context om veilig door te gaan: scope, bestanden die zijn aangeraakt, aannames, bewijs en onopgeloste risico’s. Orchestratie is de besturingslaag die werk ordent of parallel laat verlopen, conflicten oplost, rechten afdwingt en beslist wanneer de totale workflow gereed is.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Parallel delegation runs independent work simultaneously, such as security review, test-gap analysis and maintainability review. It improves elapsed time when dependencies are low.
+Parallelle delegatie laat onafhankelijk werk gelijktijdig lopen, zoals security review, test-gapanalyse en onderhoudbaarheidsreview. Het verkort de doorlooptijd wanneer er weinig afhankelijkheden zijn.
 
-Specialised roles help when responsibilities and outputs are clear. An orchestrator decomposes work, assigns tasks, manages dependencies, resolves results and owns the final synthesis.
+Gespecialiseerde rollen helpen wanneer verantwoordelijkheden en outputs duidelijk zijn. Een orkestrator decomponeert werk, wijst taken toe, beheert afhankelijkheden, verzoent resultaten en is eigenaar van de eindsynthese.
 
-A handoff transfers task, context, decisions, artifacts and remaining uncertainty. Loose handoffs lose essential information. Shared artifacts are where agents coordinate, but concurrent writes to the same artifact create conflict risk.
+Een handoff draagt taak, context, beslissingen, artefacten en resterende onzekerheid over. Slordige handoffs verliezen essentiële informatie. In gedeelde artefacten coördineren agents, maar gelijktijdig schrijven naar hetzelfde artefact creëert conflictrisico.
 
 <EngineeringMode>
-Delegation requires explicit contracts between workers. Architecture should support separate workspaces, scoped tools and traceable outputs. Design defines what a useful handoff contains and who resolves conflicts. Build work records files touched, commands run and uncertainties. Operations monitor duplicated work and missed context. The risk is accepting a handoff that sounds confident but lacks evidence needed for integration.
+Delegatie vereist expliciete contracten tussen uitvoerders. Architectuur moet aparte werkruimtes, tools met een (beperkte) scope en traceerbare outputs ondersteunen. Ontwerp definieert wat een nuttige handoff bevat en wie conflicten oplost. Tijdens de build worden de aangeraakte bestanden, uitgevoerde commando’s en onzekerheden vastgelegd. Operations bewaakt dubbel werk en gemiste context. Het risico is een handoff accepteren die zelfverzekerd klinkt maar het bewijs mist dat nodig is voor integratie.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-A lead agent can delegate flaky-test investigation to a subagent, but the handoff must be useful: files inspected, commands run, suspected cause, confidence and unresolved questions. The lead then decides whether to implement the fix, ask for more evidence or reject the finding.
+Een lead agent kan het onderzoek naar flaky tests delegeren aan een subagent, maar de handoff moet bruikbaar zijn: bekeken bestanden, uitgevoerde commando’s, vermoedelijke oorzaak, vertrouwen en openstaande vragen. De lead beslist vervolgens of de fix wordt doorgevoerd, om meer bewijs wordt gevraagd of de bevinding wordt afgewezen.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Multi-agent patterns","href":"/using-coding-agents/multi-agent-patterns/"},{"label":"Trace and provenance","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
+<RelatedConcepts links={[{"label":"Multi-agentpatronen","href":"/nl/using-coding-agents/multi-agent-patterns/"},{"label":"Trace en herkomst","href":"/nl/using-coding-agents/evaluating-coding-agents/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://developers.openai.com/api/docs/guides/agents">Agents SDK</a>, and Anthropic guidance on multi-agent Claude Code workflows.
+Verder lezen: OpenAI, <a href="https://developers.openai.com/api/docs/guides/agents">Agents SDK</a>, en richtlijnen van Anthropic voor multi-agent Claude Code-workflows.
 </SourceNote>

@@ -1,6 +1,6 @@
 ---
 title: "Codekwaliteit en versiebeheer"
-description: "Maintainability, readable diffs and reversible change in human and agent-written code."
+description: "Onderhoudbaarheid, leesbare diffs en omkeerbare wijzigingen in door mensen en agents geschreven code."
 area: "Basisprincipes van software engineering"
 order: 5
 tags: ["practice"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Codekwaliteit en versiebeheer"}>
-Code quality is the set of properties that make software understandable, maintainable, testable and safe to change. Version control records the history, intent and review trail of those changes. In agent-assisted development, clean diffs, small commits, naming discipline, dependency control and reviewable change boundaries are essential because humans still own correctness and maintainability.
+Codekwaliteit is de verzameling eigenschappen die software begrijpelijk, onderhoudbaar, testbaar en veilig aanpasbaar maken. Versiebeheer legt de geschiedenis, intentie en het reviewspoor van die wijzigingen vast. Bij agent-ondersteunde ontwikkeling zijn schone diffs, kleine commits, naamgevingsdiscipline, afhankelijkhedenbeheer en duidelijk afgebakende, reviewbare wijzigingen essentieel, omdat mensen uiteindelijk verantwoordelijk blijven voor correctheid en onderhoudbaarheid.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Code quality covers readability, cohesion, low coupling, appropriate abstraction, consistency and explicit intent. Generated code must meet the same maintainability standard as human-written code.
+Codekwaliteit omvat leesbaarheid, cohesie, lage koppeling, passende abstractie, consistentie en expliciete bedoeling. Gegenereerde code moet aan dezelfde onderhoudbaarheidsnorm voldoen als door mensen geschreven code.
 
-Version control records and reviews changes using branches, commits, diffs and merge workflows. Small, coherent changes make agent output easier to inspect and reverse.
+Versiebeheer legt wijzigingen vast en ondersteunt review met branches, commits, diffs en merge-workflows. Kleine, coherente wijzigingen maken agentoutput makkelijker te inspecteren en terug te draaien.
 
 <EngineeringMode>
-Code quality and version control make AI-assisted changes accountable. Architecture decisions should be visible in diffs and reviewable modules. Design changes need traceable rationale. Build work stays small, tested and reversible. Operations rely on history for rollback and incident analysis. The risk is letting generated code accumulate without ownership, tests or understandable change history.
+Codekwaliteit en versiebeheer maken AI-ondersteunde wijzigingen verantwoordbaar. Architectuurbeslissingen moeten zichtbaar zijn in diffs en in reviewbare modules. Ontwerpwijzigingen hebben een herleidbare onderbouwing nodig. Het werk blijft klein, getest en omkeerbaar. Operations vertrouwt op de historie voor rollback en incidentanalyse. Het risico is dat gegenereerde code zich opstapelt zonder eigenaarschap, tests of begrijpelijke wijzigingsgeschiedenis.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk waarneembaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-When an AI agent opens a pull request, normal engineering controls still matter. Reviewers should expect readable diffs, focused commits, tests, style consistency and a rollback path. Version control turns agent work into inspectable change history instead of an opaque conversation transcript.
+Wanneer een AI-agent een pull request opent, blijven normale engineeringcontroles van belang. Reviewers mogen leesbare diffs, gefocuste commits, tests, stijlnaleving en een rollback-pad verwachten. Versiebeheer maakt van agentwerk een controleerbare wijzigingsgeschiedenis in plaats van een ondoorzichtige gesprekslog.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Principles for effective use","href":"/using-coding-agents/principles-for-effective-use/"},{"label":"Technical debt, documentation and teamwork","href":"/software-engineering-fundamentals/technical-debt-documentation-and-teamwork/"}]} />
+<RelatedConcepts links={[{"label":"Principes voor effectief gebruik","href":"/nl/using-coding-agents/principles-for-effective-use/"},{"label":"Technische schuld, documentatie en teamwork","href":"/nl/software-engineering-fundamentals/technical-debt-documentation-and-teamwork/"}]} />
 
 <SourceNote>
-Further study: Robert C. Martin, <em>Clean Code</em>, and Pro Git, <a href="https://git-scm.com/book/en/v2">the official Git book</a>.
+Verder lezen: Robert C. Martin, <em>Clean Code</em>, en Pro Git, <a href="https://git-scm.com/book/en/v2">het officiële Git-boek</a>.
 </SourceNote>

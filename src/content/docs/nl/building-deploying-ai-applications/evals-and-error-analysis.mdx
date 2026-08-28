@@ -1,6 +1,6 @@
 ---
 title: "Evals en foutanalyse"
-description: "Structured tests and qualitative inspection for improving probabilistic AI-system behaviour."
+description: "Gestructureerde tests en kwalitatieve inspectie om het probabilistische gedrag van AI-systemen te verbeteren."
 area: "AI-applicaties bouwen en uitrollen"
 order: 11
 tags: ["evaluation","practice"]
@@ -18,40 +18,40 @@ import SourceNote from '@components/SourceNote.astro';
 import conceptEvalsErrorAnalysis from '../../../../assets/concept-evals-error-analysis.png';
 
 <Definition term={"Evals en foutanalyse"}>
-Evals are repeatable measurements that test whether an AI system performs acceptably on representative tasks, edge cases and risk scenarios. Error analysis is the structured inspection of failures to identify patterns, root causes and improvement actions, such as better instructions, retrieval, data cleaning, tool design, guardrails or human review.
+Evals zijn herhaalbare metingen die toetsen of een AI-systeem acceptabel presteert op representatieve taken, randgevallen en risicoscenario’s. Foutanalyse is de gestructureerde inspectie van mislukkingen om patronen, grondoorzaken en verbeteracties te identificeren, zoals betere instructies, retrieval, gegevensopschoning, toolontwerp, guardrails of menselijke review.
 </Definition>
 
 <figure class="concept-explainer-image">
-  <img src={conceptEvalsErrorAnalysis.src} alt="Diagram of an evaluation and error-analysis loop from test set through run, scoring, failures, improvement and regression checks." loading="lazy" decoding="async" />
+  <img src={conceptEvalsErrorAnalysis.src} alt="Diagram van een evaluatie- en foutanalyse-lus van testset via uitvoering, beoordeling, mislukkingen, verbetering en regressiecontroles." loading="lazy" decoding="async" />
 </figure>
 
-## Waarom dit ertoe doet
+## Waarom het ertoe doet
 
-An eval is a structured test of AI-system behaviour using representative inputs, expected properties and scoring methods. Scores may be deterministic, model-based or human. Evals should measure the application, not just the underlying model.
+Een eval is een gestructureerde test van het gedrag van een AI-systeem met representatieve invoer, verwachte eigenschappen en scoringsmethoden. Scores kunnen deterministisch, modelgebaseerd of menselijk zijn. Evals moeten de applicatie meten, niet alleen het onderliggende model.
 
-Evaluation-driven development states desired behaviour as evaluable criteria, measures a baseline, analyses errors, changes one thing and checks regressions. Evals play a role analogous to tests, while accounting for probabilistic output.
+Evaluatiegedreven ontwikkeling formuleert gewenst gedrag als evalueerbare criteria, voert een nulmeting uit, analyseert fouten, verandert één ding en controleert op regressies. Evals vervullen een rol vergelijkbaar met testen, maar houden rekening met probabilistische output.
 
-Error analysis means inspecting failures, clustering them into meaningful categories and deciding which change is most likely to improve the system. Aggregate scores without qualitative error analysis rarely indicate what to build next.
+Foutanalyse betekent mislukkingen inspecteren, ze clusteren in betekenisvolle categorieën en beslissen welke verandering het systeem het waarschijnlijkst verbetert. Geaggregeerde scores zonder kwalitatieve foutanalyse geven zelden aan wat je vervolgens moet bouwen.
 
 <EngineeringMode>
-Evals turn AI behavior into an engineering feedback system. Architecture should make runs reproducible and connect prompts, models, data and traces to scores. Design must define what good, unsafe and unacceptable look like. Build work creates datasets, graders and review workflows. Operations track regressions after releases. The risk is relying on aggregate scores without inspecting the concrete failures that explain what to fix.
+Evals maken van AI-gedrag een engineering-feedbacksysteem. De architectuur moet runs reproduceerbaar maken en prompts, modellen, data en traces aan scores koppelen. Het ontwerp moet vastleggen hoe goed, onveilig en onacceptabel eruitzien. Het bouwwerk levert datasets, graders en reviewworkflows op. Operations bewaakt regressies na releases. Het risico is vertrouwen op geaggregeerde scores zonder de concrete mislukkingen te inspecteren die aangeven wat je moet oplossen.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-SWE-bench made coding-agent evaluation concrete by using real GitHub issues and checking whether generated patches pass repository tests. The useful lesson is procedural:
+SWE-bench maakte evaluatie van een coding agent concreet door echte GitHub-issues te gebruiken en te controleren of gegenereerde patches de repository-tests doorstaan. De nuttige les is procedureel:
 
-1. Define the task set.
-2. Run the agent.
-3. Score against objective checks.
-4. Inspect failures before changing the system.
+1. Definieer de taakset.
+2. Voer de agent uit.
+3. Scoor tegen objectieve controles.
+4. Inspecteer mislukkingen voordat je het systeem wijzigt.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Testing and testability","href":"/software-engineering-fundamentals/testing-and-testability/"}]} />
+<RelatedConcepts links={[{"label":"Evals als de ruggengraat","href":"/nl/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Testen en testbaarheid","href":"/nl/software-engineering-fundamentals/testing-and-testability/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Evaluation best practices</a>, and Hamel Husain, <a href="https://hamel.dev/blog/posts/evals/">Your AI Product Needs Evals</a>.
+Verder lezen: OpenAI, <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Evaluation best practices</a>, en Hamel Husain, <a href="https://hamel.dev/blog/posts/evals/">Your AI Product Needs Evals</a>.
 </SourceNote>

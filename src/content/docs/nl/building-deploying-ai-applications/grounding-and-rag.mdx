@@ -1,6 +1,6 @@
 ---
 title: "Grounding en RAG"
-description: "Connecting model output to trusted, task-relevant sources or system state."
+description: "De modeluitvoer verbinden met betrouwbare, taakrelevante bronnen of de systeemstatus."
 area: "AI-applicaties bouwen en uitrollen"
 order: 7
 tags: ["architecture","evaluation"]
@@ -18,33 +18,33 @@ import SourceNote from '@components/SourceNote.astro';
 import conceptGroundingRag from '../../../../assets/concept-grounding-rag.png';
 
 <Definition term={"Grounding en RAG"}>
-Grounding is the practice of constraining model output with task-relevant evidence from trusted sources, live system state or authoritative tools. Retrieval-augmented generation is a common grounding pattern in which the system retrieves candidate passages or records, injects selected context into the model call and evaluates whether answers are supported by that evidence.
+Grounding is de praktijk waarbij je de modeluitvoer begrenst met taakrelevant bewijs uit betrouwbare bronnen, de live systeemstatus of gezaghebbende tools. Retrieval-augmented generation is een veelvoorkomend grounding-patroon waarbij het systeem kandidaatpassages of -records ophaalt, geselecteerde context in de modelaanroep injecteert en evalueert of antwoorden door dat bewijs worden ondersteund.
 </Definition>
 
 <figure class="concept-explainer-image">
-  <img src={conceptGroundingRag.src} alt="Diagram of a grounding and RAG pipeline from query through retrieval, ranking, context assembly and grounded answer." loading="lazy" decoding="async" />
+  <img src={conceptGroundingRag.src} alt="Diagram van een grounding- en RAG-pijplijn van query via retrieval, ranking, contextassemblage tot en met een onderbouwd antwoord." loading="lazy" decoding="async" />
 </figure>
 
 ## Waarom dit ertoe doet
 
-Grounding connects model output to trusted, task-relevant sources or system state. It reduces unsupported generation and enables answers that reflect current or private information.
+Grounding verbindt de modeluitvoer met betrouwbare, taakrelevante bronnen of de systeemstatus. Het vermindert niet-onderbouwde generatie en maakt antwoorden mogelijk die actuele of vertrouwelijke informatie weerspiegelen.
 
-Retrieval-augmented generation is a pattern in which relevant information is retrieved and supplied to the model during inference. A RAG pipeline typically covers ingestion, parsing, chunking, metadata, indexing, retrieval, reranking, context assembly, generation and citation.
+Retrieval-augmented generation (RAG) is een patroon waarbij relevante informatie wordt opgehaald en tijdens inferentie aan het model wordt meegegeven. Een RAG-pijplijn omvat doorgaans ingestie, parsing, chunking, metadata, indexering, retrieval, reranking, contextassemblage, generatie en bronvermelding.
 
 <EngineeringMode>
-Grounding makes evidence flow a first-class architecture concern. Engineers must design ingestion, retrieval, ranking, context assembly, citation and permission checks. Product design should let users inspect evidence and challenge unsupported answers. Build work includes evals for answer support, freshness and refusal behavior. Operations monitor retrieval misses, stale content and hallucinated citations. The risk is labeling a feature RAG while leaving evidence quality unmeasured.
+Grounding maakt de stroom van bewijs tot een eersteklas zorg in de architectuur. Engineers moeten ingestie, retrieval, ranking, contextassemblage, bronvermelding en toestemmingscontroles ontwerpen. Het productontwerp moet gebruikers het bewijs laten inspecteren en niet-onderbouwde antwoorden laten betwisten. Het bouwwerk omvat evals voor antwoordonderbouwing, actualiteit en weigeringsgedrag. Operations houdt retrieval-missers, verouderde content en gehallucineerde bronvermeldingen in de gaten. Het risico is een functie als RAG bestempelen terwijl de kwaliteit van het bewijs ongemeten blijft.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Microsoft Copilot for Microsoft 365 is a recognizable grounding case. A useful answer may need the user’s documents, meetings and email, not just model memory. The system must retrieve relevant evidence, pass it into the model and keep enough provenance for the user to verify the answer.
+Microsoft Copilot voor Microsoft 365 is een herkenbaar grounding-geval. Een bruikbaar antwoord kan de documenten, vergaderingen en e-mail van de gebruiker nodig hebben, niet alleen het modelgeheugen. Het systeem moet relevant bewijs ophalen, het aan het model doorgeven en voldoende herkomst bewaren zodat de gebruiker het antwoord kan verifiëren.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Embeddings, vector search, graphs and semantic layers","href":"/building-deploying-ai-applications/embeddings-vector-search-graphs-and-semantic-layers/"},{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
+<RelatedConcepts links={[{"label":"Embeddings, vector search, graphs en semantische lagen","href":"/nl/building-deploying-ai-applications/embeddings-vector-search-graphs-and-semantic-layers/"},{"label":"Evals en foutenanalyse","href":"/nl/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
 
 <SourceNote>
-Further study: Lewis et al., <a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a>, and OpenAI, <a href="https://platform.openai.com/docs/guides/retrieval">Retrieval</a>.
+Vervolgstudie: Lewis et al., <a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a>, en OpenAI, <a href="https://platform.openai.com/docs/guides/retrieval">Retrieval</a>.
 </SourceNote>

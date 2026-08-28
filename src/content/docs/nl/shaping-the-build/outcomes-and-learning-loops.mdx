@@ -1,6 +1,6 @@
 ---
 title: "Uitkomsten en leerlussen"
-description: "Outcome metrics, guardrail metrics, build-measure-learn loops and decision records."
+description: "Uitkomstmetrieken, guardrail-metrieken, build-measure-learn-lussen en besluitdocumenten."
 area: "De bouwopgave vormgeven"
 order: 10
 tags: ["evaluation","practice"]
@@ -17,31 +17,31 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Uitkomsten en leerlussen"}>
-Outcomes are the measurable changes a product or system is intended to create in user behaviour, operational performance or risk reduction. Learning loops connect shipped changes, telemetry, user feedback, evals and decision records so teams can revise assumptions. For AI systems the loop must include model-quality signals, safety guardrails, drift indicators and evidence about human trust and correction.
+Uitkomsten zijn de meetbare veranderingen die een product of systeem beoogt teweeg te brengen in gebruikersgedrag, operationele prestaties of risicoreductie. Leerlussen verbinden uitgeleverde wijzigingen, telemetrie, gebruikersfeedback, evals en besluitdocumenten, zodat teams aannames kunnen herzien. Voor AI-systemen moet de lus signalen over modelkwaliteit, veiligheids-guardrails, driftindicatoren en bewijs over menselijk vertrouwen en correctie bevatten.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-An outcome metric measures beneficial change in user or organisational reality. It differs from an output metric such as number of generated answers.
+Een uitkomstmetriek meet een gunstige verandering in de werkelijkheid van gebruiker of organisatie. Dit verschilt van een outputmetriek, zoals het aantal gegenereerde antwoorden.
 
-A leading metric gives an early signal of progress; a guardrail metric detects unacceptable side effects such as error, exclusion, cost or workload transfer.
+Een leidende metriek geeft een vroeg signaal van voortgang; een guardrail-metriek detecteert onaanvaardbare neveneffecten zoals fouten, uitsluiting, kosten of verschuiving van werkdruk.
 
-The build-measure-learn loop delivers the smallest useful experiment, collects evidence and uses it to adapt the problem, solution or quality bar. Decision records preserve product and technical judgement for humans and agents.
+De build-measure-learn-lus levert het kleinst bruikbare experiment op, verzamelt bewijs en gebruikt dat om het probleem, de oplossing of de kwaliteitslat aan te passen. Besluitdocumenten leggen product- en technisch oordeel vast voor mensen en agents.
 
 <EngineeringMode>
-Outcomes connect AI engineering to product learning. Architecture must collect signals that relate model behavior to user or business results. Design defines what success, harm and recovery look like in the workflow. Build work adds experiment hooks, evals and feedback capture. Operations review trends and regressions after release. The risk is improving offline metrics while the actual user outcome gets worse.
+Uitkomsten verbinden AI Engineering met productleren. De architectuur moet signaalen verzamelen die modelgedrag relateren aan gebruikers- of bedrijfsresultaten. Design definieert hoe succes, schade en herstel eruitzien in de workflow. In de build voeg je hooks voor experimenten, evals en feedbackregistratie toe. Operations beoordeelt trends en regressies na release. Het risico is dat offline metrieken verbeteren terwijl de daadwerkelijke gebruikersuitkomst verslechtert.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou laten zien dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Netflix recommendation work is driven by measured outcomes, not only model scores. A ranking change may look better offline, then fail if people watch less, abandon sessions or dislike the suggestions. The learning loop connects experiments, user behavior, qualitative signals and model-error analysis before scaling changes.
+Het aanbevelingswerk van Netflix wordt gedreven door gemeten uitkomsten, niet alleen door model-scores. Een wijziging in de ranking kan er offline beter uitzien, maar toch mislukken als mensen minder kijken, sessies afbreken of de suggesties niet waarderen. De leerlus verbindt experimenten, gebruikersgedrag, kwalitatieve signalen en modelfoutanalyse voordat wijzigingen worden opgeschaald.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Evals as the spine","href":"/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Shaping canvas","href":"/shaping-the-build/shaping-canvas/"}]} />
+<RelatedConcepts links={[{"label":"Evals als de ruggengraat","href":"/nl/cross-cutting-knowledge/evals-as-the-spine/"},{"label":"Shaping-canvas","href":"/nl/shaping-the-build/shaping-canvas/"}]} />
 
 <SourceNote>
-Further study: Eric Ries, <em>The Lean Startup</em>, and Teresa Torres, <em>Continuous Discovery Habits</em>.
+Verder lezen: Eric Ries, <em>The Lean Startup</em>, en Teresa Torres, <em>Continuous Discovery Habits</em>.
 </SourceNote>

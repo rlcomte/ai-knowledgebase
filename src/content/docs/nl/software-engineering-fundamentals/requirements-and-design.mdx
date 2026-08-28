@@ -1,6 +1,6 @@
 ---
 title: "Requirements en ontwerp"
-description: "Requirements engineering, computational thinking and design for AI-supported systems."
+description: "Requirements engineering, computational thinking en ontwerp voor AI-ondersteunde systemen."
 area: "Basisprincipes van software engineering"
 order: 2
 tags: ["foundation","architecture"]
@@ -17,31 +17,31 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Requirements en ontwerp"}>
-Requirements and design turn an ambiguous need into a precise description of users, workflows, constraints, system boundaries and acceptance conditions. For AI-supported systems this includes deciding which behaviour must be deterministic, which uncertainty is acceptable, what data is needed, how errors will be detected and how the user experience makes model limitations visible.
+Requirements en ontwerp maken van een vage behoefte een precieze beschrijving van gebruikers, workflows, beperkingen, systeemgrenzen en acceptatiecriteria. Voor AI-ondersteunde systemen hoort daarbij: bepalen welk gedrag deterministisch moet zijn, welke onzekerheid acceptabel is, welke data nodig is, hoe fouten worden gedetecteerd en hoe de gebruikerservaring modelbeperkingen zichtbaar maakt.
 </Definition>
 
-## Waarom dit ertoe doet
+## Waarom het belangrijk is
 
-Requirements engineering elicits, analyses, specifies, validates and manages functional and quality requirements. AI features additionally require behavioural examples, uncertainty policies and escalation rules.
+Requirements engineering brengt functionele en kwaliteitsvereisten boven water, analyseert, specificeert, valideert en beheert ze. AI-functionaliteit vereist daarnaast gedragsvoorbeelden, beleid voor onzekerheid en escalatieregels.
 
-Software design divides responsibilities among components, defines interfaces and makes trade-offs explicit. Good design limits the scope of AI uncertainty and keeps deterministic rules deterministic.
+Softwareontwerp verdeelt verantwoordelijkheden over componenten, definieert interfaces en maakt afwegingen expliciet. Goed ontwerp begrenst de reikwijdte van AI-onzekerheid en houdt deterministische regels deterministisch.
 
-Computational thinking and programming fundamentals give engineers the vocabulary for decomposition, abstraction, algorithms, state, complexity and failure.
+Computational thinking en programmeerfundamenten geven engineers de woordenschat voor decompositie, abstractie, algoritmen, toestand, complexiteit en falen.
 
 <EngineeringMode>
-Requirements and design decide whether AI behavior is acceptable before implementation begins. Architecture follows from constraints such as privacy, latency, review, accessibility and audit. Build work turns requirements into tests, eval cases and interface states. Operations measure whether real use still satisfies the original intent. The risk is choosing a model first and discovering the actual requirements only after users are exposed.
+Requirements en ontwerp bepalen of AI-gedrag acceptabel is voordat de implementatie begint. Architectuur volgt uit randvoorwaarden zoals privacy, latency, review, toegankelijkheid en audit. Het bouwen vertaalt requirements naar tests, eval-cases en interfacetoestanden. Operations meten of daadwerkelijk gebruik nog steeds aan de oorspronkelijke bedoeling voldoet. Het risico is eerst een model kiezen en de werkelijke requirements pas ontdekken nadat gebruikers eraan zijn blootgesteld.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-For an AI claims-assistance tool, requirements must precede model choice. The team should define supported claim types, evidence needed from users, escalation paths, privacy limits, human review points and success measures. Otherwise prompt tuning may optimize a workflow that was never safe or useful.
+Voor een AI-tool voor claimondersteuning moeten requirements voorafgaan aan de modelkeuze. Het team moet de ondersteunde claimtypen, het bewijs dat van gebruikers nodig is, escalatiepaden, privacygrenzen, momenten voor menselijke review en succesmaten definiëren. Anders kan prompt-tuning een workflow optimaliseren die nooit veilig of nuttig was.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Specifications and acceptance criteria","href":"/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"},{"label":"Prompt engineering","href":"/building-deploying-ai-applications/prompt-engineering/"}]} />
+<RelatedConcepts links={[{"label":"Specificaties en acceptatiecriteria","href":"/nl/shaping-the-build/specifications-quality-attributes-and-acceptance-criteria/"},{"label":"Prompt engineering","href":"/nl/building-deploying-ai-applications/prompt-engineering/"}]} />
 
 <SourceNote>
-Further study: Karl Wiegers and Joy Beatty, <em>Software Requirements</em>, and ISO/IEC/IEEE 29148 on requirements engineering.
+Verder studeren: Karl Wiegers en Joy Beatty, <em>Software Requirements</em>, en ISO/IEC/IEEE 29148 over requirements engineering.
 </SourceNote>

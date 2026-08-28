@@ -1,6 +1,6 @@
 ---
 title: "Specificaties, kwaliteitsattributen en acceptatiecriteria"
-description: "Turning desired behaviour, constraints and quality into verifiable conditions."
+description: "Gewenst gedrag, randvoorwaarden en kwaliteit vertalen naar verifieerbare voorwaarden."
 area: "De bouwopgave vormgeven"
 order: 8
 tags: ["evaluation","architecture"]
@@ -17,36 +17,36 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Specificaties, kwaliteitsattributen en acceptatiecriteria"}>
-Specifications describe expected system behaviour, inputs, outputs, constraints and integration contracts. Quality attributes define non-functional requirements such as accuracy, latency, privacy, reliability, explainability, accessibility, maintainability and cost. Acceptance criteria convert both into observable checks that determine whether a feature, model workflow or release is good enough to use.
+Specificaties beschrijven het verwachte systeemgedrag, input, output, randvoorwaarden en integratiecontracten. Kwaliteitsattributen definiëren niet-functionele eisen zoals nauwkeurigheid, latentie, privacy, betrouwbaarheid, uitlegbaarheid, toegankelijkheid, onderhoudbaarheid en kosten. Acceptatiecriteria vertalen beide naar observeerbare controles die bepalen of een functionaliteit, model-workflow of release goed genoeg is om te gebruiken.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-A specification is a shared description of behaviour, data, constraints, edge cases and quality expectations. For probabilistic systems it includes examples, unacceptable outputs and escalation.
+Een specificatie is een gedeelde beschrijving van gedrag, data, randvoorwaarden, randgevallen en kwaliteitsverwachtingen. Voor probabilistische systemen bevat zij voorbeelden, onacceptabele uitvoer en escalatie.
 
-An acceptance criterion is a verifiable condition for completing a feature. Some criteria become deterministic tests; others become eval cases and thresholds.
+Een acceptatiecriterium is een verifieerbare voorwaarde om een functionaliteit af te ronden. Sommige criteria worden deterministische tests; andere worden eval-cases en drempelwaarden.
 
-A quality attribute is a cross-cutting property such as security, privacy, accessibility, reliability, latency, cost or maintainability. Attributes shape architecture and release decisions.
+Een kwaliteitsattribuut is een overkoepelende eigenschap zoals beveiliging, privacy, toegankelijkheid, betrouwbaarheid, latentie, kosten of onderhoudbaarheid. Kwaliteitsattributen bepalen architectuur- en releasedecisies.
 
 <EngineeringMode>
-Specifications turn AI ambition into buildable constraints. Architecture must support required latency, privacy, auditability, fallback and human review. Design must describe acceptable user outcomes, not just model behavior. Build work encodes acceptance criteria as tests, evals and release gates. Operations monitor whether those qualities hold after model or data changes. The risk is accepting vague performance claims without operationally testable standards.
+Specificaties vertalen AI-ambitie naar bouwbare randvoorwaarden. Architectuur moet de vereiste latentie, privacy, auditeerbaarheid, terugval en menselijke review ondersteunen. Ontwerp moet aanvaardbare gebruikersuitkomsten beschrijven, niet alleen modelgedrag. De build legt acceptatiecriteria vast als tests, evals en release-gates. Operations bewaakt of die kwaliteiten standhouden na wijzigingen in model of data. Het risico is vage prestatieclaims accepteren zonder operationeel testbare standaarden.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-For a healthcare triage chatbot, acceptance criteria should be concrete:
+Voor een triagechatbot in de zorg moeten acceptatiecriteria concreet zijn:
 
-1. Emergency symptoms trigger escalation language.
-2. No diagnosis is stated as certain.
-3. Average latency stays within the support target.
-4. Every release passes high-risk scenario evals reviewed by clinical and legal stakeholders.
+1. Spoedsymptomen leiden tot escalatie-instructies.
+2. Er wordt geen enkele diagnose als zeker gepresenteerd.
+3. De gemiddelde latentie blijft binnen de ondersteuningsdoelstelling.
+4. Elke release slaagt voor hoogrisicoscenario-evals die zijn beoordeeld door klinische en juridische stakeholders.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Testing and testability","href":"/software-engineering-fundamentals/testing-and-testability/"},{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
+<RelatedConcepts links={[{"label":"Testen en testbaarheid","href":"/nl/software-engineering-fundamentals/testing-and-testability/"},{"label":"Evals en foutanalyse","href":"/nl/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
 
 <SourceNote>
-Further study: ISO/IEC/IEEE 29148 for requirements, and Len Bass et al., <em>Software Architecture in Practice</em>, for quality attributes.
+Vervolgstudie: ISO/IEC/IEEE 29148 voor eisen, en Len Bass e.a., <em>Software Architecture in Practice</em>, voor kwaliteitsattributen.
 </SourceNote>

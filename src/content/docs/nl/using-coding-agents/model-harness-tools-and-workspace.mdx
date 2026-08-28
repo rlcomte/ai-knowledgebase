@@ -1,6 +1,6 @@
 ---
-title: "Model, harness, tools en workspace"
-description: "The practical components that determine what a coding agent can do."
+title: "Model, harness, tools en werkruimte"
+description: "De praktische componenten die bepalen wat een coding agent kan doen."
 area: "Coding agents gebruiken"
 order: 3
 tags: ["foundation","architecture"]
@@ -16,32 +16,32 @@ import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
-<Definition term={"Model, harness, tools en workspace"}>
-A coding agent's capability is the product of four layers: the model that reasons and generates text, the harness that manages state and execution, the tools that expose concrete actions, and the workspace that supplies files, environment, credentials and repository history. Changing any layer can change the agent's behaviour, risk profile and evidence quality even when the user prompt stays the same.
+<Definition term={"Model, harness, tools en werkruimte"}>
+De mogelijkheden van een coding agent zijn het product van vier lagen: het model dat redeneert en tekst genereert, de harness die status en uitvoering beheert, de tools die concrete acties beschikbaar maken, en de werkruimte die bestanden, omgeving, credentials en repositorygeschiedenis levert. Een wijziging in een van deze lagen kan het gedrag, het risicoprofiel en de kwaliteit van bewijs van de agent veranderen, zelfs als de gebruikersprompt gelijk blijft.
 </Definition>
 
-## Waarom dit ertoe doet
+## Waarom dit belangrijk is
 
-The model supplies language understanding, code generation and reasoning. Model capability matters, but does not determine the agent's complete behaviour.
+Het model levert taalbegrip, codegeneratie en redeneren. Modelcapaciteit is belangrijk, maar bepaalt niet het volledige gedrag van de agent.
 
-The harness provides tool execution, file access, state, context assembly, approvals, sandboxing, progress, retries and stopping conditions. Different harnesses can produce substantially different outcomes with similar models.
+De harness verzorgt toolexecutie, bestandstoegang, status, contextopbouw, goedkeuringen, sandboxing, voortgang, nieuwe pogingen en stopvoorwaarden. Verschillende harness-implementaties kunnen met vergelijkbare modellen tot aanzienlijk verschillende uitkomsten leiden.
 
-Tools are controlled capabilities such as repository search, file editing, shell execution, browser access, issue tracking or deployment. The workspace model is the files, repository state, environment and connected resources visible to the agent.
+Tools zijn gecontroleerde mogelijkheden zoals repositorysearch, bestandsbewerking, shellexecutie, browsertoegang, issue-tracking of deployment. De werkruimte omvat de bestanden, de status van de repository, de omgeving en gekoppelde resources die voor de agent zichtbaar zijn.
 
 <EngineeringMode>
-This concept defines the real system boundary for coding agents. Architecture includes the model, harness, filesystem, shell, permissions and connected services. Design should make state and authority visible. Build work configures tools, instructions and verification commands. Operations audit actions and failures. The risk is attributing results only to the model while ignoring the harness that enabled or constrained the work.
+Dit concept definieert de echte systeemscheidslijn voor coding agents. Architectuur omvat het model, de harness, het bestandssysteem, de shell, machtigingen en gekoppelde services. Het ontwerp moet status en bevoegdheid zichtbaar maken. Tijdens de build worden tools, instructies en verificatiecommando's geconfigureerd. Operations auditen acties en fouten. Het risico is dat resultaten uitsluitend aan het model worden toegeschreven, terwijl de harness die het werk mogelijk maakte of begrensde, wordt genegeerd.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Codex illustrates the distinction between model and harness. The model reasons about the request, while the harness provides repository files, patch application, shell commands, approval prompts and workspace state. Most engineering value comes from combining language reasoning with controlled access to real project artifacts.
+Codex illustreert het onderscheid tussen model en harness. Het model redeneert over het verzoek, terwijl de harness repositorybestanden, het toepassen van patches, shell-commando's, goedkeuringsprompts en de status van de werkruimte verzorgt. De meeste engineeringwaarde komt uit het combineren van taalredenering met gecontroleerde toegang tot echte projectartefacten.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Tool calling and MCP","href":"/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"}]} />
+<RelatedConcepts links={[{"label":"Tool calling en MCP","href":"/nl/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Configuratie, machtigingen en sandboxing","href":"/nl/using-coding-agents/configuration-permissions-and-sandboxing/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/customization/overview">Codex customization</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/mcp">Model Context Protocol</a>.
+Vervolgstudie: OpenAI, <a href="https://learn.chatgpt.com/docs/customization/overview">Codex-aanpassing</a>, en Anthropic, <a href="https://docs.anthropic.com/en/docs/mcp">Model Context Protocol</a>.
 </SourceNote>

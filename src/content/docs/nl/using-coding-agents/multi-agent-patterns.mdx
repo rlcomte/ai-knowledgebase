@@ -1,6 +1,6 @@
 ---
-title: "Multi-agent-patterns"
-description: "Fan-out/fan-in, pipelines, reviewer patterns and debate patterns."
+title: "Multi-agentpatronen"
+description: "Fan-out/fan-in, pipelines, reviewerpatronen en debatpatronen."
 area: "Coding agents gebruiken"
 order: 12
 tags: ["architecture","practice"]
@@ -16,32 +16,32 @@ import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
-<Definition term={"Multi-agent-patterns"}>
-Multi-agent patterns are repeatable coordination structures for dividing model work across roles. Fan-out/fan-in explores independent branches and reconciles results; pipelines pass artifacts through ordered stages; reviewer patterns separate creation from critique; debate patterns compare alternative analyses before adjudication. Each pattern needs explicit ownership, merge rules and verification criteria.
+<Definition term={"Multi-agentpatronen"}>
+Multi-agentpatronen zijn herhaalbare coördinatiestructuren om modelwerk over rollen te verdelen. Fan-out/fan-in verkent onafhankelijke takken en voegt de resultaten samen; pipelines sturen artefacten door geordende fasen; reviewerpatronen scheiden creatie en beoordeling; debatpatronen vergelijken alternatieve analyses vóór het eindoordeel. Elk patroon vereist expliciet eigenaarschap, samenvoegregels en verificatiecriteria.
 </Definition>
 
-## Waarom dit ertoe doet
+## Waarom dit belangrijk is
 
-Fan-out/fan-in distributes independent subtasks and later combines their results. It is effective for exploration, review, evaluation and option generation.
+Fan-out/fan-in verdeelt onafhankelijke deeltaken en voegt hun resultaten later samen. Het is effectief voor exploratie, review, evaluatie en het genereren van opties.
 
-Pipelines are sequential: each agent transforms or checks the previous output. Pipelines are useful when roles have real dependencies.
+Pipelines zijn sequentieel: elke agent transformeert of controleert de vorige uitvoer. Pipelines zijn nuttig wanneer rollen echte afhankelijkheden hebben.
 
-The reviewer pattern has one agent create an artifact and another critique it against explicit criteria. The creator then repairs verified issues. Debate patterns use several agents to propose or challenge alternatives before an adjudicator decides; this may improve coverage but can amplify cost and correlated model bias.
+Bij het reviewerpatroon laat je één agent een artefact maken en een andere het beoordelen aan de hand van expliciete criteria. De maker herstelt daarna geverifieerde problemen. Debatpatronen laten meerdere agents alternatieven voorstellen of betwisten voordat een beoordelaar beslist; dit kan de dekking verbeteren, maar ook kosten en gecorreleerde modelbias vergroten.
 
 <EngineeringMode>
-Multi-agent patterns are orchestration architecture. Work must be partitioned so agents do not overwrite each other, duplicate effort or produce unverifiable summaries. Design defines roles, handoff format and decision ownership. Build work isolates workspaces and captures evidence. Operations monitor cost, conflicts and quality. The risk is mistaking parallel chat output for coordinated engineering progress.
+Multi-agentpatronen zijn orkestratie-architectuur. Werk moet zo worden opgedeeld dat agents elkaar niet overschrijven, werk dubbel doen of niet-verifieerbare samenvattingen produceren. Het ontwerp definieert rollen, overdrachtsformaat en eigenaarschap van beslissingen. In de build-fase worden werkruimtes geïsoleerd en bewijs vastgelegd. Beheer bewaakt kosten, conflicten en kwaliteit. Het risico is om parallelle chat-uitvoer te verwarren met gecoördineerde engineeringvoortgang.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk waarneembaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-A practical multi-agent pattern is research-build-review. One agent investigates documentation and existing code, one implements a scoped change and one reviews the diff for regressions. The pattern works only when a lead thread compares evidence, resolves contradictions and runs final verification.
+Een praktisch multi-agentpatroon is research-build-review. Eén agent onderzoekt documentatie en bestaande code, één implementeert een afgebakende wijziging en één reviewt de diff op regressies. Het patroon werkt alleen als een leidende thread het bewijs vergelijkt, tegenstrijdigheden oplost en de laatste verificatie uitvoert.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Delegation, handoffs and orchestration","href":"/using-coding-agents/delegation-handoffs-and-orchestration/"},{"label":"Evaluation-driven development","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
+<RelatedConcepts links={[{"label":"Delegatie, overdrachten en orkestratie","href":"/nl/using-coding-agents/delegation-handoffs-and-orchestration/"},{"label":"Evaluatiegedreven ontwikkeling","href":"/nl/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents">Subagents</a>, and research on multi-agent LLM collaboration patterns.
+Verder lezen: OpenAI, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents">Subagents</a>, en onderzoek naar multi-agent LLM-samenwerkingspatronen.
 </SourceNote>

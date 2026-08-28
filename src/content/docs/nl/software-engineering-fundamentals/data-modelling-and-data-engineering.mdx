@@ -1,6 +1,6 @@
 ---
 title: "Datamodellering en data engineering"
-description: "Representing entities, relations, events and lifecycle so AI has meaningful data to work with."
+description: "Entiteiten, relaties, gebeurtenissen en levenscycli representeren zodat AI met betekenisvolle data kan werken."
 area: "Basisprincipes van software engineering"
 order: 4
 tags: ["data","architecture"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Datamodellering en data engineering"}>
-Data modelling defines the entities, relationships, events, identifiers, semantics and lifecycle states that software relies on. Data engineering builds the pipelines, storage, validation, lineage and access patterns that make data usable. AI systems need both: models can only reason well over data that is coherent, current, governed and connected to the business meaning of the task.
+Datamodellering definieert de entiteiten, relaties, gebeurtenissen, identificatoren, semantiek en levenscyclusfasen waarop software steunt. Data engineering bouwt de pipelines, opslag, validatie, herkomst (lineage) en toegangspatronen die data bruikbaar maken. AI‑systemen hebben beide nodig: modellen kunnen alleen goed redeneren over data die coherent, actueel, beheerd en verbonden is met de zakelijke betekenis van de taak.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Data modelling represents entities, relations, events, constraints, lineage and lifecycle. AI does not compensate for ambiguous semantics or poor-quality source data.
+Datamodellering brengt entiteiten, relaties, gebeurtenissen, beperkingen, herkomst (lineage) en levenscyclus in kaart. AI compenseert niet voor dubbelzinnige semantiek of brondata van lage kwaliteit.
 
-For AI applications, data engineering also includes provenance, freshness, retention and access policies for retrieved context, traces, feedback and eval datasets.
+Voor AI‑applicaties omvat data engineering ook herkomst, versheid, retentie en toegangsbeleid voor opgehaalde context, traces, feedback en eval-datasets.
 
 <EngineeringMode>
-Data engineering defines the raw material of AI behavior. Architecture must handle lineage, consent, permissions, freshness, schemas and retrieval indexes. Design must account for missing or uncertain data in the user experience. Build work includes validation, migration and backfill paths. Operations monitor data drift and quality incidents. The risk is blaming the model for failures caused by broken or poorly governed data.
+Data engineering definieert de grondstof van AI‑gedrag. De architectuur moet herkomst (lineage), toestemming, machtigingen, versheid, schema's en retrieval-indexen afhandelen. Het ontwerp moet rekening houden met ontbrekende of onzekere data in de gebruikerservaring. Het bouwwerk omvat validatie, migratie en backfill‑paden. Operations monitoren datadrift en kwaliteitsincidenten. Het risico is dat het model de schuld krijgt van falen dat wordt veroorzaakt door kapotte of slecht beheerde data.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-A product-search assistant is only as good as its data pipeline. Catalog records need consistent names, prices, availability, variants, permissions and embeddings. If discontinued items or restricted products leak into the index, the language model may confidently recommend something users cannot buy.
+Een productzoekassistent is slechts zo goed als zijn datapipeline. Catalogusrecords hebben consistente namen, prijzen, beschikbaarheid, varianten, machtigingen en embeddings nodig. Als uitgefaseerde items of afgeschermde producten in de index lekken, kan het taalmodel vol vertrouwen iets aanbevelen dat gebruikers niet kunnen kopen.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Embeddings, vector search, graphs and semantic layers","href":"/building-deploying-ai-applications/embeddings-vector-search-graphs-and-semantic-layers/"},{"label":"Data and context in the shaping canvas","href":"/shaping-the-build/shaping-canvas/"}]} />
+<RelatedConcepts links={[{"label":"Embeddings, vector search, grafen en semantische lagen","href":"/nl/building-deploying-ai-applications/embeddings-vector-search-graphs-and-semantic-layers/"},{"label":"Data en context in de shaping canvas","href":"/nl/shaping-the-build/shaping-canvas/"}]} />
 
 <SourceNote>
-Further study: Martin Kleppmann, <em>Designing Data-Intensive Applications</em>, and Joe Reis and Matt Housley, <em>Fundamentals of Data Engineering</em>.
+Verder lezen: Martin Kleppmann, <em>Designing Data-Intensive Applications</em>, en Joe Reis en Matt Housley, <em>Fundamentals of Data Engineering</em>.
 </SourceNote>

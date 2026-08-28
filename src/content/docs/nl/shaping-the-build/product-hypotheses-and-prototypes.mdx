@@ -1,6 +1,6 @@
 ---
 title: "Producthypotheses en prototypes"
-description: "Testing falsifiable product hypotheses with prototypes and vertical slices."
+description: "Weerlegbare producthypotheses testen met prototypes en verticale slices."
 area: "De bouwopgave vormgeven"
 order: 7
 tags: ["practice"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Producthypotheses en prototypes"}>
-A product hypothesis is a falsifiable statement about a user problem, proposed AI behaviour, expected outcome and measurable evidence. A prototype is a deliberately limited artifact used to test that hypothesis before committing to a full build. In AI work, prototypes should test model behaviour, user trust, error recovery, data availability and workflow fit, not only interface appeal.
+Een producthypothese is een weerlegbare stelling over een gebruikersprobleem, voorgesteld AI-gedrag, verwachte uitkomst en meetbaar bewijs. Een prototype is een bewust beperkt artefact om die hypothese te testen voordat je je vastlegt op een volledige build. Bij AI-werk moeten prototypes niet alleen de aantrekkelijkheid van de interface testen, maar juist modelgedrag, gebruikersvertrouwen, foutherstel, databeschikbaarheid en aansluiting op de workflow.
 </Definition>
 
-## Waarom dit ertoe doet
+## Waarom dit belangrijk is
 
-A product hypothesis is a falsifiable statement linking an intervention to an expected user or organisational outcome. It provides a reason to build a test rather than a full product.
+Een producthypothese is een weerlegbare stelling die een interventie koppelt aan een verwachte uitkomst voor gebruiker of organisatie. Ze geeft een reden om een test te bouwen in plaats van meteen het volledige product.
 
-A prototype is a low-cost representation used to learn about desirability, usability, feasibility or AI behaviour. A vertical slice is a small end-to-end implementation that crosses interface, logic, model, data and operations. It exposes system risks earlier than isolated component demos.
+Een prototype is een goedkope representatie om te leren over aantrekkelijkheid, bruikbaarheid, haalbaarheid of AI-gedrag. Een verticale slice is een kleine end-to-end-implementatie die interface, logica, model, data en operaties doorkruist. Zo worden systeemrisico’s eerder zichtbaar dan bij geïsoleerde componentdemo’s.
 
 <EngineeringMode>
-Hypotheses and prototypes keep AI engineering empirical. Architecture should support thin slices, instrumentation and safe experiments before platform commitments. Design must express what user behavior would prove value. Build work creates prototypes that test the riskiest assumption, not the prettiest demo. Operations compare evidence against adoption, quality and cost. The risk is scaling a convincing prototype before learning whether it solves the real problem.
+Hypotheses en prototypes houden AI Engineering empirisch. Architectuur moet dunne slices, instrumentatie en veilige experimenten ondersteunen voordat er platformkeuzes worden gemaakt. Design moet expliciteren welk gebruikersgedrag waarde zou bewijzen. De bouw levert prototypes op die de risicovolste aanname testen, niet de mooiste demo. Operaties zet bewijs af tegen adoptie, kwaliteit en kosten. Het risico is een overtuigend prototype opschalen voordat je weet of het het echte probleem oplost.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk waarneembaar bewijs zou laten zien dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-Duolingo Max is a clear product-hypothesis case. The team can test whether AI roleplay and answer explanations help learners practice more often or understand mistakes faster. A prototype should measure learning behavior and user trust before the feature is expanded across languages, levels or subscription tiers.
+Duolingo Max is een duidelijk geval van een producthypothese. Het team kan testen of AI-rolspel en uitleg bij antwoorden leerlingen helpen vaker te oefenen of fouten sneller te begrijpen. Een prototype moet leergedrag en gebruikersvertrouwen meten voordat de functie wordt uitgebreid over talen, niveaus of abonnementsvormen.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Build-measure-learn loop","href":"/shaping-the-build/outcomes-and-learning-loops/"},{"label":"Minimum learning path","href":"/building-deploying-ai-applications/"}]} />
+<RelatedConcepts links={[{"label":"Bouwen-meten-leren-lus","href":"/nl/shaping-the-build/outcomes-and-learning-loops/"},{"label":"Minimaal leerpad","href":"/nl/building-deploying-ai-applications/"}]} />
 
 <SourceNote>
-Further study: Eric Ries, <em>The Lean Startup</em>, and Google PAIR prototyping guidance.
+Verder lezen: Eric Ries, <em>The Lean Startup</em>, en de prototyping-richtlijnen van Google PAIR.
 </SourceNote>

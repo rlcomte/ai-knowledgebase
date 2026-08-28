@@ -1,6 +1,6 @@
 ---
 title: "DevOps, deployment en observability"
-description: "Build, release and operations practices for observable and recoverable AI software."
+description: "Build-, release- en operations-praktijken voor observeerbare en herstelbare AI-software."
 area: "Basisprincipes van software engineering"
 order: 8
 tags: ["operations","evaluation"]
@@ -17,31 +17,31 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"DevOps, deployment en observability"}>
-DevOps combines development, delivery and operations practices so software can be released reliably and recovered quickly. Deployment covers packaging, configuration, rollout, rollback and environment control. Observability provides telemetry that explains what the system is doing in production. AI systems extend this with prompt/model versions, retrieval traces, tool-call logs, cost metrics and safety events.
+DevOps combineert praktijken voor development, delivery en operations zodat software betrouwbaar kan worden uitgebracht en snel kan worden hersteld. Deployment omvat verpakken, configuratie, uitrol, rollback en het beheer van omgevingen. Observability levert telemetrie die verklaart wat het systeem in productie doet. AI-systemen breiden dit uit met prompt-/modelversies, retrieval-traces, tool-call-logs, kostenmetrics en veiligheidsincidenten.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-DevOps and CI/CD automate build, test, evaluation, security checks and deployment. Model, prompt, retrieval and eval changes should pass controlled release gates.
+DevOps en CI/CD automatiseren build, test, evaluatie, securitychecks en deployment. Wijzigingen aan model, prompt, retrieval en evals moeten gecontroleerde release-gates passeren.
 
-Infrastructure and deployment cover environments, containers, compute, networking, scaling, resilience and rollback. Managed APIs, self-hosted models and hybrid setups have different operational burdens.
+Infrastructuur en deployment bestrijken omgevingen, containers, compute, networking, schaling, veerkracht en rollback. Managed API’s, self-hosted modellen en hybride setups hebben verschillende operationele lasten.
 
-Observability uses logs, metrics and traces to understand system health and investigate incidents. AI traces extend observability into prompts, retrieval and tool decisions. Performance engineering measures and improves latency, throughput, resource use and cost under realistic load.
+Observability gebruikt logs, metrics en traces om de gezondheid van het systeem te begrijpen en incidenten te onderzoeken. AI-traces breiden observability uit naar prompts, retrieval en toolbeslissingen. Performance-engineering meet en verbetert latency, throughput, resourcegebruik en kosten onder realistische load.
 
 <EngineeringMode>
-DevOps for AI means releases must cover model behavior as well as code. Architecture needs deployment stages, feature flags, telemetry and rollback. Design should handle degraded or unavailable AI gracefully. Build work includes CI, eval gates and configuration management. Operations watch latency, cost, quality and safety incidents. The risk is treating the model endpoint as a black box outside normal release discipline.
+DevOps voor AI betekent dat releases zowel modelgedrag als code moeten dekken. De architectuur heeft deploymentfasen, feature flags, telemetrie en rollback nodig. Het ontwerp moet gedegradeerde of niet-beschikbare AI op een beheerste manier afhandelen. Build-werk omvat CI, eval-gates en configuratiemanagement. Operations monitoren latency, kosten, kwaliteit en veiligheidsincidenten. Het risico is dat je het modelendpoint als een black box behandelt buiten de normale releasediscipline.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Deploying an AI call-center summarizer should use standard DevOps discipline. Release it behind a feature flag, watch latency, cost, summary quality and escalation rates, compare against human-reviewed samples and keep rollback ready. The AI part changes what to observe, not the need for operational control.
+Het deployen van een AI-callcenter-samenvattingsfunctie moet volgens standaard DevOps-discipline gebeuren. Release het achter een feature flag, monitor latency, kosten, samenvattingskwaliteit en escalatiepercentages, vergelijk met door mensen beoordeelde steekproeven en houd rollback paraat. Het AI-deel verandert wat je observeert, niet de noodzaak van operationele controle.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Production operations","href":"/building-deploying-ai-applications/production-operations-observability-cost-and-latency/"},{"label":"Outcomes and learning loops","href":"/shaping-the-build/outcomes-and-learning-loops/"}]} />
+<RelatedConcepts links={[{"label":"Operaties in productie","href":"/nl/building-deploying-ai-applications/production-operations-observability-cost-and-latency/"},{"label":"Resultaten en leerlussen","href":"/nl/shaping-the-build/outcomes-and-learning-loops/"}]} />
 
 <SourceNote>
-Further study: Google SRE, <a href="https://sre.google/sre-book/table-of-contents/">Site Reliability Engineering</a>, and Forsgren, Humble and Kim, <em>Accelerate</em>.
+Verder lezen: Google SRE, <a href="https://sre.google/sre-book/table-of-contents/">Site Reliability Engineering</a>, en Forsgren, Humble en Kim, <em>Accelerate</em>.
 </SourceNote>

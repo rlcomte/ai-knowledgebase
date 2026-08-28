@@ -1,6 +1,6 @@
 ---
 title: "Agentic workflows en harnesses"
-description: "Multi-step model workflows, harness responsibilities, state, memory and reusable workflow patterns."
+description: "Meerstaps model-workflows, harness-verantwoordelijkheden, toestand, geheugen en herbruikbare workflow-patronen."
 area: "AI-applicaties bouwen en uitrollen"
 order: 10
 tags: ["architecture","practice"]
@@ -18,35 +18,35 @@ import SourceNote from '@components/SourceNote.astro';
 import conceptAgenticWorkflowHarness from '../../../../assets/concept-agentic-workflow-harness.png';
 
 <Definition term={"Agentic workflows en harnesses"}>
-An agentic workflow is a multi-step process in which a model plans, selects tools, observes results and adapts its next action toward a goal. The harness is the software layer that supplies tools, state, memory, permissions, retries, tracing, stopping conditions and user approvals; it is often as important as the underlying model for reliability and safety.
+Een agentic workflow is een meerstapsproces waarin een model plant, tools selecteert, resultaten observeert en zijn volgende actie aanpast richting een doel. De harness is de softwarelaag die tools, toestand, geheugen, permissies, herpogingen, tracing, stopcondities en gebruikersgoedkeuringen levert; zij is voor betrouwbaarheid en veiligheid vaak net zo belangrijk als het onderliggende model.
 </Definition>
 
 <figure class="concept-explainer-image">
-  <img src={conceptAgenticWorkflowHarness.src} alt="Diagram of an agentic workflow harness around a model with planner, state, tools, approvals, trace, retries and stop controls." loading="lazy" decoding="async" />
+  <img src={conceptAgenticWorkflowHarness.src} alt="Diagram van een agentic workflow-harness rond een model met planner, toestand, tools, goedkeuringen, tracering, herpogingen en stopregelaars." loading="lazy" decoding="async" />
 </figure>
 
-## Waarom dit ertoe doet
+## Waarom het ertoe doet
 
-An agentic workflow uses one or more model calls to perform a multi-step task. Some workflows have a fixed graph; more autonomous agents repeatedly select their own next action within a harness.
+Een agentic workflow gebruikt een of meer modelaanroepen om een meerstapstaak uit te voeren. Sommige workflows hebben een vaste graaf; autonomere agents kiezen binnen een harness herhaaldelijk hun eigen volgende actie.
 
-The agent harness manages instructions, tools, state, memory, permissions, stopping conditions, retries, traces and human intervention. Much of an agent's practical capability comes from the harness, not only the model.
+De agent-harness beheert instructies, tools, toestand, geheugen, permissies, stopcondities, herpogingen, traces en menselijke tussenkomst. Veel van de praktische mogelijkheden van een agent komen uit de harness, niet alleen uit het model.
 
-Reusable workflow patterns include prompt chaining, routing, parallelisation, orchestrator-worker, evaluator-optimizer and human approval. State records what is true during a workflow; memory makes selected information available across steps or sessions.
+Herbruikbare workflow-patronen omvatten prompt chaining, routing, parallelisatie, orchestrator-worker, evaluator-optimizer en menselijke goedkeuring. Toestand legt vast wat waar is tijdens een workflow; geheugen maakt geselecteerde informatie beschikbaar over stappen of sessies heen.
 
 <EngineeringMode>
-Agentic workflows require architecture for state, tools, permissions and stopping conditions. Product design must clarify when the agent is planning, acting, waiting or asking for approval. Build work includes task decomposition, workspace isolation, idempotent tools and trace capture. Operations monitor loops, runaway cost, failed actions and unsafe autonomy. The risk is treating agency as intelligence while ignoring the harness that makes action accountable.
+Agentic workflows vragen om architectuur voor toestand, tools, permissies en stopcondities. Productontwerp moet duidelijk maken wanneer de agent aan het plannen is, handelt, wacht of om goedkeuring vraagt. Bouwwerk omvat taakdecompositie, workspace-isolatie, idempotente tools en het vastleggen van traces. Operations monitort lussen, uit de hand lopende kosten, mislukte acties en onveilige autonomie. Het risico is om handelingsvermogen te verwarren met intelligentie, terwijl je de harness negeert die acties verantwoordbaar maakt.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs aantoont dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-Devin-style software agents and repository-aware coding agents show why the harness matters. The model proposes actions, but the harness stores state, exposes file and shell tools, requests permissions, captures test output and lets the agent iterate. Without that loop, the system is mostly chat with code suggestions.
+Software-agents in Devin-stijl en repository-bewuste coding agents laten zien waarom de harness ertoe doet. Het model stelt acties voor, maar de harness slaat de toestand op, stelt bestands- en shell-tools beschikbaar, vraagt permissies, legt testoutput vast en laat de agent itereren. Zonder die lus is het systeem grotendeels chat met codesuggesties.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Multi-agent patterns","href":"/using-coding-agents/multi-agent-patterns/"}]} />
+<RelatedConcepts links={[{"label":"De agent-loop","href":"/nl/using-coding-agents/the-agent-loop/"},{"label":"Multi-agentpatronen","href":"/nl/using-coding-agents/multi-agent-patterns/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://developers.openai.com/tracks/building-agents">Building agents</a>, and Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>.
+Verder lezen: OpenAI, <a href="https://developers.openai.com/tracks/building-agents">Building agents</a>, en Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>.
 </SourceNote>
