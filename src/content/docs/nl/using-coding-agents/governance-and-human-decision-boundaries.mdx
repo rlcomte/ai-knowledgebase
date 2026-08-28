@@ -1,6 +1,6 @@
 ---
 title: "Governance en menselijke beslisgrenzen"
-description: "Where humans retain authority over risk, irreversible action and release decisions."
+description: "Waar mensen de bevoegdheid behouden over risico, onomkeerbare acties en releasebeslissingen."
 area: "Coding agents gebruiken"
 order: 15
 tags: ["governance","risk"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Governance en menselijke beslisgrenzen"}>
-Governance defines who may authorise agent actions, which risks require escalation, how work is logged and how responsibility is assigned. Human decision boundaries mark actions that agents may prepare but not decide alone, such as production deployment, destructive data changes, security exceptions, legal commitments, credential handling or changes with material user impact.
+Governance bepaalt wie agent-acties mag autoriseren, welke risico's escalatie vereisen, hoe werk wordt gelogd en hoe verantwoordelijkheid wordt toegewezen. Menselijke beslisgrenzen markeren acties die agents wel mogen voorbereiden maar niet zelfstandig mogen beslissen, zoals productie-deployment, destructieve datamutaties, security-excepties, juridische verplichtingen, omgang met credentials of wijzigingen met materiële impact op gebruikers.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Humans should own problem definition, material trade-offs, risk acceptance, irreversible actions and release decisions. Autonomy should be proportional to reversibility, blast radius and quality of verification.
+Mensen zouden eigenaar moeten blijven van probleemdefinitie, materiële trade-offs, risicoacceptatie, onomkeerbare acties en releasedecisies. Autonomie moet in verhouding staan tot omkeerbaarheid, blast radius en de kwaliteit van verificatie.
 
-Official OpenAI guidance describes project instructions, skills, MCP and subagents as complementary configuration layers. It also recommends using parallel agents first for read-heavy tasks and taking more care with parallel write-heavy work because of conflicts and coordination overhead.
+Officiële richtlijnen van OpenAI beschrijven projectinstructies, skills, MCP en subagents als complementaire configuratielagen. Ze bevelen ook aan om parallelle agents eerst in te zetten voor leesintensieve taken en voorzichtiger te zijn met parallel schrijfintensief werk vanwege conflicten en coördinatie-overhead.
 
 <EngineeringMode>
-Governance defines which decisions remain human-owned. Architecture should enforce approval gates for releases, data access, destructive commands and policy exceptions. Design must make responsibility visible when users or operators rely on agent output. Build work includes logs, permissions and rollback. Operations audit boundary violations. The risk is delegating accountability to a system that cannot own legal, ethical or business consequences.
+Governance bepaalt welke beslissingen bij mensen blijven. Architectuur moet goedkeuringspoorten afdwingen voor releases, data-toegang, destructieve commando's en beleidsuitzonderingen. Design moet verantwoordelijkheid zichtbaar maken wanneer gebruikers of operators vertrouwen op agent-output. Build-werk omvat logs, permissies en rollback. Operations voert audits uit op grensschendingen. Het risico is dat je verantwoordelijkheid delegeert aan een systeem dat geen juridische, ethische of zakelijke consequenties kan dragen.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-In an AI-assisted release workflow, an agent may prepare migration code, update tests and summarize risk. Governance keeps human ownership over production deployment, customer notification, data deletion and rollback decisions. The boundary should be explicit before the agent is allowed near irreversible systems.
+In een AI-ondersteunde release-workflow kan een agent migratiecode voorbereiden, tests bijwerken en risico samenvatten. Governance behoudt menselijk eigenaarschap over productie-deployment, klantnotificatie, dataverwijdering en rollback-beslissingen. De grens moet expliciet zijn voordat de agent in de buurt van onomkeerbare systemen wordt toegelaten.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Configuration, permissions and sandboxing","href":"/using-coding-agents/configuration-permissions-and-sandboxing/"},{"label":"Human oversight design","href":"/shaping-the-build/risk-and-responsible-ai/"}]} />
+<RelatedConcepts links={[{"label":"Configuratie, permissies en sandboxing","href":"/nl/using-coding-agents/configuration-permissions-and-sandboxing/"},{"label":"Ontwerp voor menselijk toezicht","href":"/nl/shaping-the-build/risk-and-responsible-ai/"}]} />
 
 <SourceNote>
-Further study: NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>, and OpenAI safety and permissions documentation.
+Vervolgstudie: NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>, en documentatie van OpenAI over veiligheid en permissies.
 </SourceNote>

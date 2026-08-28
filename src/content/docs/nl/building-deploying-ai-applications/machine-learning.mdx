@@ -1,6 +1,6 @@
 ---
 title: "Machine learning"
-description: "Methods that learn patterns from data instead of expressing every rule explicitly."
+description: "Methoden die patronen uit data leren in plaats van elke regel expliciet vast te leggen."
 area: "AI-applicaties bouwen en uitrollen"
 order: 2
 tags: ["foundation","evaluation"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Machine learning"}>
-Machine learning is the engineering discipline of fitting statistical models to data so a system can make predictions, classifications, recommendations or decisions without every rule being hand-coded. In AI applications this includes defining target variables, choosing features or representations, selecting model families, splitting data, measuring generalisation and monitoring drift after deployment.
+Machine learning is de engineeringsdiscipline waarin statistische modellen op data worden gepast, zodat een systeem voorspellingen, classificaties, aanbevelingen of beslissingen kan maken zonder dat elke regel met de hand wordt gecodeerd. In AI‑applicaties omvat dit het definiëren van doelvariabelen, het kiezen van features of representaties, het selecteren van modelfamilies, het splitsen van data, het meten van generalisatie en het bewaken van drift na uitrol.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Machine learning methods learn patterns from data instead of expressing every rule explicitly. Core forms include supervised, unsupervised, self-supervised and reinforcement learning.
+Machine‑learningmethoden leren patronen uit data in plaats van elke regel expliciet te formuleren. Kernvormen zijn supervised, unsupervised, self‑supervised en reinforcement learning.
 
-Engineers need a working grasp of data splits, loss functions, metrics, generalisation, bias-variance reasoning and error analysis. In this knowledge base, machine learning is treated as engineering material: useful only when its behaviour can be measured against real tasks and connected to software constraints.
+Engineers hebben praktische grip nodig op datasplitsingen, verliesfuncties, metrics, generalisatie, de bias‑variance‑afweging en foutenanalyse. In deze kennisbank behandelen we machine learning als engineeringmateriaal: alleen nuttig wanneer het gedrag kan worden gemeten aan echte taken en is verbonden met softwarerandvoorwaarden.
 
 <EngineeringMode>
-Machine learning shifts behavior into data and feedback loops. Architecture must support training data, inference paths, model versioning and rollback. Design must define acceptable errors and human review points. Build work covers features, labels, evaluation sets and monitoring hooks. Operations watch drift, bias, latency and data quality. The recurring risk is treating the model as a black box instead of an evolving production dependency.
+Machine learning verplaatst gedrag naar data en feedbackloops. Architectuur moet trainingsdata, inferentiepaden, modelversiebeheer en rollback ondersteunen. Design moet acceptabele fouten en momenten voor menselijke review definiëren. Build‑werk omvat features, labels, evaluatiesets en monitoringhooks. Operations bewaken drift, bias, latency en datakwaliteit. Het terugkerende risico is het model behandelen als een black box in plaats van als een evoluerende productie‑afhankelijkheid.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-Gmail spam filtering is a durable machine-learning example. Engineers do not write every spam rule by hand; they train models from labelled mail, sender signals and user feedback. The system then predicts whether new messages are unwanted, while monitoring false positives because blocking legitimate mail is costly.
+Spamfiltering in Gmail is een beproefd machine‑learningvoorbeeld. Engineers schrijven niet elke spamregel met de hand; ze trainen modellen op gelabelde e‑mail, afzendersignalen en gebruikersfeedback. Het systeem voorspelt vervolgens of nieuwe berichten ongewenst zijn, terwijl valse positieven worden bewaakt omdat het blokkeren van legitieme e‑mail kostbaar is.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"AI suitability","href":"/shaping-the-build/ai-suitability/"}]} />
+<RelatedConcepts links={[{"label":"Evals en foutenanalyse","href":"/nl/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"AI-geschiktheid","href":"/nl/shaping-the-build/ai-suitability/"}]} />
 
 <SourceNote>
-Further study: Andrew Ng's Machine Learning Specialization and Google, <a href="https://developers.google.com/machine-learning/crash-course">Machine Learning Crash Course</a>.
+Verder studeren: Andrew Ng’s Machine Learning Specialization en Google, <a href="https://developers.google.com/machine-learning/crash-course">Machine Learning Crash Course</a>.
 </SourceNote>

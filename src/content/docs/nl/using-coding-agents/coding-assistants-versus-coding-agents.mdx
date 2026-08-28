@@ -1,6 +1,6 @@
 ---
-title: "Coding assistants versus coding agents"
-description: "The difference between local code help and goal-directed multi-step agent work."
+title: "Coding-assistants versus coding-agents"
+description: "Het verschil tussen lokale codehulp en doelgericht agentwerk met meerdere stappen."
 area: "Coding agents gebruiken"
 order: 2
 tags: ["foundation"]
@@ -16,30 +16,30 @@ import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
-<Definition term={"Coding assistants versus coding agents"}>
-A coding assistant primarily responds to local developer prompts, such as explaining a file, completing code or suggesting a refactor. A coding agent is a goal-directed system that can inspect a repository, choose tools, edit files, run commands, observe results and iterate until a stopping condition is reached. The distinction matters because agents need stronger task boundaries, permissions, evidence and review than conversational assistance.
+<Definition term={"Coding-assistants versus coding-agents"}>
+Een coding-assistant reageert vooral op lokale prompts van de ontwikkelaar, zoals het uitleggen van een bestand, code aanvullen of een refactor voorstellen. Een coding-agent is een doelgericht systeem dat een repository kan inspecteren, tools kan kiezen, bestanden kan bewerken, commando’s kan uitvoeren, resultaten kan observeren en kan itereren totdat een stopconditie is bereikt. Dit onderscheid is belangrijk omdat agents sterkere taakafbakening, permissies, bewijs en review nodig hebben dan conversatiegerichte assistentie.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-A coding assistant is mainly used to explain, autocomplete or generate a local fragment. The user usually manages the surrounding workflow.
+Een coding-assistant wordt vooral gebruikt om toe te lichten, autocompletion te bieden of een lokaal fragment te genereren. De gebruiker beheert doorgaans de omliggende workflow.
 
-A coding agent is a goal-directed system that can inspect code, use tools, modify files, run verification and iterate over multiple steps with a degree of autonomy. This distinction matters because agent use shifts engineering work toward task framing, context design, verification and review.
+Een coding-agent is een doelgericht systeem dat code kan inspecteren, tools kan gebruiken, bestanden kan wijzigen, verificatie kan uitvoeren en met enige autonomie over meerdere stappen kan itereren. Dit onderscheid is belangrijk omdat het gebruik van agents het engineeringwerk verschuift naar taakafbakening, contextontwerp, verificatie en review.
 
 <EngineeringMode>
-The distinction affects permissions, workflow and review. Assistants usually keep the human in the edit loop; agents may inspect, modify and run commands across a repository. Architecture must reflect that authority difference. Design should show when the tool is suggesting versus acting. Build work adds tests and audit trails. The risk is giving agent-level permissions to a tool treated socially as autocomplete.
+Het onderscheid raakt permissies, workflow en review. Assistants houden de mens doorgaans in de bewerkingslus; agents kunnen een hele repository inspecteren, wijzigen en commando’s uitvoeren. De architectuur moet dat machtsverschil weerspiegelen. Het ontwerp moet zichtbaar maken wanneer de tool suggereert versus daadwerkelijk handelt. Build-werk voegt tests en audittrails toe. Het risico is permissies op agentniveau geven aan een tool die sociaal wordt behandeld als autocomplete.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-GitHub Copilot autocomplete is a coding-assistant pattern: it suggests code while the developer drives. A repository-aware agent behaves differently when it plans a change, edits several files, runs tests and reacts to failures. Both are useful, but they require different review and permission practices.
+GitHub Copilot-autocomplete is een coding-assistantpatroon: het suggereert code terwijl de ontwikkelaar stuurt. Een repository-bewuste agent gedraagt zich anders wanneer die een wijziging plant, meerdere bestanden bewerkt, tests draait en op falen reageert. Beide zijn nuttig, maar ze vragen om andere review- en permissiepraktijken.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Principles for effective use","href":"/using-coding-agents/principles-for-effective-use/"}]} />
+<RelatedConcepts links={[{"label":"De agent-loop","href":"/nl/using-coding-agents/the-agent-loop/"},{"label":"Principes voor effectief gebruik","href":"/nl/using-coding-agents/principles-for-effective-use/"}]} />
 
 <SourceNote>
-Further study: Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>, and OpenAI Codex documentation.
+Verdere studie: Anthropic, <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>, en de OpenAI Codex-documentatie.
 </SourceNote>

@@ -1,6 +1,6 @@
 ---
 title: "AI Engineering: twee richtingen"
-description: "How AI for software engineering and software engineering for AI form two cross-cutting perspectives in modern AI engineering."
+description: "Hoe AI voor software engineering en software engineering voor AI twee overkoepelende perspectieven vormen in moderne AI Engineering."
 area: "Begin hier"
 order: 3
 tags: ["foundation","architecture","practice"]
@@ -15,147 +15,147 @@ import distributedBehaviour from '../../../../assets/concept-se4ai-distributed-b
 import assistantToAgent from '../../../../assets/concept-ai4se-assistant-to-agent.png';
 import feedbackLoops from '../../../../assets/concept-ai4se-se4ai-feedback-loops.png';
 
-AI engineering can be understood through two complementary directions:
+AI Engineering kun je begrijpen langs twee, elkaar aanvullende, richtingen:
 
-1. **Software Engineering for AI (SE4AI)**: applying software-engineering discipline to systems that contain AI components.
-2. **AI for Software Engineering (AI4SE)**: applying AI to improve, automate or orchestrate software-engineering work.
+1. **Software Engineering for AI (SE4AI)**: software‑engineeringdiscipline toepassen op systemen met AI‑componenten.
+2. **AI for Software Engineering (AI4SE)**: AI inzetten om software‑engineeringwerk te verbeteren, automatiseren of orkestreren.
 
-They should not become extra top-level areas in this knowledge base. They are better understood as cross-cutting perspectives through Andrew Ng's four-area AI Engineering Skills Map. Building and deploying AI applications is mainly SE4AI. Using coding agents is mainly AI4SE. Software engineering fundamentals support both. Shaping the build connects both to human intent, judgement and accountability.
+Het moeten geen extra hoofdonderdelen van deze kennisbank worden. Het zijn beter te begrijpen als dwarsdoorsnijdende perspectieven op Andrew Ng’s vierdelige AI Engineering Skills Map. Building and Deploying AI Applications is vooral SE4AI. Using Coding Agents is vooral AI4SE. Software engineering fundamentals ondersteunen beide. Shaping the Build verbindt beide met menselijke intentie, oordeel en verantwoordelijkheid.
 
 <figure class="overview-infographic">
-  <img src={twoDirections.src} alt="Infographic showing AI Engineering as two directions: SE4AI, engineer AI systems, and AI4SE, engineer with AI." loading="eager" decoding="async" />
+  <img src={twoDirections.src} alt="Infographic met AI Engineering als twee richtingen: SE4AI, AI‑systemen engineeren, en AI4SE, engineeren met AI." loading="eager" decoding="async" />
   <figcaption>
-    SE4AI asks how to engineer AI-based systems properly. AI4SE asks how AI can help engineers build software. AI engineering brings both directions together: the engineer may use AI agents to build software, while also building software that contains AI models, tools, data, evals and controls.
+    SE4AI vraagt hoe je AI‑gebaseerde systemen goed engineert. AI4SE vraagt hoe AI engineers kan helpen software te bouwen. AI Engineering brengt beide samen: de engineer kan AI‑agents gebruiken om software te bouwen, terwijl diezelfde software ook AI‑modellen, tools, data, evals en beheersmaatregelen bevat.
   </figcaption>
 </figure>
 
-## SE4AI: Engineering Systems with AI
+## SE4AI: Systemen met AI engineeren
 
-SE4AI starts from the product being built. The system contains a model or AI component, so behavior is no longer located only in developer-written code. It also depends on data, prompts, retrieved context, model versions, tool calls, memory, orchestration and human review.
+SE4AI vertrekt vanuit het te bouwen product. Het systeem bevat een model of AI‑component, dus het gedrag zit niet langer alleen in door ontwikkelaars geschreven code. Het hangt ook af van data, prompts, opgehaalde context, modelversies, tool calls, geheugen, orkestratie en menselijke review.
 
-That changes the engineering problem:
+Dat verandert het engineeringprobleem:
 
-| Concern | What SE4AI adds |
+| Aandachtspunt | Wat SE4AI toevoegt |
 |---|---|
-| Requirements | Define acceptable probabilistic behavior, refusal boundaries and human review needs. |
-| Architecture | Isolate model calls, retrieval, tools, policy checks, traces and fallback paths. |
-| Testing | Combine deterministic tests with evals, red-team cases and human review. |
-| Maintenance | Track model, prompt, data and retrieval changes as production dependencies. |
-| Operations | Monitor quality, latency, cost, drift, safety incidents and data freshness. |
+| Requirements | Definieer acceptabel probabilistisch gedrag, weigeringsgrenzen en behoefte aan menselijke review. |
+| Architecture | Isoleer modelaanroepen, retrieval, tools, policy‑checks, traces en fallback‑paden. |
+| Testing | Combineer deterministische tests met evals, red‑teamcases en menselijke review. |
+| Maintenance | Volg wijzigingen aan model, prompt, data en retrieval als productieafhankelijkheden. |
+| Operations | Monitor kwaliteit, latency, kosten, drift, veiligheidsincidenten en actualiteit van data. |
 
 <figure class="overview-infographic">
-  <img src={distributedBehaviour.src} alt="Infographic showing SE4AI distributed behavior across code, model, prompts, context, data, tools, orchestration, evals and guardrails." loading="lazy" decoding="async" />
+  <img src={distributedBehaviour.src} alt="Infographic die laat zien dat bij SE4AI gedrag is verdeeld over code, model, prompts, context, data, tools, orkestratie, evals en guardrails." loading="lazy" decoding="async" />
   <figcaption>
-    In SE4AI, system behavior is distributed. Code still matters, but prompts, model behavior, context, data, tools, orchestration, evals and guardrails also shape the output. The engineer therefore designs the whole behavior-producing system, not just the API call to a model.
+    In SE4AI is systeemgedrag gedistribueerd. Code telt nog steeds, maar ook prompts, modelgedrag, context, data, tools, orkestratie, evals en guardrails bepalen de output. De engineer ontwerpt daarom het volledige systeem dat gedrag produceert, niet alleen de API‑aanroep naar een model.
   </figcaption>
 </figure>
 
-## AI4SE: Engineering with AI
+## AI4SE: Engineeren met AI
 
-AI4SE starts from the engineering process. AI is used to help understand requirements, explore architecture, write code, generate tests, review changes, debug failures, document systems, triage issues and inspect observability data.
+AI4SE vertrekt vanuit het engineeringproces. AI helpt bij het begrijpen van requirements, het verkennen van architecturen, code schrijven, tests genereren, wijzigingen reviewen, fouten debuggen, systemen documenteren, issues triageren en observability‑data inspecteren.
 
-The major shift is from assistant to agent:
+De grote verschuiving is van assistant naar agent:
 
-1. **Code completion** suggests local code while the developer drives.
-2. **Chat assistants** explain, draft and transform code when asked.
-3. **Coding agents** inspect repositories, plan changes, edit files, run tests and iterate.
-4. **Agentic software engineering** coordinates multiple agents or roles across architecture, coding, review, testing and documentation.
+1. **Code completion** suggereert lokale code terwijl de developer stuurt.
+2. **Chat‑assistants** leggen uit, schetsen en transformeren code op verzoek.
+3. **Coding agents** inspecteren repositories, plannen wijzigingen, bewerken bestanden, draaien tests en itereren.
+4. **Agentic software engineering** coördineert meerdere agents of rollen over architectuur, coding, review, testing en documentatie.
 
 <figure class="overview-infographic">
-  <img src={assistantToAgent.src} alt="Infographic showing AI4SE evolving from code completion to chat assistant, coding agent and agentic software engineering." loading="lazy" decoding="async" />
+  <img src={assistantToAgent.src} alt="Infographic die de evolutie in AI4SE toont van code completion naar chat‑assistant, coding agent en agentic software engineering." loading="lazy" decoding="async" />
   <figcaption>
-    AI4SE has moved from local code suggestions toward repository-aware agents. The practical difference is autonomy and workflow scope. A coding agent can inspect files, plan, edit, test and retry, so the engineer must provide clearer tasks, stronger permissions, better verification and more deliberate oversight.
+    AI4SE is verschoven van lokale codesuggesties naar repository‑bewuste agents. Het praktische verschil zit in autonomie en reikwijdte van de workflow. Een coding agent kan bestanden inspecteren, plannen, editen, testen en herproberen; daarom moet de engineer helderder taken geven, sterkere permissies regelen, betere verificatie inbouwen en bewuster toezicht houden.
   </figcaption>
 </figure>
 
-## Why the Distinction Matters
+## Waarom het onderscheid ertoe doet
 
-People often mix the two conversations. That creates confusion.
+Mensen halen de twee gesprekken vaak door elkaar. Dat zorgt voor verwarring.
 
-| Confusion | Clearer framing |
+| Verwarring | Duidelijker kader |
 |---|---|
-| "AI engineering means using AI to code faster." | That is AI4SE, only one side of the field. |
-| "AI engineering means building LLM applications." | That is SE4AI, only one side of the field. |
-| "The prompt is the product." | In SE4AI, prompts are one part of a larger engineered system. |
-| "The agent can own implementation." | In AI4SE, agents can execute work, but humans still own intent, risk and release. |
+| "AI Engineering betekent AI gebruiken om sneller te coderen." | Dat is AI4SE, slechts één kant van het veld. |
+| "AI Engineering betekent LLM‑applicaties bouwen." | Dat is SE4AI, slechts één kant van het veld. |
+| "De prompt is het product." | In SE4AI zijn prompts één onderdeel van een groter geengineerd systeem. |
+| "De agent kan de implementatie volledig dragen." | In AI4SE kunnen agents werk uitvoeren, maar mensen blijven eigenaar van intentie, risico en release. |
 
-The symmetry is useful:
+De symmetrie is nuttig:
 
 | AI4SE | SE4AI |
 |---|---|
-| AI changes the engineering process. | AI changes the engineered product. |
-| AI assists the developer. | AI is part of the application. |
-| Coding agents work in repositories. | Application agents work in production. |
-| AI evaluates code. | Software evaluates AI. |
-| Developer controls AI. | Architecture controls AI. |
+| AI verandert het engineeringproces. | AI verandert het geengineerde product. |
+| AI assisteert de developer. | AI is onderdeel van de applicatie. |
+| Coding agents werken in repositories. | Application agents werken in productie. |
+| AI evalueert code. | Software evalueert AI. |
+| De developer controleert AI. | De architectuur controleert AI. |
 
-## The Synthesis: AI Engineering
+## De synthese: AI Engineering
 
-The two directions are increasingly converging into a single professional practice: **AI Engineering**. A modern AI engineer may use AI agents to design, implement, test and document software while the software being built also contains AI models, retrieval, tools, agents, evals and guardrails.
+De twee richtingen groeien steeds meer toe naar één professionele praktijk: **AI Engineering**. Een moderne AI‑engineer kan AI‑agents gebruiken om software te ontwerpen, te implementeren, te testen en te documenteren, terwijl de te bouwen software óók AI‑modellen, retrieval, tools, agents, evals en guardrails bevat.
 
-Consider an agentic customer-support system. The engineering team may use AI4SE to:
+Neem een agentic klantenservicesysteem. Het engineeringteam kan AI4SE gebruiken om:
 
-1. explore requirements and architecture options;
-2. generate a first RAG implementation;
-3. write tests and eval cases;
-4. inspect failures and refactor code;
-5. configure deployment and observability.
+1. requirements en architectuuropties te verkennen;
+2. een eerste RAG‑implementatie te genereren;
+3. tests en eval‑cases te schrijven;
+4. falingen te inspecteren en code te refactoren;
+5. deployment en observability te configureren.
 
-The resulting product is a SE4AI system:
+Het resulterende product is een SE4AI‑systeem:
 
-1. an LLM interprets user requests;
-2. context engineering supplies policies, history and retrieved knowledge;
-3. RAG grounds answers in support documentation;
-4. tools query orders, refunds or account state;
-5. an agent workflow decides when to answer, ask, escalate or stop;
-6. evals and observability check quality, safety, latency and cost.
+1. een LLM interpreteert gebruikersverzoeken;
+2. context engineering levert policies, historie en opgehaalde kennis;
+3. RAG verankert antwoorden in supportdocumentatie;
+4. tools bevragen bestellingen, refunds of accountstatus;
+5. een agent‑workflow beslist wanneer te antwoorden, vragen, escaleren of stoppen;
+6. evals en observability controleren kwaliteit, veiligheid, latency en kosten.
 
-The same engineer is therefore working in both directions at once. AI helps produce the software, and software engineering makes the AI-supported product trustworthy enough to operate. That is the synthesis: AI Engineering is the disciplined practice of combining AI-assisted engineering work with engineering discipline for AI-based systems.
+Diezelfde engineer werkt dus tegelijk in beide richtingen. AI helpt de software te produceren, en software engineering maakt het door AI ondersteunde product betrouwbaar genoeg om te opereren. Dat is de synthese: AI Engineering is de gedisciplineerde praktijk van het combineren van AI‑geassisteerd engineeringwerk met engineeringdiscipline voor AI‑gebaseerde systemen.
 
-This also changes where human expertise sits. The superficial version of AI-assisted development is "tell AI what to code." The stronger version is:
+Dit verandert ook waar menselijke expertise zit. De oppervlakkige versie van AI‑geassisteerde ontwikkeling is: "zeg tegen AI wat hij moet coderen". De sterkere versie is:
 
 ```text
 intent -> specification -> execution -> evaluation
 ```
 
-Humans increasingly define what should be built, why it matters, which constraints apply and how success will be judged. AI agents can execute more of the implementation loop, but they depend on human framing, architecture, task decomposition, evaluation criteria and review.
+Mensen bepalen in toenemende mate wat er gebouwd moet worden, waarom dat ertoe doet, welke randvoorwaarden gelden en hoe succes wordt beoordeeld. AI‑agents kunnen meer van de implementatielus uitvoeren, maar zijn afhankelijk van menselijke kadering, architectuur, taakdecompositie, evaluatiecriteria en review.
 
-In this synthesis, the four knowledge-base areas are not independent buckets:
+In deze synthese zijn de vier kennisbankgebieden geen onafhankelijke silo’s:
 
-| Area | Role in the synthesis |
+| Gebied | Rol in de synthese |
 |---|---|
-| Building and Deploying AI Applications | Provides the SE4AI practices for engineering systems whose behaviour depends on AI. |
-| Software Engineering Fundamentals | Provides the discipline that keeps both AI-generated work and AI-based systems maintainable. |
-| Using Coding Agents | Provides the AI4SE practices for using agents as engineering collaborators. |
-| Shaping the Build | Provides human intent, judgement, trade-off analysis, orchestration and accountability. |
+| Building and Deploying AI Applications | Biedt de SE4AI‑praktijken voor het engineeren van systemen waarvan het gedrag afhangt van AI. |
+| Software Engineering Fundamentals | Biedt de discipline die zowel AI‑gegenereerd werk als AI‑gebaseerde systemen onderhoudbaar houdt. |
+| Using Coding Agents | Biedt de AI4SE‑praktijken voor het inzetten van agents als engineering‑collaborators. |
+| Shaping the Build | Biedt menselijke intentie, oordeel, afwegingsanalyse, orkestratie en verantwoordelijkheid. |
 
-The result is a stronger definition of AI engineering: not just building with models, and not just coding with agents, but creating reliable feedback loops between intent, implementation, evaluation and operation.
+Het resultaat is een sterkere definitie van AI Engineering: niet alleen bouwen met modellen, en niet alleen coderen met agents, maar betrouwbare feedbacklussen creëren tussen intentie, implementatie, evaluatie en operatie.
 
-## Two Feedback Loops
+## Twee feedbacklussen
 
-Both directions shift software work away from writing everything correctly once. They make fast feedback loops central.
+Beide richtingen verschuiven softwarewerk weg van "één keer alles correct schrijven". Snelle feedbacklussen worden centraal.
 
-In SE4AI, teams build an AI-supported behavior, evaluate it, analyze failures and improve the system. In AI4SE, agents plan, act, observe, verify and iterate against repository evidence. In both cases, the engineer's job is to make the loop observable, bounded and useful.
+In SE4AI bouwen teams een door AI ondersteund gedrag, evalueren dat, analyseren falingen en verbeteren het systeem. In AI4SE plannen agents, handelen, observeren, verifiëren en itereren op basis van bewijs uit de repository. In beide gevallen is het de taak van de engineer om de lus observeerbaar, begrensd en nuttig te maken.
 
 <figure class="overview-infographic">
-  <img src={feedbackLoops.src} alt="Infographic comparing the SE4AI evaluation loop with the AI4SE agent loop around shared evidence." loading="lazy" decoding="async" />
+  <img src={feedbackLoops.src} alt="Infographic die de SE4AI‑evaluatielus vergelijkt met de AI4SE‑agentlus rondom gedeeld bewijs." loading="lazy" decoding="async" />
   <figcaption>
-    SE4AI and AI4SE both depend on feedback. The evaluation loop improves AI application behavior; the agent loop improves software work through repeated action and verification. Evidence connects the loops. Without traces, tests, evals and review, iteration becomes motion rather than engineering progress.
+    SE4AI en AI4SE zijn allebei afhankelijk van feedback. De evaluatielus verbetert het gedrag van AI‑applicaties; de agentlus verbetert softwarewerk via herhaalde actie en verificatie. Bewijs verbindt de lussen. Zonder traces, tests, evals en review wordt iteratie beweging in plaats van engineeringvooruitgang.
   </figcaption>
 </figure>
 
-## Mapping naar de kennisbank
+## Koppelen aan de kennisbank
 
-| Knowledge base area | Perspective | Core question |
+| Kennisbankgebied | Perspectief | Kernvraag |
 |---|---|---|
-| [Building and Deploying AI Applications](/nl/building-deploying-ai-applications/) | SE4AI | How do we engineer AI-based systems? |
-| [Software Engineering Fundamentals](/nl/software-engineering-fundamentals/) | Shared foundation | Which engineering disciplines make both directions reliable? |
-| [Using Coding Agents](/nl/using-coding-agents/) | AI4SE | How do we engineer software with AI assistance and agents? |
-| [Shaping the Build](/nl/shaping-the-build/) | Integration | How do humans define intent, constraints, evaluation and oversight? |
+| [Building and Deploying AI Applications](/nl/building-deploying-ai-applications/) | SE4AI | Hoe engineeren we AI‑gebaseerde systemen? |
+| [Software Engineering Fundamentals](/nl/software-engineering-fundamentals/) | Gedeelde basis | Welke engineeringdisciplines maken beide richtingen betrouwbaar? |
+| [Using Coding Agents](/nl/using-coding-agents/) | AI4SE | Hoe engineeren we software met AI‑assistentie en agents? |
+| [Shaping the Build](/nl/shaping-the-build/) | Integratie | Hoe definiëren mensen intentie, randvoorwaarden, evaluatie en toezicht? |
 
-The practical conclusion is simple: AI engineering is not just adding AI to products, and it is not just using AI to write code. It is the disciplined combination of both lines under human judgement, software quality and evidence-based improvement.
+De praktische conclusie is simpel: AI Engineering is niet alleen AI aan producten toevoegen, en het is niet alleen AI gebruiken om code te schrijven. Het is de gedisciplineerde combinatie van beide lijnen, onder menselijk oordeel, softwarekwaliteit en bewijs‑gedreven verbetering.
 
-Petra Heck of Fontys University of Applied Sciences makes the same distinction in terms of the **AI-augmented software engineer**: a professional who can build production-ready AI systems (SE4AI) and use AI tools to build production-ready systems (AI4SE). That framing reinforces the human role in this page: the engineer remains an end-to-end problem solver who works with stakeholders, understands the domain and oversees both AI-enabled products and AI-assisted engineering work.
+Petra Heck van Fontys University of Applied Sciences maakt hetzelfde onderscheid in termen van de **AI-augmented software engineer**: een professional die productierijpe AI‑systemen kan bouwen (SE4AI) en AI‑tools kan gebruiken om productierijpe systemen te bouwen (AI4SE). Dat kader benadrukt de menselijke rol in deze pagina: de engineer blijft een end‑to‑end probleemoplosser die met stakeholders werkt, het domein begrijpt en zowel door AI mogelijk gemaakte producten als AI‑geassisteerd engineeringwerk overziet.
 
 ## Gerelateerde concepten
 
@@ -169,5 +169,5 @@ Petra Heck of Fontys University of Applied Sciences makes the same distinction i
 - [Quality Model for AI Software](/nl/cross-cutting-knowledge/quality-model-for-ai-software/)
 
 <SourceNote>
-This page interprets the local source note in <code>ai4se-se4ai.md</code> and connects it to the knowledge base. Supporting sources: Andrew Ng, DeepLearning.AI, <a href="https://www.deeplearning.ai/the-batch/the-ai-engineering-skills-map/">The AI Engineering Skills Map</a>; Petra Heck, Fontys University of Applied Sciences, <a href="https://fontysblogt.nl/competences-for-the-ai-augmented-software-engineer/">Competences for the AI-Augmented Software Engineer</a>; and Martínez-Fernández et al., <a href="https://doi.org/10.1145/3487043">Software Engineering for AI-Based Systems: A Survey</a>.
+Deze pagina interpreteert de lokale source note in <code>ai4se-se4ai.md</code> en verbindt die met de kennisbank. Ondersteunende bronnen: Andrew Ng, DeepLearning.AI, <a href="https://www.deeplearning.ai/the-batch/the-ai-engineering-skills-map/">The AI Engineering Skills Map</a>; Petra Heck, Fontys University of Applied Sciences, <a href="https://fontysblogt.nl/competences-for-the-ai-augmented-software-engineer/">Competences for the AI-Augmented Software Engineer</a>; en Martínez-Fernández et al., <a href="https://doi.org/10.1145/3487043">Software Engineering for AI-Based Systems: A Survey</a>.
 </SourceNote>

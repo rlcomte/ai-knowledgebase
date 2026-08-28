@@ -1,6 +1,6 @@
 ---
 title: "AI-geschiktheid"
-description: "Assessing whether AI belongs in the task and whether errors are detectable, tolerable and recoverable."
+description: "Beoordelen of AI bij de taak past en of fouten detecteerbaar, toelaatbaar en herstelbaar zijn."
 area: "De bouwopgave vormgeven"
 order: 4
 tags: ["foundation","risk"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"AI-geschiktheid"}>
-AI suitability is the decision process for determining whether a task should use an AI model at all, and if so where it should sit in the workflow. A suitable use case has useful signal in available data or context, clear success criteria, tolerable and detectable errors, recovery paths, responsible data use and a human or system boundary for high-impact decisions.
+AI‑geschiktheid is het beslisproces om te bepalen of een taak überhaupt een AI‑model zou moeten gebruiken en, zo ja, waar het in de workflow hoort. Een geschikte toepassing heeft bruikbaar signaal in beschikbare data of context, duidelijke succescriteria, toelaatbare en detecteerbare fouten, herstelpaden, verantwoord datagebruik en een menselijke of systeemgrens voor beslissingen met grote impact.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-AI suitability asks whether the task benefits from pattern recognition, generation or flexible reasoning and whether errors are detectable, tolerable and recoverable.
+AI‑geschiktheid vraagt of de taak baat heeft bij patroonherkenning, genereren of flexibel redeneren, en of fouten detecteerbaar, toelaatbaar en herstelbaar zijn.
 
-The point is not whether AI can produce something plausible. The point is whether probabilistic behaviour can be responsibly embedded in the workflow with the right evidence, controls and human authority.
+Het gaat er niet om of AI iets plausibels kan produceren. Het gaat erom of probabilistisch gedrag op verantwoorde wijze in de workflow kan worden ingebed met het juiste bewijs, de juiste beheersmaatregelen en menselijke autoriteit.
 
 <EngineeringMode>
-AI suitability is an architecture and risk decision. Design should separate tasks needing judgment, language or perception from tasks needing exact rules. Build work may prototype the uncertain part while preserving deterministic paths for critical calculations. Operations compare model value against cost, latency and error recovery. The risk is using AI because it is available rather than because the task benefits from probabilistic behavior.
+AI‑geschiktheid is een architectuur‑ en risicobeslissing. Het ontwerp moet taken die beoordeling, taal of perceptie vergen scheiden van taken die exacte regels vereisen. In de bouwfase kun je het onzekere deel prototypen terwijl je voor kritieke berekeningen deterministische paden behoudt. In operations weeg je modelwaarde af tegen kosten, latency en foutherstel. Het risico is AI gebruiken omdat het beschikbaar is, in plaats van omdat de taak baat heeft bij probabilistisch gedrag.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-Meeting summarization is often AI-suitable because transcripts are messy, summaries are reviewable and users can tolerate some editing. Payroll calculation is usually not suitable for generative AI because the rules are explicit, mistakes are costly and deterministic software can provide more reliable, auditable results.
+Vergadersamenvattingen zijn vaak AI‑geschikt omdat transcripties rommelig zijn, samenvattingen te beoordelen zijn en gebruikers enig redigeerwerk kunnen tolereren. Loonberekening is doorgaans niet geschikt voor generatieve AI omdat de regels expliciet zijn, fouten kostbaar zijn en deterministische software betrouwbaardere, auditbare resultaten kan leveren.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Deterministic-probabilistic boundaries","href":"/shaping-the-build/deterministic-probabilistic-boundaries/"},{"label":"Machine learning","href":"/building-deploying-ai-applications/machine-learning/"}]} />
+<RelatedConcepts links={[{"label":"Deterministisch-probabilistische grenzen","href":"/nl/shaping-the-build/deterministic-probabilistic-boundaries/"},{"label":"Machine learning","href":"/nl/building-deploying-ai-applications/machine-learning/"}]} />
 
 <SourceNote>
-Further study: Google People + AI Research, <a href="https://pair.withgoogle.com/guidebook/">People + AI Guidebook</a>, and NIST AI RMF.
+Verder lezen: Google People + AI Research, <a href="https://pair.withgoogle.com/guidebook/">People + AI Guidebook</a>, en NIST AI RMF.
 </SourceNote>

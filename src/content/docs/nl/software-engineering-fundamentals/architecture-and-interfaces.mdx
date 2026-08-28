@@ -1,6 +1,6 @@
 ---
 title: "Architectuur en interfaces"
-description: "Boundaries, contracts, integration and structural decisions that make AI systems changeable."
+description: "Grenzen, contracten, integratie en structurele beslissingen die AI-systemen veranderbaar maken."
 area: "Basisprincipes van software engineering"
 order: 3
 tags: ["architecture"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Architectuur en interfaces"}>
-Architecture and interfaces define the major components of a system, the responsibilities assigned to each component and the contracts that connect them. In AI software this includes isolating model calls, retrieval, prompts, tools, data pipelines, policy checks and human review behind explicit APIs so behaviour can be tested, observed, replaced and governed.
+Architectuur en interfaces definiëren de belangrijkste componenten van een systeem, de verantwoordelijkheden die aan elke component zijn toegewezen en de contracten die ze verbinden. In AI‑software omvat dit het isoleren van modelaanroepen, retrieval, prompts, tools, datapijplijnen, beleidscontroles en menselijke beoordeling achter expliciete API’s, zodat gedrag kan worden getest, geobserveerd, vervangen en bestuurd.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Architecture captures high-impact structural decisions: boundaries, components, integration, data flow, deployment and quality attributes. Architecture should make model replacement and workflow evolution possible.
+Architectuur legt impactvolle structurele beslissingen vast: grenzen, componenten, integratie, datastroom, deployment en kwaliteitsattributen. Architectuur moet modelvervanging en workflow‑evolutie mogelijk maken.
 
-API and contract design defines stable interfaces, schemas, validation, errors, idempotency and versioning. Tool contracts for agents are APIs and deserve the same discipline.
+API‑ en contractontwerp definieert stabiele interfaces, schema’s, validatie, fouten, idempotentie en versiebeheer. Toolcontracten voor agents zijn API’s en verdienen dezelfde discipline.
 
 <EngineeringMode>
-Architecture and interfaces are what make AI systems governable. Model calls, retrieval, tools, policies and storage should have explicit contracts, ownership and failure behavior. Design must expose what users can trust or correct. Build work favors replaceable components and typed boundaries. Operations monitor each boundary separately. The risk is coupling product behavior directly to a prompt or vendor API with no control points.
+Architectuur en interfaces maken AI‑systemen bestuurbaar. Modelaanroepen, retrieval, tools, beleid en opslag moeten expliciete contracten, eigenaarschap en faalgedrag hebben. Het ontwerp moet zichtbaar maken wat gebruikers kunnen vertrouwen of corrigeren. Bij het bouwen gaat de voorkeur uit naar vervangbare componenten en getypeerde grenzen. Operations monitort elke grens afzonderlijk. Het risico is dat je het productgedrag direct koppelt aan een prompt of leveranciers‑API zonder controlepunten.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-A production RAG assistant often separates the chat UI, retrieval service, model gateway, policy checks and audit logging. Clear interfaces let teams test retrieval without the UI, swap model providers, enforce permissions centrally and explain which evidence supported a generated answer.
+Een productie‑RAG‑assistent scheidt vaak de chat‑UI, de retrievalservice, de model‑gateway, beleidscontroles en auditlogging. Duidelijke interfaces stellen teams in staat retrieval te testen zonder de UI, modelproviders te wisselen, permissies centraal af te dwingen en uit te leggen welk bewijs een gegenereerd antwoord ondersteunde.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Tool calling and MCP","href":"/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Deterministic-probabilistic boundaries","href":"/shaping-the-build/deterministic-probabilistic-boundaries/"}]} />
+<RelatedConcepts links={[{"label":"Tool calling en MCP","href":"/nl/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Deterministische-probabilistische grenzen","href":"/nl/shaping-the-build/deterministic-probabilistic-boundaries/"}]} />
 
 <SourceNote>
-Further study: Len Bass, Paul Clements and Rick Kazman, <em>Software Architecture in Practice</em>, and Martin Fowler, <a href="https://martinfowler.com/architecture/">Software Architecture Guide</a>.
+Verder lezen: Len Bass, Paul Clements en Rick Kazman, <em>Software Architecture in Practice</em>, en Martin Fowler, <a href="https://martinfowler.com/architecture/">Software Architecture Guide</a>.
 </SourceNote>

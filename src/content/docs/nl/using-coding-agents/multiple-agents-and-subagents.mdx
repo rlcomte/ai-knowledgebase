@@ -1,6 +1,6 @@
 ---
 title: "Meerdere agents en subagents"
-description: "When separate agents help and when a single agent is the better engineering choice."
+description: "Wanneer afzonderlijke agents helpen en wanneer één enkele agent de betere engineeringkeuze is."
 area: "Coding agents gebruiken"
 order: 10
 tags: ["practice","architecture"]
@@ -18,33 +18,33 @@ import SourceNote from '@components/SourceNote.astro';
 import conceptMultipleAgentsSubagents from '../../../../assets/concept-multiple-agents-subagents.png';
 
 <Definition term={"Meerdere agents en subagents"}>
-Multiple agents are independent model-driven workers assigned separate parts of a larger task. Subagents are specialised agents with narrower roles, instructions, tools or context. They are useful for parallel exploration, review, testing or domain-specific analysis, but they add cost, coordination overhead and merge risk. Use them only when the work can be separated and reconciled with clear evidence.
+Meerdere agents zijn onafhankelijke, modelgestuurde werkers die elk een afzonderlijk deel van een grotere taak krijgen. Subagents zijn gespecialiseerde agents met beperktere rollen, instructies, tools of context. Ze zijn nuttig voor parallelle verkenning, review, testen of domeinspecifieke analyse, maar ze verhogen kosten, coördinatie-overhead en mergerisico. Gebruik ze alleen wanneer het werk kan worden opgesplitst en met duidelijk bewijs kan worden samengebracht.
 </Definition>
 
 <figure class="concept-explainer-image">
-  <img src={conceptMultipleAgentsSubagents.src} alt="Diagram of a lead agent delegating work to explorer, builder and reviewer subagents before merging evidence." loading="lazy" decoding="async" />
+  <img src={conceptMultipleAgentsSubagents.src} alt="Diagram van een hoofdagent die werk delegeert aan subagents (verkenner, bouwer en reviewer) en vervolgens het bewijs samenvoegt." loading="lazy" decoding="async" />
 </figure>
 
 ## Waarom dit ertoe doet
 
-A subagent is a separately running agent delegated a bounded task by a primary agent. It normally returns a distilled result rather than its entire working context.
+Een subagent is een apart draaiende agent waaraan de hoofdagent een begrensde taak delegeert. Die retourneert normaal gesproken een gedestilleerd resultaat in plaats van zijn volledige werkcontext.
 
-Use multiple agents when tasks are genuinely independent, large context can be partitioned, specialists require different instructions, or independent review adds valuable challenge. Prefer one agent when work is tightly coupled, small, write-heavy in the same files, or difficult to decompose without repeated coordination.
+Gebruik meerdere agents wanneer taken echt onafhankelijk zijn, een grote context kan worden opgedeeld, specialisten verschillende instructies nodig hebben of een onafhankelijke review waardevolle tegenspraak toevoegt. Geef de voorkeur aan één agent wanneer het werk sterk verknoopt is, klein is, veel schrijfbewerkingen in dezelfde bestanden vereist, of lastig te decomponeren is zonder herhaalde coördinatie.
 
 <EngineeringMode>
-Subagents imply distributed work inside the engineering process. Architecture must isolate contexts, permissions and outputs. Design defines roles such as explorer, implementer and reviewer. Build work needs non-overlapping file scopes and structured handoffs. Operations monitor extra cost, inconsistent assumptions and stale findings. The risk is adding more agents when the real need is clearer ownership and verification.
+Subagents impliceren gedistribueerd werk binnen het engineeringproces. De architectuur moet contexten, permissies en uitvoer isoleren. Het ontwerp definieert rollen zoals verkenner, bouwer en reviewer. Het bouwwerk vraagt om niet-overlappende bestands-scopes en gestructureerde overdrachten. Operations bewaakt extra kosten, inconsistente aannames en verouderde bevindingen. Het risico is dat je meer agents toevoegt terwijl de echte behoefte ligt bij duidelijker eigenaarschap en verificatie.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een oefening.
 </EvaluationCheck>
 
 <RealExample>
-A large framework migration can use subagents safely when work is separable. One agent inventories deprecated APIs, another drafts edits in a single package and a reviewer inspects the patch. A lead thread still owns conflict resolution, final tests and the decision to merge.
+Bij een grote frameworkmigratie kun je subagents veilig inzetten wanneer het werk scheidbaar is. Eén agent inventariseert verouderde API’s, een andere maakt conceptwijzigingen in één pakket en een reviewer bekijkt de patch. Een leidende thread behoudt nog steeds het eigenaarschap over conflictbeslechting, eindtests en de beslissing om te mergen.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Delegation, handoffs and orchestration","href":"/using-coding-agents/delegation-handoffs-and-orchestration/"},{"label":"Coordination risks and concurrency safety","href":"/using-coding-agents/coordination-risks-and-concurrency-safety/"}]} />
+<RelatedConcepts links={[{"label":"Delegatie, overdrachten en orkestratie","href":"/nl/using-coding-agents/delegation-handoffs-and-orchestration/"},{"label":"Coördinatierisico's en concurrency-veiligheid","href":"/nl/using-coding-agents/coordination-risks-and-concurrency-safety/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents">Subagents</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents">Create custom subagents</a>.
+Verder lezen: OpenAI, <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents">Subagents</a>, en Anthropic, <a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents">Aangepaste subagents maken</a>.
 </SourceNote>

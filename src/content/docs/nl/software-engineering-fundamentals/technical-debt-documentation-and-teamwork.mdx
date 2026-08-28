@@ -1,6 +1,6 @@
 ---
 title: "Technical debt, documentatie en teamwork"
-description: "Managing future cost, decision records, collaboration and review in fast-moving AI projects."
+description: "Toekomstige kosten beheersen, besluitdocumenten, samenwerking en review in snel veranderende AI-projecten."
 area: "Basisprincipes van software engineering"
 order: 9
 tags: ["practice","governance"]
@@ -17,31 +17,31 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Technical debt, documentatie en teamwork"}>
-Technical debt is the future cost created when a system becomes harder to understand, change or operate than it needs to be. Documentation preserves decisions, contracts and operational knowledge; teamwork defines how people coordinate design, implementation, review and ownership. In AI projects these disciplines keep rapid agent-generated changes from becoming opaque, duplicated or unsafe.
+Technical debt is de toekomstige kost die ontstaat wanneer een systeem moeilijker te begrijpen, te wijzigen of te bedienen wordt dan nodig is. Documentatie legt besluiten, contracten en operationele kennis vast; teamwork bepaalt hoe mensen ontwerp, implementatie, review en eigenaarschap coördineren. In AI-projecten voorkomen deze disciplines dat snelle, door agents gegenereerde wijzigingen ondoorzichtig, gedupliceerd of onveilig worden.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Technical debt is the future cost created by expedient decisions. Agent-generated duplication, unnecessary dependencies and undocumented abstractions can accumulate debt unusually quickly.
+Technische schuld is de toekomstige kost die ontstaat door opportunistische kortetermijnbesluiten. Door agents gegenereerde duplicatie, onnodige afhankelijkheden en ongedocumenteerde abstracties kunnen de schuld ongebruikelijk snel laten oplopen.
 
-Documentation and decision records explain how to use the system and why consequential decisions were made. Architecture decision records preserve context that code alone cannot express.
+Documentatie en besluitregistraties leggen uit hoe je het systeem gebruikt en waarom ingrijpende keuzes zijn gemaakt. Architecture Decision Records bewaren context die je niet puur in code kunt uitdrukken.
 
-Collaboration and review depend on shared standards, code review, issue tracking, ownership and constructive challenge. Human review should focus on risk and system intent, not only formatting.
+Samenwerking en review steunen op gedeelde standaarden, code review, issue-tracking, eigenaarschap en constructieve tegenspraak. Menselijke review moet zich richten op risico en systeemintentie, niet alleen op opmaak.
 
 <EngineeringMode>
-AI systems create technical debt in prompts, eval sets, data assumptions, model choices and undocumented workflows. Architecture needs decision records and ownership boundaries. Design needs shared language for review and escalation. Build work should update docs when behavior changes. Operations need runbooks and incident learning. The risk is a system that still works today but cannot be safely changed by the team tomorrow.
+AI‑systemen creëren technische schuld in prompts, evalsets, data‑aannames, modelkeuzes en ongedocumenteerde workflows. Architectuur heeft besluitdocumenten en duidelijke eigendomsgrenzen nodig. Design vraagt om een gedeelde taal voor review en escalatie. Bouwactiviteiten moeten documentatie bijwerken wanneer het gedrag verandert. Operaties hebben runbooks en leren van incidenten nodig. Het risico is een systeem dat vandaag nog werkt, maar dat het team morgen niet meer veilig kan aanpassen.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-A team that repeatedly patches prompts without recording why will accumulate AI technical debt. Later engineers cannot tell which examples prevent regressions, which model assumptions changed or which failures were accepted. Documentation, decision records and shared eval results keep the system maintainable.
+Een team dat herhaaldelijk prompts patcht zonder vast te leggen waarom, bouwt AI‑technische schuld op. Latere engineers kunnen dan niet zien welke voorbeelden regressies voorkomen, welke modelaannames zijn veranderd of welke fouten zijn geaccepteerd. Documentatie, besluitregistraties en gedeelde evalresultaten houden het systeem onderhoudbaar.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"AGENTS.md and project instructions","href":"/using-coding-agents/context-instructions-and-planning/"},{"label":"Decision records","href":"/shaping-the-build/outcomes-and-learning-loops/"}]} />
+<RelatedConcepts links={[{"label":"AGENTS.md en projectinstructies","href":"/nl/using-coding-agents/context-instructions-and-planning/"},{"label":"Besluitdocumenten","href":"/nl/shaping-the-build/outcomes-and-learning-loops/"}]} />
 
 <SourceNote>
-Further study: Martin Fowler, <a href="https://martinfowler.com/bliki/TechnicalDebt.html">Technical Debt</a>, and Michael Nygard, <a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">Documenting Architecture Decisions</a>.
+Verder lezen: Martin Fowler, <a href="https://martinfowler.com/bliki/TechnicalDebt.html">Technical Debt</a>, en Michael Nygard, <a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">Documenting Architecture Decisions</a>.
 </SourceNote>

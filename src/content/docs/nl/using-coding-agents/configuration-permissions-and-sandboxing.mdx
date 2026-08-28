@@ -1,6 +1,6 @@
 ---
 title: "Configuratie, permissies en sandboxing"
-description: "Model configuration, MCP integrations, execution boundaries, approvals and secrets."
+description: "Modelconfiguratie, MCP‑integraties, uitvoeringsgrenzen, goedkeuringen en secrets."
 area: "Coding agents gebruiken"
 order: 6
 tags: ["governance","risk"]
@@ -17,31 +17,31 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Configuratie, permissies en sandboxing"}>
-Configuration controls model choice, reasoning effort, tool availability, external integrations and runtime behaviour. Permissions define which reads, writes, commands, network calls or external actions require approval. Sandboxing constrains the file system, process and network environment in which the agent operates. These controls reduce blast radius but must be paired with secret management, audit logs and human review.
+Configuratie bepaalt de modelkeuze, de redeneringsinspanning, de beschikbaarheid van tools, externe integraties en runtime‑gedrag. Permissies definiëren welke lees- en schrijfbewerkingen, commando’s, netwerkoproepen of externe acties goedkeuring vereisen. Sandboxing begrenst het bestandssysteem en de proces- en netwerkomgeving waarin de agent opereert. Deze beheersmaatregelen verkleinen de impactradius, maar moeten worden gecombineerd met secret‑beheer, auditlogs en menselijke review.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Model and reasoning configuration should match task complexity, latency and cost. Easy, bounded edits may not need the most expensive setting.
+Model- en redeneerconfiguratie moeten aansluiten bij taakcomplexiteit, latency en kosten. Eenvoudige, afgebakende wijzigingen hebben mogelijk niet de duurste instelling nodig.
 
-A sandbox is an execution boundary that restricts file, process or network access. It reduces blast radius but does not replace secure review. Approval policy governs which actions require human consent; high-impact, external, destructive or credential-sensitive actions deserve tighter approval.
+Een sandbox is een uitvoeringsgrens die toegang tot bestanden, processen of netwerk beperkt. Het verkleint de impactradius maar vervangt geen zorgvuldige review. Goedkeuringsbeleid bepaalt welke acties menselijke toestemming vereisen; acties met hoge impact, externe of destructieve acties, of acties die toegang tot inloggegevens vereisen, verdienen striktere goedkeuring.
 
-MCP integrations expose external tools and resources. Each integration still needs scoped credentials, clear tool contracts and safe defaults. Secrets should come from managed mechanisms, not prompts or committed files.
+MCP‑integraties stellen externe tools en resources beschikbaar. Elke integratie heeft nog steeds ingeperkte inloggegevens, duidelijke toolcontracten en veilige standaardinstellingen nodig. Secrets moeten uit beheerde mechanismen komen, niet uit prompts of gecommit­te bestanden.
 
 <EngineeringMode>
-Configuration and sandboxing define the agent's operating envelope. Architecture must separate read, edit, network and destructive capabilities. Design should make approval prompts understandable and timely. Build work encodes allowed tools, blocked paths and project instructions. Operations review logs and tighten defaults after incidents. The risk is granting broad authority to an agent whose plan, context or commands have not been verified.
+Configuratie en sandboxing definiëren het werkgebied van de agent. De architectuur moet lees-, bewerkings-, netwerk- en destructieve mogelijkheden scheiden. Het ontwerp moet goedkeuringsprompts begrijpelijk en tijdig maken. Het build-werk legt toegestane tools, geblokkeerde paden en projectinstructies vast. Operations bekijkt logs en scherpt standaardinstellingen aan na incidenten. Het risico is dat je brede bevoegdheden verleent aan een agent waarvan plan, context of commando’s niet zijn geverifieerd.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk waarneembaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Codex and Claude Code permission prompts make sandboxing concrete. Reading a repository can be allowed by default, while network access, package installation, secret access and destructive commands require explicit approval. The configuration should match blast radius: low-risk exploration differs from production release work.
+De permissieprompts van Codex en Claude Code maken sandboxing concreet. Het lezen van een repository kan standaard zijn toegestaan, terwijl netwerktoegang, pakketinstallatie, toegang tot secrets en destructieve commando’s expliciete goedkeuring vereisen. De configuratie moet aansluiten bij de impactradius: laagrisico-onderzoek verschilt van werk aan een productierelease.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Security, privacy and accessibility","href":"/software-engineering-fundamentals/security-privacy-and-accessibility/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
+<RelatedConcepts links={[{"label":"Beveiliging, privacy en toegankelijkheid","href":"/nl/software-engineering-fundamentals/security-privacy-and-accessibility/"},{"label":"Governance en menselijke beslissingsgrenzen","href":"/nl/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://learn.chatgpt.com/docs/sandboxing">Codex sandboxing</a>, and Anthropic Claude Code CLI permission settings.
+Vervolgstudie: OpenAI, <a href="https://learn.chatgpt.com/docs/sandboxing">Codex sandboxing</a>, en de permissie-instellingen van de Anthropic Claude Code CLI.
 </SourceNote>

@@ -1,6 +1,6 @@
 ---
 title: "De tien-stappen-werkwijze"
-description: "A readable process for directing coding agents from task framing through shipping and observation."
+description: "Een leesbaar proces om coding agents te sturen, van taakafbakening tot en met uitrol en observatie."
 area: "Coding agents gebruiken"
 order: 8
 tags: ["practice"]
@@ -17,47 +17,47 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"De tien-stappen-werkwijze"}>
-The ten-step working method is a structured operating procedure for moving an agent task from problem framing to verified completion. It separates intent, context gathering, plan review, implementation, testing, evidence collection, human review, commit hygiene, release decision and post-change observation so that an agent's speed does not bypass engineering control.
+De tien-stappen-werkwijze is een gestructureerde werkprocedure om een agent-taak van probleemafbakening tot en met geverifieerde afronding te brengen. Ze scheidt intentie, contextverzameling, planbeoordeling, implementatie, testen, het verzamelen van bewijs, menselijke review, commit-hygiëne, releasebeslissing en observatie na de wijziging, zodat de snelheid van een agent de engineeringcontrole niet omzeilt.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-The recommended working method turns agent use into an engineering loop:
+De aanbevolen werkwijze maakt van het gebruik van agents een engineeringloop:
 
 <ol class="process-list">
-  <li><strong>Frame</strong><span>Describe the outcome, user need, scope and non-goals.</span></li>
-  <li><strong>Ground</strong><span>Point to relevant repository areas, standards and examples.</span></li>
-  <li><strong>Specify</strong><span>Provide acceptance criteria, quality attributes and expected evidence.</span></li>
-  <li><strong>Explore</strong><span>Let the agent inspect before it edits; require clarification for material ambiguity.</span></li>
-  <li><strong>Plan</strong><span>For complex work, agree on decomposition and risk points.</span></li>
-  <li><strong>Implement</strong><span>Work in small coherent increments.</span></li>
-  <li><strong>Verify</strong><span>Run tests, linters, type checks, security checks, evals or visual inspection.</span></li>
-  <li><strong>Review</strong><span>Inspect behaviour, diff, architecture and unintended changes.</span></li>
-  <li><strong>Reflect</strong><span>Capture recurring mistakes in tests, instructions or reusable skills.</span></li>
-  <li><strong>Ship and observe</strong><span>Release through normal controls and monitor real behaviour.</span></li>
+  <li><strong>Kaderen</strong><span>Beschrijf het beoogde resultaat, de gebruikersbehoefte, de scope en de niet-doelen.</span></li>
+  <li><strong>Ground</strong><span>Wijs naar relevante delen van de repository, standaarden en voorbeelden.</span></li>
+  <li><strong>Specificeren</strong><span>Geef acceptatiecriteria, kwaliteitsattributen en het verwachte bewijs.</span></li>
+  <li><strong>Verkennen</strong><span>Laat de agent eerst inspecteren vóór hij wijzigt; vraag om verduidelijking bij wezenlijke onduidelijkheid.</span></li>
+  <li><strong>Plannen</strong><span>Maak bij complex werk afspraken over de opdeling en de risicopunten.</span></li>
+  <li><strong>Implementeren</strong><span>Werk in kleine, samenhangende stappen.</span></li>
+  <li><strong>Verifiëren</strong><span>Voer tests, linters, typechecks, security checks, evals of visuele inspectie uit.</span></li>
+  <li><strong>Review</strong><span>Inspecteer het gedrag, de diff, de architectuur en onbedoelde wijzigingen.</span></li>
+  <li><strong>Reflecteren</strong><span>Leg terugkerende fouten vast in tests, instructies of herbruikbare vaardigheden.</span></li>
+  <li><strong>Uitrollen en observeren</strong><span>Rol uit via de normale procedures en monitor het echte gedrag.</span></li>
 </ol>
 
 <EngineeringMode>
-The working method turns agent use into a repeatable engineering process. Architecture and repository setup should make inspection, editing and verification fast. Design decisions are captured before implementation. Build work proceeds in small checked steps. Operations reuse the method for reviews, migrations and incidents. The risk is skipping steps because the agent appears confident.
+De werkwijze maakt agentgebruik tot een herhaalbaar engineeringproces. Architectuur en repository-inrichting moeten inspectie, bewerken en verificatie snel maken. Ontwerpbeslissingen worden vóór de implementatie vastgelegd. Het bouwproces verloopt in kleine, gecontroleerde stappen. Operations hergebruikt de methode voor reviews, migraties en incidenten. Het risico is stappen overslaan omdat de agent zelfverzekerd overkomt.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-A Codex task to add invoice CSV export can follow the method directly:
+Een Codex-taak om facturen als CSV te exporteren kan deze methode direct volgen:
 
-1. Define behavior and constraints.
-2. Inspect existing routes and tests.
-3. Edit narrowly.
-4. Run validation.
-5. Review the diff.
-6. Report what changed and what remains risky.
+1. Definieer het gedrag en de randvoorwaarden.
+2. Inspecteer bestaande routes en tests.
+3. Pas gericht aan.
+4. Voer validatie uit.
+5. Review de diff.
+6. Rapporteer wat er is veranderd en wat nog risicovol is.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Task briefs and examples","href":"/using-coding-agents/task-briefs-and-examples/"},{"label":"Evaluating coding agents","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
+<RelatedConcepts links={[{"label":"Taakbriefings en voorbeelden","href":"/nl/using-coding-agents/task-briefs-and-examples/"},{"label":"Coding agents evalueren","href":"/nl/using-coding-agents/evaluating-coding-agents/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://learn.chatgpt.com/guides/best-practices">Codex best practices</a>, and Google SRE guidance on safe change management.
+Verder studiemateriaal: OpenAI, <a href="https://learn.chatgpt.com/guides/best-practices">Codex best practices</a>, en Google SRE-richtlijnen voor veilig wijzigingsbeheer.
 </SourceNote>

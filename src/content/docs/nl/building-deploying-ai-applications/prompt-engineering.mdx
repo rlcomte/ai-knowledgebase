@@ -1,6 +1,6 @@
 ---
 title: "Prompt engineering"
-description: "Designing instructions and examples that elicit useful model behaviour."
+description: "Het ontwerpen van instructies en voorbeelden die nuttig modelgedrag uitlokken."
 area: "AI-applicaties bouwen en uitrollen"
 order: 5
 tags: ["practice"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Prompt engineering"}>
-Prompt engineering is the design of instructions, examples, constraints, schemas and interaction patterns that steer a model toward useful, testable behaviour for a specific task. In production it is not just wording: it includes prompt versioning, input validation, structured outputs, retrieval context, refusal boundaries, regression tests and measurement of failure cases.
+Prompt engineering is het ontwerpen van instructies, voorbeelden, beperkingen, schema’s en interactiepatronen die een model sturen naar nuttig, testbaar gedrag voor een specifieke taak. In productie is het niet alleen woordkeuze: het omvat promptversiebeheer, invoervalidatie, gestructureerde output, retrievalcontext, weigeringsgrenzen, regressietests en het meten van faalgevallen.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Prompt engineering designs instructions and examples that elicit useful model behaviour. It includes task definition, constraints, output schemas, examples and explicit uncertainty handling.
+Prompt engineering ontwerpt instructies en voorbeelden die nuttig modelgedrag uitlokken. Het omvat taakdefinitie, beperkingen, outputschema’s, voorbeelden en expliciete omgang met onzekerheid.
 
-A prompt is only one part of the context. Treat it as an interface contract for a model call, then verify the resulting behaviour with representative examples rather than relying on phrasing alone.
+Een prompt is slechts één deel van de context. Behandel hem als een interfacecontract voor een modelaanroep en verifieer het resulterende gedrag met representatieve voorbeelden in plaats van te vertrouwen op alleen de formulering.
 
 <EngineeringMode>
-In engineering terms, prompts are part of the application contract. Architecture must decide where prompts live, how versions are deployed and what context may enter them. Design must specify tone, refusal boundaries and output shape. Build work includes schemas, fixtures and regression tests. Operations monitor drift, cost and failure clusters. The recurring risk is treating phrasing as magic instead of maintaining it like code.
+In engineeringtermen maken prompts deel uit van het applicatiecontract. Architectuur moet bepalen waar prompts leven, hoe versies worden uitgerold en welke context erin mag. Design moet toon, weigeringsgrenzen en de vorm van de output specificeren. Bouw omvat schema’s, fixtures en regressietests. Operations bewaakt drift, kosten en foutenclusters. Het terugkerende risico is om formulering als magie te behandelen in plaats van het te onderhouden als code.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Khan Academy’s Khanmigo-style tutoring scenario shows prompt engineering beyond wording. The system prompt must guide the tutor to ask questions, avoid simply giving answers, respect student safety boundaries and produce age-appropriate explanations. Good prompts become testable instructional policy, not just clever phrasing.
+Het Khanmigo-achtige tutorscenario van Khan Academy laat prompt engineering zien voorbij woordkeuze. De systeemprompt moet de tutor aansturen om vragen te stellen, voorkomen dat er simpelweg antwoorden worden gegeven, de veiligheidsgrenzen voor studenten respecteren en leeftijdsadequate uitleg produceren. Goede prompts worden testbaar didactisch beleid, niet alleen slimme formuleringen.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Task briefs and examples","href":"/using-coding-agents/task-briefs-and-examples/"}]} />
+<RelatedConcepts links={[{"label":"Context engineering","href":"/nl/building-deploying-ai-applications/context-engineering/"},{"label":"Taakomschrijvingen en voorbeelden","href":"/nl/using-coding-agents/task-briefs-and-examples/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://platform.openai.com/docs/guides/prompt-engineering">Prompt engineering</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">Prompt engineering overview</a>.
+Verder studeren: OpenAI, <a href="https://platform.openai.com/docs/guides/prompt-engineering">Prompt engineering</a>, en Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">Prompt engineering overview</a>.
 </SourceNote>

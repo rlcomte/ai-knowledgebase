@@ -1,6 +1,6 @@
 ---
 title: "Risico en verantwoorde AI"
-description: "Assessing hazards and designing accountable AI systems with meaningful human oversight."
+description: "Het beoordelen van gevaren en het ontwerpen van AI-systemen met verantwoording en zinvol menselijk toezicht."
 area: "De bouwopgave vormgeven"
 order: 9
 tags: ["risk","governance"]
@@ -17,31 +17,31 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Risico en verantwoorde AI"}>
-Risk and responsible AI combine hazard identification, impact assessment, control design and accountability for AI-supported decisions and actions. The work covers data protection, bias, misuse, security, transparency, human oversight, monitoring and incident response. It should produce concrete controls and ownership, not only ethical intent.
+Risico en verantwoorde AI combineren gevarenidentificatie, effectbeoordeling, het ontwerp van beheersmaatregelen en verantwoording voor door AI ondersteunde besluiten en acties. Het werk omvat gegevensbescherming, bias, misbruik, beveiliging, transparantie, menselijk toezicht, monitoring en incidentrespons. Het moet leiden tot concrete maatregelen en eigenaarschap, niet alleen tot ethische intenties.
 </Definition>
 
-## Waarom dit ertoe doet
+## Waarom het ertoe doet
 
-Risk assessment identifies hazards, likelihood, impact, affected groups, controls, residual risk and accountable owners. Risk should influence autonomy and human oversight.
+Een risicobeoordeling identificeert gevaren, waarschijnlijkheid, impact, getroffen groepen, beheersmaatregelen, restrisico en verantwoordelijke eigenaren. Risico moet de mate van autonomie en het menselijk toezicht beïnvloeden.
 
-Responsible AI designs for human agency, fairness, transparency, privacy, safety and accountability across the lifecycle rather than applying an ethics checklist at the end.
+Verantwoorde AI ontwerpt voor menselijke handelingsvrijheid, eerlijkheid, transparantie, privacy, veiligheid en verantwoording over de hele levenscyclus, in plaats van aan het einde een ethische checklist toe te passen.
 
-Human oversight design specifies what people can see, decide, contest, override and repair. A nominal approval button is not meaningful oversight if the person lacks time or information.
+Het ontwerp voor menselijk toezicht specificeert wat mensen kunnen zien, beslissen, aanvechten, overrulen en herstellen. Een loutere goedkeurknop is geen zinvol toezicht als de persoon tijd of informatie mist.
 
 <EngineeringMode>
-Responsible AI changes architecture, product design and governance. Engineers must identify affected groups, failure severity, data sensitivity and accountability paths. Design must support transparency, appeal and human intervention where needed. Build work includes policy checks, evals and audit trails. Operations handle incidents and monitor disparate impact. The risk is treating responsibility as documentation rather than constraints that shape what gets built.
+Verantwoorde AI verandert architectuur, productontwerp en governance. Engineers moeten getroffen groepen, ernst van falen, gevoeligheid van data en lijnen van verantwoording bepalen. Het ontwerp moet transparantie, beroep en menselijke interventie ondersteunen waar nodig. Het bouwwerk omvat beleidscontroles, evals en audittrails. Operations handelt incidenten af en monitort ongelijke impact. Het risico is verantwoordelijkheid behandelen als documentatie in plaats van als randvoorwaarden die bepalen wat er wordt gebouwd.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk waarneembaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-The COMPAS recidivism-risk controversy is a widely cited responsible-AI case. Even when a scoring tool appears operationally useful, stakeholders questioned bias, transparency, contestability and institutional accountability. The lesson is that model performance cannot be separated from who is affected and how decisions are made.
+De controverse rond COMPAS over recidiverisico is een veel aangehaald geval in verantwoorde AI. Zelfs wanneer een scoringsinstrument operationeel nuttig lijkt, stelden stakeholders vragen over bias, transparantie, aanvechtbaarheid en institutionele verantwoording. De les is dat modelprestaties niet los kunnen worden gezien van wie wordt geraakt en hoe besluiten worden genomen.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Human oversight and guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"},{"label":"Security, privacy and accessibility","href":"/software-engineering-fundamentals/security-privacy-and-accessibility/"}]} />
+<RelatedConcepts links={[{"label":"Menselijk toezicht en guardrails","href":"/nl/building-deploying-ai-applications/human-oversight-and-guardrails/"},{"label":"Beveiliging, privacy en toegankelijkheid","href":"/nl/software-engineering-fundamentals/security-privacy-and-accessibility/"}]} />
 
 <SourceNote>
-Further study: NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>, and the EU AI Act risk-based approach.
+Verder lezen: NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>, en de risicogebaseerde aanpak van de EU AI Act.
 </SourceNote>

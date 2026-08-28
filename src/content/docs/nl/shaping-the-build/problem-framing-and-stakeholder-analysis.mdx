@@ -1,6 +1,6 @@
 ---
 title: "Probleemkadering en stakeholderanalyse"
-description: "Defining the situation, affected people, desired change and competing interests before selecting an AI solution."
+description: "De situatie, betrokkenen, gewenste verandering en concurrerende belangen definiëren voordat je een AI-oplossing selecteert."
 area: "De bouwopgave vormgeven"
 order: 2
 tags: ["foundation","governance"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Probleemkadering en stakeholderanalyse"}>
-Problem framing and stakeholder analysis define the operational problem before selecting a technical solution. The work identifies affected users, decision makers, workflow owners, incentives, constraints, current failure modes, desired outcomes and potential harms. For AI projects it also asks whether the problem is caused by missing capability, poor process, data quality, organisational incentives or a genuine need for probabilistic automation.
+Probleemkadering en stakeholderanalyse definiëren het operationele probleem voordat je een technische oplossing kiest. Dit werk identificeert getroffen gebruikers, beslissers, workflow‑eigenaren, prikkels, beperkingen, huidige faalmodi, gewenste uitkomsten en potentiële schade. Voor AI‑projecten gaat het ook na of het probleem wordt veroorzaakt door ontbrekende capaciteit, een gebrekkig proces, datakwaliteit, organisatorische prikkels of een reële behoefte aan probabilistische automatisering.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Problem framing defines the current situation, affected people, desired change, constraints and evidence. A solution statement disguised as a problem prevents exploration.
+Probleemkadering beschrijft de huidige situatie, de betrokken mensen, de gewenste verandering, de beperkingen en het bewijs. Als een oplossing als probleem wordt geformuleerd, belemmert dat de verkenning.
 
-Stakeholder analysis identifies users, decision-makers, operators, data subjects and people who bear risks. Their interests and authority are rarely identical.
+Stakeholderanalyse identificeert gebruikers, beslissers, operators, betrokkenen (data subjecten) en mensen die risico’s dragen. Hun belangen en bevoegdheden vallen zelden samen.
 
 <EngineeringMode>
-Problem framing determines the system boundary before architecture hardens it. Engineers need to know whose workflow changes, what decision is being supported and which harms matter. Design work maps stakeholders, incentives and escalation paths. Build work should preserve the chosen boundary in requirements and tests. Operations measure whether the framed problem is actually improving. The risk is optimizing a model for the wrong institutional problem.
+Probleemkadering bepaalt de systeemgrens voordat de architectuur die vastlegt. Engineers moeten weten wiens workflow verandert, welke beslissing wordt ondersteund en welke schade ertoe doet. Ontwerpwerk brengt stakeholders, prikkels en escalatiepaden in kaart. Bouwwerk moet de gekozen grens borgen in requirements en tests. Operations meten of het ingekaderde probleem daadwerkelijk verbetert. Het risico is dat je een model optimaliseert voor het verkeerde institutionele probleem.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk waarneembaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-A hospital sepsis-prediction project can fail despite a strong model if the problem is framed too narrowly. Clinicians, nurses, patients, IT, compliance and operations teams must define who receives alerts, what action follows, how false alarms are handled and how responsibility is assigned.
+Een ziekenhuisproject voor sepsisvoorspelling kan mislukken ondanks een sterk model als het probleem te nauw is gekaderd. Clinici, verpleegkundigen, patiënten, IT, compliance en operations‑teams moeten vastleggen wie meldingen ontvangt, welke actie daarop volgt, hoe loos alarm wordt afgehandeld en hoe verantwoordelijkheid wordt belegd.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Shaping canvas","href":"/shaping-the-build/shaping-canvas/"},{"label":"Human oversight and guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
+<RelatedConcepts links={[{"label":"Shaping-canvas","href":"/nl/shaping-the-build/shaping-canvas/"},{"label":"Menselijk toezicht en guardrails","href":"/nl/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
 
 <SourceNote>
-Further study: Marty Cagan, <em>Inspired</em>, and NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>.
+Verder lezen: Marty Cagan, <em>Inspired</em>, en NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>.
 </SourceNote>

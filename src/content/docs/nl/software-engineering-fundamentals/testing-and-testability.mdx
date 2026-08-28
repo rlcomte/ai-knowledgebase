@@ -1,6 +1,6 @@
 ---
 title: "Testen en testbaarheid"
-description: "Traditional tests for deterministic behaviour and evals for probabilistic behaviour."
+description: "Traditionele tests voor deterministisch gedrag en evals voor probabilistisch gedrag."
 area: "Basisprincipes van software engineering"
 order: 6
 tags: ["evaluation","practice"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Testen en testbaarheid"}>
-Testing checks whether software behaves as intended under known conditions, while testability is the degree to which a system can be controlled, observed and isolated during those checks. AI systems need conventional unit, integration and end-to-end tests for deterministic code, plus evals and error analysis for probabilistic model behaviour, retrieval quality and tool-use workflows.
+Testen controleert of software zich onder bekende omstandigheden gedraagt zoals bedoeld, terwijl testbaarheid de mate is waarin een systeem tijdens die controles kan worden bestuurd, geobserveerd en geïsoleerd. AI-systemen hebben conventionele unit-, integratie- en end-to-endtests nodig voor deterministische code, plus evals en foutenanalyse voor probabilistisch modelgedrag, retrievalkwaliteit en workflows voor toolgebruik.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-The testing pyramid combines unit, integration, contract, system and acceptance tests. Traditional tests verify deterministic behaviour; evals verify probabilistic behaviour. Both are needed in AI applications.
+De testpiramide combineert unit-, integratie-, contract-, systeem- en acceptatietests. Traditionele tests verifiëren deterministisch gedrag; evals verifiëren probabilistisch gedrag. Beide zijn nodig in AI-toepassingen.
 
-Testability means designing components so dependencies, data and model calls can be controlled or substituted. It makes failures reproducible and lowers evaluation cost.
+Testbaarheid betekent dat je componenten zo ontwerpt dat afhankelijkheden, data en modelaanroepen kunnen worden gestuurd of vervangen. Dit maakt fouten reproduceerbaar en verlaagt de kosten van evaluatie.
 
 <EngineeringMode>
-Testability means the AI system can prove behavior repeatedly enough to change safely. Architecture should expose deterministic seams, traces, fixtures and isolated model boundaries. Design must define observable outcomes and recovery states. Build work combines unit tests, integration tests, evals and manual review. Operations track regressions after model, prompt or data changes. The risk is accepting impressive examples that cannot be reproduced.
+Testbaarheid betekent dat het AI-systeem gedrag herhaaldelijk genoeg kan aantonen om veilig te kunnen wijzigen. Architectuur moet deterministische naden, traces, fixtures en geïsoleerde modelgrenzen blootleggen. Het ontwerp moet observeerbare uitkomsten en hersteltoestanden definiëren. Het bouwwerk combineert unittests, integratietests, evals en handmatige review. Operations volgen regressies na wijzigingen in model, prompt of data. Het risico is dat je indrukwekkende voorbeelden accepteert die niet reproduceerbaar zijn.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-A support-ticket classifier can be made testable with labelled historical tickets, boundary examples and regression suites. When the prompt or model changes, the team reruns the set and inspects routing errors. This catches silent degradation before customers wait in the wrong queue.
+Een classifier voor supporttickets kan testbaar worden gemaakt met gelabelde historische tickets, grensgevallen en regressiesuites. Wanneer de prompt of het model verandert, draait het team de set opnieuw en inspecteert routeringsfouten. Dit vangt stille degradatie af voordat klanten in de verkeerde wachtrij belanden.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Evaluating coding agents","href":"/using-coding-agents/evaluating-coding-agents/"}]} />
+<RelatedConcepts links={[{"label":"Evals en foutenanalyse","href":"/nl/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Coding agents evalueren","href":"/nl/using-coding-agents/evaluating-coding-agents/"}]} />
 
 <SourceNote>
-Further study: Kent Beck, <em>Test Driven Development</em>, and Martin Fowler, <a href="https://martinfowler.com/testing/">Testing</a>.
+Verder studeren: Kent Beck, <em>Test Driven Development</em>, en Martin Fowler, <a href="https://martinfowler.com/testing/">Testing</a>.
 </SourceNote>

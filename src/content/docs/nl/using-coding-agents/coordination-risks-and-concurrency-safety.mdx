@@ -1,6 +1,6 @@
 ---
-title: "Coordinatierisico’s en concurrency safety"
-description: "Cost, context, communication, conflict and stopping-condition risks in multi-agent work."
+title: "Coördinatierisico’s en concurrency-veiligheid"
+description: "Risico’s rond kosten, context, communicatie, conflicten en stopcondities bij multi-agentwerk."
 area: "Coding agents gebruiken"
 order: 13
 tags: ["risk","governance"]
@@ -16,32 +16,32 @@ import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
-<Definition term={"Coordinatierisico’s en concurrency safety"}>
-Coordination risks are failures introduced by splitting work across agents: duplicated exploration, inconsistent assumptions, lost context, excessive token cost and premature conclusions. Concurrency safety concerns conflicting edits, stale file views, race conditions in commands and unclear ownership of shared artifacts. Safe multi-agent work requires task partitioning, locking or ownership rules, merge review and explicit stop conditions.
+<Definition term={"Coördinatierisico’s en concurrency-veiligheid"}>
+Coördinatierisico’s zijn fouten die ontstaan door werk over meerdere agents te verdelen: dubbele verkenning, inconsistente aannames, verloren context, buitensporige tokenkosten en voorbarige conclusies. Concurrency-veiligheid betreft conflicterende bewerkingen, verouderde bestandsweergaven, racecondities in commando’s en onduidelijk eigendom van gedeelde artefacten. Veilig multi-agentwerk vereist taakpartitionering, lock- of eigendomsregels, merge-review en expliciete stopcondities.
 </Definition>
 
-## Waarom dit ertoe doet
+## Waarom dit belangrijk is
 
-Coordination overhead includes task decomposition, duplicated context, communication, waiting, merging and conflicts. It can outweigh the benefits of multiple agents.
+Coördinatie-overhead omvat taakdecompositie, gedupliceerde context, communicatie, wachten, mergen en conflicten. Het kan de voordelen van meerdere agents tenietdoen.
 
-Context isolation gives each subagent only the context necessary for its role, protecting the primary thread from noisy logs and exploratory dead ends. Concurrency safety prevents conflicting edits or unsafe simultaneous changes. Prefer parallel read-heavy tasks; assign clear file ownership for parallel writing.
+Contextisolatie geeft elke subagent alleen de context die voor zijn rol nodig is en beschermt de primaire thread tegen ruis in logs en exploratoire doodlopende sporen. Concurrency-veiligheid voorkomt conflicterende bewerkingen of onveilige gelijktijdige wijzigingen. Geef de voorkeur aan parallelle, leesintensieve taken; wijs duidelijk bestands­eigendom toe voor parallel schrijven.
 
-Termination and budget policies set limits on agent count, iterations, time, tokens and tool calls. Orchestrated workflows need explicit stopping conditions.
+Beëindigings- en budgetbeleid stelt grenzen aan het aantal agents, iteraties, tijd, tokens en tool calls. Georkestreerde workflows hebben expliciete stopcondities nodig.
 
 <EngineeringMode>
-Coordination risk is a systems problem. Architecture should prevent conflicting writes, stale reads and unsafe simultaneous actions. Design must clarify ownership, locks, handoffs and escalation. Build work uses branches, scoped tasks and final integration checks. Operations monitor merge conflicts, lost work and inconsistent decisions. The risk is assuming agents coordinate just because they share a conversational goal.
+Coördinatierisico is een systeemprobleem. Architectuur moet conflicterende schrijfbewerkingen, verouderde leesbewerkingen en onveilige gelijktijdige acties voorkomen. Het ontwerp moet eigendom, locks, overdrachten en escalatie verduidelijken. Build-werk gebruikt branches, afgebakende taken en definitieve integratiecontroles. Operations bewaakt mergeconflicten, verloren werk en inconsistente beslissingen. Het risico is aannemen dat agents coördineren alleen omdat ze een conversatiedoel delen.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Two coding agents editing authentication at the same time can create subtle risk: one changes OAuth scopes while another refactors session storage. Concurrency safety means assigning ownership, avoiding overlapping edits, reconciling diffs in one lead thread and rerunning the full security-relevant test set.
+Twee coding agents die gelijktijdig aan authenticatie werken, kunnen subtiel risico creëren: de één wijzigt OAuth-scopes terwijl de ander session storage refactort. Concurrency-veiligheid betekent eigenaarschap toewijzen, overlappende bewerkingen vermijden, diffs afstemmen in één leidende thread en de volledige, voor security relevante testset opnieuw draaien.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Multiple agents and subagents","href":"/using-coding-agents/multiple-agents-and-subagents/"},{"label":"Code quality and version control","href":"/software-engineering-fundamentals/code-quality-and-version-control/"}]} />
+<RelatedConcepts links={[{"label":"Meerdere agents en subagents","href":"/nl/using-coding-agents/multiple-agents-and-subagents/"},{"label":"Codekwaliteit en versiebeheer","href":"/nl/software-engineering-fundamentals/code-quality-and-version-control/"}]} />
 
 <SourceNote>
-Further study: Martin Kleppmann, <em>Designing Data-Intensive Applications</em>, chapters on distributed systems, and OpenAI subagent guidance.
+Verder lezen: Martin Kleppmann, <em>Designing Data-Intensive Applications</em>, hoofdstukken over gedistribueerde systemen, en OpenAI-richtlijnen voor subagents.
 </SourceNote>

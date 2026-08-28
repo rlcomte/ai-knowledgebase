@@ -1,6 +1,6 @@
 ---
 title: "Context engineering"
-description: "Designing the complete information environment available to a model at a particular step."
+description: "Het ontwerpen van de volledige informatieomgeving die bij een bepaalde stap voor een model beschikbaar is."
 area: "AI-applicaties bouwen en uitrollen"
 order: 6
 tags: ["practice","architecture"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Context engineering"}>
-Context engineering is the deliberate construction of the information state available to a model at a particular step of a workflow. It covers system instructions, user task framing, retrieved documents, tool results, memory, conversation history, schemas and constraints, with attention to token budgets, recency, source authority, privacy and the risk of injecting irrelevant or hostile context.
+Context engineering is het doelbewust vormgeven van de informatietoestand die bij een bepaalde stap in een workflow voor een model beschikbaar is. Het omvat systeeminstructies, de kadering van de gebruikersopdracht, opgehaalde documenten, toolresultaten, geheugen, gespreksgeschiedenis, schema's en beperkingen, met aandacht voor tokenbudgetten, actualiteit, bronautoriteit, privacy en het risico op het injecteren van irrelevante of vijandige context.
 </Definition>
 
 ## Waarom dit ertoe doet
 
-Context engineering designs the complete information environment available to a model at a particular step: instructions, conversation, retrieved knowledge, tool definitions, state, examples and output constraints.
+Context engineering ontwerpt de volledige informatieomgeving die op een bepaald moment voor een model beschikbaar is: instructies, gesprek, opgehaalde kennis, tooldefinities, toestand, voorbeelden en outputbeperkingen.
 
-It also includes selecting, compressing, ordering and refreshing context. The central engineering judgement is deciding what the model needs now, what should remain outside the model, and how stale, conflicting or sensitive context should be handled.
+Het omvat ook het selecteren, comprimeren, ordenen en verversen van context. De centrale engineeringafweging is bepalen wat het model nu nodig heeft, wat buiten het model moet blijven, en hoe verouderde, conflicterende of gevoelige context moet worden behandeld.
 
 <EngineeringMode>
-Context engineering turns a model call into a designed information system. Architecture must choose which instructions, memories, retrieved records, tool definitions and user state are available at each step. Design work decides what the model should know and what it must not see. Build work implements selection, ordering and truncation. Operations watch leakage, stale context, latency and cases where missing context causes bad answers.
+Context engineering verandert een modelaanroep in een ontworpen informatiesysteem. Architectuur moet kiezen welke instructies, geheugenitems, opgehaalde records, tooldefinities en gebruikersstatus bij iedere stap beschikbaar zijn. Ontwerpwerk bepaalt wat het model moet weten en wat het niet mag zien. Bouwwerk implementeert selectie, ordening en afkapping. Operations monitort lekkage, verouderde context, latentie en gevallen waarin ontbrekende context tot slechte antwoorden leidt.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs aantoont dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-GitHub Copilot Chat is useful only when the surrounding context is assembled well. The model may need the open file, selected lines, repository search results, test output and team instructions. Without that context design, the same model can give generic advice that ignores the actual codebase.
+GitHub Copilot Chat is alleen nuttig wanneer de omringende context goed is samengesteld. Het model kan het geopende bestand, geselecteerde regels, repository-zoekresultaten, testuitvoer en teaminstructies nodig hebben. Zonder dat contextontwerp kan hetzelfde model generiek advies geven dat de feitelijke codebase negeert.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructions and planning","href":"/using-coding-agents/context-instructions-and-planning/"}]} />
+<RelatedConcepts links={[{"label":"Grounding en RAG","href":"/nl/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructies en planning","href":"/nl/using-coding-agents/context-instructions-and-planning/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://platform.openai.com/docs/guides/text-generation">Text generation</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">Context windows</a>.
+Verder lezen: OpenAI, <a href="https://platform.openai.com/docs/guides/text-generation">Text generation</a>, en Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">Context windows</a>.
 </SourceNote>

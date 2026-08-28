@@ -1,6 +1,6 @@
 ---
 title: "Menselijk toezicht en guardrails"
-description: "Controls that constrain AI inputs, outputs or actions and keep human authority meaningful."
+description: "Controles die AI-inputs, -outputs of handelingen begrenzen en menselijke zeggenschap betekenisvol houden."
 area: "AI-applicaties bouwen en uitrollen"
 order: 13
 tags: ["governance","risk"]
@@ -17,29 +17,29 @@ import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
 
 <Definition term={"Menselijk toezicht en guardrails"}>
-Human oversight and guardrails are technical and organisational controls that limit what an AI system may do, detect unsafe or low-confidence behaviour and route consequential decisions to accountable people. Effective guardrails combine input/output validation, policy checks, tool permissions, escalation paths, audit logs and clear human decision rights.
+Menselijk toezicht en guardrails zijn technische en organisatorische controles die beperken wat een AI-systeem mag doen, onveilig of laagvertrouwd gedrag detecteren en consequentierijke beslissingen doorsturen naar verantwoordelijke personen. Effectieve guardrails combineren input/output-validatie, beleidstoetsen, autorisatiecontroles, escalatiepaden, auditlogs en duidelijke menselijke beslissingsrechten.
 </Definition>
 
-## Waarom dit ertoe doet
+## Waarom het ertoe doet
 
-A guardrail constrains inputs, outputs or actions. Guardrails may be deterministic rules, classifiers, policy checks, permission gates or human review. They complement rather than replace system design and evaluation.
+Een guardrail beperkt inputs, outputs of handelingen. Guardrails kunnen deterministische regels, classificatiemodellen, beleidstoetsen, autorisatiecontroles of menselijke beoordeling zijn. Ze vullen systeemontwerp en evaluatie aan in plaats van die te vervangen.
 
-Human in/on the loop describes meaningful human authority. In the loop usually means approval or contribution is required; on the loop means people supervise and can intervene. The control must match consequence and reversibility.
+Human-in-the-loop en human-on-the-loop beschrijven betekenisvolle menselijke zeggenschap. In-the-loop betekent meestal dat goedkeuring of bijdrage vereist is; on-the-loop betekent dat mensen toezicht houden en kunnen ingrijpen. De controle moet passen bij de consequenties en de omkeerbaarheid.
 
 <EngineeringMode>
-Oversight and guardrails must be designed into the workflow, not added as a final filter. Architecture needs policy checks, escalation paths, audit records and reversible actions. Design must show users when the system is uncertain and who owns decisions. Build work includes refusal logic and review queues. Operations measure bypasses, false escalations and incident patterns. The risk is claiming human oversight while making review impossible or ceremonial.
+Toezicht en guardrails moeten in de workflow worden ontworpen, niet als laatste filter worden toegevoegd. De architectuur heeft beleidstoetsen, escalatiepaden, auditlogs en omkeerbare handelingen nodig. Het ontwerp moet gebruikers laten zien wanneer het systeem onzeker is en wie verantwoordelijk is voor beslissingen. Het bouwen omvat weigeringslogica en beoordelingswachtrijen. Operations meten omzeilingen, valse escalaties en incidentpatronen. Het risico is beweren dat er menselijk toezicht is, terwijl beoordeling onmogelijk of ceremonieel wordt gemaakt.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeropdracht.
 </EvaluationCheck>
 
 <RealExample>
-Radiology AI illustrates oversight and guardrails well. A model may flag suspicious findings on an image, but the workflow should preserve clinician review, show relevant evidence, handle uncertainty and escalate edge cases. The guardrail is not only a filter; it is the decision boundary around medical responsibility.
+Radiologie-AI illustreert toezicht en guardrails goed. Een model kan verdachte bevindingen op een afbeelding markeren, maar de workflow moet de beoordeling door de arts behouden, relevant bewijs tonen, onzekerheid afhandelen en randgevallen escaleren. De guardrail is niet alleen een filter; het is de beslisgrens rond medische verantwoordelijkheid.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Risk and responsible AI","href":"/shaping-the-build/risk-and-responsible-ai/"},{"label":"Governance and human decision boundaries","href":"/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
+<RelatedConcepts links={[{"label":"Risico en verantwoorde AI","href":"/nl/shaping-the-build/risk-and-responsible-ai/"},{"label":"Governance en menselijke beslisgrenzen","href":"/nl/using-coding-agents/governance-and-human-decision-boundaries/"}]} />
 
 <SourceNote>
-Further study: NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>, and OpenAI, <a href="https://platform.openai.com/docs/guides/safety-best-practices">Safety best practices</a>.
+Verder lezen: NIST, <a href="https://www.nist.gov/itl/ai-risk-management-framework">AI Risk Management Framework</a>, en OpenAI, <a href="https://platform.openai.com/docs/guides/safety-best-practices">Safety best practices</a>.
 </SourceNote>

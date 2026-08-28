@@ -1,6 +1,6 @@
 ---
 title: "Deterministische-probabilistische grenzen"
-description: "Deciding what belongs in rules or conventional code and what can responsibly use a model."
+description: "Bepalen wat in regels of conventionele code hoort en wat verantwoord een model kan gebruiken."
 area: "De bouwopgave vormgeven"
 order: 5
 tags: ["architecture","risk"]
@@ -18,33 +18,33 @@ import SourceNote from '@components/SourceNote.astro';
 import conceptDeterministicProbabilisticBoundary from '../../../../assets/concept-deterministic-probabilistic-boundary.png';
 
 <Definition term={"Deterministische-probabilistische grenzen"}>
-Deterministic-probabilistic boundaries separate behaviour that must be implemented with explicit rules, typed code or transactions from behaviour that can tolerate model uncertainty. Good boundaries keep identity, permissions, accounting, compliance, irreversible actions and safety-critical checks deterministic, while using models for interpretation, drafting, ranking, summarisation or uncertain judgment where errors can be detected and corrected.
+Deterministisch-probabilistische grenzen scheiden gedrag dat met expliciete regels, getypte code of transacties moet worden geïmplementeerd van gedrag dat modelonzekerheid kan verdragen. Goede grenzen houden identiteit, machtigingen, boekhouding, compliance, onomkeerbare acties en veiligheidkritieke controles deterministisch, terwijl ze modellen inzetten voor interpretatie, het opstellen van tekst, rangschikking, samenvatten of onzekere oordeelsvorming, waar fouten kunnen worden gedetecteerd en gecorrigeerd.
 </Definition>
 
 <figure class="concept-explainer-image">
-  <img src={conceptDeterministicProbabilisticBoundary.src} alt="Diagram splitting deterministic rules, code and transactions from probabilistic model behaviour through guardrails and review." loading="lazy" decoding="async" />
+  <img src={conceptDeterministicProbabilisticBoundary.src} alt="Diagram dat deterministische regels, code en transacties scheidt van probabilistisch modelgedrag via guardrails en controle." loading="lazy" decoding="async" />
 </figure>
 
 ## Waarom dit ertoe doet
 
-The deterministic-probabilistic boundary decides which behaviour belongs in rules or conventional code and which can responsibly use a model.
+De deterministisch-probabilistische grens bepaalt welk gedrag in regels of conventionele code thuishoort en welk gedrag verantwoord een model kan gebruiken.
 
-Legal constraints, calculations, permissions and irreversible side effects often need deterministic enforcement. Model behaviour is most useful where flexible interpretation, language generation or pattern recognition is valuable and mistakes can be detected or recovered.
+Juridische randvoorwaarden, berekeningen, machtigingen en onomkeerbare neveneffecten vereisen vaak deterministische afdwinging. Modelgedrag is het nuttigst waar flexibele interpretatie, taalproductie of patroonherkenning waardevol is en fouten kunnen worden opgemerkt of hersteld.
 
 <EngineeringMode>
-This boundary decides where uncertainty may enter the system. Architecture should isolate probabilistic components behind explicit interfaces, with deterministic validation for permissions, calculations and irreversible actions. Design must show when output is a suggestion versus a decision. Build work includes schemas, confidence handling and fallback paths. Operations watch boundary violations. The risk is allowing fluent text to overwrite rules that should remain auditable.
+Deze grens bepaalt waar onzekerheid het systeem mag binnenkomen. Architectuur moet probabilistische componenten isoleren achter expliciete interfaces, met deterministische validatie voor machtigingen, berekeningen en onomkeerbare acties. In het ontwerp moet duidelijk zijn wanneer output een suggestie is en wanneer een beslissing. In de build horen schema’s, omgaan met betrouwbaarheidsniveaus en fallback‑paden. Operations bewaakt grensschendingen. Het risico is dat vloeiende tekst regels overschrijft die controleerbaar en auditeerbaar moeten blijven.
 </EngineeringMode>
 
 <EvaluationCheck>
-Ask what observable evidence would show that this concept has been applied well in a real system, repository or learning exercise.
+Vraag welk observeerbaar bewijs zou aantonen dat dit concept goed is toegepast in een echt systeem, een repository of een leeroefening.
 </EvaluationCheck>
 
 <RealExample>
-Tax-preparation software is a useful boundary example. Deterministic code should calculate totals, eligibility and filing rules because those outputs must be auditable. An LLM might explain a form field or summarize documentation, but the workflow should keep probabilistic text separate from legally consequential calculations.
+Belastingaangiftesoftware is een nuttig grensvoorbeeld. Deterministische code moet totalen, geschiktheid en indieningsregels berekenen, omdat die outputs auditeerbaar moeten zijn. Een LLM kan een formulierveld toelichten of documentatie samenvatten, maar de workflow moet probabilistische tekst gescheiden houden van berekeningen met juridische gevolgen.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Architecture and interfaces","href":"/software-engineering-fundamentals/architecture-and-interfaces/"},{"label":"Guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
+<RelatedConcepts links={[{"label":"Architectuur en interfaces","href":"/nl/software-engineering-fundamentals/architecture-and-interfaces/"},{"label":"Guardrails","href":"/nl/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
 
 <SourceNote>
-Further study: OpenAI safety and structured-output documentation, plus conventional software architecture references on clear system boundaries.
+Verder lezen: documentatie van OpenAI over veiligheid en gestructureerde output, plus klassieke referenties over software-architectuur met duidelijke systeemgrenzen.
 </SourceNote>
