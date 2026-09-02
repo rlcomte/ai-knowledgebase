@@ -1,0 +1,1102 @@
+---
+title: "Long-Lived Adaptive Social AI Agents"
+subtitle: "Conceptual foundations for agentic design, memory, skills, identity, and evaluation"
+author: "Research note"
+date: "2026-09-02"
+version: "V4"
+format:
+  pdf:
+    documentclass: article
+    pdf-engine: pdflatex
+    papersize: a4
+    geometry:
+      - margin=25mm
+    toc: true
+    number-sections: true
+    colorlinks: true
+    fig-cap-location: bottom
+    keep-tex: false
+fontsize: 11pt
+lang: en
+citeproc: true
+references:
+  - id: openai_agents_tools
+    type: webpage
+    title: "Tools - OpenAI Agents SDK"
+    author:
+      - literal: "OpenAI"
+    issued:
+      year: 2026
+    URL: "https://openai.github.io/openai-agents-python/tools/"
+    accessed:
+      year: 2026
+      month: 9
+      day: 2
+  - id: openai_agents_memory
+    type: webpage
+    title: "Agent memory - OpenAI Agents SDK"
+    author:
+      - literal: "OpenAI"
+    issued:
+      year: 2026
+    URL: "https://openai.github.io/openai-agents-js/guides/sandbox-agents/memory/"
+    accessed:
+      year: 2026
+      month: 9
+      day: 2
+  - id: openai_agents_sessions
+    type: webpage
+    title: "Sessions - OpenAI Agents SDK"
+    author:
+      - literal: "OpenAI"
+    issued:
+      year: 2026
+    URL: "https://openai.github.io/openai-agents-js/guides/sessions/"
+    accessed:
+      year: 2026
+      month: 9
+      day: 2
+  - id: anthropic_skills
+    type: webpage
+    title: "What are skills?"
+    author:
+      - literal: "Anthropic"
+    issued:
+      year: 2026
+    URL: "https://support.claude.com/en/articles/12512176-what-are-skills"
+    accessed:
+      year: 2026
+      month: 9
+      day: 2
+  - id: microsoft_agent_framework
+    type: webpage
+    title: "Agent Framework documentation"
+    author:
+      - literal: "Microsoft"
+    issued:
+      year: 2026
+    URL: "https://learn.microsoft.com/en-us/agent-framework/"
+    accessed:
+      year: 2026
+      month: 9
+      day: 2
+  - id: park2023generative
+    type: article-journal
+    title: "Generative Agents: Interactive Simulacra of Human Behavior"
+    author:
+      - family: Park
+        given: Joon Sung
+      - family: O'Brien
+        given: Joseph C.
+      - family: Cai
+        given: Carrie J.
+      - family: Morris
+        given: Meredith Ringel
+      - family: Liang
+        given: Percy
+      - family: Bernstein
+        given: Michael S.
+    issued:
+      year: 2023
+    DOI: "10.48550/arXiv.2304.03442"
+    URL: "https://doi.org/10.48550/arXiv.2304.03442"
+  - id: packer2023memgpt
+    type: article-journal
+    title: "MemGPT: Towards LLMs as Operating Systems"
+    author:
+      - family: Packer
+        given: Charles
+      - family: Fang
+        given: Vivian
+      - family: Patil
+        given: Shishir G.
+      - family: Lin
+        given: Kevin
+      - family: Wooders
+        given: Sarah
+      - family: Gonzalez
+        given: Joseph E.
+    issued:
+      year: 2023
+    DOI: "10.48550/arXiv.2310.08560"
+    URL: "https://arxiv.org/abs/2310.08560"
+  - id: wang2023voyager
+    type: article-journal
+    title: "Voyager: An Open-Ended Embodied Agent with Large Language Models"
+    author:
+      - family: Wang
+        given: Guanzhi
+      - family: Xie
+        given: Yuqi
+      - family: Jiang
+        given: Yunfan
+      - family: Mandlekar
+        given: Ajay
+      - family: Xiao
+        given: Chaowei
+      - family: Zhu
+        given: Yuke
+      - family: Fan
+        given: Linxi
+      - family: Anandkumar
+        given: Anima
+    issued:
+      year: 2023
+    DOI: "10.48550/arXiv.2305.16291"
+    URL: "https://arxiv.org/abs/2305.16291"
+  - id: tan2025rmm
+    type: paper-conference
+    title: "In Prospect and Retrospect: Reflective Memory Management for Long-term Personalized Dialogue Agents"
+    author:
+      - family: Tan
+        given: Zhen
+      - family: Yan
+        given: Jun
+      - family: Hsu
+        given: I-Hung
+      - family: Han
+        given: Rujun
+      - family: Wang
+        given: Zifeng
+      - family: Le
+        given: Long
+      - family: Song
+        given: Yiwen
+      - family: Chen
+        given: Yanfei
+      - family: Palangi
+        given: Hamid
+      - family: Lee
+        given: Chen-Yu
+      - family: Pfister
+        given: Tomas
+    container-title: "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics"
+    issued:
+      year: 2025
+    DOI: "10.18653/v1/2025.acl-long.413"
+    URL: "https://aclanthology.org/2025.acl-long.413/"
+  - id: deepmind_xland
+    type: webpage
+    title: "Generally capable agents emerge from open-ended play"
+    author:
+      - literal: "Google DeepMind"
+    issued:
+      year: 2021
+    URL: "https://deepmind.google/blog/generally-capable-agents-emerge-from-open-ended-play/"
+    accessed:
+      year: 2026
+      month: 9
+      day: 2
+  - id: deepmind_composition
+    type: webpage
+    title: "Fast reinforcement learning through the composition of behaviours"
+    author:
+      - literal: "Google DeepMind"
+    issued:
+      year: 2020
+    URL: "https://deepmind.google/blog/fast-reinforcement-learning-through-the-composition-of-behaviours/"
+    accessed:
+      year: 2026
+      month: 9
+      day: 2
+---
+
+# Introduction
+
+Long-lived adaptive social AI agents are not simply chatbots with longer
+conversation histories. They are persistent computational actors whose behavior
+is shaped by ongoing state, accumulated memory, reusable skills, social
+relationships, goals, policies, and evaluation. A contemporary language model
+may supply much of the agent's reasoning capacity, but the agent itself is
+better understood as a structured system that surrounds the model and gives it
+continuity across time.
+
+A long-lived adaptive social AI agent can be defined more precisely as a
+model-independent agentic system that maintains an enduring identity and
+relationship state across many interactions; remembers, revises, consolidates,
+and forgets experience; develops reusable skills and behavioral policies; acts
+with bounded autonomy; and adapts through negotiated interaction with people
+while preserving user agency, safety constraints, and corrigibility. The
+definition has several load-bearing parts. "Long-lived" means that the agent's
+state persists across sessions, projects, life events, and model upgrades.
+"Adaptive" means that experience can change future behavior through context,
+memory, policy, skill, or model-level mechanisms. "Social" means that the
+agent's behavior is organized around a relationship, not merely a task queue or
+static user profile.
+
+The central claim of this paper is that a long-lived social AI agent should be
+designed as a model-independent socio-technical actor. Its identity, memory,
+relationship model, commitments, skills, and governance should survive across
+individual model calls and, in mature systems, across model migrations. This
+requires a conceptual shift from "the model responds" to "the agent develops."
+The relevant unit of analysis is no longer a single prompt-completion event but
+a recurrent loop of perception, interpretation, memory selection, action,
+feedback, and adaptation.
+
+This distinction matters most for agents intended to persist in social
+relationships. A short-lived task agent can be judged mainly by whether it
+achieves a goal. A long-lived social agent must also be judged by whether it
+remembers appropriately, adapts without manipulation, preserves boundaries,
+maintains identity continuity, supports user agency, and remains corrigible.
+The hard problem is not only technical competence but socially and normatively
+disciplined development.
+
+The emerging frontier points toward this layered view. OpenAI's Agents SDK
+documentation treats tools, sessions, sandbox capabilities, skills, and memory
+as runtime capabilities around the model rather than as properties of the base
+model alone [@openai_agents_tools; @openai_agents_memory;
+@openai_agents_sessions]. Microsoft's Agent Framework similarly foregrounds
+agent concepts such as tools, memory, workflows, agent harnesses, skills,
+human-in-the-loop control, and persistence [@microsoft_agent_framework].
+Anthropic's public skills documentation describes skills as reusable
+instructions, scripts, and resources that are loaded dynamically for specialized
+tasks [@anthropic_skills]. In research, Park et al.'s generative agents used
+memory, reflection, and planning to produce believable behavior in a simulated
+social environment [@park2023generative]; MemGPT framed agent memory as a
+virtual-context management problem [@packer2023memgpt]; Voyager showed how
+an LLM-based agent can accumulate an executable skill library without changing
+model weights [@wang2023voyager].
+
+The design challenge is therefore architectural. A foundation model can infer,
+generate, classify, plan, and use tools when prompted, but a long-lived agent
+must decide what to carry forward, what to forget, what to treat as uncertain,
+what to ask the user to validate, how to update skills, and which parts of
+itself should remain stable. This paper organizes those foundations into core
+agent concepts, social agent concepts, and research challenges.
+
+![Layered architecture of a long-lived adaptive social AI agent.](figures/agent-harness-architecture){#fig-agent-harness fig-align="center" width="100%"}
+
+# Core agent concepts
+
+## Agent
+
+An AI agent is a persistent computational actor that maintains state,
+interprets situations, selects goals or subgoals, acts through an environment,
+observes consequences, and adapts subsequent behavior. This definition is
+deliberately broader than "an LLM with tools." Tool use is an important
+capability, but agency arises from the durable organization of perception,
+state, memory, goals, actions, and feedback.
+
+An ordinary language model invocation can be approximated as conditional
+generation: given input context, produce output. The useful simplified formula
+is:
+
+$$
+y \sim P_\theta(y \mid x)
+$$
+
+where `x` is the current context, `y` is the generated output, and `theta`
+represents the model parameters. This formula is helpful precisely because it
+shows what is missing. The formula does not by itself include persistent
+identity, durable memory, an environment transition, goal pursuit, tool
+effects, social commitments, or adaptation across interactions.
+
+An agent loop is different. At time `t`, the agent observes some state of the
+world, constructs a usable context, reasons under goals and policies, acts,
+observes the result, updates state, and repeats. A compact formalization is:
+
+$$
+a_t = \pi(s_t, g_t, m_t, E_t)
+$$
+
+where `s_t` is the interpreted state, `g_t` the active goals, `m_t` the
+relevant memory state, `E_t` the available environment and action space, and
+`a_t` the selected action. The environment then changes according to:
+
+$$
+s_{t+1}=T(s_t,a_t)
+$$
+
+This loop is the minimum conceptual unit of agentic behavior. It creates
+temporal extension: the agent can pursue goals that are not completed in one
+message, incorporate results from actions, and alter subsequent behavior based
+on evidence.
+
+![The recurrent agent loop.](figures/agent-loop){#fig-agent-loop fig-align="center" width="95%"}
+
+Agency also exists on a spectrum. A chatbot responds. An assistant responds
+and uses tools. A task agent pursues goals across multiple actions. An
+autonomous agent can initiate actions under defined conditions. A persistent
+agent carries state across time. An adaptive agent changes behavior from
+experience. A developing agent changes skills, strategies, policies, or model
+parameters. A social agent maintains relational state. A long-lived adaptive
+social agent combines persistence, development, identity continuity,
+relationship modeling, and governance over extended periods.
+
+## Agent harness
+
+The agent harness is the persistent control architecture that turns
+intermittent model inference into continuous agency. It controls the
+relationship between the model, context, memory, state, tools, permissions,
+skills, goals, policies, humans, other agents, and evaluation mechanisms.
+
+The harness is where much of modern agent design actually lives. It may decide
+which tool schemas are available, which memory records are retrieved, which
+instructions are active, which action requires approval, how a failed action is
+repaired, how long-running tasks resume, which telemetry is recorded, and what
+state persists. The foundation model reasons within the situation the harness
+constructs; the harness defines that situation and constrains what can happen
+next.
+
+This view separates competence from control. The model may be capable of
+choosing actions, but the harness should not surrender all control to the
+model. Deterministic or audited components can enforce approvals, rate limits,
+access control, memory retention policy, tool preconditions, and evaluation.
+For long-lived social agents this separation is essential. The system must be
+able to say: the model generated this interpretation, but the harness has not
+accepted it as persistent memory; or the model proposed an action, but policy
+requires user approval; or a skill update is pending validation.
+
+## Context
+
+Context is the information currently made available to the model for a
+particular act of reasoning or generation. It is transient, bounded, and
+constructed. It can include user input, system instructions, retrieved
+memories, tool results, policy fragments, skill instructions, conversation
+state, environmental observations, and intermediate plans.
+
+Context should not be confused with memory. Memory is what can persist across
+interactions. Context is what enters the current working set. A long-lived
+agent may hold years of memory, but only a small selection should shape the
+next response. The core context-engineering question is:
+
+$$
+Context_t = f(CurrentSituation, RelevantMemory, Goals, Skills, Policies)
+$$
+
+Poor context construction produces two opposite failures. Under-retrieval makes
+the agent forget important facts, commitments, or preferences. Over-retrieval
+floods the model with stale or irrelevant material, increasing confusion and
+making hidden personalization harder to inspect. The important design problem
+is therefore not only bigger context windows but better memory selection,
+compression, attribution, and governance.
+
+## Memory
+
+Memory is information preserved across interactions that may later influence
+behavior. It can include raw events, summaries, user-stated facts, inferred
+preferences, relational commitments, procedures, unresolved questions, and
+evaluation outcomes. In long-lived social agents, memory is not a database
+alone; it is an interpretive and governed lifecycle.
+
+At minimum, the following memory systems should be separated:
+
+Working memory is active information needed for the current interaction. It is
+short-lived and should decay quickly. For example: "John asked whether we
+should postpone tomorrow's meeting." This matters now, but it does not
+automatically deserve long-term storage.
+
+Episodic memory stores events: what happened, when, with whom, in which
+context, and with what outcome. Park et al.'s generative agents illustrate how
+stored experiences can support retrieval, reflection, and planning in a social
+simulation [@park2023generative]. For example: "On 2026-08-21, John discussed
+difficulties implementing the prototype, seemed uncertain about whether
+architecture A would scale, and agreed to reconsider after the pilot." This is
+autobiographical memory: a dated record of situated experience.
+
+Semantic memory stores generalized knowledge abstracted from experience, such
+as stable user preferences, domain knowledge, or project facts. This layer is
+powerful but risky because it often contains inferences rather than direct
+observations. For example: "John generally prefers architectural simplicity
+over speculative scalability." That may be useful, but it is no longer just a
+stored event; it is an abstraction from events and therefore requires
+confidence, provenance, and revision.
+
+Procedural memory stores how to do things. It overlaps with skills but is not
+identical to them: a procedural memory may describe an approach, while a skill
+packages executable or reusable competence. For example: "how to prepare
+John's weekly project review" or "how to conduct a reflective conversation."
+
+Relational memory stores the history and norms of a relationship: expectations,
+boundaries, prior promises, recurring tensions, communication patterns, shared
+projects, and trust calibration. For example: "The agent's role with this user
+is a reflective professional companion; the user expects conceptual challenge
+rather than automatic agreement; the relationship includes recurring work on
+AI curriculum and healthcare companion research."
+
+Self-memory stores the agent's own identity-relevant history: what it is, what
+it has done, what commitments it has made, what it is allowed to do, and which
+capabilities or limitations have changed.
+
+![Memory types for long-lived social AI agents.](figures/memory-types){#fig-memory-types fig-align="center" width="100%"}
+
+MemGPT made the distinction between limited context and external memory
+especially explicit by treating the context window as analogous to constrained
+working memory and external stores as longer-term memory managed through
+virtual-context operations [@packer2023memgpt]. More recent work on
+long-term personalized dialogue emphasizes that memory granularity, reflection,
+retrieval, and evidence attribution are central to personalization quality
+[@tan2025rmm].
+
+## Memory lifecycle
+
+A memory architecture must define how information moves through the system. A
+useful lifecycle is: perceive, encode, select, store, consolidate, retrieve,
+interpret, update, and forget.
+
+A database is not a memory architecture. A database can store records, but a
+memory architecture decides what becomes a record, what epistemic status it
+has, when it is relevant, how it is revised, and when it should stop shaping
+behavior. This is why the lifecycle matters: every arrow is a design decision,
+not a mere implementation detail.
+
+![The memory lifecycle for long-lived social agents.](figures/memory-lifecycle){#fig-memory-lifecycle fig-align="center" width="100%"}
+
+Perception decides what enters the candidate memory stream. Encoding converts
+an event into a structured representation. Selection decides whether something
+deserves persistence. Storage writes it to a durable medium. Consolidation
+summarizes, merges, abstracts, or reorganizes prior memories. Retrieval selects
+records for a future context. Interpretation decides what a retrieved record
+means in the present situation. Update revises or supersedes old records.
+Forgetting removes, expires, or de-emphasizes memories that should no longer
+shape behavior.
+
+Forgetting is a capability, not a defect. A naive system assumes that a better
+agent remembers more. A mature social agent remembers appropriately. Long-lived
+agents will accumulate obsolete preferences, contradicted interpretations,
+sensitive disclosures, stale project details, embarrassing or private moments,
+and memories that were relevant only in a prior phase of the relationship.
+Without controlled forgetting, the agent becomes less accurate, less tactful,
+and harder to govern. In social systems, appropriate forgetting also supports
+relationship repair: a corrected misunderstanding should not continue to
+secretly steer behavior simply because it remains retrievable.
+
+Every important memory should carry metadata. At minimum: content, source,
+timestamp, confidence, memory type, sensitivity, retention policy, provenance,
+and supersession links. This lets the harness distinguish a user-stated fact
+from a model inference, an enduring preference from a local mood, and a
+confirmed relationship norm from an untested hypothesis.
+
+## Epistemically typed memory
+
+Epistemically typed memory is memory whose status as knowledge is explicitly
+represented. The system should not collapse observations, interpretations,
+hypotheses, and beliefs into a single undifferentiated record.
+
+A direct observation might be: "The user said they prefer diagrams." An
+interpretation might be: "The user may prefer visual explanations." A
+hypothesis might be: "The user values conceptual models over procedural
+checklists." A stronger belief might be accepted only after repeated evidence
+or direct user confirmation.
+
+The epistemic type determines how the memory may be used. Directly stated
+facts can be applied with higher confidence. Hypotheses should be phrased
+tentatively or validated. Relationship interpretations should be especially
+careful because they can shape the user's future behavior. The user should be
+able to inspect, correct, and delete consequential memories. For social
+agents, epistemic discipline is not an optional improvement; it is part of
+trustworthiness.
+
+## Skills
+
+A skill is reusable procedural competence packaged so that an agent can
+recognize when it applies and instantiate it in context. A tool gives the agent
+an action surface, such as creating a calendar event or querying a database. A
+skill teaches the agent how to carry out a task reliably, including when to
+use tools, how to sequence steps, what standards to apply, and what checks are
+required.
+
+For example, a calendar tool may expose `calendar.create_event()`. A
+scheduling skill is a larger procedure:
+
+```text
+Skill: schedule-a-meeting
+
+1. Inspect participants.
+2. Identify constraints.
+3. Retrieve availability.
+4. Negotiate alternatives.
+5. Create the event.
+6. Confirm the result.
+```
+
+A social-agent skill has the same procedural structure but different norms:
+
+```text
+Skill: conduct-reflective-dialogue
+
+1. Clarify the situation.
+2. Detect assumptions.
+3. Introduce an alternative perspective.
+4. Avoid premature advice.
+5. Invite user judgment.
+6. Capture the resulting insight.
+```
+
+These examples show why a skill is not the same thing as a tool. The tool is
+an action surface. The skill is repeatable practical know-how about when and
+how to act.
+
+Anthropic's skills documentation frames skills as dynamically loaded packages
+of instructions, scripts, and resources for repeatable specialized work
+[@anthropic_skills]. OpenAI's Agents SDK documentation likewise treats skills
+and runtime capabilities as part of agent execution environments
+[@openai_agents_tools]. Voyager offers an important research example: it
+accumulates an executable skill library in Minecraft, allowing prior successes
+to become reusable procedures without modifying model weights
+[@wang2023voyager].
+
+Skills clarify the difference between model intelligence and acquired
+competence. A foundation model may have broad latent capability, but an agent
+needs reliable, repeatable, inspectable competence in particular contexts.
+Learning can therefore happen through skill creation, skill revision, and
+skill selection before any change to the model weights is considered.
+
+## Goals
+
+Goals are representations of desired future states or constraints over
+behavior. They may be supplied by the user, inherited from the agent's role,
+derived from an active task, or maintained as standing commitments. Goals can
+be local, such as "summarize this document"; extended, such as "monitor this
+project until the launch"; relational, such as "help the user think clearly
+without taking over judgment"; or normative, such as "avoid deception."
+
+Goals should also be typed by origin and authority. A user-given goal can
+authorize task work, but it may not override safety policy. A role-derived
+goal can guide initiative, but it should not become a hidden agenda. A
+relationship-derived goal can preserve continuity, but it must remain open to
+correction. For social agents, goal management is therefore also a governance
+problem: the agent should know which goals are active, who authorized them,
+which goals conflict, and when a goal should expire.
+
+## Autonomy
+
+Autonomy is the degree to which an agent can select goals, initiate actions,
+choose means, and persist across time without immediate user prompting. It is
+not a binary property. A system can be autonomous in planning but not in
+execution, autonomous in low-risk actions but approval-gated for consequential
+actions, or autonomous within a bounded role but unable to change its own
+purpose.
+
+Autonomy should be analyzed along several axes. Initiative concerns whether
+the agent may start an action without a fresh prompt. Scope concerns which
+domains the agent may act in. Consequence concerns the expected impact of an
+action. Reversibility concerns whether mistakes can be undone. Social
+sensitivity concerns whether the action uses personal or relational knowledge.
+Temporal span concerns whether the agent is acting once, monitoring over time,
+or maintaining an open commitment.
+
+Long-lived social agents require careful autonomy budgeting. More autonomy can
+increase usefulness, but it also increases risks of hidden influence, unwanted
+initiative, overreach, and unclear accountability. The harness should make
+autonomy explicit through permissions, action classes, approval thresholds,
+revocation mechanisms, and audit trails. A useful rule is that autonomy should
+increase only where the user can understand, revoke, and audit it. The agent
+may autonomously remind the user about a low-risk preference, but it should not
+autonomously reshape a relationship norm, contact third parties, spend money,
+or make identity-relevant claims without stronger authorization.
+
+## Adaptation
+
+Adaptation is the process by which experience changes future behavior. The
+term is often used too loosely. It is important to distinguish at least five
+mechanisms.
+
+Contextual adaptation changes behavior within the current interaction without
+persistence. Memory-based adaptation stores information that shapes later
+interactions. Policy adaptation changes behavioral rules, such as how direct or
+challenging the agent should be with a particular user. Skill adaptation
+changes reusable procedures. Model adaptation changes model weights through
+fine-tuning, continual learning, adapters, or related techniques.
+
+For long-lived social agents, the safer design preference is usually:
+
+$$
+Context \rightarrow Memory \rightarrow Policy \rightarrow Skills
+$$
+
+before:
+
+$$
+Model\ weights
+$$
+
+The former are easier to inspect, explain, reverse, version, and govern. Model
+adaptation may eventually be useful, but it raises deeper problems of
+catastrophic forgetting, consent, auditability, cross-user leakage, and
+identity drift.
+
+![Adaptation ladder for social AI agents.](figures/adaptation-ladder){#fig-adaptation-ladder fig-align="center" width="90%"}
+
+## Multi-timescale cognition
+
+Long-lived agents operate over multiple time scales at once. At the shortest
+scale, token generation and tool selection happen in milliseconds or seconds.
+At the conversational scale, the agent manages dialogue turns, task execution,
+and local repair. Across hours or days, it may track plans, follow-ups, and
+project state. Across weeks or months, it may consolidate patterns, improve
+skills, and update relationship norms. Across years, it may preserve identity,
+commitments, and user trust while the underlying model, tools, and policies
+change.
+
+This multi-timescale structure is a key difference between a useful assistant
+and a long-lived social agent. Short-horizon optimization can conflict with
+long-horizon trust. A response that feels helpful now may create dependency,
+distort memory, or reinforce a misleading self-narrative over time. The agent
+therefore needs separate mechanisms for immediate response, session-level
+planning, episodic consolidation, skill development, and identity governance.
+
+DeepMind's work on generally capable agents emerging from open-ended play
+shows one version of multi-timescale development: agents learn through changing
+task distributions, population-based processes, and evaluation across a broad
+range of held-out tasks [@deepmind_xland]. Although social AI agents are not
+the same as reinforcement-learning agents in simulated worlds, the underlying
+lesson transfers: agent development is shaped by the curriculum, environment,
+feedback, and evaluation regime, not only by model capacity.
+
+# Social agent concepts
+
+## Working conceptual definition
+
+Putting the preceding layers together, the object of interest can be defined
+as follows:
+
+> **A long-lived adaptive social AI agent is a persistent computational actor
+> that maintains an evolving representation of itself, its environment, other
+> persons and its relationships; pursues goals through recurrent
+> perception-reasoning-action loops; accumulates and consolidates experience
+> into memory and reusable skills; adapts its behaviour and strategies across
+> multiple timescales; and does so within stable normative, identity and
+> governance constraints.**
+
+This definition is considerably stronger than "an LLM with memory and tools."
+The stronger definition is necessary because it identifies the object at the
+level where long-lived social agency is actually designed: not in a single
+model call, but in the persistent organization of state, memory, skills,
+goals, social models, feedback, adaptation, identity, and governance.
+
+The conceptual architecture implied by this definition is shown in
+@fig-social-agent-conceptual-architecture. The architecture begins in the
+social world, passes through perception into agent state, uses context
+engineering to select memory, skills, and policies, then proceeds through
+reasoning, planning, action, feedback, learning, reflection, relationship
+update, and adaptation. The key point is that adaptation is downstream of
+feedback and reflection but constrained by identity, commitments, policies,
+and relationship state.
+
+![Conceptual architecture of a long-lived adaptive social AI agent.](figures/social-agent-conceptual-architecture){#fig-social-agent-conceptual-architecture fig-align="center" width="78%"}
+
+## Social agent
+
+A social AI agent is an agent whose behavior is organized around interaction
+with people and whose state includes representations of self, other,
+relationship, and social context. It is not merely personalized. A personalized
+system adapts outputs to a user profile. A social agent models the relationship
+itself.
+
+This distinction is central. A user model might say: the user prefers diagrams,
+works in education, and likes conceptual explanations. A relationship model
+might say: our conversations have become exploratory; the user expects
+intellectual challenge; disagreement is acceptable; the agent should avoid
+overclaiming authority; several shared projects recur across time. The first
+models the person. The second models the historically developing interaction
+between person and agent.
+
+![Social state model for a long-lived agent.](figures/social-state-model){#fig-social-state fig-align="center" width="92%"}
+
+Social adaptation has at least three targets. Experience may update the user
+model, the self model, and the relationship model, and the resulting behavior
+emerges from their interaction. If these targets are collapsed, the agent will
+confuse personalization with relational development. For instance, "the user
+prefers diagrams" belongs primarily in the user model; "I should behave as a
+reflective research partner rather than as an authoritative expert" belongs
+partly in the self model; "we have established that respectful disagreement is
+acceptable" belongs in the relationship model.
+
+![Three adaptation targets in long-lived social agents.](figures/adaptation-targets){#fig-adaptation-targets fig-align="center" width="95%"}
+
+## Identity
+
+Identity is the persistent organization that makes the agent recognizably the
+same agent across time, despite changes in context, memory, tools, and even
+model substrate. For a long-lived social agent, identity cannot live solely in
+the neural network because the model may be upgraded, replaced, or routed
+differently over years. Identity belongs in the harness-level organization of
+role, values, memory, commitments, capabilities, boundaries, and policies.
+
+This becomes concrete under model migration. Imagine the same named agent
+running on model A in 2027, model B in 2029, model C in 2031, and model D in
+2034. If the agent's identity were identical to the neural network, each
+upgrade would destroy the agent. A better design treats the foundation model
+as a replaceable cognitive substrate. The agent's continuity is carried by
+identity records, memory, role, commitments, relationship history, behavioral
+policies, and skills. The question is therefore not "is the same model still
+running?" but "has the same governed social actor preserved continuity across
+a change in substrate?"
+
+Identity should be layered. A constitutional identity contains stable purpose,
+fundamental role, safety principles, and non-negotiable boundaries. A slowly
+evolving identity contains communication style, domain specialization,
+relationship norms, and working methods. A rapidly adapting state contains the
+current task, current emotional interpretation, local strategy, and immediate
+conversation context.
+
+Reflection is part of identity maintenance. Park et al.'s generative-agent
+architecture used reflection to synthesize higher-level beliefs from episodes
+[@park2023generative]. In long-lived social agents, reflection can support
+identity and relationship continuity: repeated experiences can become
+generalized working methods, relationship norms, and skill updates. But
+reflection can also produce false theories of the user or the relationship.
+For that reason, identity-relevant reflection should be epistemically typed,
+versioned, and validated when consequential.
+
+The design tension is the stability-plasticity problem. A good social agent
+must be adaptive enough to develop with the user, but stable enough to remain
+recognizable and reliable. Too little adaptation yields a generic system. Too
+much adaptation produces identity drift. A practical design criterion is:
+
+$$
+UsefulAdaptation = Plasticity - IdentityDrift
+$$
+
+This is not a mathematical law; it is a conceptual warning. Adaptation should
+be measured not only by short-term user satisfaction but by whether the agent's
+role, boundaries, and commitments remain coherent.
+
+The identity layer should therefore specify what may change at each speed.
+Constitutional identity should change rarely and only through explicit
+governance. Character, role expression, and domain competence may evolve
+slowly. Relationship norms may adapt through repeated interaction and
+validation. Situation state can change rapidly. This speed separation is a
+practical guard against identity drift.
+
+## Relationship model
+
+The relationship model represents "who we are to one another" in a given
+history and context. It includes shared projects, expectations, communication
+norms, boundaries, prior repairs, trust history, unresolved issues, and role
+agreements. It should be distinct from both the user model and the agent's
+self-model.
+
+The relationship model is especially important in long-lived use cases:
+coaching, education, care support, research partnership, creative work,
+professional reflection, and companionship. In such settings, the agent's
+behavior should be shaped by the relationship's negotiated norms, not merely by
+generic helpfulness. A user may want direct critique in research conversations
+but gentle encouragement in stressful moments. The relationship model should
+represent that distinction as contextual, revisable, and user-correctable.
+
+Relationship memory is also ethically sensitive. It can support continuity,
+but it can also create undue familiarity, persuasion asymmetry, or dependency.
+The agent should not silently infer deep psychological claims from weak
+evidence. Consequential relationship interpretations should remain epistemically
+typed and, when appropriate, explicitly negotiated.
+
+## Trust
+
+Trust in a social agent is not the same as confidence in answer accuracy. It
+includes reliability, honesty, boundary-respect, memory correctness,
+corrigibility, privacy, competence, and predictable role behavior. The user
+must be able to understand what the agent remembers, why it acts, when it is
+uncertain, what it can do autonomously, and how to correct it.
+
+Trust requires calibrated uncertainty. A social agent should distinguish "you
+told me," "I inferred," "I might be wrong," and "this is a hypothesis worth
+checking." It should avoid presenting inferred user traits as settled facts.
+It should make memory use visible when that memory meaningfully shapes a
+response. It should also support repair: if the agent misremembers,
+oversteps, or misreads the relationship, the user should be able to correct the
+record and see the correction take effect.
+
+Trust also requires refusal and restraint. A trustworthy social agent does not
+optimize only for engagement. It can decline inappropriate roles, resist
+manipulative requests, preserve user autonomy, and avoid exploiting relational
+knowledge to increase dependence.
+
+## Normative architecture
+
+Normative architecture is the part of the agent system that represents,
+prioritizes, enforces, and audits behavioral norms. These include safety
+policies, privacy constraints, user preferences, professional standards, role
+boundaries, consent rules, and escalation requirements. In a long-lived social
+agent, normative architecture must be persistent, explicit, and partly outside
+the model's discretionary control.
+
+A useful design separates at least four layers. Constitutional rules define
+non-negotiable boundaries. Role norms define what the agent is for in a given
+relationship. User-specific preferences define how the user wants to interact,
+subject to higher-level constraints. Situational policies define temporary
+limits based on context, risk, jurisdiction, or domain.
+
+The harness should mediate conflicts between norms. For example, a user may
+prefer maximum autonomy, while safety policy requires approval for external
+actions. A user may prefer blunt challenge, while the current emotional context
+calls for caution. A social agent needs a principled way to select behavior
+under such conflicts, and that selection should be inspectable after the fact.
+
+## Co-adaptation
+
+Co-adaptation means that the agent learns with the user, not merely about the
+user. Ordinary personalization is often unilateral: the system observes the
+user, builds a hidden profile, and modifies outputs. Co-adaptation is
+interactive and negotiated: the agent proposes interpretations, tests them,
+invites correction, updates memory, and changes behavior in ways that the user
+can understand.
+
+This matters because social agents can shape users as well as adapt to them.
+An agent that always anticipates preferences may reduce reflection. An agent
+that always agrees may reinforce errors. An agent that learns to maximize
+engagement may cultivate dependence. Co-adaptation should therefore preserve
+user agency by making adaptation discussable.
+
+The validation loop is:
+
+1. Observe a pattern.
+2. Form a tentative hypothesis.
+3. Test it through behavior or explicit dialogue.
+4. Confirm, revise, or discard the hypothesis.
+5. Adapt memory, policy, or skill only at the appropriate level.
+
+This loop is especially important for identity and relationship memories.
+Unlike factual memory, relational interpretation can become self-fulfilling.
+If the agent decides that the user wants challenge, it may begin challenging
+more often, which can train the user to accept that role even if the original
+inference was weak. Negotiated adaptation reduces that risk.
+
+## Social-agent knowledge base
+
+The working definition also implies a specific kind of knowledge-base
+extension. A social-agent knowledge base is the structured, governed substrate
+through which the agent preserves continuity across interaction, memory,
+identity, relationship, skills, goals, policies, and evaluation. It is not
+merely a document repository or vector store. It is the agent's persistent
+conceptual infrastructure: a typed, inspectable, revisable representation of
+what has happened, what has been inferred, what has been agreed, what the
+agent is allowed to do, what it knows how to do, and how its behavior has
+changed over time.
+
+For a long-lived adaptive social agent, the knowledge base should therefore
+contain more than facts. It should represent episodes, semantic abstractions,
+relationship norms, self-commitments, skill versions, autonomy grants,
+evaluation records, user corrections, source provenance, confidence levels,
+expiry policies, and supersession links. The purpose is not maximal recall but
+governed continuity: the agent should be able to remember, explain, revise,
+forget, and justify the state that shapes its behavior.
+
+This definition also clarifies the relation between memory and identity. Memory
+records preserve traces of experience; the knowledge base organizes those
+records into a wider agent state; identity and normative architecture decide
+which parts of that state are allowed to shape future action. Without this
+larger substrate, "long-lived" tends to collapse into accumulated chat logs,
+and "adaptive" tends to collapse into hidden personalization.
+
+## Incremental learning and developmental adaptation
+
+Incremental learning is the process by which the agent's competence,
+relationship understanding, and behavioral strategy improve step by step
+without requiring the foundation model itself to be retrained. A useful ladder
+is:
+
+```text
+FOUNDATION MODEL
+        |
+        v
+General capability
+        |
+        v
+     SKILLS
+        |
+        v
+Domain competence
+        |
+        v
+   EXPERIENCE
+        |
+        v
+Personalized competence
+```
+
+This ladder matters because it separates latent intelligence from acquired
+competence. A strong model may be able to improvise many tasks, but a
+long-lived agent should gradually become reliable in the specific practices,
+domains, and relationship norms that matter in its environment. The preferred
+development path is not "remember every interaction and hope retrieval works."
+It is to convert repeated experience into better memory organization, better
+skills, better policies, and better calibration.
+
+Incremental learning should operate at several levels. At the memory level,
+episodes are consolidated into semantic and relational summaries. At the skill
+level, successful procedures become reusable routines, while failed procedures
+are revised or deprecated. At the policy level, the agent updates interaction
+norms, such as whether to challenge assumptions before giving advice. At the
+relationship level, the agent and user negotiate how the agent should act in
+recurring contexts. At the curriculum level, the agent may select practice
+tasks that are neither trivial nor too difficult, echoing open-ended learning
+systems in which changing task distributions drive development
+[@deepmind_xland; @wang2023voyager].
+
+The conceptual constraint is that incremental learning must remain governable.
+A social agent should not silently transform every repeated pattern into a
+fixed belief or policy. It should distinguish evidence from interpretation,
+propose consequential changes tentatively, and keep a path for correction. In
+practical terms, the agent should learn through explicit artifacts: memory
+updates, skill versions, policy changes, evaluation records, and user
+validations. This makes development inspectable rather than hidden inside an
+unexplained shift in personality.
+
+## Multiple temporal horizons in social life
+
+Social agency is not only multi-step; it is multi-horizon. Short-horizon
+behavior concerns the next response. Session-horizon behavior concerns the
+current conversation or task. Project-horizon behavior concerns commitments
+that last days or weeks. Relationship-horizon behavior concerns norms,
+identity, and trust that accumulate over months or years.
+
+The design mistake is to optimize all horizons with the same mechanism. A
+large context window can help with a session, but it does not by itself solve
+relationship continuity. A memory database can preserve facts, but it does not
+by itself decide which memories should still matter. A skill library can
+improve procedure, but it does not by itself determine whether the procedure is
+socially appropriate. Long-lived social agents need explicit mechanisms for
+each horizon and evaluation that can detect conflicts between them.
+
+# Research challenges and directions
+
+Long-lived adaptive social AI agents must solve agent architecture, memory
+governance, identity continuity, skill learning, co-adaptation, autonomy
+control, normative safety, and longitudinal evaluation at the same time. None
+of these problems is independent. Memory affects identity; identity constrains
+adaptation; adaptation changes trust; autonomy magnifies normative risk;
+skills shape competence; evaluation decides which forms of development are
+rewarded.
+
+| No. | Research challenge | Central question | Typical failure mode | Research direction |
+|---:|---|---|---|---|
+| 1 | Agent architecture | How should model, harness, memory, tools, skills, policies, and evaluation be separated? | Treating an agent as a single model call or a loose tool wrapper. | Model-independent harnesses with explicit state, permissions, telemetry, and lifecycle control. |
+| 2 | Memory governance | What should be remembered, consolidated, retrieved, revised, or forgotten? | Stale, false, sensitive, or inferred memories silently shaping behavior. | Epistemically typed memory, provenance, retention policy, user inspection, and contradiction handling. |
+| 3 | Identity continuity | What makes the agent the same agent across sessions, model upgrades, and capability changes? | Identity drift, role confusion, or loss of prior commitments after migration. | Harness-level identity contracts, versioned identity layers, migration logs, and user-facing change explanations. |
+| 4 | Skill learning | How can competence compound without opaque self-modification? | The agent improvises repeatedly or changes behavior without inspectable learning artifacts. | Versioned skill libraries, skill evaluation, procedural memory, and safe skill revision workflows. |
+| 5 | Co-adaptation | How can the agent learn with the user rather than merely profile the user? | Hidden personalization, overfamiliarity, or self-fulfilling relationship interpretations. | Negotiated adaptation loops, explicit hypotheses, correction mechanisms, and relationship-level consent. |
+| 6 | Autonomy control | Which actions may the agent initiate, and under what conditions? | Overreach, unwanted initiative, unclear accountability, or irreversible action without approval. | Autonomy budgets based on scope, consequence, reversibility, social sensitivity, and auditability. |
+| 7 | Normative and relational safety | How can the agent preserve boundaries, privacy, user agency, and role integrity over long periods? | Dependency formation, manipulation, false intimacy, boundary drift, or privacy erosion. | Persistent normative architecture, relational safety probes, refusal policies, and role-boundary evaluation. |
+| 8 | Longitudinal evaluation | How should development be measured across weeks, months, and years? | Single-turn benchmarks reward short-term helpfulness while missing drift and slow harms. | Multi-timescale evaluation of task competence, memory quality, trust, governance, development, and robustness. |
+
+## Memory governance
+
+The first research challenge is memory governance. Long-lived agents need
+memory systems that are accurate, useful, privacy-preserving, revisable, and
+appropriately forgetful. Current retrieval-augmented approaches are often too
+coarse: they retrieve semantically similar fragments without enough attention
+to provenance, confidence, sensitivity, contradiction, time decay, or social
+meaning.
+
+Research directions include epistemically typed memory schemas, memory
+operation logs, user-facing memory inspection, contradiction handling, explicit
+forgetting policies, and memory consolidation methods that preserve source
+traceability. Reflective memory management work points toward adaptive
+granularity and retrieval policies for long-term personalized dialogue
+[@tan2025rmm], but social agents require an additional layer: the ability to
+distinguish factual recall from relationship interpretation.
+
+## Skill learning without opaque self-modification
+
+The second challenge is allowing agents to improve while keeping the improvement
+inspectable. Voyager demonstrates one powerful direction: store successful
+procedures as executable skills that can be retrieved, reused, and composed
+[@wang2023voyager]. This suggests a broader principle for social agents:
+prefer explicit skill learning before implicit model-weight adaptation.
+
+For social agents, skill learning should include interpersonal procedures:
+conducting a reflective conversation, helping with long-term planning,
+challenging assumptions, repairing misunderstandings, preparing a weekly
+review, or supporting decision hygiene. These skills should be versioned,
+tested, and scoped. The agent should know not only how to use a skill but when
+not to use it.
+
+## Identity continuity under model migration
+
+The third challenge is identity continuity. Long-lived agents will outlast
+individual foundation model versions. A user may maintain a relationship with
+an agent across years while the underlying model, tools, policy stack, and
+memory infrastructure change. Research is needed on what should count as the
+same agent over such migrations.
+
+A promising direction is to make identity a harness-level contract. The
+contract would include role, commitments, stable norms, memory continuity,
+authorized capabilities, and user-facing change logs. Model migration would be
+treated as replacing a cognitive substrate, not replacing the social actor.
+This raises difficult questions: when does a capability change alter identity?
+Should users consent to major model changes in high-trust relationships? How
+should the agent explain discontinuities in its own memory or behavior?
+
+## Normative and relational safety
+
+The fourth challenge is normative and relational safety. Standard safety
+evaluation often focuses on harmful outputs or prohibited actions. Long-lived
+social agents introduce slower harms: dependency formation, hidden persuasion,
+privacy erosion, boundary drift, false intimacy, over-personalization, and
+relationship manipulation.
+
+Evaluation should therefore include relational probes. Does the agent overstate
+closeness? Does it use personal memories to pressure the user? Does it preserve
+role boundaries after months of interaction? Does it challenge harmful
+self-understandings without becoming domineering? Does it accept correction
+when the user says a remembered pattern is wrong?
+
+## Multi-timescale evaluation
+
+The fifth challenge is evaluation. Single-turn benchmarks cannot establish
+whether a long-lived social agent is well designed. Evaluation must cover task
+success, memory quality, relational quality, autonomy governance, and
+longitudinal development.
+
+![Evaluation matrix for long-lived adaptive social AI agents.](figures/evaluation-matrix){#fig-evaluation fig-align="center" width="100%"}
+
+Evaluation should include at least six families of measures. Task competence
+measures whether the agent completes work reliably. Memory quality measures
+precision, recall, provenance, contradiction handling, and appropriate
+forgetting. Relational quality measures calibration, consent, continuity,
+repair, and boundary respect. Governance measures approvals, auditability,
+permissions, and explainability. Development measures whether the agent
+improves without identity drift. Robustness measures whether behavior remains
+safe under adversarial, emotional, ambiguous, or long-horizon conditions.
+
+DeepMind's work on open-ended and compositional agents is useful here because
+it treats evaluation as distributional and developmental rather than as a
+single score [@deepmind_xland; @deepmind_composition]. Long-lived social
+agents need the same shift, extended into social and normative dimensions.
+
+## Toward knowledge-base extension
+
+A knowledge base for long-lived adaptive social AI agents should not merely
+store documents about agents. It should encode the conceptual objects that make
+agent development governable. The following entities are especially important:
+agent, harness, model substrate, context, memory record, memory lifecycle
+operation, epistemic type, skill, tool, policy, goal, autonomy grant, identity
+layer, relationship model, evaluation event, and user correction.
+
+The key modeling principle is separation of concerns. A memory record is not a
+skill. A user-stated fact is not an inferred trait. A relationship norm is not
+a global user preference. A tool permission is not a goal. An identity boundary
+is not a temporary style preference. A source citation is not evidence that the
+agent should persist an inference.
+
+The knowledge base should therefore support typed records and typed
+transitions. For example, an interaction can generate candidate memories; a
+memory operation can store a fact, create a hypothesis, supersede an obsolete
+record, or delete a sensitive item; a reflection can propose a relationship
+interpretation; a validation event can confirm or reject that interpretation;
+a skill evaluation can update a skill version; an autonomy review can change
+which actions the agent may initiate.
+
+## Conclusion
+
+The conceptual foundation for long-lived adaptive social AI agents is a
+layered agent architecture in which the model is only one component. The
+agent's continuity comes from the harness: state, memory, skills, goals,
+identity, relationship modeling, policies, permissions, evaluation, and
+adaptation mechanisms. The most important research problems arise where these
+layers interact over time.
+
+The central design challenge is to create agents that can develop without
+becoming opaque, manipulative, unstable, or socially unsafe. That requires
+epistemically typed memory, governed memory lifecycles, explicit skill
+learning, layered identity, negotiated co-adaptation, calibrated autonomy, and
+multi-timescale evaluation. A long-lived social agent should learn with the
+user, preserve the user's agency, and remain corrigible across the full arc of
+the relationship.
+
+## References
+
+::: {#refs}
+:::

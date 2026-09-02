@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Layered architecture of a long-lived adaptive social AI agent</title>
+  <desc id="desc">A diagram showing environment, agent harness, model substrate, tools, memory, skills, policies, identity, goals, and evaluation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 10; }
+      .soft { fill: #eef2ff; stroke: #475569; stroke-width: 1.5; rx: 8; }
+      .green { fill: #ecfdf5; stroke: #475569; stroke-width: 1.5; rx: 8; }
+      .amber { fill: #fffbeb; stroke: #475569; stroke-width: 1.5; rx: 8; }
+      .rose { fill: #fff1f2; stroke: #475569; stroke-width: 1.5; rx: 8; }
+      .text { font: 16px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 13px Arial, sans-serif; fill: #334155; }
+      .label { font: 18px Arial, sans-serif; font-weight: 700; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="960" height="620"/>
+  <rect class="panel" x="110" y="110" width="740" height="400"/>
+  <text class="label" x="480" y="145" text-anchor="middle">Agent harness</text>
+  <text class="small" x="480" y="169" text-anchor="middle">Persistent control architecture around intermittent model inference</text>
+
+  <rect class="soft" x="155" y="205" width="160" height="72"/>
+  <text class="text" x="235" y="234" text-anchor="middle">Context builder</text>
+  <text class="small" x="235" y="256" text-anchor="middle">selects usable evidence</text>
+
+  <rect class="green" x="400" y="205" width="160" height="72"/>
+  <text class="text" x="480" y="234" text-anchor="middle">Reasoning loop</text>
+  <text class="small" x="480" y="256" text-anchor="middle">interpret, plan, decide</text>
+
+  <rect class="amber" x="645" y="205" width="160" height="72"/>
+  <text class="text" x="725" y="234" text-anchor="middle">Action gateway</text>
+  <text class="small" x="725" y="256" text-anchor="middle">tools, approvals, effects</text>
+
+  <rect class="rose" x="155" y="330" width="160" height="72"/>
+  <text class="text" x="235" y="359" text-anchor="middle">Memory systems</text>
+  <text class="small" x="235" y="381" text-anchor="middle">episodic, semantic, relational</text>
+
+  <rect class="soft" x="400" y="330" width="160" height="72"/>
+  <text class="text" x="480" y="359" text-anchor="middle">Identity and goals</text>
+  <text class="small" x="480" y="381" text-anchor="middle">role, commitments, priorities</text>
+
+  <rect class="green" x="645" y="330" width="160" height="72"/>
+  <text class="text" x="725" y="359" text-anchor="middle">Skills and policies</text>
+  <text class="small" x="725" y="381" text-anchor="middle">procedures, norms, guardrails</text>
+
+  <rect class="amber" x="400" y="435" width="160" height="54"/>
+  <text class="text" x="480" y="467" text-anchor="middle">Evaluation</text>
+
+  <rect class="panel" x="340" y="35" width="280" height="52"/>
+  <text class="text" x="480" y="67" text-anchor="middle">Environment and humans</text>
+  <rect class="panel" x="340" y="535" width="280" height="52"/>
+  <text class="text" x="480" y="567" text-anchor="middle">Foundation model substrate</text>
+
+  <path class="arrow" d="M480 87 L480 110"/>
+  <path class="arrow" d="M315 241 L400 241"/>
+  <path class="arrow" d="M560 241 L645 241"/>
+  <path class="arrow" d="M725 277 C725 310 725 305 725 330"/>
+  <path class="arrow" d="M645 366 L560 366"/>
+  <path class="arrow" d="M400 366 L315 366"/>
+  <path class="arrow" d="M235 330 C235 300 235 307 235 277"/>
+  <path class="arrow" d="M480 510 L480 535"/>
+  <path class="arrow" d="M480 489 L480 510"/>
+  <path class="arrow" d="M480 402 L480 435"/>
+
+  <text class="small" x="480" y="303" text-anchor="middle">The agent lives in the organized runtime, not in one model call.</text>
+</svg>
