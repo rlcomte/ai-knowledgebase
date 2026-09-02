@@ -1,0 +1,52 @@
+---
+title: "Agent Harness"
+description: "The runtime architecture that binds models, context, memory, tools, policies and evaluation into governed agency."
+area: "Social AI"
+order: 4
+tags: ["architecture","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 4
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import harness from '../../../assets/social-ai/agent-harness-architecture.svg';
+
+<Definition term={"Agent Harness"}>
+The agent harness is the persistent control architecture around the model. It controls context, state, memory, tools, permissions, skills, goals, policies, human approvals, traces and evaluation.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={harness.src} alt="Layered harness architecture around a foundation model for a long-lived adaptive social AI agent." loading="lazy" decoding="async" />
+</figure>
+
+## Why It Matters
+
+For long-lived social agents, much of the real design lives outside the foundation model. The harness decides which memories are retrieved, which tool schemas are exposed, which policies are active, which actions require approval, what telemetry is recorded and which state survives the current interaction.
+
+This separates competence from control. A model may be capable of proposing a persuasive message, deleting a record or updating a relationship norm. The harness should still enforce permission checks, memory governance, role boundaries, retention policy and auditability.
+
+The harness also carries model independence. If the underlying model changes, the agent can preserve continuity through identity records, memory, skills, commitments and policy state rather than treating every model migration as a new agent.
+
+<EngineeringMode>
+Put consequential control in auditable system layers. Use deterministic checks for permissions, retention, tool preconditions, approval gates, rate limits and logging. Let the model reason within a situation the harness constructs; do not make the model the sole authority over what persists or what action is allowed.
+</EngineeringMode>
+
+<EvaluationCheck>
+Verify that each persistent update and external action has a source, authority, policy basis and trace.
+</EvaluationCheck>
+
+<RealExample>
+A companion agent may suggest storing a preference, but the harness should decide whether it is a user-stated fact, an inference, a sensitive record, a temporary context note or something that should not be persisted.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Agentic workflows and harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"Memory Systems","href":"/social-ai/memory-systems/"},{"label":"Trustworthy Agency and Evaluation","href":"/social-ai/trustworthy-agency-and-evaluation/"}]} />
+
+<SourceNote>
+Further study: OpenAI Agents SDK documentation on tools, sessions and memory; Microsoft Agent Framework; and the source research note.
+</SourceNote>

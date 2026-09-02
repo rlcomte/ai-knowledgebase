@@ -1,0 +1,55 @@
+---
+title: "Adaptatie en Ontwikkeling"
+description: "Contextuele, geheugen-, beleid-, vaardigheids- en modeladaptatie over meerdere tijdschalen."
+area: "Sociale AI"
+order: 7
+tags: ["adaptation","learning"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 7
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import adaptationLadder from '../../../../assets/social-ai/adaptation-ladder.svg';
+import adaptationTargets from '../../../../assets/social-ai/adaptation-targets.svg';
+
+<Definition term={"Adaptatie en Ontwikkeling"}>
+Adaptatie is het proces waardoor ervaring toekomstig gedrag verandert. Ontwikkeling is adaptatie die over tijd is georganiseerd in bestuurd geheugen, beleid, vaardigheden en identiteit.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={adaptationLadder.src} alt="Adaptatieladder van context via geheugen, beleid en vaardigheden naar modelgewichten." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom Het Belangrijk Is
+
+Een sociale agent kan zich aanpassen binnen de huidige context, via persistent geheugen, via gedragsbeleid, via vaardigheidsrevisie of via modelgewichten. Die mechanismen hebben verschillende risico's.
+
+Voor sociale agenten hebben context, geheugen, beleid en vaardigheden meestal de voorkeur boven modelgewichten, omdat ze beter te inspecteren, verklaren, versioneren, terugdraaien en besturen zijn.
+
+<figure class="concept-explainer-image">
+  <img src={adaptationTargets.src} alt="Drie adaptatiedoelen in sociale agenten: gebruikersmodel, zelfmodel en relatiemodel." loading="lazy" decoding="async" />
+</figure>
+
+<EngineeringMode>
+Gebruik expliciete adaptatierecords: bewijs, veranderde laag, autorisatie, vertrouwen en terugdraaipad. Consequente adaptaties moeten met de gebruiker worden onderhandeld.
+</EngineeringMode>
+
+<EvaluationCheck>
+Evalueer of adaptatie nuttiger maakt zonder corrigeerbaarheid te verlagen, afhankelijkheid te vergroten of identiteitsdrift te veroorzaken.
+</EvaluationCheck>
+
+<RealExample>
+Als een agent merkt dat een gebruiker vaak diagrammen vraagt, kan hij eerst de huidige context aanpassen, daarna een geheugenvoorstel doen en pas later een uitlegvaardigheid aanpassen.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Geheugensystemen","href":"/social-ai/memory-systems/"},{"label":"Langlevende Identiteit","href":"/social-ai/long-lived-identity/"},{"label":"Betrouwbare Agency en Evaluatie","href":"/social-ai/trustworthy-agency-and-evaluation/"}]} />
+
+<SourceNote>
+Afgeleid van de bronsecties over de adaptatieladder, adaptatiedoelen en multi-timescale cognition.
+</SourceNote>

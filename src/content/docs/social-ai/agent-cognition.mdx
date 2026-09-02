@@ -1,0 +1,47 @@
+---
+title: "Agent Cognition"
+description: "Reasoning, planning, world models, reflection and metacognition in persistent agents."
+area: "Social AI"
+order: 3
+tags: ["reasoning","planning"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 3
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Agent Cognition"}>
+Agent cognition is the reasoning layer through which an agent interprets state, plans actions, maintains a world model, reflects on experience and monitors the limits of its own knowledge.
+</Definition>
+
+## Why It Matters
+
+In a social agent, reasoning is not just answer generation. The agent must interpret ambiguous situations, select relevant memories, infer possible goals, plan under constraints, notice uncertainty and decide when to ask rather than act.
+
+World models represent how the agent believes the environment works. Social world models add assumptions about people, roles, norms, timing, commitments and consequences. These assumptions should remain corrigible: the agent can use them to reason, but should not treat weak social inference as settled knowledge.
+
+Reflection converts episodes into higher-level patterns. It can support better planning and identity continuity, but it can also create false theories about the user or the relationship. Metacognition is therefore part of safety: the agent should know when it is hypothesizing, when evidence is thin and when user validation is needed.
+
+<EngineeringMode>
+Separate reasoning artifacts from accepted state. Plans, interpretations and reflections should be inspectable candidates before they become memory, policy or identity updates. This keeps the model useful as a reasoner without letting every plausible interpretation silently become part of the agent.
+</EngineeringMode>
+
+<EvaluationCheck>
+Look for traces that distinguish observation, interpretation, hypothesis, plan, decision and accepted memory.
+</EvaluationCheck>
+
+<RealExample>
+An educational companion may infer that a learner is avoiding a topic. That can guide a gentle question, but it should not become a durable belief unless the learner confirms it or repeated evidence supports it.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Memory Systems","href":"/social-ai/memory-systems/"},{"label":"Social State and Relationships","href":"/social-ai/social-state-and-relationships/"},{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
+
+<SourceNote>
+Derived from the source document's discussion of context, reflection, epistemically typed memory and social interpretation.
+</SourceNote>

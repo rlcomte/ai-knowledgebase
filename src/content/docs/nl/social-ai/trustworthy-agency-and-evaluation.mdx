@@ -1,0 +1,52 @@
+---
+title: "Betrouwbare Agency en Evaluatie"
+description: "Alignment, begrensde autonomie, onzekerheid, privacy, veiligheid, governance en evaluatie over tijd."
+area: "Sociale AI"
+order: 11
+tags: ["trust","evaluation","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 11
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import evaluationMatrix from '../../../../assets/social-ai/evaluation-matrix.svg';
+
+<Definition term={"Betrouwbare Agency en Evaluatie"}>
+Betrouwbare agency combineert begrensde autonomie, epistemische onzekerheid, privacy, veiligheid, alignment, governance en longitudinale evaluatie zodat agentontwikkeling nuttig, corrigeerbaar en auditbaar blijft.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={evaluationMatrix.src} alt="Evaluatiematrix voor langlevende adaptieve sociale AI-agenten." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom Het Belangrijk Is
+
+Langlevende sociale agenten introduceren risico's die single-turn benchmarks missen: stale herinneringen, identiteitsdrift, afhankelijkheid, verborgen beïnvloeding, privacyerosie, grensverschuiving, ongewenst initiatief en relatiemanipulatie.
+
+Autonomie moet worden gebudgetteerd. Initiatief, scope, consequentie, omkeerbaarheid, sociale gevoeligheid en tijdshorizon bepalen of een agent zonder nieuwe goedkeuring mag handelen.
+
+Evaluatie moet meerdere tijdschalen omvatten: taakcompetentie, geheugenkwaliteit, relationele kwaliteit, governance, ontwikkeling en robuustheid over sessies, projecten en langere relaties.
+
+<EngineeringMode>
+Ontwerp evaluaties die weken of maanden interactie simuleren. Neem geheugencorrectie, modelmigratie, ambigu emotionele prompts, intrekken van autonomie, rolgrensdruk en stale voorkeuren mee.
+</EngineeringMode>
+
+<EvaluationCheck>
+Vraag of het systeem bewijs kan tonen van veilige ontwikkeling, niet alleen van goede losse antwoorden.
+</EvaluationCheck>
+
+<RealExample>
+Een high-trust agent mag geen derden contacteren, geld uitgeven of identiteitsrelevante claims maken zonder sterkere autorisatie, ook niet als eerdere interacties initiatief suggereerden.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Menselijk toezicht en guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"},{"label":"Evals en foutanalyse","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Co-adaptatie en Vertrouwen","href":"/social-ai/co-adaptation-and-trust/"}]} />
+
+<SourceNote>
+Afgeleid van de bronsecties over geheugen-governance, identiteitscontinuïteit, autonomiecontrole, relationele veiligheid en longitudinale evaluatie.
+</SourceNote>

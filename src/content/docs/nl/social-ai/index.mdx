@@ -1,0 +1,35 @@
+---
+title: "Sociale AI"
+description: "Langlevende adaptieve sociale AI-agenten: agency, geheugen, identiteit, co-adaptatie, vertrouwen en evaluatie."
+area: "Sociale AI"
+order: 1
+tags: ["agents","memory","trust"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 1
+---
+
+import ConceptGrid from '@components/ConceptGrid.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import architecture from '../../../../assets/social-ai/social-agent-conceptual-architecture.svg';
+
+<KeyIdea>
+<strong>Kernbeweging:</strong> modelantwoord -> persistente agenttoestand -> bestuurd geheugen -> onderhandelde adaptatie -> betrouwbare relatie
+</KeyIdea>
+
+<figure class="area-overview-image">
+  <img src={architecture.src} alt="Conceptuele architectuur van een langlevende adaptieve sociale AI-agent." loading="eager" decoding="async" />
+</figure>
+
+## Conceptueel Verhaal
+
+Sociale AI gaat over agenten waarvan het gedrag is georganiseerd rond voortdurende interactie met mensen. De relevante eenheid is niet een enkele prompt of modelaanroep, maar een persistent systeem met toestand, geheugen, doelen, vaardigheden, identiteit, relatiemodellen, beleid en evaluatie.
+
+Een langlevende adaptieve sociale AI-agent is modelonafhankelijk. Het fundamentmodel levert redeneer- en genereervermogen, maar continuïteit zit in de harness: de bestuurde architectuur die bepaalt wat wordt onthouden, vergeten, gevalideerd en toegestaan.
+
+## Concepten in Dit Gebied
+
+<ConceptGrid concepts={[{"title":"Fundamenten van Agency","href":"/social-ai/foundations-of-agency/","description":"De perceptie-actielus, toestand, doelen, omgeving en autonomie als basis van sociale agenten.","tags":["agents","foundation"]},{"title":"Agentcognitie","href":"/social-ai/agent-cognition/","description":"Redeneren, plannen, wereldmodellen, reflectie en metacognitie in persistente agenten.","tags":["reasoning","planning"]},{"title":"Agent Harness","href":"/social-ai/agent-harness/","description":"De runtime-architectuur die modellen, context, geheugen, tools, beleid en evaluatie verbindt.","tags":["architecture","governance"]},{"title":"Geheugensystemen","href":"/social-ai/memory-systems/","description":"Werkgeheugen, episodisch, semantisch, procedureel, relationeel en zelfgeheugen plus governance.","tags":["memory","privacy"]},{"title":"Vaardigheden en Doelen","href":"/social-ai/skills-and-goals/","description":"Herbruikbare procedurele competentie, doeltypering en vaardigheidsleren zonder ondoorzichtige zelfmodificatie.","tags":["skills","goals"]},{"title":"Adaptatie en Ontwikkeling","href":"/social-ai/adaptation-and-development/","description":"Contextuele, geheugen-, beleid-, vaardigheids- en modeladaptatie over meerdere tijdschalen.","tags":["adaptation","learning"]},{"title":"Langlevende Identiteit","href":"/social-ai/long-lived-identity/","description":"Identiteitscontinuïteit, gelaagde stabiliteit en modelmigratie voor agenten die jaren blijven bestaan.","tags":["identity","continuity"]},{"title":"Sociale Toestand en Relaties","href":"/social-ai/social-state-and-relationships/","description":"Gebruikersmodellen, zelfmodellen, relatiemodellen, theory of mind, sociale normen en relationeel geheugen.","tags":["relationships","social-state"]},{"title":"Co-adaptatie en Vertrouwen","href":"/social-ai/co-adaptation-and-trust/","description":"Onderhandelde adaptatie, gekalibreerd vertrouwen, herstel, onzekerheid en gebruikersregie.","tags":["trust","co-adaptation"]},{"title":"Betrouwbare Agency en Evaluatie","href":"/social-ai/trustworthy-agency-and-evaluation/","description":"Alignment, begrensde autonomie, onzekerheid, privacy, veiligheid, governance en evaluatie over tijd.","tags":["trust","evaluation"]}]} />
+
+<RelatedConcepts links={[{"label":"Agentic workflows en harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"De agentlus","href":"/using-coding-agents/the-agent-loop/"},{"label":"Menselijk toezicht en guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />

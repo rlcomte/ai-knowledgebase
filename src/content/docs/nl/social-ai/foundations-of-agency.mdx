@@ -1,0 +1,50 @@
+---
+title: "Fundamenten van Agency"
+description: "De perceptie-actielus, toestand, doelen, omgeving en autonomie als basis van sociale agenten."
+area: "Sociale AI"
+order: 2
+tags: ["agents","foundation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 2
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import agentLoop from '../../../../assets/social-ai/agent-loop.svg';
+
+<Definition term={"Fundamenten van Agency"}>
+Agency is de duurzame organisatie van waarneming, geïnterpreteerde toestand, doelen, acties, feedback en adaptatie. Een sociale AI-agent reageert niet alleen; hij observeert, interpreteert, handelt en werkt toestand bij over tijd.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={agentLoop.src} alt="De terugkerende agentlus van observatie, redeneren, actie, feedback en update." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom Het Belangrijk Is
+
+Een gewone modelaanroep genereert output uit de huidige context. Een agentlus voegt tijd toe: het systeem observeert, construeert toestand, redeneert onder doelen en beleid, handelt in een omgeving, observeert het resultaat en past het vervolg aan.
+
+Agency ligt op een spectrum: chatbot, assistent, taakagent, persistente agent, adaptieve agent en sociale agent. Elke stap vraagt explicietere toestand, doelen, grenzen en verificatie.
+
+<EngineeringMode>
+Ontwerp de lus expliciet. Bepaal welke toestand door het model wordt geïnterpreteerd, welke toestand deterministisch wordt beheerd, welke acties externe gevolgen hebben en welke updates persistent worden.
+</EngineeringMode>
+
+<EvaluationCheck>
+Controleer of het systeem zijn huidige toestand, actieve doel, beschikbare acties, stopcriterium en laatste betekenisvolle update kan uitleggen.
+</EvaluationCheck>
+
+<RealExample>
+Een onderzoeksassistent die maandenlang een literatuuronderzoek volgt is alleen agentisch als hij projecttoestand bewaart, open werk opvolgt, bewijs vastlegt en plannen herziet.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"De agentlus","href":"/using-coding-agents/the-agent-loop/"},{"label":"Agentcognitie","href":"/social-ai/agent-cognition/"},{"label":"Agent Harness","href":"/social-ai/agent-harness/"}]} />
+
+<SourceNote>
+Afgeleid van <code>sources/long_lived_adaptive_social_ai_agents_v4.qmd</code>, vooral de secties over agenten en autonomie.
+</SourceNote>

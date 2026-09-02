@@ -1,0 +1,54 @@
+---
+title: "Trustworthy Agency and Evaluation"
+description: "Alignment, bounded autonomy, uncertainty, privacy, safety, governance and multi-timescale evaluation."
+area: "Social AI"
+order: 11
+tags: ["trust","evaluation","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 11
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import evaluationMatrix from '../../../assets/social-ai/evaluation-matrix.svg';
+
+<Definition term={"Trustworthy Agency and Evaluation"}>
+Trustworthy agency combines bounded autonomy, epistemic uncertainty, privacy, safety, alignment, governance and longitudinal evaluation so that agent development remains useful, corrigible and auditable.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={evaluationMatrix.src} alt="Evaluation matrix for long-lived adaptive social AI agents across task, memory, relational, governance, development and robustness dimensions." loading="lazy" decoding="async" />
+</figure>
+
+## Why It Matters
+
+Long-lived social agents introduce risks that single-turn benchmarks miss: stale memories, identity drift, dependency formation, hidden persuasion, privacy erosion, boundary drift, unwanted initiative and relationship manipulation.
+
+Normative architecture represents and enforces behavioral norms. It includes constitutional rules, role norms, user preferences and situational policies. These layers can conflict, so the harness needs explicit mediation, approval gates and audit trails.
+
+Autonomy should be budgeted. Initiative, scope, consequence, reversibility, social sensitivity and temporal span all affect whether an agent may act without fresh approval. More autonomy is not automatically better; it is justified only where the user can understand, revoke and audit it.
+
+Evaluation must be multi-timescale. It should cover task competence, memory quality, relational quality, governance, development and robustness across sessions, projects and longer relationships.
+
+<EngineeringMode>
+Design evaluation suites that simulate weeks or months of interaction. Include memory correction, model migration, emotionally ambiguous prompts, autonomy revocation, role-boundary pressure, stale preferences and adversarial attempts to exploit relational memory.
+</EngineeringMode>
+
+<EvaluationCheck>
+Ask whether the system can show evidence of safe development, not only good single-turn answers.
+</EvaluationCheck>
+
+<RealExample>
+A high-trust agent should not contact third parties, reshape a relationship norm, spend money or make identity-relevant claims without stronger authorization, even if prior interactions suggest the user often accepts initiative.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Human oversight and guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"},{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"Co-adaptation and Trust","href":"/social-ai/co-adaptation-and-trust/"}]} />
+
+<SourceNote>
+Derived from the source document's trustworthy-agency research challenges, including memory governance, identity continuity, autonomy control, relational safety and longitudinal evaluation.
+</SourceNote>

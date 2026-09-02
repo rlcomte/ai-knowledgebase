@@ -1,0 +1,50 @@
+---
+title: "Agent Harness"
+description: "De runtime-architectuur die modellen, context, geheugen, tools, beleid en evaluatie verbindt tot bestuurde agency."
+area: "Sociale AI"
+order: 4
+tags: ["architecture","governance"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 4
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import harness from '../../../../assets/social-ai/agent-harness-architecture.svg';
+
+<Definition term={"Agent Harness"}>
+De agent harness is de persistente besturingsarchitectuur rond het model. Hij beheert context, toestand, geheugen, tools, permissies, vaardigheden, doelen, beleid, menselijke goedkeuring, traces en evaluatie.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={harness.src} alt="Gelaagde harness-architectuur rond een fundamentmodel voor een langlevende sociale AI-agent." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom Het Belangrijk Is
+
+Bij langlevende sociale agenten zit veel ontwerp buiten het fundamentmodel. De harness bepaalt welke herinneringen worden opgehaald, welke tools beschikbaar zijn, welk beleid geldt, welke acties goedkeuring vragen en welke toestand blijft bestaan.
+
+Dit scheidt competentie van controle. Het model kan een actie voorstellen, maar de harness moet permissies, rolgrenzen, geheugenbeleid, logging en auditbaarheid afdwingen.
+
+<EngineeringMode>
+Plaats consequente controle in auditbare systeemlagen. Gebruik deterministische checks voor permissies, bewaartermijnen, toolvoorwaarden, goedkeuringspoorten en logging.
+</EngineeringMode>
+
+<EvaluationCheck>
+Verifieer dat elke persistente update en externe actie een bron, bevoegdheid, beleidsbasis en trace heeft.
+</EvaluationCheck>
+
+<RealExample>
+Een companion-agent mag voorstellen een voorkeur op te slaan, maar de harness beslist of het een direct feit, inferentie, gevoelig record, tijdelijke context of niet-persistente informatie is.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Agentic workflows en harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"Geheugensystemen","href":"/social-ai/memory-systems/"},{"label":"Betrouwbare Agency en Evaluatie","href":"/social-ai/trustworthy-agency-and-evaluation/"}]} />
+
+<SourceNote>
+Afgeleid van de bron en aansluitend op OpenAI Agents SDK, Microsoft Agent Framework en runtime-documentatie over tools, sessies en geheugen.
+</SourceNote>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Memory types for long-lived social AI agents</title>
+  <desc id="desc">Six memory systems: working, episodic, semantic, procedural, relational, and self memory.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .core { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 14; }
+      .m1 { fill: #e0f2fe; stroke: #0369a1; stroke-width: 1.6; rx: 10; }
+      .m2 { fill: #ecfdf5; stroke: #15803d; stroke-width: 1.6; rx: 10; }
+      .m3 { fill: #fef3c7; stroke: #a16207; stroke-width: 1.6; rx: 10; }
+      .m4 { fill: #f5f3ff; stroke: #6d28d9; stroke-width: 1.6; rx: 10; }
+      .m5 { fill: #fff1f2; stroke: #be123c; stroke-width: 1.6; rx: 10; }
+      .m6 { fill: #f1f5f9; stroke: #475569; stroke-width: 1.6; rx: 10; }
+      .title { font: 19px Arial, sans-serif; font-weight: 700; fill: #0f172a; }
+      .text { font: 16px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 13px Arial, sans-serif; fill: #334155; }
+      .line { stroke: #64748b; stroke-width: 1.8; fill: none; }
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="620"/>
+  <text class="title" x="480" y="44" text-anchor="middle">Agent memory is a family of systems, not one store</text>
+  <rect class="core" x="350" y="250" width="260" height="100"/>
+  <text class="text" x="480" y="292" text-anchor="middle">Long-lived social</text>
+  <text class="text" x="480" y="317" text-anchor="middle">agent memory</text>
+
+  <rect class="m1" x="70" y="105" width="250" height="92"/>
+  <text class="text" x="195" y="134" text-anchor="middle">Working memory</text>
+  <text class="small" x="195" y="159" text-anchor="middle">Active task and dialogue state</text>
+  <text class="small" x="195" y="179" text-anchor="middle">volatile; context-facing</text>
+
+  <rect class="m2" x="355" y="105" width="250" height="92"/>
+  <text class="text" x="480" y="134" text-anchor="middle">Episodic memory</text>
+  <text class="small" x="480" y="159" text-anchor="middle">Events, dates, interactions</text>
+  <text class="small" x="480" y="179" text-anchor="middle">autobiographical record</text>
+
+  <rect class="m3" x="640" y="105" width="250" height="92"/>
+  <text class="text" x="765" y="134" text-anchor="middle">Semantic memory</text>
+  <text class="small" x="765" y="159" text-anchor="middle">Generalized facts and beliefs</text>
+  <text class="small" x="765" y="179" text-anchor="middle">often inferential</text>
+
+  <rect class="m4" x="70" y="420" width="250" height="92"/>
+  <text class="text" x="195" y="449" text-anchor="middle">Procedural memory</text>
+  <text class="small" x="195" y="474" text-anchor="middle">How to perform tasks</text>
+  <text class="small" x="195" y="494" text-anchor="middle">overlaps with skills</text>
+
+  <rect class="m5" x="355" y="420" width="250" height="92"/>
+  <text class="text" x="480" y="449" text-anchor="middle">Relational memory</text>
+  <text class="small" x="480" y="474" text-anchor="middle">Shared history, norms, trust</text>
+  <text class="small" x="480" y="494" text-anchor="middle">more than a user profile</text>
+
+  <rect class="m6" x="640" y="420" width="250" height="92"/>
+  <text class="text" x="765" y="449" text-anchor="middle">Self-memory</text>
+  <text class="small" x="765" y="474" text-anchor="middle">Role, commitments, limits</text>
+  <text class="small" x="765" y="494" text-anchor="middle">supports identity continuity</text>
+
+  <path class="line" d="M320 151 C390 200 405 225 430 250"/>
+  <path class="line" d="M480 197 L480 250"/>
+  <path class="line" d="M640 151 C570 200 555 225 530 250"/>
+  <path class="line" d="M320 466 C390 410 405 380 430 350"/>
+  <path class="line" d="M480 420 L480 350"/>
+  <path class="line" d="M640 466 C570 410 555 380 530 350"/>
+</svg>

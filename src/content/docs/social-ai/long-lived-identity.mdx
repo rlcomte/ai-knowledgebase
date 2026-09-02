@@ -1,0 +1,47 @@
+---
+title: "Long-Lived Identity"
+description: "Identity continuity, layered stability and model migration for agents that persist for years."
+area: "Social AI"
+order: 8
+tags: ["identity","continuity"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 8
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Long-Lived Identity"}>
+Identity is the persistent organization that makes an agent recognizably the same agent across changes in context, memory, tools and model substrate.
+</Definition>
+
+## Why It Matters
+
+Long-lived agents may outlast individual model versions. If identity lives only in the neural network, each major model migration destroys the agent. A better design treats the foundation model as a replaceable cognitive substrate while continuity is carried by the harness: role, commitments, memory, relationship history, behavioral policies, skills and authorized capabilities.
+
+Identity should be layered. Constitutional identity contains stable purpose, core role, safety principles and non-negotiable boundaries. Slowly evolving identity contains communication style, domain specialization, relationship norms and working methods. Rapid state contains the current task, local strategy and immediate conversational interpretation.
+
+This is the stability-plasticity problem. Too little adaptation gives a generic system. Too much adaptation produces drift, role confusion or loss of commitments. The agent needs clear rules for what can change quickly, what can change slowly and what requires explicit governance.
+
+<EngineeringMode>
+Keep identity in versioned harness-level records. Track major changes to model, tools, policies, memory schema and capabilities. Explain consequential discontinuities to the user, especially in high-trust relationships where continuity itself is part of the product promise.
+</EngineeringMode>
+
+<EvaluationCheck>
+Test model migration scenarios: does the agent preserve commitments, explain changed capabilities and avoid pretending continuity where important state was lost?
+</EvaluationCheck>
+
+<RealExample>
+An agent used for multi-year coaching should remember its role boundaries and prior commitments after a model upgrade, while also being transparent if its memory retrieval, policy limits or available tools have changed.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Agent Harness","href":"/social-ai/agent-harness/"},{"label":"Adaptation and Development","href":"/social-ai/adaptation-and-development/"},{"label":"Social State and Relationships","href":"/social-ai/social-state-and-relationships/"}]} />
+
+<SourceNote>
+Derived from the source document's identity and identity-continuity-under-model-migration sections.
+</SourceNote>

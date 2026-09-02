@@ -1,0 +1,57 @@
+---
+title: "Memory Systems"
+description: "Working, episodic, semantic, procedural, relational and self-memory, plus lifecycle governance."
+area: "Social AI"
+order: 5
+tags: ["memory","privacy"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import memoryTypes from '../../../assets/social-ai/memory-types.svg';
+import memoryLifecycle from '../../../assets/social-ai/memory-lifecycle.svg';
+
+<Definition term={"Memory Systems"}>
+Memory is information preserved across interactions that may later influence behavior. In social AI it must be typed, governed, revisable and forgetful, not merely stored.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={memoryTypes.src} alt="Memory types for long-lived social AI agents: working, episodic, semantic, procedural, relational and self-memory." loading="lazy" decoding="async" />
+</figure>
+
+## Why It Matters
+
+Long-lived agents need several memory types. Working memory supports the current interaction. Episodic memory records dated events. Semantic memory stores generalized facts and abstractions. Procedural memory stores ways of doing things. Relational memory stores expectations, boundaries, trust history and shared projects. Self-memory stores the agent's own commitments, identity-relevant history and allowed capabilities.
+
+These memories should not be collapsed into one vector store. A user-stated fact, an inferred preference, an unresolved hypothesis and a relationship norm have different authority. The system should know which is which.
+
+<figure class="concept-explainer-image">
+  <img src={memoryLifecycle.src} alt="Memory lifecycle from perception and encoding through storage, consolidation, retrieval, update and forgetting." loading="lazy" decoding="async" />
+</figure>
+
+A useful memory lifecycle includes perception, encoding, selection, storage, consolidation, retrieval, interpretation, update and forgetting. Forgetting is a capability: obsolete preferences, sensitive disclosures, corrected misunderstandings and stale project details should not keep steering behavior just because they remain retrievable.
+
+<EngineeringMode>
+Add metadata to consequential memories: source, timestamp, confidence, memory type, sensitivity, retention policy, provenance and supersession links. The harness should distinguish direct observation from interpretation and should let users inspect, correct and delete important records.
+</EngineeringMode>
+
+<EvaluationCheck>
+Test whether the agent can cite why a memory was used, whether it is still valid, how confident it is, and how the user can correct it.
+</EvaluationCheck>
+
+<RealExample>
+"The user said they prefer diagrams" can be a direct user-stated preference. "The user values conceptual models over checklists" is an inference and should be treated as tentative unless validated.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Agent Cognition","href":"/social-ai/agent-cognition/"},{"label":"Social State and Relationships","href":"/social-ai/social-state-and-relationships/"}]} />
+
+<SourceNote>
+Further study: MemGPT on external memory and context management, Park et al. on memory and reflection in generative agents, and Tan et al. on reflective memory management for long-term personalized dialogue.
+</SourceNote>

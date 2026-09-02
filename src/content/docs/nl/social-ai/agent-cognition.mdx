@@ -1,0 +1,45 @@
+---
+title: "Agentcognitie"
+description: "Redeneren, plannen, wereldmodellen, reflectie en metacognitie in persistente agenten."
+area: "Sociale AI"
+order: 3
+tags: ["reasoning","planning"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 3
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Agentcognitie"}>
+Agentcognitie is de redeneerlaag waarmee een agent toestand interpreteert, acties plant, een wereldmodel onderhoudt, reflecteert op ervaring en de grenzen van zijn kennis bewaakt.
+</Definition>
+
+## Waarom Het Belangrijk Is
+
+In een sociale agent is redeneren meer dan antwoordgeneratie. De agent moet dubbelzinnige situaties interpreteren, relevante herinneringen selecteren, mogelijke doelen afleiden, plannen onder beperkingen en onzekerheid herkennen.
+
+Reflectie kan episodes omzetten in hogere patronen, maar kan ook valse theorieën over de gebruiker of relatie produceren. Daarom moeten observatie, interpretatie, hypothese en geaccepteerde toestand gescheiden blijven.
+
+<EngineeringMode>
+Bewaar redeneerartefacten apart van geaccepteerde toestand. Plannen, interpretaties en reflecties zijn kandidaten voordat ze geheugen, beleid of identiteit worden.
+</EngineeringMode>
+
+<EvaluationCheck>
+Zoek traces die observatie, interpretatie, hypothese, plan, besluit en geaccepteerd geheugen onderscheiden.
+</EvaluationCheck>
+
+<RealExample>
+Een educatieve companion mag vermoeden dat een leerling een onderwerp vermijdt, maar moet dat als hypothese behandelen totdat de leerling het bevestigt of herhaald bewijs het ondersteunt.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Geheugensystemen","href":"/social-ai/memory-systems/"},{"label":"Sociale Toestand en Relaties","href":"/social-ai/social-state-and-relationships/"},{"label":"Evals en foutanalyse","href":"/building-deploying-ai-applications/evals-and-error-analysis/"}]} />
+
+<SourceNote>
+Afgeleid van de bron over context, reflectie, epistemisch getypeerd geheugen en sociale interpretatie.
+</SourceNote>

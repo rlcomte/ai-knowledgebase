@@ -1,0 +1,47 @@
+---
+title: "Co-adaptation and Trust"
+description: "Negotiated adaptation, calibrated trust, repair, uncertainty and user agency in social AI."
+area: "Social AI"
+order: 10
+tags: ["trust","co-adaptation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 10
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Co-adaptation and Trust"}>
+Co-adaptation means the agent learns with the user, not merely about the user. Trust is calibrated confidence that the agent is competent, honest, boundary-respecting, corrigible and governable.
+</Definition>
+
+## Why It Matters
+
+Ordinary personalization is often unilateral: the system observes, profiles and modifies outputs. Co-adaptation is negotiated. The agent observes a pattern, forms a tentative hypothesis, tests it through behavior or dialogue, invites correction, and only then updates memory, policy or skill at the right level.
+
+This matters because social agents shape users as well as adapt to them. An agent that always anticipates preferences may reduce reflection. An agent that always agrees may reinforce errors. An agent optimized for engagement may cultivate dependence. Making adaptation discussable helps preserve user agency.
+
+Trust is broader than answer accuracy. It includes memory correctness, privacy, refusal, restraint, role integrity, uncertainty calibration and repair. A trustworthy agent distinguishes "you told me," "I inferred," "I might be wrong" and "this is a hypothesis worth checking."
+
+<EngineeringMode>
+Build correction and repair into the core workflow. Users should be able to inspect consequential memories, correct relationship interpretations, revoke autonomy and see the correction affect future behavior. Hidden personalization is especially risky when it uses relational knowledge.
+</EngineeringMode>
+
+<EvaluationCheck>
+Test whether the agent accepts correction, revises memory, reduces confidence appropriately and avoids using personal memory to pressure the user.
+</EvaluationCheck>
+
+<RealExample>
+If an agent infers that a user wants more challenge, it should test that as a tentative interaction style rather than silently becoming more confrontational across all contexts.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Social State and Relationships","href":"/social-ai/social-state-and-relationships/"},{"label":"Trustworthy Agency and Evaluation","href":"/social-ai/trustworthy-agency-and-evaluation/"},{"label":"Risk and responsible AI","href":"/shaping-the-build/risk-and-responsible-ai/"}]} />
+
+<SourceNote>
+Derived from the source document's co-adaptation, trust and normative safety discussions.
+</SourceNote>

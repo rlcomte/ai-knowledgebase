@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" role="img" aria-labelledby="title desc">
+  <title id="title">Three adaptation targets in long-lived social agents</title>
+  <desc id="desc">Experience updates the user model, self model, and relationship model, which jointly influence behavior.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #ffffff; }
+      .top { fill: #e0f2fe; stroke: #0369a1; stroke-width: 2; rx: 10; }
+      .model1 { fill: #ecfdf5; stroke: #15803d; stroke-width: 1.8; rx: 10; }
+      .model2 { fill: #fef3c7; stroke: #a16207; stroke-width: 1.8; rx: 10; }
+      .model3 { fill: #fff1f2; stroke: #be123c; stroke-width: 1.8; rx: 10; }
+      .bottom { fill: #f8fafc; stroke: #334155; stroke-width: 2; rx: 10; }
+      .text { font: 16px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 13px Arial, sans-serif; fill: #334155; }
+      .title { font: 18px Arial, sans-serif; font-weight: 700; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="920" height="560"/>
+  <text class="title" x="460" y="44" text-anchor="middle">Experience updates three targets before shaping behavior</text>
+  <rect class="top" x="335" y="85" width="250" height="70"/>
+  <text class="text" x="460" y="115" text-anchor="middle">Experience</text>
+  <text class="small" x="460" y="138" text-anchor="middle">interaction, outcome, correction, reflection</text>
+
+  <rect class="model1" x="80" y="250" width="220" height="88"/>
+  <text class="text" x="190" y="281" text-anchor="middle">User model</text>
+  <text class="small" x="190" y="306" text-anchor="middle">preferences, needs, goals</text>
+  <text class="small" x="190" y="326" text-anchor="middle">what is true of the person?</text>
+
+  <rect class="model2" x="350" y="250" width="220" height="88"/>
+  <text class="text" x="460" y="281" text-anchor="middle">Self model</text>
+  <text class="small" x="460" y="306" text-anchor="middle">role, limits, commitments</text>
+  <text class="small" x="460" y="326" text-anchor="middle">what kind of agent am I?</text>
+
+  <rect class="model3" x="620" y="250" width="220" height="88"/>
+  <text class="text" x="730" y="281" text-anchor="middle">Relationship model</text>
+  <text class="small" x="730" y="306" text-anchor="middle">history, norms, trust</text>
+  <text class="small" x="730" y="326" text-anchor="middle">who are we to one another?</text>
+
+  <rect class="bottom" x="335" y="445" width="250" height="70"/>
+  <text class="text" x="460" y="475" text-anchor="middle">Behavior</text>
+  <text class="small" x="460" y="498" text-anchor="middle">response, action, initiative, restraint</text>
+
+  <path class="arrow" d="M395 155 C310 195 235 220 190 250"/>
+  <path class="arrow" d="M460 155 L460 250"/>
+  <path class="arrow" d="M525 155 C610 195 685 220 730 250"/>
+  <path class="arrow" d="M190 338 C255 395 325 425 390 445"/>
+  <path class="arrow" d="M460 338 L460 445"/>
+  <path class="arrow" d="M730 338 C665 395 595 425 530 445"/>
+</svg>

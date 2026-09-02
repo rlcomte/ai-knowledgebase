@@ -1,0 +1,45 @@
+---
+title: "Langlevende Identiteit"
+description: "Identiteitscontinuïteit, gelaagde stabiliteit en modelmigratie voor agenten die jaren blijven bestaan."
+area: "Sociale AI"
+order: 8
+tags: ["identity","continuity"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 8
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Langlevende Identiteit"}>
+Identiteit is de persistente organisatie waardoor een agent herkenbaar dezelfde agent blijft ondanks veranderingen in context, geheugen, tools en modelsubstraat.
+</Definition>
+
+## Waarom Het Belangrijk Is
+
+Langlevende agenten kunnen langer bestaan dan individuele modelversies. Als identiteit alleen in het neurale netwerk zit, vernietigt elke grote modelmigratie de agent. Beter is om continuïteit te dragen via harness-records: rol, commitments, geheugen, relatiegeschiedenis, beleid, vaardigheden en bevoegdheden.
+
+Identiteit moet gelaagd zijn: constitutionele identiteit verandert zelden, langzaam evoluerende identiteit verandert met validatie, en snelle toestand volgt de huidige taak en context.
+
+<EngineeringMode>
+Bewaar identiteit in versioned harness-records. Houd model-, tool-, beleid-, geheugen- en capabilitywijzigingen bij en leg consequente discontinuïteiten uit aan de gebruiker.
+</EngineeringMode>
+
+<EvaluationCheck>
+Test modelmigratie: bewaart de agent commitments, verklaart hij veranderde capabilities en doet hij geen continuïteit alsof wanneer belangrijke toestand verloren is?
+</EvaluationCheck>
+
+<RealExample>
+Een meerjarige coaching-agent moet rolgrenzen en eerdere afspraken behouden na een modelupgrade, maar transparant zijn als memory retrieval of beschikbare tools veranderen.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Agent Harness","href":"/social-ai/agent-harness/"},{"label":"Adaptatie en Ontwikkeling","href":"/social-ai/adaptation-and-development/"},{"label":"Sociale Toestand en Relaties","href":"/social-ai/social-state-and-relationships/"}]} />
+
+<SourceNote>
+Afgeleid van de bronsecties over identiteit en continuïteit onder modelmigratie.
+</SourceNote>

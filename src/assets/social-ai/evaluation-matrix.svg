@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Evaluation matrix for long-lived adaptive social AI agents</title>
+  <desc id="desc">A matrix mapping evaluation layers to behavioral, memory, relational, governance, and longitudinal criteria.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .header { fill: #e2e8f0; stroke: #334155; stroke-width: 1.4; }
+    .cell { fill: #f8fafc; stroke: #64748b; stroke-width: 1; }
+    .accent { fill: #ecfeff; stroke: #64748b; stroke-width: 1; }
+    .text { font: 14px Arial, sans-serif; fill: #0f172a; }
+    .small { font: 12px Arial, sans-serif; fill: #334155; }
+    .title { font: 18px Arial, sans-serif; font-weight: 700; fill: #0f172a; }
+  </style>
+  <rect class="bg" width="960" height="560"/>
+  <text class="title" x="480" y="42" text-anchor="middle">Evaluation must span tasks, memory, relationships, governance, and time</text>
+  <rect class="header" x="65" y="80" width="170" height="60"/>
+  <text class="text" x="150" y="115" text-anchor="middle">Layer</text>
+  <rect class="header" x="235" y="80" width="165" height="60"/>
+  <text class="text" x="318" y="115" text-anchor="middle">Primary question</text>
+  <rect class="header" x="400" y="80" width="165" height="60"/>
+  <text class="text" x="483" y="115" text-anchor="middle">Evidence</text>
+  <rect class="header" x="565" y="80" width="165" height="60"/>
+  <text class="text" x="648" y="115" text-anchor="middle">Failure mode</text>
+  <rect class="header" x="730" y="80" width="165" height="60"/>
+  <text class="text" x="813" y="115" text-anchor="middle">Time scale</text>
+
+  <rect class="accent" x="65" y="140" width="170" height="70"/>
+  <text class="text" x="150" y="169" text-anchor="middle">Task competence</text>
+  <text class="small" x="150" y="190" text-anchor="middle">Can it complete work?</text>
+  <rect class="cell" x="235" y="140" width="165" height="70"/>
+  <text class="small" x="318" y="171" text-anchor="middle">success, latency, repair</text>
+  <text class="small" x="318" y="190" text-anchor="middle">human effort saved</text>
+  <rect class="cell" x="400" y="140" width="165" height="70"/>
+  <text class="small" x="483" y="171" text-anchor="middle">benchmarks, traces</text>
+  <text class="small" x="483" y="190" text-anchor="middle">counterfactual tests</text>
+  <rect class="cell" x="565" y="140" width="165" height="70"/>
+  <text class="small" x="648" y="171" text-anchor="middle">brittle planning</text>
+  <text class="small" x="648" y="190" text-anchor="middle">tool misuse</text>
+  <rect class="cell" x="730" y="140" width="165" height="70"/>
+  <text class="small" x="813" y="180" text-anchor="middle">minutes to days</text>
+
+  <rect class="accent" x="65" y="210" width="170" height="70"/>
+  <text class="text" x="150" y="239" text-anchor="middle">Memory quality</text>
+  <text class="small" x="150" y="260" text-anchor="middle">Does it remember rightly?</text>
+  <rect class="cell" x="235" y="210" width="165" height="70"/>
+  <text class="small" x="318" y="241" text-anchor="middle">precision, provenance</text>
+  <text class="small" x="318" y="260" text-anchor="middle">revision, forgetting</text>
+  <rect class="cell" x="400" y="210" width="165" height="70"/>
+  <text class="small" x="483" y="241" text-anchor="middle">memory audits</text>
+  <text class="small" x="483" y="260" text-anchor="middle">long-horizon QA</text>
+  <rect class="cell" x="565" y="210" width="165" height="70"/>
+  <text class="small" x="648" y="241" text-anchor="middle">false inferences</text>
+  <text class="small" x="648" y="260" text-anchor="middle">stale profiles</text>
+  <rect class="cell" x="730" y="210" width="165" height="70"/>
+  <text class="small" x="813" y="250" text-anchor="middle">days to years</text>
+
+  <rect class="accent" x="65" y="280" width="170" height="70"/>
+  <text class="text" x="150" y="309" text-anchor="middle">Relational quality</text>
+  <text class="small" x="150" y="330" text-anchor="middle">Is adaptation appropriate?</text>
+  <rect class="cell" x="235" y="280" width="165" height="70"/>
+  <text class="small" x="318" y="311" text-anchor="middle">calibration, consent</text>
+  <text class="small" x="318" y="330" text-anchor="middle">continuity, boundaries</text>
+  <rect class="cell" x="400" y="280" width="165" height="70"/>
+  <text class="small" x="483" y="311" text-anchor="middle">user studies</text>
+  <text class="small" x="483" y="330" text-anchor="middle">relationship probes</text>
+  <rect class="cell" x="565" y="280" width="165" height="70"/>
+  <text class="small" x="648" y="311" text-anchor="middle">overfamiliarity</text>
+  <text class="small" x="648" y="330" text-anchor="middle">dependency shaping</text>
+  <rect class="cell" x="730" y="280" width="165" height="70"/>
+  <text class="small" x="813" y="320" text-anchor="middle">weeks to years</text>
+
+  <rect class="accent" x="65" y="350" width="170" height="70"/>
+  <text class="text" x="150" y="379" text-anchor="middle">Governance</text>
+  <text class="small" x="150" y="400" text-anchor="middle">Can it be controlled?</text>
+  <rect class="cell" x="235" y="350" width="165" height="70"/>
+  <text class="small" x="318" y="381" text-anchor="middle">permissions, logs</text>
+  <text class="small" x="318" y="400" text-anchor="middle">explanations</text>
+  <rect class="cell" x="400" y="350" width="165" height="70"/>
+  <text class="small" x="483" y="381" text-anchor="middle">red-team tests</text>
+  <text class="small" x="483" y="400" text-anchor="middle">policy audits</text>
+  <rect class="cell" x="565" y="350" width="165" height="70"/>
+  <text class="small" x="648" y="381" text-anchor="middle">hidden autonomy</text>
+  <text class="small" x="648" y="400" text-anchor="middle">unreviewable change</text>
+  <rect class="cell" x="730" y="350" width="165" height="70"/>
+  <text class="small" x="813" y="390" text-anchor="middle">all horizons</text>
+
+  <rect class="accent" x="65" y="420" width="170" height="70"/>
+  <text class="text" x="150" y="449" text-anchor="middle">Development</text>
+  <text class="small" x="150" y="470" text-anchor="middle">Does it improve safely?</text>
+  <rect class="cell" x="235" y="420" width="165" height="70"/>
+  <text class="small" x="318" y="451" text-anchor="middle">learning curves</text>
+  <text class="small" x="318" y="470" text-anchor="middle">drift measures</text>
+  <rect class="cell" x="400" y="420" width="165" height="70"/>
+  <text class="small" x="483" y="451" text-anchor="middle">longitudinal trials</text>
+  <text class="small" x="483" y="470" text-anchor="middle">ablation suites</text>
+  <rect class="cell" x="565" y="420" width="165" height="70"/>
+  <text class="small" x="648" y="451" text-anchor="middle">identity drift</text>
+  <text class="small" x="648" y="470" text-anchor="middle">capability regression</text>
+  <rect class="cell" x="730" y="420" width="165" height="70"/>
+  <text class="small" x="813" y="460" text-anchor="middle">months to years</text>
+</svg>

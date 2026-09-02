@@ -1,0 +1,47 @@
+---
+title: "Skills and Goals"
+description: "Reusable procedural competence, goal typing and skill learning without opaque self-modification."
+area: "Social AI"
+order: 6
+tags: ["skills","goals"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 6
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Skills and Goals"}>
+A skill is reusable procedural competence packaged for recognition and use in context. A goal is a representation of a desired future state or behavioral constraint, with an origin, authority and expiry.
+</Definition>
+
+## Why It Matters
+
+Tools expose action surfaces. Skills encode know-how about when and how to act. A calendar tool can create an event; a scheduling skill inspects constraints, negotiates alternatives, uses the tool and confirms the result. A social skill may guide reflective dialogue, assumption-checking, repair after misunderstanding or long-term planning.
+
+Goals need similar discipline. Some goals are user-given, some role-derived, some task-local, some relational and some normative. They can conflict. A user may ask for speed while a policy requires approval; a relationship norm may favor direct challenge while the current situation requires restraint.
+
+Skill learning lets agents improve without changing model weights. Repeated success can become a versioned procedure. Repeated failure can trigger revision or deprecation. This is especially important for social AI, where opaque personality shifts are hard to audit and hard for users to correct.
+
+<EngineeringMode>
+Represent skills and goals as explicit artifacts. Track skill version, scope, prerequisites, checks, allowed tools and known failure modes. Track goal source, authority, status, conflicts and expiry. This lets competence compound without hidden self-modification.
+</EngineeringMode>
+
+<EvaluationCheck>
+Check whether repeated interactions produce inspectable improvements: better skill versions, clearer goal state and fewer repeated procedural errors.
+</EvaluationCheck>
+
+<RealExample>
+A reflective-dialogue skill might require the agent to clarify the situation, detect assumptions, offer an alternative perspective, avoid premature advice, invite user judgment and capture any validated insight.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Tool calling and MCP","href":"/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Adaptation and Development","href":"/social-ai/adaptation-and-development/"},{"label":"Agent Harness","href":"/social-ai/agent-harness/"}]} />
+
+<SourceNote>
+Further study: Anthropic skills documentation, OpenAI Agents SDK runtime capabilities and Voyager's skill-library approach.
+</SourceNote>
