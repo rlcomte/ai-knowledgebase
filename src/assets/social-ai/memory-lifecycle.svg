@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Memory lifecycle for long-lived social agents</title>
+  <desc id="desc">A pipeline showing perceive, encode, select, store, consolidate, retrieve, interpret, update, and forget, with metadata and governance below.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .step { fill: #ffffff; stroke: #334155; stroke-width: 1.6; rx: 8; }
+      .meta { fill: #fefce8; stroke: #854d0e; stroke-width: 1.4; rx: 8; }
+      .store { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.6; rx: 8; }
+      .text { font: 15px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 12.5px Arial, sans-serif; fill: #334155; }
+      .title { font: 18px Arial, sans-serif; font-weight: 700; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="560"/>
+  <text class="title" x="480" y="42" text-anchor="middle">Memory is governed transformation, not passive storage</text>
+
+  <rect class="step" x="50" y="90" width="120" height="58"/>
+  <text class="text" x="110" y="124" text-anchor="middle">Perceive</text>
+  <rect class="step" x="205" y="90" width="120" height="58"/>
+  <text class="text" x="265" y="124" text-anchor="middle">Encode</text>
+  <rect class="step" x="360" y="90" width="120" height="58"/>
+  <text class="text" x="420" y="124" text-anchor="middle">Select</text>
+  <rect class="store" x="515" y="90" width="120" height="58"/>
+  <text class="text" x="575" y="124" text-anchor="middle">Store</text>
+  <rect class="store" x="670" y="90" width="120" height="58"/>
+  <text class="text" x="730" y="124" text-anchor="middle">Consolidate</text>
+
+  <path class="arrow" d="M170 119 L205 119"/>
+  <path class="arrow" d="M325 119 L360 119"/>
+  <path class="arrow" d="M480 119 L515 119"/>
+  <path class="arrow" d="M635 119 L670 119"/>
+
+  <rect class="step" x="670" y="260" width="120" height="58"/>
+  <text class="text" x="730" y="294" text-anchor="middle">Retrieve</text>
+  <rect class="step" x="515" y="260" width="120" height="58"/>
+  <text class="text" x="575" y="294" text-anchor="middle">Interpret</text>
+  <rect class="step" x="360" y="260" width="120" height="58"/>
+  <text class="text" x="420" y="294" text-anchor="middle">Update</text>
+  <rect class="step" x="205" y="260" width="120" height="58"/>
+  <text class="text" x="265" y="294" text-anchor="middle">Forget</text>
+
+  <path class="arrow" d="M730 148 C730 190 730 220 730 260"/>
+  <path class="arrow" d="M670 289 L635 289"/>
+  <path class="arrow" d="M515 289 L480 289"/>
+  <path class="arrow" d="M360 289 L325 289"/>
+  <path class="arrow" d="M265 260 C265 205 110 205 110 148"/>
+
+  <rect class="meta" x="115" y="410" width="730" height="92"/>
+  <text class="text" x="480" y="438" text-anchor="middle">Required memory metadata</text>
+  <text class="small" x="480" y="465" text-anchor="middle">content | source | timestamp | confidence | memory type | sensitivity | expiry | provenance | supersession</text>
+  <text class="small" x="480" y="488" text-anchor="middle">The lifecycle preserves distinctions between facts, inferences, hypotheses, and relationship interpretations.</text>
+</svg>

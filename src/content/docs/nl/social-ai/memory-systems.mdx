@@ -1,0 +1,55 @@
+---
+title: "Geheugensystemen"
+description: "Werkgeheugen, episodisch, semantisch, procedureel, relationeel en zelfgeheugen plus lifecycle-governance."
+area: "Sociale AI"
+order: 5
+tags: ["memory","privacy"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import memoryTypes from '../../../../assets/social-ai/memory-types.svg';
+import memoryLifecycle from '../../../../assets/social-ai/memory-lifecycle.svg';
+
+<Definition term={"Geheugensystemen"}>
+Geheugen is informatie die over interacties heen bewaard blijft en later gedrag kan beïnvloeden. In sociale AI moet geheugen getypeerd, bestuurd, corrigeerbaar en vergeetachtig zijn.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={memoryTypes.src} alt="Geheugentypen voor langlevende sociale AI-agenten." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom Het Belangrijk Is
+
+Langlevende agenten hebben meerdere geheugentypen nodig: werkgeheugen, episodisch geheugen, semantisch geheugen, procedureel geheugen, relationeel geheugen en zelfgeheugen. Een direct gebruikersfeit, een afgeleide voorkeur en een relatiehypothese hebben verschillende status en autoriteit.
+
+<figure class="concept-explainer-image">
+  <img src={memoryLifecycle.src} alt="Geheugenlifecycle van perceptie en encoding tot opslag, consolidatie, ophalen, update en vergeten." loading="lazy" decoding="async" />
+</figure>
+
+Een nuttige lifecycle omvat perceptie, encoding, selectie, opslag, consolidatie, retrieval, interpretatie, update en vergeten. Vergeten is een capability: oude voorkeuren, gevoelige onthullingen en gecorrigeerde misverstanden mogen gedrag niet blijven sturen.
+
+<EngineeringMode>
+Voeg metadata toe aan belangrijke herinneringen: bron, tijdstip, vertrouwen, type, gevoeligheid, bewaarbeleid, herkomst en supersession-links.
+</EngineeringMode>
+
+<EvaluationCheck>
+Test of de agent kan uitleggen waarom een herinnering werd gebruikt, of die nog geldig is en hoe de gebruiker die kan corrigeren.
+</EvaluationCheck>
+
+<RealExample>
+"De gebruiker zei dat hij diagrammen wil" is een direct feit. "De gebruiker waardeert conceptuele modellen boven checklists" is een inferentie en hoort voorlopig te blijven.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Agentcognitie","href":"/social-ai/agent-cognition/"},{"label":"Sociale Toestand en Relaties","href":"/social-ai/social-state-and-relationships/"}]} />
+
+<SourceNote>
+Afgeleid van de bronsecties over geheugentypen, memory lifecycle en epistemisch getypeerd geheugen.
+</SourceNote>

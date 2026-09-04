@@ -82,6 +82,13 @@ export default defineConfig({
             nl: 'Overkoepelende kennis'
           },
           items: [{ autogenerate: { directory: 'cross-cutting-knowledge' } }]
+        },
+        {
+          label: 'Social AI',
+          translations: {
+            nl: 'Sociale AI'
+          },
+          items: [{ autogenerate: { directory: 'social-ai' } }]
         }
       ],
       head: [

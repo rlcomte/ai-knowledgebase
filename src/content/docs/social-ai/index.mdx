@@ -1,0 +1,37 @@
+---
+title: "Social AI"
+description: "Long-lived adaptive social AI agents, from agency foundations to memory, identity, co-adaptation, trust and evaluation."
+area: "Social AI"
+order: 1
+tags: ["agents","memory","trust"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 1
+---
+
+import ConceptGrid from '@components/ConceptGrid.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import architecture from '../../../assets/social-ai/social-agent-conceptual-architecture.svg';
+
+<KeyIdea>
+<strong>Key movement:</strong> model response -> persistent agent state -> governed memory -> negotiated adaptation -> trustworthy relationship
+</KeyIdea>
+
+<figure class="area-overview-image">
+  <img src={architecture.src} alt="Conceptual architecture of a long-lived adaptive social AI agent." loading="eager" decoding="async" />
+</figure>
+
+## Conceptual Story
+
+Social AI studies agents whose behavior is organized around ongoing interaction with people. The important unit is not a single prompt or model completion, but a persistent system that maintains state, memory, goals, skills, identity, relationship models, policies and evaluation over time.
+
+A long-lived adaptive social AI agent is a model-independent agentic system. The foundation model supplies reasoning and generation, but continuity lives in the harness: the governed architecture that decides what is remembered, what is forgotten, which skills are available, which actions require approval, and how adaptation is validated.
+
+This section extends the agent concepts already used elsewhere in the knowledge base into social settings: personalization is not enough; the agent must represent the user, itself, the relationship and the social context without collapsing observation, inference and commitment into one hidden profile.
+
+## Concepts in This Area
+
+<ConceptGrid concepts={[{"title":"Foundations of Agency","href":"/social-ai/foundations-of-agency/","description":"The perception-action loop, state, goals, environment and autonomy as the basis of social agents.","tags":["agents","foundation"]},{"title":"Agent Cognition","href":"/social-ai/agent-cognition/","description":"Reasoning, planning, world models, reflection and metacognition in persistent agents.","tags":["reasoning","planning"]},{"title":"Agent Harness","href":"/social-ai/agent-harness/","description":"The runtime architecture that binds models, context, memory, tools, policies and evaluation into governed agency.","tags":["architecture","governance"]},{"title":"Memory Systems","href":"/social-ai/memory-systems/","description":"Working, episodic, semantic, procedural, relational and self-memory, plus lifecycle governance.","tags":["memory","privacy"]},{"title":"Skills and Goals","href":"/social-ai/skills-and-goals/","description":"Reusable procedural competence, goal typing and skill learning without opaque self-modification.","tags":["skills","goals"]},{"title":"Adaptation and Development","href":"/social-ai/adaptation-and-development/","description":"Contextual, memory-based, policy, skill and model adaptation across multiple time scales.","tags":["adaptation","learning"]},{"title":"Long-Lived Identity","href":"/social-ai/long-lived-identity/","description":"Identity continuity, layered stability and model migration for agents that persist for years.","tags":["identity","continuity"]},{"title":"Social State and Relationships","href":"/social-ai/social-state-and-relationships/","description":"User models, self models, relationship models, theory of mind, social norms and relational memory.","tags":["relationships","social-state"]},{"title":"Co-adaptation and Trust","href":"/social-ai/co-adaptation-and-trust/","description":"Negotiated adaptation, calibrated trust, repair, uncertainty and user agency in social AI.","tags":["trust","co-adaptation"]},{"title":"Trustworthy Agency and Evaluation","href":"/social-ai/trustworthy-agency-and-evaluation/","description":"Alignment, bounded autonomy, uncertainty, privacy, safety, governance and multi-timescale evaluation.","tags":["trust","evaluation"]}]} />
+
+<RelatedConcepts links={[{"label":"Agentic workflows and harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Human oversight and guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />

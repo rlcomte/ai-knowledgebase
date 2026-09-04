@@ -1,0 +1,57 @@
+---
+title: "Adaptation and Development"
+description: "Contextual, memory-based, policy, skill and model adaptation across multiple time scales."
+area: "Social AI"
+order: 7
+tags: ["adaptation","learning"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 7
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import adaptationLadder from '../../../assets/social-ai/adaptation-ladder.svg';
+import adaptationTargets from '../../../assets/social-ai/adaptation-targets.svg';
+
+<Definition term={"Adaptation and Development"}>
+Adaptation is the process by which experience changes future behavior. Development is adaptation organized over time into governed memory, policy, skill and identity change.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={adaptationLadder.src} alt="Adaptation ladder from context through memory, policy and skills before model weights." loading="lazy" decoding="async" />
+</figure>
+
+## Why It Matters
+
+Adaptation is often used too loosely. A social agent can adapt within the current context, through persistent memory, through behavioral policy, through skill revision or through model-weight changes. These mechanisms have different risk profiles.
+
+For long-lived social agents, prefer adaptation through context, memory, policy and skills before model weights. These layers are easier to inspect, explain, version, reverse and govern. Model adaptation can be useful, but it raises harder problems around consent, auditability, cross-user leakage, catastrophic forgetting and identity drift.
+
+<figure class="concept-explainer-image">
+  <img src={adaptationTargets.src} alt="Three adaptation targets in social agents: user model, self model and relationship model." loading="lazy" decoding="async" />
+</figure>
+
+Social adaptation also has multiple targets. Experience may update the user model, the agent's self model or the relationship model. Keeping these separate prevents personalization from being mistaken for relational development.
+
+<EngineeringMode>
+Use explicit adaptation records. State what evidence triggered the change, what layer changed, who authorized it, how confidence was assigned and how the change can be reverted. Consequential adaptations should be negotiated with the user rather than silently inferred.
+</EngineeringMode>
+
+<EvaluationCheck>
+Evaluate whether adaptation improves usefulness without reducing corrigibility, increasing dependency or causing identity drift.
+</EvaluationCheck>
+
+<RealExample>
+If an agent notices that a user often asks for conceptual diagrams, it can first adapt context for the current session, then propose a memory, and only later update a reusable explanation skill if the pattern is validated.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Memory Systems","href":"/social-ai/memory-systems/"},{"label":"Long-Lived Identity","href":"/social-ai/long-lived-identity/"},{"label":"Trustworthy Agency and Evaluation","href":"/social-ai/trustworthy-agency-and-evaluation/"}]} />
+
+<SourceNote>
+Derived from the source document's adaptation ladder, adaptation targets and multi-timescale cognition sections.
+</SourceNote>

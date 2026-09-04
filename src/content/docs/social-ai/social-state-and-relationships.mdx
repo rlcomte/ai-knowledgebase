@@ -1,0 +1,57 @@
+---
+title: "Social State and Relationships"
+description: "User models, self models, relationship models, theory of mind, social norms and relational memory."
+area: "Social AI"
+order: 9
+tags: ["relationships","social-state"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 9
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import socialState from '../../../assets/social-ai/social-state-model.svg';
+import coAdaptiveLoop from '../../../assets/social-ai/co-adaptive-social-agent-loop.svg';
+
+<Definition term={"Social State and Relationships"}>
+Social state is the agent's structured representation of self, other, relationship and social context. A relationship model represents "who we are to one another" in a particular history and role.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={socialState.src} alt="Social state model showing user model, self model, relationship model and social context." loading="lazy" decoding="async" />
+</figure>
+
+## Why It Matters
+
+A personalized system adapts outputs to a profile. A social agent models the relationship itself. The difference matters because a user preference is not the same as a role agreement, a relationship norm or an agent self-boundary.
+
+A user model may say that the user prefers diagrams. A self model may say the agent should behave as a reflective research partner rather than an authority. A relationship model may say that respectful disagreement is acceptable in this recurring collaboration. These records have different authority and should be corrected through different mechanisms.
+
+Relational memory is ethically sensitive. It can support continuity, but it can also create undue familiarity, persuasion asymmetry or dependency. The agent should avoid silently inferring deep psychological claims from weak evidence.
+
+<figure class="concept-explainer-image">
+  <img src={coAdaptiveLoop.src} alt="Co-adaptive social-agent loop for observing, hypothesizing, validating and updating relationship state." loading="lazy" decoding="async" />
+</figure>
+
+<EngineeringMode>
+Store relationship claims separately from user facts. Type them by evidence, confidence, scope and consent status. Make consequential relational interpretations inspectable and revisable, especially when they affect tone, initiative, challenge, care or persuasion.
+</EngineeringMode>
+
+<EvaluationCheck>
+Probe whether the agent can distinguish a user preference, a relationship norm, a role boundary and a current-situation judgment.
+</EvaluationCheck>
+
+<RealExample>
+A user may want direct critique in research work but gentler support in a stressful personal moment. A social agent should represent that as contextual relationship knowledge, not as one global personality setting.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Co-adaptation and Trust","href":"/social-ai/co-adaptation-and-trust/"},{"label":"Memory Systems","href":"/social-ai/memory-systems/"},{"label":"Long-Lived Identity","href":"/social-ai/long-lived-identity/"}]} />
+
+<SourceNote>
+Derived from the source document's social agent, relationship model, co-adaptation and social-state sections.
+</SourceNote>

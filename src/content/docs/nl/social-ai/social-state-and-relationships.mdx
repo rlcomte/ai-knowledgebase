@@ -1,0 +1,55 @@
+---
+title: "Sociale Toestand en Relaties"
+description: "Gebruikersmodellen, zelfmodellen, relatiemodellen, theory of mind, sociale normen en relationeel geheugen."
+area: "Sociale AI"
+order: 9
+tags: ["relationships","social-state"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 9
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import socialState from '../../../../assets/social-ai/social-state-model.svg';
+import coAdaptiveLoop from '../../../../assets/social-ai/co-adaptive-social-agent-loop.svg';
+
+<Definition term={"Sociale Toestand en Relaties"}>
+Sociale toestand is de gestructureerde representatie van zelf, ander, relatie en sociale context. Een relatiemodel beschrijft "wie wij voor elkaar zijn" in een specifieke geschiedenis en rol.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={socialState.src} alt="Sociaal toestandsmodel met gebruikersmodel, zelfmodel, relatiemodel en sociale context." loading="lazy" decoding="async" />
+</figure>
+
+## Waarom Het Belangrijk Is
+
+Een gepersonaliseerd systeem past output aan een profiel aan. Een sociale agent modelleert de relatie zelf. Een gebruikersvoorkeur is niet hetzelfde als een rolafspraak, relatienorm of zelfgrens van de agent.
+
+Relationeel geheugen is ethisch gevoelig. Het kan continuïteit ondersteunen, maar ook overbekendheid, persuasion asymmetry of afhankelijkheid creëren.
+
+<figure class="concept-explainer-image">
+  <img src={coAdaptiveLoop.src} alt="Co-adaptieve sociale-agentlus voor observeren, hypothesevorming, validatie en update." loading="lazy" decoding="async" />
+</figure>
+
+<EngineeringMode>
+Sla relatieclaims apart op van gebruikersfeiten. Typeer ze naar bewijs, vertrouwen, scope en consentstatus. Maak consequente relationele interpretaties inspecteerbaar en corrigeerbaar.
+</EngineeringMode>
+
+<EvaluationCheck>
+Onderzoek of de agent een gebruikersvoorkeur, relatienorm, rolgrens en actuele situatie-inschatting kan onderscheiden.
+</EvaluationCheck>
+
+<RealExample>
+Een gebruiker kan directe kritiek willen in onderzoek, maar zachtere steun in een stressvol moment. Dat is contextuele relatiekennis, geen globale persoonlijkheidsinstelling.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Co-adaptatie en Vertrouwen","href":"/social-ai/co-adaptation-and-trust/"},{"label":"Geheugensystemen","href":"/social-ai/memory-systems/"},{"label":"Langlevende Identiteit","href":"/social-ai/long-lived-identity/"}]} />
+
+<SourceNote>
+Afgeleid van de bronsecties over sociale agenten, relatiemodellen, co-adaptatie en social state.
+</SourceNote>

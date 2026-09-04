@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="1180" viewBox="0 0 980 1180" role="img" aria-labelledby="title desc">
+  <title id="title">Conceptual architecture of a long-lived adaptive social AI agent</title>
+  <desc id="desc">Architecture flowing from social world through perception, agent state, context engineering, memory, skills, policies, reasoning, planning, action, feedback, learning, reflection, relationship update, and adaptation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .world { fill: #e0f2fe; stroke: #0369a1; stroke-width: 2; rx: 12; }
+      .state { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 12; }
+      .process { fill: #ecfdf5; stroke: #15803d; stroke-width: 1.8; rx: 10; }
+      .resource { fill: #fef3c7; stroke: #a16207; stroke-width: 1.8; rx: 10; }
+      .update { fill: #fff1f2; stroke: #be123c; stroke-width: 1.8; rx: 10; }
+      .adapt { fill: #f5f3ff; stroke: #6d28d9; stroke-width: 2; rx: 12; }
+      .title { font: 20px Arial, sans-serif; font-weight: 700; fill: #0f172a; }
+      .text { font: 16px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 13px Arial, sans-serif; fill: #334155; }
+      .mono { font: 14px Arial, sans-serif; fill: #334155; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .line { stroke: #64748b; stroke-width: 1.8; fill: none; }
+    </style>
+  </defs>
+  <rect class="bg" width="980" height="1180"/>
+  <text class="title" x="490" y="40" text-anchor="middle">Conceptual Architecture</text>
+
+  <rect class="world" x="150" y="70" width="680" height="86"/>
+  <text class="title" x="490" y="105" text-anchor="middle">Social World</text>
+  <text class="small" x="490" y="132" text-anchor="middle">people | organizations | events | environment</text>
+
+  <path class="arrow" d="M490 156 L490 195"/>
+  <text class="text" x="490" y="185" text-anchor="middle">Perception layer</text>
+
+  <rect class="state" x="150" y="210" width="680" height="190"/>
+  <text class="title" x="490" y="245" text-anchor="middle">Agent State</text>
+  <text class="mono" x="230" y="285">world model</text>
+  <text class="mono" x="230" y="315">self model</text>
+  <text class="mono" x="230" y="345">user model</text>
+  <text class="mono" x="560" y="285">relationship model</text>
+  <text class="mono" x="560" y="315">goals</text>
+  <text class="mono" x="560" y="345">commitments</text>
+  <text class="small" x="490" y="374" text-anchor="middle">The durable social state from which behavior is interpreted and selected</text>
+
+  <path class="arrow" d="M490 400 L490 455"/>
+  <text class="text" x="490" y="432" text-anchor="middle">Context engineering</text>
+
+  <path class="line" d="M490 465 L220 465"/>
+  <path class="line" d="M490 465 L760 465"/>
+  <path class="arrow" d="M220 465 L220 500"/>
+  <path class="arrow" d="M490 465 L490 500"/>
+  <path class="arrow" d="M760 465 L760 500"/>
+
+  <rect class="resource" x="115" y="500" width="210" height="72"/>
+  <text class="text" x="220" y="531" text-anchor="middle">Memory</text>
+  <text class="small" x="220" y="553" text-anchor="middle">experience and recall</text>
+
+  <rect class="resource" x="385" y="500" width="210" height="72"/>
+  <text class="text" x="490" y="531" text-anchor="middle">Skills</text>
+  <text class="small" x="490" y="553" text-anchor="middle">reusable competence</text>
+
+  <rect class="resource" x="655" y="500" width="210" height="72"/>
+  <text class="text" x="760" y="531" text-anchor="middle">Policies</text>
+  <text class="small" x="760" y="553" text-anchor="middle">norms and constraints</text>
+
+  <path class="line" d="M220 572 L220 615"/>
+  <path class="line" d="M760 572 L760 615"/>
+  <path class="line" d="M220 615 L760 615"/>
+  <path class="arrow" d="M490 572 L490 642"/>
+
+  <rect class="process" x="365" y="642" width="250" height="60"/>
+  <text class="text" x="490" y="678" text-anchor="middle">Reasoning</text>
+
+  <path class="arrow" d="M490 702 L490 735"/>
+  <rect class="process" x="365" y="735" width="250" height="60"/>
+  <text class="text" x="490" y="771" text-anchor="middle">Planning</text>
+
+  <path class="arrow" d="M490 795 L490 828"/>
+  <rect class="process" x="365" y="828" width="250" height="60"/>
+  <text class="text" x="490" y="864" text-anchor="middle">Action</text>
+
+  <path class="arrow" d="M490 888 L490 921"/>
+  <rect class="process" x="365" y="921" width="250" height="60"/>
+  <text class="text" x="490" y="957" text-anchor="middle">Feedback</text>
+
+  <path class="line" d="M490 981 L490 1005"/>
+  <path class="line" d="M490 1005 L220 1005"/>
+  <path class="line" d="M490 1005 L760 1005"/>
+  <path class="arrow" d="M220 1005 L220 1030"/>
+  <path class="arrow" d="M490 1005 L490 1030"/>
+  <path class="arrow" d="M760 1005 L760 1030"/>
+
+  <rect class="update" x="115" y="1030" width="210" height="58"/>
+  <text class="text" x="220" y="1065" text-anchor="middle">Learning</text>
+  <rect class="update" x="385" y="1030" width="210" height="58"/>
+  <text class="text" x="490" y="1065" text-anchor="middle">Reflection</text>
+  <rect class="update" x="655" y="1030" width="210" height="58"/>
+  <text class="text" x="760" y="1055" text-anchor="middle">Relationship</text>
+  <text class="text" x="760" y="1076" text-anchor="middle">update</text>
+
+  <path class="line" d="M220 1088 L220 1118"/>
+  <path class="line" d="M760 1088 L760 1118"/>
+  <path class="line" d="M220 1118 L760 1118"/>
+  <path class="arrow" d="M490 1088 L490 1130"/>
+  <rect class="adapt" x="365" y="1130" width="250" height="42"/>
+  <text class="text" x="490" y="1157" text-anchor="middle">Adaptation</text>
+</svg>

@@ -1,0 +1,52 @@
+---
+title: "Foundations of Agency"
+description: "The perception-action loop, state, goals, environment and autonomy as the basis of social agents."
+area: "Social AI"
+order: 2
+tags: ["agents","foundation"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 2
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import agentLoop from '../../../assets/social-ai/agent-loop.svg';
+
+<Definition term={"Foundations of Agency"}>
+Agency is the durable organization of perception, interpreted state, goals, actions, feedback and adaptation. A social AI agent is not only a model that responds; it is a system that repeatedly observes, interprets, acts and updates over time.
+</Definition>
+
+<figure class="concept-explainer-image">
+  <img src={agentLoop.src} alt="The recurrent agent loop of observation, reasoning, action, feedback and update." loading="lazy" decoding="async" />
+</figure>
+
+## Why It Matters
+
+An ordinary model call generates output from the current context. An agent loop adds temporal extension: the system observes the situation, constructs state, reasons under goals and policies, acts through an environment, observes the result and updates what happens next.
+
+The proposed structure starts here because every later social-AI problem depends on this loop. Memory only matters because later actions depend on earlier events. Trust only matters because behavior accumulates across time. Autonomy only matters because the agent may choose means, initiate actions or preserve commitments beyond a single prompt.
+
+Agency should be treated as a spectrum. A chatbot responds. An assistant responds and may use tools. A task agent pursues a goal across steps. A persistent agent carries state across sessions. An adaptive social agent also maintains identity, relationship state and governed learning.
+
+<EngineeringMode>
+Design the loop explicitly. Define which state is interpreted by the model, which state is maintained by deterministic code, which actions affect the outside world, which goals are active, and which updates persist. The risk is mistaking fluent response generation for accountable agency.
+</EngineeringMode>
+
+<EvaluationCheck>
+Check whether the system can explain its current state, active goal, available actions, stopping condition and last meaningful update.
+</EvaluationCheck>
+
+<RealExample>
+A long-running research assistant that tracks a literature review across months is agentic only if it preserves project state, follows up on unresolved work, records evidence, revises plans and distinguishes completed commitments from open ones.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Agent Cognition","href":"/social-ai/agent-cognition/"},{"label":"Agent Harness","href":"/social-ai/agent-harness/"}]} />
+
+<SourceNote>
+Derived from <code>sources/long_lived_adaptive_social_ai_agents_v4.qmd</code>, especially the agent and autonomy sections.
+</SourceNote>

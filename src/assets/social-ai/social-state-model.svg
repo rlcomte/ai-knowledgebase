@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Social state model for a long-lived agent</title>
+  <desc id="desc">A diagram contrasting world model, self model, user model, and relationship model as separate parts of social state.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #ffffff; }
+      .circle1 { fill: #e0f2fe; stroke: #0369a1; stroke-width: 2; }
+      .circle2 { fill: #f0fdf4; stroke: #15803d; stroke-width: 2; }
+      .circle3 { fill: #fef3c7; stroke: #a16207; stroke-width: 2; }
+      .center { fill: #fff1f2; stroke: #be123c; stroke-width: 2; rx: 10; }
+      .box { fill: #f8fafc; stroke: #334155; stroke-width: 1.6; rx: 8; }
+      .text { font: 16px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 13px Arial, sans-serif; fill: #334155; }
+      .title { font: 18px Arial, sans-serif; font-weight: 700; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="900" height="560"/>
+  <text class="title" x="450" y="45" text-anchor="middle">Social state = world + self + other + relationship</text>
+  <circle class="circle1" cx="260" cy="220" r="120"/>
+  <circle class="circle2" cx="450" cy="220" r="120"/>
+  <circle class="circle3" cx="640" cy="220" r="120"/>
+  <rect class="center" x="320" y="300" width="260" height="88"/>
+  <text class="text" x="260" y="202" text-anchor="middle">Self model</text>
+  <text class="small" x="260" y="227" text-anchor="middle">role, limits, commitments</text>
+  <text class="text" x="450" y="190" text-anchor="middle">Relationship model</text>
+  <text class="small" x="450" y="215" text-anchor="middle">shared history, norms, trust</text>
+  <text class="text" x="640" y="202" text-anchor="middle">User model</text>
+  <text class="small" x="640" y="227" text-anchor="middle">preferences, goals, context</text>
+  <text class="text" x="450" y="334" text-anchor="middle">World model</text>
+  <text class="small" x="450" y="360" text-anchor="middle">situation, environment, constraints</text>
+
+  <rect class="box" x="145" y="435" width="610" height="64"/>
+  <text class="text" x="450" y="462" text-anchor="middle">Behavior is selected from the relational situation, not only from a user profile.</text>
+  <text class="small" x="450" y="484" text-anchor="middle">The question is not just "Who is the user?" but also "Who are we to one another here?"</text>
+  <path class="arrow" d="M450 388 L450 435"/>
+</svg>
