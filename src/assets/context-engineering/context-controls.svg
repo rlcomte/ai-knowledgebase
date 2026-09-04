@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 740" role="img" aria-labelledby="title desc">
+  <title id="title">Context budget, authority, and quality controls</title>
+  <desc id="desc">A finite context budget is allocated among instructions, goal and state, tool observations, retrieval, memory, skills, and history. Information passes through relevance, authority, freshness, provenance, representation, and privacy checks before entering active context. Trusted policy outranks untrusted retrieved content.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b6478"/></marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.panel{fill:#fff;stroke:#6a8580;stroke-width:2}.trusted{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.working{fill:#eef6fb;stroke:#39769a;stroke-width:2}.external{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.risk{fill:#fff1f2;stroke:#be123c;stroke-width:2}.check{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 17px Arial,sans-serif;fill:#17313b}.text{font:400 13.5px Arial,sans-serif;fill:#314b55}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="740"/><rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">Context quality is an allocation and control problem</text>
+  <text class="subtitle" x="44" y="70">More tokens help only when the added information is relevant, authoritative, current and clearly represented.</text>
+
+  <rect class="panel" x="42" y="126" width="1036" height="168" rx="10"/>
+  <text class="label" x="68" y="162">Finite token budget</text>
+  <rect class="trusted" x="68" y="190" width="164" height="64" rx="7"/><text class="text" x="150" y="219" text-anchor="middle">instructions</text><text class="small" x="150" y="240" text-anchor="middle">policy + role</text>
+  <rect class="working" x="232" y="190" width="198" height="64" rx="7"/><text class="text" x="331" y="219" text-anchor="middle">goal + current state</text><text class="small" x="331" y="240" text-anchor="middle">protect this allocation</text>
+  <rect class="working" x="430" y="190" width="174" height="64" rx="7"/><text class="text" x="517" y="219" text-anchor="middle">tool results</text><text class="small" x="517" y="240" text-anchor="middle">current evidence</text>
+  <rect class="external" x="604" y="190" width="154" height="64" rx="7"/><text class="text" x="681" y="219" text-anchor="middle">retrieval</text><text class="small" x="681" y="240" text-anchor="middle">rank + trim</text>
+  <rect class="external" x="758" y="190" width="128" height="64" rx="7"/><text class="text" x="822" y="219" text-anchor="middle">memory</text><text class="small" x="822" y="240" text-anchor="middle">select</text>
+  <rect class="external" x="886" y="190" width="166" height="64" rx="7"/><text class="text" x="969" y="219" text-anchor="middle">skills + history</text><text class="small" x="969" y="240" text-anchor="middle">activate or compress</text>
+
+  <rect class="panel" x="42" y="334" width="494" height="342" rx="10"/>
+  <text class="label" x="68" y="372">Authority and epistemic type</text>
+  <rect class="trusted" x="82" y="406" width="414" height="52" rx="8"/><text class="text" x="289" y="438" text-anchor="middle">System and organizational policy</text>
+  <rect class="working" x="82" y="474" width="414" height="52" rx="8"/><text class="text" x="289" y="506" text-anchor="middle">Current user goal and verified state</text>
+  <rect class="external" x="82" y="542" width="414" height="52" rx="8"/><text class="text" x="289" y="574" text-anchor="middle">Retrieved knowledge and historical memory</text>
+  <rect class="risk" x="82" y="610" width="414" height="42" rx="8"/><text class="text" x="289" y="636" text-anchor="middle">Untrusted content remains data, not instruction</text>
+
+  <rect class="check" x="584" y="334" width="494" height="342" rx="10"/>
+  <text class="label" x="610" y="372">Admission checks</text>
+  <rect class="panel" x="624" y="406" width="188" height="54" rx="8"/><text class="text" x="718" y="439" text-anchor="middle">relevance</text>
+  <rect class="panel" x="850" y="406" width="188" height="54" rx="8"/><text class="text" x="944" y="439" text-anchor="middle">authority + trust</text>
+  <rect class="panel" x="624" y="480" width="188" height="54" rx="8"/><text class="text" x="718" y="513" text-anchor="middle">freshness</text>
+  <rect class="panel" x="850" y="480" width="188" height="54" rx="8"/><text class="text" x="944" y="513" text-anchor="middle">provenance</text>
+  <rect class="panel" x="624" y="554" width="188" height="54" rx="8"/><text class="text" x="718" y="587" text-anchor="middle">representation</text>
+  <rect class="panel" x="850" y="554" width="188" height="54" rx="8"/><text class="text" x="944" y="587" text-anchor="middle">privacy + scope</text>
+  <path class="arrow" d="M718 608v34h226v-34"/>
+  <text class="small" x="831" y="660" text-anchor="middle">summarize only when critical detail remains recoverable</text>
+</svg>

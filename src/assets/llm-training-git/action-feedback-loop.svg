@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc">
+  <title id="title">Coding-agent action and feedback loop</title>
+  <desc id="desc">A goal and current repository state enter the model. The model proposes an action, the harness validates and executes it in the environment, and the result becomes a new observation for the next iteration. Tests and task outcomes can provide rewards during training.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b6478"/></marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.box{fill:#fff;stroke:#6a8580;stroke-width:2}.model{fill:#eef6fb;stroke:#39769a;stroke-width:2}.harness{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.environment{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.reward{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 18px Arial,sans-serif;fill:#17313b}.text{font:400 14px Arial,sans-serif;fill:#314b55}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}.feedback{fill:none;stroke:#15803d;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="650"/><rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">Execution feedback turns a procedure into interaction</text>
+  <text class="subtitle" x="44" y="70">The agent must respond to the repository’s real state, not only reproduce a textual description of Git.</text>
+
+  <rect class="box" x="50" y="144" width="184" height="104" rx="10"/><text class="label" x="142" y="181" text-anchor="middle">Goal</text><text class="text" x="142" y="210" text-anchor="middle">fix the failing test</text>
+  <rect class="box" x="50" y="330" width="184" height="104" rx="10"/><text class="label" x="142" y="367" text-anchor="middle">Observation</text><text class="text" x="142" y="396" text-anchor="middle">repository state</text>
+  <rect class="model" x="324" y="228" width="188" height="120" rx="10"/><text class="label" x="418" y="270" text-anchor="middle">LLM</text><text class="text" x="418" y="300" text-anchor="middle">select next action</text><text class="small" x="418" y="326" text-anchor="middle">given state + goal</text>
+  <rect class="harness" x="602" y="228" width="188" height="120" rx="10"/><text class="label" x="696" y="270" text-anchor="middle">Harness</text><text class="text" x="696" y="300" text-anchor="middle">validate and execute</text><text class="small" x="696" y="326" text-anchor="middle">tools · policy · permissions</text>
+  <rect class="environment" x="880" y="228" width="188" height="120" rx="10"/><text class="label" x="974" y="270" text-anchor="middle">Environment</text><text class="text" x="974" y="300" text-anchor="middle">Git · files · tests</text><text class="small" x="974" y="326" text-anchor="middle">real consequences</text>
+  <path class="arrow" d="M234 196c48 0 48 92 90 92"/><path class="arrow" d="M234 382c48 0 48-94 90-94"/><path class="arrow" d="M512 288h90"/><path class="arrow" d="M790 288h90"/>
+  <path class="feedback" d="M974 348v102c0 38-31 69-69 69H142v-85"/>
+
+  <rect class="reward" x="406" y="452" width="308" height="108" rx="10"/><text class="label" x="560" y="489" text-anchor="middle">Training signal</text><text class="text" x="560" y="518" text-anchor="middle">tests pass · task works · scoped diff</text><text class="small" x="560" y="542" text-anchor="middle">successful trajectories become more likely</text>
+  <path class="arrow" d="M905 519H714"/>
+</svg>

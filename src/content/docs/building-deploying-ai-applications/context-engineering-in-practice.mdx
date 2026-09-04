@@ -1,0 +1,215 @@
+---
+title: "Context Engineering in Practice"
+description: "Detailed context design for dynamic agent state, retrieval, memory, trust, token budgets, compression and tool-feedback loops."
+area: "Building and deploying AI applications"
+order: 9
+tags: ["practice","architecture","context","agents"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 9
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import Tradeoff from '@components/Tradeoff.astro';
+import contextPipeline from '../../../assets/context-engineering/context-pipeline.svg';
+import contextControls from '../../../assets/context-engineering/context-controls.svg';
+import contextArchitecture from '../../../assets/context-engineering/context-architecture.svg';
+
+<Definition term={"Agentic Context Engineering"}>
+Agentic context engineering is the dynamic management of an agent’s working information state across perception, reasoning and action cycles. It determines which instructions, goals, memories, retrieved knowledge, skills, tool results, policies and history are available at each inference step, how they are represented and prioritized, and how they change as the environment changes.
+</Definition>
+
+<KeyIdea>
+Training changes model parameters. Context engineering keeps those parameters fixed and changes what the model knows right now. Model behaviour therefore depends on both learned capability and the supplied context.
+</KeyIdea>
+
+## More Than Prompt Wording
+
+At inference time, an LLM does not directly see a database, repository, memory store, user profile, policy system or tools. It receives a finite token sequence assembled from those systems.
+
+Prompt engineering asks how an instruction should be phrased. Context engineering asks a larger set of questions: What does the model need now? Which source should provide it? How authoritative and current is it? How should it be represented and ordered? How long should it remain available?
+
+| Prompt engineering | Context engineering |
+| --- | --- |
+| Primarily instruction wording | The complete information environment |
+| Often one interaction | A continuous runtime process |
+| Usually manually constructed | Often dynamically assembled |
+| Focuses on how to ask | Focuses on what the model needs to know |
+| Mostly text formulation | Includes retrieval, memory, tools, state, compression and policy |
+
+Prompt engineering is therefore one component of context engineering.
+
+## Context as Working State
+
+For an agent, context is better understood as temporary working state than as a large text box. During an authentication-library upgrade, the useful state may include the goal, current plan step, relevant files, two failing tests, a decision not to change the public API, available tools and the prohibition on destructive Git operations.
+
+That state combines five concerns:
+
+- the current goal;
+- progress and environment state;
+- recent observations and decisions;
+- relevant history and knowledge;
+- constraints, authority and available actions.
+
+<figure class="concept-explainer-image">
+  <img src={contextPipeline.src} alt="Dynamic context pipeline combining a user goal, policies, memory, retrieval, skills, state and tool results before selecting, ranking, transforming and organizing active context for an LLM and action-feedback loop." loading="eager" decoding="async" />
+</figure>
+
+## Context Is a Pipeline
+
+A robust system does not dump everything it knows into the context window. It gathers candidate information and then selects, ranks, transforms and organizes it for the current step. The output is active context: sufficient, relevant, trusted and structured information that supports the next prediction or action.
+
+Candidate sources commonly include:
+
+| Source | Example |
+| --- | --- |
+| Instructions and policies | Role, safety boundaries and Git rules |
+| User request | “Fix issue 253.” |
+| Conversation history | Earlier clarification or correction |
+| Environment state | Current branch or selected record |
+| Retrieved knowledge | Documentation or repository search results |
+| Persistent memory | A prior project decision or user preference |
+| Skills | A prescribed commit or escalation workflow |
+| Tool results | Test failures, command output or API responses |
+| Plans and agent state | Current task step and unresolved work |
+| Metadata | Time, identity, permissions and provenance |
+
+Context engineering is thus the mediation layer between many external information systems and one finite model context.
+
+## Context Changes Over Time
+
+Relevance is conditional on the current goal and state. At the beginning of a coding task, architecture documentation and repository policy may matter most. After a test run, the failing assertion and modified file can become more important than the initial file listing.
+
+Tool use creates a recurrent loop: active context informs an action, the environment returns an observation, and the system reconstructs the next context. The LLM can remain unchanged throughout the task while its behaviour adapts to new evidence.
+
+This also explains an important role of the agent harness. The harness is partly a context-management system and partly an action-management system: it assembles working state, exposes tools, enforces permission boundaries, captures observations and decides what survives the next step.
+
+## Memory, RAG and Skills Are Sources, Not Context Itself
+
+**Memory** is information that might become relevant later. **Context** is information currently available to the model. A long-lived agent may have years of interactions in storage, but only a small, task-relevant subset should enter one inference.
+
+**RAG** is a mechanism for finding candidate knowledge. Context engineering still decides which fragments to include, how to rank and summarize them, how to represent conflicts and provenance, and whether they remain useful at the next step.
+
+**Skills** prescribe reusable procedures. A harness can activate a safe Git skill only when a task requires committing code, insert the relevant steps, and remove them when the procedure is no longer active.
+
+These relationships can be summarized as:
+
+| System | Responsibility |
+| --- | --- |
+| Memory | Preserve potentially useful experience |
+| Retrieval or RAG | Find potentially relevant knowledge |
+| Skills | Supply reusable procedures |
+| Context engineering | Assemble the current working state |
+| Agent harness | Manage the context-action-observation loop |
+
+## Representation, Authority and Provenance
+
+How information is represented affects model interpretation. The same account state can be expressed as prose, JSON, a table or a typed record. Structured representations can preserve field boundaries, while concise prose can improve readability. The right choice depends on the task and the failure modes being controlled.
+
+Ordering and source labels also matter because context items do not have equal authority. System and organizational policy should outrank retrieved webpages. A current user instruction can override an inferred historical preference, but it cannot override a safety rule. Verified tool state should not be flattened into prose that makes it indistinguishable from a guess.
+
+Useful metadata includes:
+
+- source and provenance;
+- epistemic type, such as instruction, user intent, preference, observation or inference;
+- authority and trust level;
+- timestamp and freshness;
+- confidence and scope;
+- identity or tenant ownership.
+
+<figure class="concept-explainer-image">
+  <img src={contextControls.src} alt="Context controls showing a finite token allocation, an authority hierarchy from policy through current state to retrieved and untrusted content, and admission checks for relevance, trust, freshness, provenance, representation and privacy." loading="lazy" decoding="async" />
+</figure>
+
+## Finite Budgets and Compression
+
+Context capacity is finite. Instructions, goals, history, memory, retrieval, skills and tool observations compete for the same budget. A large retrieval result can crowd out policy or current state, even when the model supports a large context window.
+
+The objective is not maximal context. It is sufficient, relevant, trustworthy and well-structured context. Adding irrelevant or contradictory documents can reduce performance by making signal harder to distinguish from noise.
+
+Long-running tasks therefore need compression. A working summary can retain the goal, completed steps, current problem, constraints and modified files instead of every earlier message and shell output. Some information, such as exact error text, contractual requirements or security policy, may need to remain verbatim.
+
+<Tradeoff>
+Compression saves tokens and improves focus, but every summary can lose qualifiers, provenance or an earlier decision. Keep important source material recoverable, record what was summarized, and test whether the compressed state supports the same decisions as the original evidence.
+</Tradeoff>
+
+## Context Across Time Scales
+
+Long-lived agents need context from different time scales:
+
+| Time scale | Information |
+| --- | --- |
+| Immediate | Current utterance or event |
+| Episodic | Current interaction or session |
+| Task | Goal, plan, progress and open problems |
+| Relational | Relevant history with this person |
+| Long-term | Stable preferences, commitments and facts |
+| Institutional | Role, policy and organizational rules |
+| World | Current externally retrieved knowledge |
+
+Selecting across these layers is a control problem. The system must maximize expected task usefulness while respecting token, privacy, freshness, trust and policy constraints.
+
+## Conflicts and Prompt Injection
+
+Context also has an epistemic problem. Memory may say that a user usually prefers morning meetings, the current request may ask for an afternoon meeting, and a calendar tool may report that the afternoon is unavailable. Those are different information types: a historical preference, a current intention and a verified external fact. Preserving the distinction helps the model reason without treating one as another.
+
+Retrieved content must likewise remain data. A webpage that says “ignore previous instructions” has no authority to replace system policy. The context pipeline should label untrusted content, delimit it clearly, minimize unnecessary exposure and use deterministic controls for sensitive actions or secrets.
+
+## Characteristic Failure Modes
+
+| Failure | Example |
+| --- | --- |
+| Missing context | The agent does not know project policy. |
+| Excess context | Hundreds of irrelevant files are included. |
+| Stale context | Obsolete API documentation is retrieved. |
+| Wrong context | Another user’s memory is selected. |
+| Conflicting context | Two incompatible policies are presented without authority. |
+| Poor ordering | Retrieved content appears to outrank system policy. |
+| Poor representation | An ambiguous unstructured dump hides field boundaries. |
+| Lost context | Compression removes an important earlier decision. |
+| Contaminated context | A malicious instruction enters through retrieval. |
+| Over-personalization | Irrelevant personal memory is injected into a task. |
+
+Context quality should be evaluated independently of model quality. A strong model can still perform poorly when its working state is incomplete, noisy, stale or unsafe.
+
+## Worked Example: Dependency Upgrade
+
+Consider an agent asked to upgrade an API client, repair tests and commit the result. Its initial context needs the role, goal, project rules, active Git skill, current branch and clean working-tree state. It can then inspect the dependency and retrieve the relevant migration guide.
+
+After the edit, three failing tests become the most important observations. Earlier repository listings can be compressed or discarded, while the migration note remains relevant. When all tests pass, the diff enters context and is evaluated against the original goal and policy before selected files are staged and committed.
+
+The context changes throughout the task. The model weights do not.
+
+<figure class="concept-explainer-image">
+  <img src={contextArchitecture.src} alt="Broader agent architecture in which model training creates fixed capabilities, memory, retrieved knowledge and skills supply candidates, context engineering creates active working state, and a harness manages the LLM, tools, environment and evidence loop." loading="lazy" decoding="async" />
+</figure>
+
+## Training, Context and Agent Engineering
+
+Model training creates latent capabilities. Context engineering situates those capabilities with the current goal, policy, evidence and knowledge. Agent engineering turns the situated model into a controlled action loop. Memory adds a faster adaptation mechanism by carrying experience into future context without changing model weights.
+
+For most application teams, this fast contextual loop is the practical learning surface. It is also more inspectable, correctable and governable than continuous changes to model parameters.
+
+<EngineeringMode>
+Treat context assembly as a typed, observable pipeline. Log which sources were considered, admitted, transformed and rejected; preserve authority and tenant boundaries; allocate tokens deliberately; and rebuild context when state changes. Keep consequential authorization in deterministic harness controls rather than expecting prompt order alone to enforce it.
+</EngineeringMode>
+
+<EvaluationCheck>
+Test context quality separately from model quality. Measure retrieval precision, stale and cross-user leakage, policy retention, compression loss, conflict handling, prompt-injection resistance, token allocation and whether tool observations correctly change the next action.
+</EvaluationCheck>
+
+<RealExample>
+A coding agent that receives the open file but not the failing test can produce a plausible generic patch. Adding the exact failure, relevant implementation, repository rule and current diff may let the same model make a smaller, correct change. The improvement comes from a better working state, not new model weights.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Context Engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"LLM Learning","href":"/building-deploying-ai-applications/llm-learning/"},{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Agentic workflows and harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"Context, instructions and planning","href":"/using-coding-agents/context-instructions-and-planning/"}]} />
+
+<SourceNote>
+Derived from <code>sources/context-engineering.md</code>. The diagrams consolidate the source’s ASCII architectures into accessible SVG explainers.
+</SourceNote>

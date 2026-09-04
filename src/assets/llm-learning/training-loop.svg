@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 680" role="img" aria-labelledby="title desc">
+  <title id="title">How an LLM learns during pretraining</title>
+  <desc id="desc">Training data is tokenized and grouped into batches. A Transformer predicts the next token, the prediction is compared with the actual token, and loss gradients update the model parameters. Self-attention builds contextual token representations inside the Transformer.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 10 5 0 10z" fill="#3b6478"/>
+    </marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.box{fill:#fff;stroke:#6a8580;stroke-width:2}.model{fill:#eef6fb;stroke:#39769a;stroke-width:2}.loss{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.update{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.inset{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 18px Arial,sans-serif;fill:#17313b}.text{font:400 14px Arial,sans-serif;fill:#314b55}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}.feedback{fill:none;stroke:#15803d;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="680"/>
+  <rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">LLM pretraining: prediction becomes learning</text>
+  <text class="subtitle" x="44" y="70">Each update is small; repeating the loop across enormous token collections shapes billions of parameters.</text>
+
+  <rect class="box" x="42" y="134" width="176" height="112" rx="10"/>
+  <text class="label" x="66" y="170">Training corpus</text>
+  <text class="text" x="66" y="200">Cleaned, filtered</text>
+  <text class="text" x="66" y="222">and deduplicated data</text>
+
+  <rect class="box" x="270" y="134" width="176" height="112" rx="10"/>
+  <text class="label" x="294" y="170">Token batches</text>
+  <text class="text" x="294" y="200">Token IDs become</text>
+  <text class="text" x="294" y="222">embedding vectors</text>
+
+  <rect class="model" x="498" y="120" width="194" height="140" rx="10"/>
+  <text class="label" x="527" y="158">Transformer</text>
+  <text class="text" x="527" y="190">Forward pass over</text>
+  <text class="text" x="527" y="212">previous tokens</text>
+  <text class="small" x="527" y="239">weights θ</text>
+
+  <rect class="box" x="744" y="134" width="176" height="112" rx="10"/>
+  <text class="label" x="768" y="170">Prediction</text>
+  <text class="text" x="768" y="200">Probability for every</text>
+  <text class="text" x="768" y="222">possible next token</text>
+
+  <rect class="loss" x="948" y="134" width="134" height="112" rx="10"/>
+  <text class="label" x="972" y="170">Loss</text>
+  <text class="text" x="972" y="200">Compare with</text>
+  <text class="text" x="972" y="222">actual token</text>
+
+  <path class="arrow" d="M218 190h52"/><path class="arrow" d="M446 190h52"/><path class="arrow" d="M692 190h52"/><path class="arrow" d="M920 190h28"/>
+
+  <rect class="loss" x="744" y="326" width="176" height="106" rx="10"/>
+  <text class="label" x="768" y="362">Backpropagation</text>
+  <text class="text" x="768" y="390">Compute ∂L / ∂θ</text>
+  <text class="small" x="768" y="414">credit assignment</text>
+
+  <rect class="update" x="498" y="326" width="194" height="106" rx="10"/>
+  <text class="label" x="527" y="362">Optimizer</text>
+  <text class="text" x="527" y="390">θ ← θ − η∇L</text>
+  <text class="small" x="527" y="414">parameter update</text>
+
+  <path class="arrow" d="M1015 246v72c0 34-28 61-62 61h-33"/><path class="arrow" d="M744 379h-52"/>
+  <path class="feedback" d="M595 326v-44"/>
+
+  <rect class="inset" x="42" y="500" width="1040" height="130" rx="10"/>
+  <text class="label" x="68" y="536">Inside the Transformer: contextual representation</text>
+  <rect class="box" x="68" y="558" width="184" height="46" rx="8"/><text class="text" x="160" y="587" text-anchor="middle">current token</text>
+  <rect class="box" x="344" y="558" width="244" height="46" rx="8"/><text class="text" x="466" y="587" text-anchor="middle">self-attention over context</text>
+  <rect class="box" x="680" y="558" width="270" height="46" rx="8"/><text class="text" x="815" y="587" text-anchor="middle">weighted contextual representation</text>
+  <path class="arrow" d="M252 581h92"/><path class="arrow" d="M588 581h92"/>
+</svg>

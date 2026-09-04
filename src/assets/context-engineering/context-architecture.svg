@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 800" role="img" aria-labelledby="title desc">
+  <title id="title">Context engineering in the broader agent architecture</title>
+  <desc id="desc">Model training creates fixed LLM capabilities. Memory preserves experience, retrieval supplies knowledge, and skills provide procedures. Context engineering selects these with instructions, state, and observations to create active context. The harness manages the LLM, tools, environment, and observation loop.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b6478"/></marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.train{fill:#eef6fb;stroke:#39769a;stroke-width:2}.source{fill:#fff;stroke:#6a8580;stroke-width:2}.memory{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.context{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.runtime{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 17px Arial,sans-serif;fill:#17313b}.text{font:400 13.5px Arial,sans-serif;fill:#314b55}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}.loop{fill:none;stroke:#15803d;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="800"/><rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">Training creates capability; context situates it</text>
+  <text class="subtitle" x="44" y="70">Memory, retrieval and skills remain external until context engineering makes them active for an inference step.</text>
+
+  <rect class="train" x="42" y="128" width="230" height="106" rx="10"/><text class="label" x="157" y="165" text-anchor="middle">Model training</text><text class="text" x="157" y="192" text-anchor="middle">pretraining + post-training</text><text class="small" x="157" y="215" text-anchor="middle">slow parametric loop</text>
+  <rect class="train" x="342" y="128" width="230" height="106" rx="10"/><text class="label" x="457" y="165" text-anchor="middle">Base LLM</text><text class="text" x="457" y="192" text-anchor="middle">latent capabilities</text><text class="small" x="457" y="215" text-anchor="middle">weights fixed at runtime</text>
+  <path class="arrow" d="M272 181h70"/>
+
+  <rect class="memory" x="650" y="112" width="136" height="74" rx="9"/><text class="label" x="718" y="156" text-anchor="middle">Memory</text>
+  <rect class="memory" x="802" y="112" width="136" height="74" rx="9"/><text class="label" x="870" y="144" text-anchor="middle">Retrieved</text><text class="label" x="870" y="165" text-anchor="middle">knowledge</text>
+  <rect class="memory" x="954" y="112" width="124" height="74" rx="9"/><text class="label" x="1016" y="156" text-anchor="middle">Skills</text>
+
+  <rect class="context" x="188" y="324" width="744" height="140" rx="10"/>
+  <text class="label" x="560" y="362" text-anchor="middle">Context engineering</text>
+  <text class="text" x="560" y="391" text-anchor="middle">select · type · rank · transform · organize · refresh</text>
+  <text class="small" x="560" y="419" text-anchor="middle">instructions + goal + current state + observations + selected external information</text>
+  <text class="small" x="560" y="443" text-anchor="middle">fast contextual loop</text>
+  <path class="arrow" d="M457 234v90"/><path class="arrow" d="M718 186v78c0 33-27 60-60 60"/><path class="arrow" d="M870 186v94c0 24-20 44-44 44"/><path class="arrow" d="M1016 186v78c0 33-27 60-60 60h-24"/>
+
+  <rect class="context" x="382" y="526" width="356" height="82" rx="10"/><text class="label" x="560" y="560" text-anchor="middle">Active context</text><text class="small" x="560" y="585" text-anchor="middle">the model’s temporary working state</text>
+  <path class="arrow" d="M560 464v62"/>
+
+  <rect class="train" x="42" y="686" width="176" height="72" rx="10"/><text class="label" x="130" y="729" text-anchor="middle">LLM</text>
+  <rect class="runtime" x="282" y="686" width="176" height="72" rx="10"/><text class="label" x="370" y="729" text-anchor="middle">Decision</text>
+  <rect class="runtime" x="522" y="686" width="176" height="72" rx="10"/><text class="label" x="610" y="729" text-anchor="middle">Tools</text>
+  <rect class="runtime" x="762" y="686" width="176" height="72" rx="10"/><text class="label" x="850" y="729" text-anchor="middle">Environment</text>
+  <rect class="memory" x="974" y="686" width="104" height="72" rx="10"/><text class="label" x="1026" y="716" text-anchor="middle">New</text><text class="label" x="1026" y="738" text-anchor="middle">evidence</text>
+  <path class="arrow" d="M472 608c0 43-35 78-78 78H218"/><path class="arrow" d="M218 722h64"/><path class="arrow" d="M458 722h64"/><path class="arrow" d="M698 722h64"/><path class="arrow" d="M938 722h36"/>
+  <path class="loop" d="M1026 686v-62c0-30-24-54-54-54H738"/>
+</svg>

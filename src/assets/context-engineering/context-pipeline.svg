@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc">
+  <title id="title">Dynamic context engineering pipeline</title>
+  <desc id="desc">A user goal combines with policies, memory, retrieval, skills, current state, and tool results. Candidate information is selected, ranked, transformed, and organized into active context. The LLM chooses an action, tools produce an observation, and the next context is reconstructed.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b6478"/></marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.source{fill:#fff;stroke:#6a8580;stroke-width:2}.process{fill:#eef6fb;stroke:#39769a;stroke-width:2}.context{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.action{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.observe{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 17px Arial,sans-serif;fill:#17313b}.text{font:400 13.5px Arial,sans-serif;fill:#314b55}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}.loop{fill:none;stroke:#15803d;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="760"/><rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">Context is assembled for the current step</text>
+  <text class="subtitle" x="44" y="70">The system continually mediates between many information sources and one finite model context.</text>
+
+  <rect class="source" x="42" y="130" width="164" height="68" rx="9"/><text class="label" x="124" y="171" text-anchor="middle">User goal</text>
+  <rect class="source" x="222" y="130" width="164" height="68" rx="9"/><text class="label" x="304" y="171" text-anchor="middle">Policies</text>
+  <rect class="source" x="402" y="130" width="164" height="68" rx="9"/><text class="label" x="484" y="171" text-anchor="middle">Memory</text>
+  <rect class="source" x="582" y="130" width="164" height="68" rx="9"/><text class="label" x="664" y="171" text-anchor="middle">Retrieval</text>
+  <rect class="source" x="762" y="130" width="164" height="68" rx="9"/><text class="label" x="844" y="171" text-anchor="middle">Skills</text>
+  <rect class="source" x="942" y="130" width="136" height="68" rx="9"/><text class="label" x="1010" y="159" text-anchor="middle">State +</text><text class="label" x="1010" y="181" text-anchor="middle">results</text>
+
+  <rect class="process" x="188" y="282" width="744" height="130" rx="10"/>
+  <text class="label" x="560" y="319" text-anchor="middle">Context engineering</text>
+  <rect class="source" x="228" y="340" width="142" height="46" rx="8"/><text class="text" x="299" y="369" text-anchor="middle">select</text>
+  <rect class="source" x="402" y="340" width="142" height="46" rx="8"/><text class="text" x="473" y="369" text-anchor="middle">rank</text>
+  <rect class="source" x="576" y="340" width="142" height="46" rx="8"/><text class="text" x="647" y="369" text-anchor="middle">transform</text>
+  <rect class="source" x="750" y="340" width="142" height="46" rx="8"/><text class="text" x="821" y="369" text-anchor="middle">organize</text>
+  <path class="arrow" d="M124 198v38c0 25 20 46 46 46h18"/><path class="arrow" d="M304 198v84"/><path class="arrow" d="M484 198v84"/><path class="arrow" d="M664 198v84"/><path class="arrow" d="M844 198v84"/><path class="arrow" d="M1010 198v38c0 25-20 46-46 46h-32"/>
+
+  <rect class="context" x="376" y="480" width="368" height="88" rx="10"/><text class="label" x="560" y="516" text-anchor="middle">Active context at time t</text><text class="small" x="560" y="542" text-anchor="middle">sufficient · relevant · trusted · structured</text>
+  <path class="arrow" d="M560 412v68"/>
+  <rect class="process" x="80" y="626" width="176" height="72" rx="10"/><text class="label" x="168" y="669" text-anchor="middle">LLM</text>
+  <rect class="action" x="330" y="626" width="176" height="72" rx="10"/><text class="label" x="418" y="669" text-anchor="middle">Decision / action</text>
+  <rect class="action" x="580" y="626" width="176" height="72" rx="10"/><text class="label" x="668" y="669" text-anchor="middle">Tool / environment</text>
+  <rect class="observe" x="830" y="626" width="210" height="72" rx="10"/><text class="label" x="935" y="657" text-anchor="middle">New observation</text><text class="small" x="935" y="680" text-anchor="middle">becomes candidate context</text>
+  <path class="arrow" d="M468 568c0 33-27 58-60 58H256"/><path class="arrow" d="M256 662h74"/><path class="arrow" d="M506 662h74"/><path class="arrow" d="M756 662h74"/>
+  <path class="loop" d="M1040 662h24c24 0 42-19 42-42V236c0-21-17-38-38-38"/>
+</svg>

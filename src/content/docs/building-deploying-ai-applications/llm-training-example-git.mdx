@@ -1,0 +1,170 @@
+---
+title: "LLM Training Example: Git"
+description: "A worked example of how pretraining, post-training, trajectories, feedback and an agent harness produce procedural Git competence."
+area: "Building and deploying AI applications"
+order: 6
+tags: ["learning","agents","practice","tools"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 6
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import Tradeoff from '@components/Tradeoff.astro';
+import competenceLayers from '../../../assets/llm-training-git/competence-layers.svg';
+import actionFeedbackLoop from '../../../assets/llm-training-git/action-feedback-loop.svg';
+import gitWorkflowExample from '../../../assets/llm-training-git/git-workflow-example.svg';
+
+<Definition term={"Procedural Competence in an LLM-Based Agent"}>
+Procedural competence is the ability to select and sequence actions for a goal and current state. In a coding agent, reliable Git competence does not come from one stored “Git skill”: it emerges from model training and is operationalized through runtime instructions, tools, policy, repository state and feedback.
+</Definition>
+
+<KeyIdea>
+Next-token prediction can learn procedures because training data contains goals, commands, conditions, outcomes and corrections in sequence. Prediction learns latent action patterns; agent engineering turns those patterns into a controlled workflow.
+</KeyIdea>
+
+<figure class="concept-explainer-image">
+  <img src={competenceLayers.src} alt="Six layers contributing to operational Git competence: pretraining, instruction tuning, preference training, trajectory training, harness policy and environment feedback." loading="eager" decoding="async" />
+</figure>
+
+## Git Is Not Installed as One Predefined Skill
+
+A model is not normally given a single internal object containing an authoritative Git procedure. During pretraining it instead encounters code, documentation, tutorials, contribution guides, questions, issue discussions and command sequences such as:
+
+```bash
+git status
+git add src/app.py
+git commit -m "Fix authentication bug"
+git push origin feature/auth-fix
+```
+
+These examples connect situations, goals, actions and consequences. To predict their continuation, the model benefits from learning relationships such as “review changes” with `git diff`, “stage a file” with `git add`, and “record staged changes” with `git commit`.
+
+The knowledge is distributed across parameters. It is useful to describe the learned abstraction as mappings between situation and likely action, action and consequence, goal and action sequence, or error and recovery. Those mappings are conceptual explanations, not literal records inside the network.
+
+## Three Kinds of Git Knowledge
+
+| Kind | What it provides | Example |
+| --- | --- | --- |
+| Declarative knowledge | What a concept or operation means | A commit records a repository state in history. |
+| Command knowledge | Which command corresponds to an intent | `git switch -c feature-x` creates and switches to a branch. |
+| Procedural knowledge | Which actions to take, in what order and under which conditions | Inspect, branch, edit, test, review, stage and commit. |
+
+Procedural knowledge is the bridge toward agent behaviour. The relevant prediction depends on more than the most recent word: the model can condition on the goal, repository description and previous actions across a longer context. It can therefore approximate “given this state and goal, what action should come next?” while still using a next-token objective.
+
+## What Each Training Stage Adds
+
+### Pretraining: latent Git capability
+
+Pretraining exposes the model to Git concepts, commands, workflows and failures. It can teach that branches isolate work, that status and diff reveal repository state, and that commits follow staging. However, corpus frequency describes what is common, not necessarily what is good engineering practice.
+
+### Instruction tuning: follow the user’s goal
+
+A base model may know Git but continue text rather than help. Supervised prompt-response demonstrations teach the model to interpret a request and produce an appropriate procedure. A request to move an unpushed commit from `main` to a feature branch becomes a task to solve, not merely text to continue.
+
+### Preference training: prefer careful behaviour
+
+Evaluators can compare responses. A broad `git add .` followed by an unexplained force-push should rank below a response that first checks `git status`, inspects the diff, stages only intended files and verifies the staged changes. Repeated comparisons shape tendencies such as:
+
+- inspect before modifying or committing;
+- minimize unintended changes;
+- verify results;
+- use meaningful commits;
+- avoid destructive operations;
+- explain risk and request authority when necessary.
+
+Preference training usually shapes how existing capability is deployed; it need not teach every Git command from scratch.
+
+### Trajectory training: learn multi-step policies
+
+Agent training can use complete trajectories rather than isolated answers. A trajectory interleaves goals, observations, actions and results: check status, inspect a relevant diff, run a test, edit a file, rerun the test and commit the verified change. Conceptually, this teaches a policy that selects an action from the current state and goal.
+
+## Environment Feedback
+
+<figure class="concept-explainer-image">
+  <img src={actionFeedbackLoop.src} alt="Coding-agent loop in which a goal and repository observation inform an LLM action, a harness validates it, the Git and test environment returns results, and the next observation closes the loop." loading="lazy" decoding="async" />
+</figure>
+
+Executing commands makes the procedure substantially stronger than describing it. If `git switch feature-x` fails because the branch exists only on the remote, the resulting error becomes new evidence. The agent can inspect branches and then choose a tracking command. It is interacting with Git’s real semantics rather than recalling a static recipe.
+
+During reinforcement learning, objective outcomes can become training signals. Passing tests, satisfying the requested behaviour and keeping the diff scoped can receive positive reward; failing tests, unrelated edits and destructive operations can receive negative reward. Training can then increase the probability of action trajectories associated with success.
+
+<Tradeoff>
+Executable rewards are useful but incomplete. An agent can optimize for passing tests while producing a brittle implementation, weakening a test or violating an unstated policy. Reward design needs adversarial cases, scope checks and human review for outcomes that tests cannot fully express.
+</Tradeoff>
+
+## The Agent Harness Supplies the Explicit Procedure
+
+There is little reason to encode every repository policy in model weights. A coding-agent harness can inject rules such as:
+
+1. Inspect repository state before editing.
+2. Preserve existing user changes.
+3. Make the smallest relevant change.
+4. Review the diff and run relevant tests.
+5. Stage only intended files.
+6. Do not push unless explicitly requested.
+7. Never force-push without confirmation.
+
+The harness also decides which tools are available, which operations require approval, what state persists and how actions are logged. This makes project-specific behaviour inspectable and changeable without retraining the model.
+
+## Six Layers of Procedural Competence
+
+| Layer | Contribution | Git example |
+| --- | --- | --- |
+| Pretraining | Concepts and statistical patterns | Knows commits, branches, merges and commands. |
+| Instruction tuning | Goal-directed response behaviour | Interprets “create a feature branch” as a request to act or explain. |
+| Preference training | Desirable ways of acting | Checks changes instead of committing blindly. |
+| Trajectory training | Multi-step action policy | Inspects, edits, tests and commits in sequence. |
+| Harness, skills and policy | Explicit runtime procedure | Applies the repository’s Git workflow and authority rules. |
+| Environment feedback | Actual consequences | Git and tests reveal whether an action succeeded. |
+
+The resulting behaviour combines model knowledge, post-training, current context, skills, harness controls and environment feedback. No single layer is sufficient for reliable agent operation.
+
+## Knowledge, Capability, Skill and Policy
+
+These terms should remain distinct:
+
+- **Knowledge:** the LLM can explain that `git rebase` reapplies commits on another base.
+- **Procedural competence:** it can infer that rebasing may fit a branch that is behind `main`.
+- **Latent capability:** training makes the behaviour available in the model, but does not guarantee when or how it will appear.
+- **Agent skill:** instructions, tools, context and checks turn the capability into a reusable procedure.
+- **Policy:** the organization may prohibit rebasing a shared protected branch.
+- **Tool capability:** the harness can actually execute Git commands.
+
+An LLM that knows Git is therefore not the same thing as an agent with a reliable Git skill.
+
+## Worked Trajectory: Fix the Bug and Commit It
+
+<figure class="concept-explainer-image">
+  <img src={gitWorkflowExample.src} alt="Worked coding-agent trajectory from a bug-fix goal through status inspection, issue reading, code search, hypothesis, minimal edit and an iterative test loop to diff review, selective staging, commit and evidence report." loading="lazy" decoding="async" />
+</figure>
+
+Suppose the user asks: “Fix issue 253 and commit the solution.” Pretraining supplies Git, language and programming concepts. Post-training supplies instruction following and a tendency to inspect before changing. A runtime skill defines the repository procedure. The harness provides file, search, edit, shell and Git tools. The environment supplies the actual files, compiler and tests.
+
+The agent should begin by inspecting repository state so it does not overwrite unrelated work. It reads the issue and relevant code, forms a hypothesis, makes a minimal edit and runs a focused test. Failure becomes evidence for revision rather than a reason to guess. After tests pass, it inspects the complete diff, stages only the intended files, creates a meaningful commit and reports the evidence.
+
+Only part of this trajectory resides in model weights. The dependable skill exists in the combination of latent capability, explicit procedure, controlled tools and verifiable outcomes.
+
+<EngineeringMode>
+Keep durable Git rules in the harness or repository instructions, not only in prompts or hoped-for model behaviour. Resolve current state before mutation, preserve user changes, constrain destructive commands, require explicit authority for remote actions and make tests plus diff inspection part of the completion contract.
+</EngineeringMode>
+
+<EvaluationCheck>
+Evaluate the whole trajectory: Was the initial state inspected? Were unrelated changes preserved? Was the selected command appropriate to the actual repository state? Did relevant tests pass? Was the final diff scoped, and did the agent stop at the boundary of its authority?
+</EvaluationCheck>
+
+<RealExample>
+If a local branch name does not exist but `origin/feature-x` does, command memorization alone may repeat the failed checkout. A competent agent uses the error as evidence, lists branches, recognizes the remote branch and creates a tracking branch through the permitted Git workflow.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"LLM Learning","href":"/building-deploying-ai-applications/llm-learning/"},{"label":"Agentic workflows and harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"Evals and error analysis","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"The agent loop","href":"/using-coding-agents/the-agent-loop/"},{"label":"Model, harness, tools and workspace","href":"/using-coding-agents/model-harness-tools-and-workspace/"}]} />
+
+<SourceNote>
+Derived from <code>sources/llm-training-git.md</code>. Further study: <a href="https://arxiv.org/abs/2308.12950">Code Llama</a>, <a href="https://arxiv.org/abs/2203.02155">InstructGPT</a>, <a href="https://arxiv.org/abs/2210.03629">ReAct</a>, <a href="https://arxiv.org/abs/2405.15793">SWE-agent</a> and <a href="https://arxiv.org/abs/2310.06770">SWE-bench</a>.
+</SourceNote>

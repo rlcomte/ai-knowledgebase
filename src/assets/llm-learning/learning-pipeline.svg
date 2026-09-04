@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc">
+  <title id="title">Complete LLM learning and application pipeline</title>
+  <desc id="desc">Raw data is cleaned and tokenized for next-token pretraining, producing a base model. Supervised and preference-based post-training produces an assistant model. Runtime engineering combines the assistant with context, retrieval, memory, tools, skills, a harness, and evaluation to produce an AI application or agent.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b6478"/></marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.data{fill:#fff;stroke:#6a8580;stroke-width:2}.train{fill:#eef6fb;stroke:#39769a;stroke-width:2}.post{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.runtime{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.agent{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 18px Arial,sans-serif;fill:#17313b}.text{font:400 14px Arial,sans-serif;fill:#314b55}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="760"/><rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">From raw data to an engineered AI system</text>
+  <text class="subtitle" x="44" y="70">Training creates model capability; runtime engineering turns that capability into a useful, controlled system.</text>
+
+  <rect class="data" x="42" y="132" width="188" height="92" rx="10"/><text class="label" x="136" y="168" text-anchor="middle">Raw data</text><text class="small" x="136" y="194" text-anchor="middle">clean · filter · deduplicate</text>
+  <rect class="data" x="286" y="132" width="188" height="92" rx="10"/><text class="label" x="380" y="168" text-anchor="middle">Tokens</text><text class="small" x="380" y="194" text-anchor="middle">IDs · embeddings · batches</text>
+  <rect class="train" x="530" y="116" width="228" height="124" rx="10"/><text class="label" x="644" y="155" text-anchor="middle">Pretraining</text><text class="text" x="644" y="184" text-anchor="middle">next-token prediction</text><text class="small" x="644" y="210" text-anchor="middle">loss · gradients · updates</text>
+  <rect class="train" x="814" y="132" width="264" height="92" rx="10"/><text class="label" x="946" y="168" text-anchor="middle">Base model</text><text class="small" x="946" y="194" text-anchor="middle">broad learned representations</text>
+  <path class="arrow" d="M230 178h56"/><path class="arrow" d="M474 178h56"/><path class="arrow" d="M758 178h56"/>
+
+  <path class="arrow" d="M946 224v60"/>
+  <rect class="post" x="642" y="284" width="436" height="142" rx="10"/>
+  <text class="label" x="668" y="321">Post-training</text>
+  <text class="text" x="668" y="352">Supervised fine-tuning (SFT)</text><text class="text" x="668" y="380">Preference learning: RLHF · RLAIF · DPO</text><text class="small" x="668" y="406">shapes instruction following, relevance, safety and style</text>
+  <path class="arrow" d="M860 426v60"/>
+  <rect class="post" x="744" y="486" width="232" height="78" rx="10"/><text class="label" x="860" y="520" text-anchor="middle">Assistant model</text><text class="small" x="860" y="545" text-anchor="middle">trained weights fixed at runtime</text>
+
+  <rect class="runtime" x="42" y="468" width="586" height="208" rx="10"/>
+  <text class="label" x="68" y="506">Runtime system engineering</text>
+  <rect class="data" x="72" y="536" width="150" height="48" rx="8"/><text class="text" x="147" y="566" text-anchor="middle">prompt + context</text>
+  <rect class="data" x="242" y="536" width="150" height="48" rx="8"/><text class="text" x="317" y="566" text-anchor="middle">retrieval + memory</text>
+  <rect class="data" x="412" y="536" width="150" height="48" rx="8"/><text class="text" x="487" y="566" text-anchor="middle">tools + skills</text>
+  <rect class="data" x="72" y="604" width="150" height="48" rx="8"/><text class="text" x="147" y="634" text-anchor="middle">agent harness</text>
+  <rect class="data" x="242" y="604" width="150" height="48" rx="8"/><text class="text" x="317" y="634" text-anchor="middle">guardrails</text>
+  <rect class="data" x="412" y="604" width="150" height="48" rx="8"/><text class="text" x="487" y="634" text-anchor="middle">evaluation</text>
+
+  <path class="arrow" d="M744 525H628"/>
+  <rect class="agent" x="744" y="618" width="334" height="92" rx="10"/><text class="label" x="911" y="656" text-anchor="middle">AI application or agent</text><text class="small" x="911" y="683" text-anchor="middle">system capability ≠ LLM capability alone</text>
+  <path class="arrow" d="M628 630h116"/><path class="arrow" d="M860 564v54"/>
+</svg>

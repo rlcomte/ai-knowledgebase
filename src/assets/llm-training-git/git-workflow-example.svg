@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 800" role="img" aria-labelledby="title desc">
+  <title id="title">Example coding-agent workflow for fixing and committing a bug</title>
+  <desc id="desc">The workflow starts with the user goal, checks repository status, reads issue context, searches code, forms a hypothesis, edits, runs targeted tests and revises on failure. After tests pass, it inspects the diff, stages selected files, commits, and reports the result.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b6478"/></marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.goal{fill:#eef6fb;stroke:#39769a;stroke-width:2}.inspect{fill:#fff;stroke:#6a8580;stroke-width:2}.change{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.verify{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.finish{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 16px Arial,sans-serif;fill:#17313b}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}.retry{fill:none;stroke:#b6812e;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="800"/><rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">Training example: “Fix the bug and commit it”</text>
+  <text class="subtitle" x="44" y="70">A reliable trajectory is evidence-seeking, iterative, scoped and governed.</text>
+
+  <rect class="goal" x="70" y="130" width="214" height="70" rx="10"/><text class="label" x="177" y="173" text-anchor="middle">User goal</text>
+  <rect class="inspect" x="336" y="130" width="214" height="70" rx="10"/><text class="label" x="443" y="173" text-anchor="middle">Inspect Git status</text>
+  <rect class="inspect" x="602" y="130" width="214" height="70" rx="10"/><text class="label" x="709" y="173" text-anchor="middle">Read issue and context</text>
+  <rect class="inspect" x="868" y="130" width="182" height="70" rx="10"/><text class="label" x="959" y="173" text-anchor="middle">Search code</text>
+  <path class="arrow" d="M284 165h52"/><path class="arrow" d="M550 165h52"/><path class="arrow" d="M816 165h52"/>
+
+  <rect class="change" x="70" y="290" width="214" height="70" rx="10"/><text class="label" x="177" y="333" text-anchor="middle">Form hypothesis</text>
+  <rect class="change" x="336" y="290" width="214" height="70" rx="10"/><text class="label" x="443" y="333" text-anchor="middle">Make minimal edit</text>
+  <rect class="verify" x="602" y="290" width="214" height="70" rx="10"/><text class="label" x="709" y="323" text-anchor="middle">Run targeted tests</text><text class="small" x="709" y="344" text-anchor="middle">observe actual outcome</text>
+  <rect class="verify" x="868" y="290" width="182" height="70" rx="10"/><text class="label" x="959" y="323" text-anchor="middle">Failure?</text><text class="small" x="959" y="344" text-anchor="middle">revise hypothesis</text>
+  <path class="arrow" d="M959 200v46c0 24-20 44-44 44H284"/><path class="arrow" d="M284 325h52"/><path class="arrow" d="M550 325h52"/><path class="arrow" d="M816 325h52"/>
+  <path class="retry" d="M959 360v78c0 26-21 47-47 47H443v-125"/>
+
+  <rect class="finish" x="70" y="548" width="176" height="70" rx="10"/><text class="label" x="158" y="581" text-anchor="middle">Tests pass</text><text class="small" x="158" y="602" text-anchor="middle">accept evidence</text>
+  <rect class="inspect" x="288" y="548" width="176" height="70" rx="10"/><text class="label" x="376" y="581" text-anchor="middle">Inspect diff</text><text class="small" x="376" y="602" text-anchor="middle">check scope</text>
+  <rect class="inspect" x="506" y="548" width="176" height="70" rx="10"/><text class="label" x="594" y="581" text-anchor="middle">Stage files</text><text class="small" x="594" y="602" text-anchor="middle">selected changes only</text>
+  <rect class="finish" x="724" y="548" width="176" height="70" rx="10"/><text class="label" x="812" y="581" text-anchor="middle">Commit</text><text class="small" x="812" y="602" text-anchor="middle">meaningful message</text>
+  <rect class="finish" x="942" y="548" width="108" height="70" rx="10"/><text class="label" x="996" y="581" text-anchor="middle">Report</text><text class="small" x="996" y="602" text-anchor="middle">evidence</text>
+  <path class="arrow" d="M709 360v138c0 28-22 50-50 50H246"/><path class="arrow" d="M246 583h42"/><path class="arrow" d="M464 583h42"/><path class="arrow" d="M682 583h42"/><path class="arrow" d="M900 583h42"/>
+
+  <rect class="goal" x="214" y="690" width="692" height="62" rx="10"/>
+  <text class="label" x="560" y="716" text-anchor="middle">Capability in weights + procedure in context + tools and policy in the harness</text>
+  <text class="small" x="560" y="739" text-anchor="middle">Only part of this workflow resides in the LLM itself.</text>
+</svg>

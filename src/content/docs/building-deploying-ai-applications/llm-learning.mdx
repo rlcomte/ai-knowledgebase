@@ -1,0 +1,167 @@
+---
+title: "LLM Learning"
+description: "How large language models learn through pretraining, post-training and runtime adaptation, and what that means for AI system design."
+area: "Building and deploying AI applications"
+order: 5
+tags: ["foundation","learning","architecture"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 5
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import trainingLoop from '../../../assets/llm-learning/training-loop.svg';
+import adaptationLevels from '../../../assets/llm-learning/adaptation-levels.svg';
+import learningPipeline from '../../../assets/llm-learning/learning-pipeline.svg';
+
+<Definition term={"LLM Learning"}>
+An LLM learns when training changes billions of numerical parameters so that the model becomes better at predicting token sequences. Pretraining builds broad representations, post-training shapes useful assistant behaviour, and runtime mechanisms such as context and memory adapt the surrounding system without normally changing model weights.
+</Definition>
+
+<KeyIdea>
+<strong>Core process:</strong> data becomes tokens; the model makes predictions; loss measures error; backpropagation computes gradients; an optimizer updates parameters; and repetition turns small updates into learned capability.
+</KeyIdea>
+
+<figure class="concept-explainer-image">
+  <img src={trainingLoop.src} alt="LLM pretraining loop from a cleaned corpus and token batches through Transformer prediction, loss, backpropagation and parameter updates, with self-attention producing contextual representations." loading="eager" decoding="async" />
+</figure>
+
+## From Data to Tokens
+
+Training starts with a large corpus that may include books, websites, documentation, scientific articles, code, conversations and structured text. Multimodal models can also learn from images, audio or video. Before training, data engineering filters low-quality or unwanted content, removes duplicates, identifies languages, balances sources and constructs suitable examples.
+
+The corpus is not simply installed as a searchable database. It supplies examples from which the model learns statistical and structural regularities.
+
+An LLM processes **tokens**, not words directly. A tokenizer might split a sentence approximately like this:
+
+```text
+["Artificial", " intelligence", " is", " useful", "."]
+```
+
+Each token receives an integer ID, which is mapped to an embedding: a vector containing many learned numbers. Early in training these vectors contain little useful structure. Training gradually organizes them into representations that capture relationships between tokens and contexts.
+
+## Next-Token Prediction
+
+The central pretraining task for most generative LLMs is simple to state: given all previous tokens, predict the next one. For the sequence `The capital of France is`, the model produces a probability distribution over its vocabulary rather than a single answer.
+
+| Candidate token | Example probability |
+| --- | ---: |
+| Paris | 0.52 |
+| Lyon | 0.08 |
+| France | 0.05 |
+| London | 0.03 |
+
+Because the actual next token is known during training, a loss function can score the prediction. Cross-entropy loss for the correct token `y` is:
+
+<pre><code>L = -log P(y)</code></pre>
+
+Assigning `Paris` probability `0.52` gives a loss of about `0.65`; assigning it probability `0.01` gives a loss of about `4.61`. Better predictions therefore produce lower loss.
+
+## Backpropagation and Parameter Updates
+
+The model contains parameters in its embeddings, attention layers, feed-forward networks and projection matrices. **Backpropagation** computes how the loss changes with respect to each parameter:
+
+<pre><code>partial loss / partial parameter</code></pre>
+
+An optimizer then performs a small update, commonly summarized as:
+
+<pre><code>new parameters = old parameters - learning rate * loss gradient</code></pre>
+
+One optimization step may change billions of parameters by tiny amounts. Training groups many token sequences into batches, combines their losses, and repeats forward pass, loss calculation, backward pass and update across enormous numbers of examples.
+
+## Attention and Representation Learning
+
+Self-attention lets each token representation weigh relevant information from earlier tokens. In simplified form:
+
+<pre><code>Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) V</code></pre>
+
+Queries, keys and values allow attention heads to capture different relationships, including nearby syntax, long-distance references, semantic similarity and structural patterns.
+
+The network also performs **representation learning**. Humans do not need to define features such as “is a noun,” “topic” or “sentence length” in advance. Across its layers, the model learns increasingly contextual features useful for prediction. This should not be read as a rigid one-concept-per-layer hierarchy: knowledge is distributed across many parameters and activations.
+
+Predicting diverse text rewards representations of:
+
+- language, including grammar, syntax, spelling and discourse;
+- concepts and relations, such as Amsterdam being a city or Paris being the capital of France;
+- recurring reasoning patterns, including comparison, analogy, calculation and causal argument;
+- styles and genres, from source code and scientific papers to conversation and legal language.
+
+No individual parameter normally represents one fact such as “France.” The capability emerges from distributed computation across the network.
+
+## Pretraining and Post-Training
+
+Large-scale next-token training is called **pretraining**. It builds a base or foundation model that can already complete text, summarize, translate, answer some questions and write code.
+
+A raw next-token predictor is not automatically a useful assistant. **Post-training** shapes how it responds to users. Supervised fine-tuning (SFT) increases the likelihood of high-quality demonstrated responses. Preference methods compare plausible answers and optimize toward the preferred behaviour. This family includes RLHF, RLAIF, reward modelling and Direct Preference Optimization (DPO).
+
+| Pretraining | Post-training |
+| --- | --- |
+| Learns broad patterns and capabilities | Shapes behaviour and task use |
+| Uses enormous, broad datasets | Uses smaller, curated datasets |
+| Is mostly self-supervised | Uses demonstrations, preferences or rewards |
+| Is extremely compute-intensive | Is usually smaller in scale |
+
+A useful shorthand is that pretraining teaches which patterns exist, while post-training teaches how to use capabilities as an assistant. The boundary is not absolute: post-training can add capabilities, and pretraining also influences behaviour.
+
+## Preference Learning
+
+For one prompt, a model can generate several plausible responses. Human or AI evaluators can rank them. Training then raises the probability of preferred response patterns, such as following instructions, staying relevant, communicating clearly and avoiding unsafe behaviour. Preference learning does not make these properties guaranteed; it shifts model behaviour statistically and still requires application-level evaluation and controls.
+
+## Conversation Is Usually Not Weight Learning
+
+During normal use, model weights are fixed. If a user says, “My project is called Apollo,” the model can use that fact later in the same context, but no backpropagation has occurred. This is **in-context learning**: the model applies a pattern, definition or example supplied in its current input.
+
+The difference matters because several mechanisms can all look like “learning” from the outside:
+
+| Mechanism | Changes model weights? | Persistence |
+| --- | ---: | --- |
+| Prompt or context | No | Current context |
+| Retrieval-augmented generation | No | External knowledge store |
+| Agent memory | No | External persistent memory |
+| Fine-tuning | Yes | Persistent |
+| Continued pretraining | Yes | Persistent |
+| Full retraining | Yes | Persistent |
+
+<figure class="concept-explainer-image">
+  <img src={adaptationLevels.src} alt="Three adaptation levels: persistent parametric learning changes weights, temporary contextual adaptation changes input context, and external learning stores and retrieves experience for an agent whose base LLM remains fixed." loading="lazy" decoding="async" />
+</figure>
+
+## Learning Versus Remembering
+
+**Learning** changes a system’s ability to perform a class of tasks. **Remembering** makes earlier information available again. Fine-tuning a model to improve medical coding is learning in its parameters. Retrieving a user’s preference for concise explanations is remembering through external state.
+
+An agent can therefore learn operationally even when its underlying LLM does not learn parametrically. A memory system can record experience, retrieval can place relevant records into a future context, and the fixed model can respond differently. External memory is often easier to inspect, correct, delete and govern than information embedded in model weights.
+
+## From Model Learning to System Capability
+
+<figure class="concept-explainer-image">
+  <img src={learningPipeline.src} alt="End-to-end pipeline from raw data through tokenization, pretraining, a base model and post-training to an assistant model combined with context, retrieval, memory, tools, skills, an agent harness, guardrails and evaluation." loading="lazy" decoding="async" />
+</figure>
+
+Next-token prediction can produce sophisticated capabilities because accurate prediction over diverse data requires modelling latent structures. Continuing equations rewards arithmetic patterns; continuing code rewards knowledge of syntax, APIs and algorithms; continuing explanations rewards modelling premises, conclusions and causal relationships.
+
+Once the model is trained, most application engineers do not train it again. They build a runtime system around it. The resulting capability comes from the model plus context, retrieval, memory, tools, skills, the agent harness, guardrails and evaluation. Model capability is therefore a component of AI system capability, not its complete definition.
+
+<EngineeringMode>
+Choose the adaptation layer deliberately. Use prompting and context for temporary task guidance, retrieval and memory for inspectable knowledge that changes frequently, and fine-tuning only when persistent behavioural or capability changes justify the data, evaluation and operational cost. Keep model training evidence separate from runtime learning claims.
+</EngineeringMode>
+
+<EvaluationCheck>
+Verify which state actually changes for every claimed learning mechanism: model weights, current context, external memory, retrieval data, skills or policy. Test persistence, reversibility, provenance and cross-user isolation at that boundary.
+</EvaluationCheck>
+
+<RealExample>
+A support agent can remember that a customer prefers email by storing the preference in a governed profile and retrieving it in later sessions. The agent behaves differently without changing the LLM. Fine-tuning would be appropriate only if the underlying model needs a persistent, broadly reusable capability or behaviour that context and tools cannot supply reliably.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Foundation models and LLMs","href":"/building-deploying-ai-applications/foundation-models-and-llms/"},{"label":"Deep learning","href":"/building-deploying-ai-applications/deep-learning/"},{"label":"Context engineering","href":"/building-deploying-ai-applications/context-engineering/"},{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Agentic workflows and harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"}]} />
+
+<SourceNote>
+Derived from <code>sources/llm-learning.md</code>. The diagrams replace the source’s ASCII process illustrations with accessible SVG explainers.
+</SourceNote>

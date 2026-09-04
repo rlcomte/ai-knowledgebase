@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 760" role="img" aria-labelledby="title desc">
+  <title id="title">Layers that produce reliable Git behaviour</title>
+  <desc id="desc">Six layers contribute to a coding agent's Git behaviour: pretraining, instruction tuning, preference training, trajectory training, harness policy, and environment feedback. Together they turn latent knowledge into operational competence.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b6478"/></marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#e8f0ec}.base{fill:#eef6fb;stroke:#39769a;stroke-width:2}.post{fill:#fff9ea;stroke:#b6812e;stroke-width:2}.agent{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.runtime{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.result{fill:#fff;stroke:#6a8580;stroke-width:2}.title{font:700 27px Arial,sans-serif;fill:#17313b}.subtitle{font:400 15px Arial,sans-serif;fill:#45616a}.label{font:700 17px Arial,sans-serif;fill:#17313b}.text{font:400 13.5px Arial,sans-serif;fill:#314b55}.small{font:400 12px Arial,sans-serif;fill:#51666c}.arrow{fill:none;stroke:#3b6478;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="760"/><rect class="band" width="1120" height="92"/>
+  <text class="title" x="44" y="43">Reliable Git behaviour comes from several layers</text>
+  <text class="subtitle" x="44" y="70">Training supplies capability and behavioural tendencies; the runtime system supplies procedure, authority and real consequences.</text>
+
+  <rect class="base" x="52" y="130" width="306" height="124" rx="10"/>
+  <text class="label" x="78" y="166">1. Pretraining</text><text class="text" x="78" y="194">Concepts, commands and common sequences</text><text class="small" x="78" y="222">branches · commits · merges · recovery patterns</text>
+  <rect class="post" x="407" y="130" width="306" height="124" rx="10"/>
+  <text class="label" x="433" y="166">2. Instruction tuning</text><text class="text" x="433" y="194">Respond appropriately to a stated goal</text><text class="small" x="433" y="222">“create a feature branch” → useful procedure</text>
+  <rect class="post" x="762" y="130" width="306" height="124" rx="10"/>
+  <text class="label" x="788" y="166">3. Preference training</text><text class="text" x="788" y="194">Prefer careful, relevant and safe actions</text><text class="small" x="788" y="222">inspect before commit · avoid destructive Git</text>
+  <path class="arrow" d="M358 192h49"/><path class="arrow" d="M713 192h49"/>
+
+  <rect class="agent" x="52" y="326" width="306" height="124" rx="10"/>
+  <text class="label" x="78" y="362">4. Trajectory training</text><text class="text" x="78" y="390">Multi-step action policies from examples</text><text class="small" x="78" y="418">observe → act → verify → recover</text>
+  <rect class="runtime" x="407" y="326" width="306" height="124" rx="10"/>
+  <text class="label" x="433" y="362">5. Harness, skills and policy</text><text class="text" x="433" y="390">Explicit project procedure and permissions</text><text class="small" x="433" y="418">preserve changes · test · ask before push</text>
+  <rect class="runtime" x="762" y="326" width="306" height="124" rx="10"/>
+  <text class="label" x="788" y="362">6. Environment feedback</text><text class="text" x="788" y="390">Actual command results and test outcomes</text><text class="small" x="788" y="418">repository state · errors · passing tests</text>
+  <path class="arrow" d="M915 254v42c0 17-14 30-30 30H358"/><path class="arrow" d="M358 388h49"/><path class="arrow" d="M713 388h49"/>
+
+  <rect class="result" x="246" y="534" width="628" height="142" rx="10"/>
+  <text class="label" x="560" y="574" text-anchor="middle">Operational Git competence</text>
+  <text class="text" x="560" y="606" text-anchor="middle">Selects a procedure for the current goal and repository state</text>
+  <text class="text" x="560" y="634" text-anchor="middle">Uses tools within policy and adjusts when evidence changes</text>
+  <text class="small" x="560" y="660" text-anchor="middle">Latent capability becomes a situated, governed skill</text>
+  <path class="arrow" d="M205 450v54c0 17 14 30 30 30h95"/><path class="arrow" d="M560 450v84"/><path class="arrow" d="M915 450v54c0 17-14 30-30 30h-95"/>
+</svg>

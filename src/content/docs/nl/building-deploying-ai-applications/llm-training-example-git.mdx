@@ -1,0 +1,170 @@
+---
+title: "LLM-trainingsvoorbeeld: Git"
+description: "Een uitgewerkt voorbeeld van hoe pretraining, post-training, trajecten, feedback en een agent-harness procedurele Git-competentie opleveren."
+area: "AI-applicaties bouwen en uitrollen"
+order: 6
+tags: ["learning","agents","practice","tools"]
+lastReviewed: "2026-08-25"
+sidebar:
+  order: 6
+---
+
+import Definition from '@components/Definition.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import KeyIdea from '@components/KeyIdea.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+import Tradeoff from '@components/Tradeoff.astro';
+import competenceLayers from '../../../../assets/llm-training-git/competence-layers.svg';
+import actionFeedbackLoop from '../../../../assets/llm-training-git/action-feedback-loop.svg';
+import gitWorkflowExample from '../../../../assets/llm-training-git/git-workflow-example.svg';
+
+<Definition term={"Procedurele competentie in een LLM-gebaseerde agent"}>
+Procedurele competentie is het vermogen om acties te selecteren en te ordenen voor een doel en huidige toestand. Bij een coding agent komt betrouwbare Git-competentie niet voort uit één opgeslagen “Git-skill”: ze ontstaat uit modeltraining en wordt operationeel gemaakt met runtime-instructies, tools, beleid, repository-state en feedback.
+</Definition>
+
+<KeyIdea>
+Next-token prediction kan procedures leren omdat trainingsdata doelen, commando’s, voorwaarden, uitkomsten en correcties in samenhang bevatten. Voorspelling leert latente actiepatronen; agent engineering zet die patronen om in een beheerste workflow.
+</KeyIdea>
+
+<figure class="concept-explainer-image">
+  <img src={competenceLayers.src} alt="Zes lagen die bijdragen aan operationele Git-competentie: pretraining, instruction tuning, preference training, trajectory training, harnessbeleid en omgevingsfeedback." loading="eager" decoding="async" />
+</figure>
+
+## Git wordt niet als één vooraf gedefinieerde skill geïnstalleerd
+
+Een model krijgt normaal gesproken niet één intern object met een gezaghebbende Git-procedure. Tijdens pretraining ziet het in plaats daarvan code, documentatie, tutorials, contribution guides, vragen, issue-discussies en commandoreeksen zoals:
+
+```bash
+git status
+git add src/app.py
+git commit -m "Fix authentication bug"
+git push origin feature/auth-fix
+```
+
+Deze voorbeelden verbinden situaties, doelen, acties en gevolgen. Om hun vervolg te voorspellen, profiteert het model van relaties tussen “wijzigingen beoordelen” en `git diff`, “een bestand stagen” en `git add`, of “gestagede wijzigingen vastleggen” en `git commit`.
+
+De kennis is verdeeld over parameters. Het is nuttig om de geleerde abstractie te beschrijven als relaties tussen situatie en waarschijnlijke actie, actie en gevolg, doel en actiereeks, of fout en herstel. Dit zijn conceptuele verklaringen, geen letterlijke records in het netwerk.
+
+## Drie soorten Git-kennis
+
+| Soort | Wat het biedt | Voorbeeld |
+| --- | --- | --- |
+| Declaratieve kennis | Wat een concept of handeling betekent | Een commit legt een repository-toestand vast in de geschiedenis. |
+| Commandokennis | Welk commando bij een intentie hoort | `git switch -c feature-x` maakt een branch en schakelt ernaartoe. |
+| Procedurele kennis | Welke acties in welke volgorde en onder welke voorwaarden nodig zijn | Inspecteren, branchen, bewerken, testen, beoordelen, stagen en committen. |
+
+Procedurele kennis vormt de brug naar agentgedrag. De relevante voorspelling hangt af van meer dan het laatste woord: het model kan conditioneren op het doel, de repositorybeschrijving en eerdere acties in een langere context. Het kan dus benaderen: “Welke actie hoort hierna bij deze toestand en dit doel?” terwijl de leerdoelstelling next-token prediction blijft.
+
+## Wat elke trainingsfase toevoegt
+
+### Pretraining: latente Git-capaciteit
+
+Pretraining stelt het model bloot aan Git-concepten, commando’s, workflows en fouten. Het kan leren dat branches werk isoleren, dat status en diff de repository-state tonen en dat een commit na staging komt. De frequentie in het corpus beschrijft echter wat gebruikelijk is, niet noodzakelijk wat goede engineeringpraktijk is.
+
+### Instruction tuning: het gebruikersdoel volgen
+
+Een base model kan Git kennen maar tekst vervolgen in plaats van helpen. Begeleide prompt-response-demonstraties leren het model een verzoek te interpreteren en een geschikte procedure te geven. Een verzoek om een nog niet gepushte commit van `main` naar een feature branch te verplaatsen wordt een taak om op te lossen, niet enkel tekst om aan te vullen.
+
+### Preference training: zorgvuldig gedrag verkiezen
+
+Beoordelaars kunnen antwoorden vergelijken. Een brede `git add .` gevolgd door een onverklaarde force-push hoort lager te scoren dan een antwoord dat eerst `git status` uitvoert, de diff inspecteert, alleen bedoelde bestanden staget en de staged changes verifieert. Herhaalde vergelijkingen vormen voorkeuren zoals:
+
+- inspecteren vóór wijzigen of committen;
+- onbedoelde wijzigingen beperken;
+- resultaten verifiëren;
+- betekenisvolle commits gebruiken;
+- destructieve handelingen vermijden;
+- risico uitleggen en zo nodig om toestemming vragen.
+
+Preference training vormt meestal hoe bestaande capaciteit wordt ingezet; niet elk Git-commando hoeft er opnieuw mee te worden aangeleerd.
+
+### Trajectory training: meerstapsbeleid leren
+
+Agenttraining kan volledige trajecten gebruiken in plaats van losse antwoorden. Een traject wisselt doelen, observaties, acties en resultaten af: status controleren, een relevante diff inspecteren, een test draaien, een bestand aanpassen, de test opnieuw draaien en de geverifieerde wijziging committen. Conceptueel leert dit een beleid dat een actie selecteert uit de huidige toestand en het doel.
+
+## Feedback uit de omgeving
+
+<figure class="concept-explainer-image">
+  <img src={actionFeedbackLoop.src} alt="Coding-agentlus waarin een doel en repository-observatie een LLM-actie informeren, een harness deze valideert, de Git- en testomgeving resultaten teruggeeft en de volgende observatie de lus sluit." loading="lazy" decoding="async" />
+</figure>
+
+Commando’s uitvoeren maakt de procedure aanzienlijk sterker dan haar alleen beschrijven. Als `git switch feature-x` faalt omdat de branch alleen remote bestaat, wordt de fout nieuwe informatie. De agent kan branches inspecteren en daarna een tracking-commando kiezen. Hij werkt met de werkelijke semantiek van Git in plaats van een statisch recept op te zeggen.
+
+Bij reinforcement learning kunnen objectieve uitkomsten trainingssignalen worden. Slagende tests, het gevraagde gedrag en een afgebakende diff kunnen positieve beloning krijgen; falende tests, ongerelateerde wijzigingen en destructieve acties negatieve beloning. Training kan vervolgens succesvolle actietrajecten waarschijnlijker maken.
+
+<Tradeoff>
+Uitvoerbare beloningen zijn nuttig maar onvolledig. Een agent kan optimaliseren voor slagende tests en toch een broze implementatie maken, een test verzwakken of onuitgesproken beleid schenden. Reward design vraagt om adversarial cases, scopecontroles en menselijke beoordeling voor uitkomsten die tests niet volledig kunnen uitdrukken.
+</Tradeoff>
+
+## De agent-harness levert de expliciete procedure
+
+Er is weinig reden om elk repositorybeleid in modelgewichten vast te leggen. Een coding-agent-harness kan regels injecteren zoals:
+
+1. Inspecteer de repository-state vóór het bewerken.
+2. Behoud bestaande gebruikerswijzigingen.
+3. Maak de kleinst relevante wijziging.
+4. Beoordeel de diff en voer relevante tests uit.
+5. Stage alleen bedoelde bestanden.
+6. Push niet zonder expliciet verzoek.
+7. Force-push nooit zonder bevestiging.
+
+De harness bepaalt ook welke tools beschikbaar zijn, welke handelingen goedkeuring vereisen, welke state blijft bestaan en hoe acties worden gelogd. Projectspecifiek gedrag wordt zo inspecteerbaar en aanpasbaar zonder het model opnieuw te trainen.
+
+## Zes lagen van procedurele competentie
+
+| Laag | Bijdrage | Git-voorbeeld |
+| --- | --- | --- |
+| Pretraining | Concepten en statistische patronen | Kent commits, branches, merges en commando’s. |
+| Instruction tuning | Doelgericht antwoordgedrag | Interpreteert “maak een feature branch” als verzoek om te handelen of uitleg te geven. |
+| Preference training | Wenselijke manieren van handelen | Controleert wijzigingen in plaats van blind te committen. |
+| Trajectory training | Meerstapsactiebeleid | Inspecteert, bewerkt, test en commit in volgorde. |
+| Harness, skills en beleid | Expliciete runtimeprocedure | Past de Git-workflow en bevoegdheidsregels van de repository toe. |
+| Omgevingsfeedback | Werkelijke gevolgen | Git en tests laten zien of een actie slaagt. |
+
+Het uiteindelijke gedrag combineert modelkennis, post-training, huidige context, skills, harnesscontroles en omgevingsfeedback. Geen enkele laag volstaat voor betrouwbare agentwerking.
+
+## Kennis, capaciteit, skill en beleid
+
+Deze termen moeten onderscheiden blijven:
+
+- **Kennis:** het LLM kan uitleggen dat `git rebase` commits opnieuw toepast op een andere basis.
+- **Procedurele competentie:** het kan afleiden dat rebasing kan passen bij een branch die achterloopt op `main`.
+- **Latente capaciteit:** training maakt het gedrag beschikbaar in het model, maar garandeert niet wanneer of hoe het verschijnt.
+- **Agent-skill:** instructies, tools, context en controles maken van de capaciteit een herbruikbare procedure.
+- **Beleid:** de organisatie kan rebasing van een gedeelde protected branch verbieden.
+- **Toolcapaciteit:** de harness kan Git-commando’s daadwerkelijk uitvoeren.
+
+Een LLM dat Git kent is dus niet hetzelfde als een agent met een betrouwbare Git-skill.
+
+## Uitgewerkt traject: los de bug op en commit de wijziging
+
+<figure class="concept-explainer-image">
+  <img src={gitWorkflowExample.src} alt="Uitgewerkt coding-agenttraject van een bugfixdoel via statusinspectie, issue lezen, code zoeken, hypothese, minimale wijziging en iteratieve testlus naar diffbeoordeling, selectieve staging, commit en bewijsrapport." loading="lazy" decoding="async" />
+</figure>
+
+Stel dat de gebruiker vraagt: “Los issue 253 op en commit de oplossing.” Pretraining levert Git-, taal- en programmeerconcepten. Post-training levert instruction following en de neiging om vóór een wijziging te inspecteren. Een runtime-skill definieert de repositoryprocedure. De harness biedt tools voor bestanden, zoeken, bewerken, shell en Git. De omgeving levert de echte bestanden, compiler en tests.
+
+De agent begint met het inspecteren van de repository-state zodat ongerelateerd werk niet wordt overschreven. Hij leest het issue en relevante code, vormt een hypothese, maakt een minimale wijziging en draait een gerichte test. Een fout wordt bewijs voor een herziening in plaats van aanleiding om te gokken. Nadat tests slagen, inspecteert de agent de volledige diff, staget alleen bedoelde bestanden, maakt een betekenisvolle commit en rapporteert het bewijs.
+
+Slechts een deel van dit traject zit in modelgewichten. De betrouwbare skill bestaat uit de combinatie van latente capaciteit, expliciete procedure, gecontroleerde tools en verifieerbare uitkomsten.
+
+<EngineeringMode>
+Leg duurzame Git-regels vast in de harness of repository-instructies, niet alleen in prompts of verhoopt modelgedrag. Bepaal de huidige state vóór mutatie, behoud gebruikerswijzigingen, beperk destructieve commando’s, vereis expliciete toestemming voor remote acties en maak tests plus diffinspectie onderdeel van het afrondingscontract.
+</EngineeringMode>
+
+<EvaluationCheck>
+Evalueer het hele traject: Is de begintoestand geïnspecteerd? Zijn ongerelateerde wijzigingen behouden? Paste het gekozen commando bij de werkelijke repository-state? Zijn relevante tests geslaagd? Was de uiteindelijke diff afgebakend en stopte de agent bij de grens van zijn bevoegdheid?
+</EvaluationCheck>
+
+<RealExample>
+Als een lokale branchnaam niet bestaat maar `origin/feature-x` wel, kan pure commandomemorisatie dezelfde mislukte checkout herhalen. Een competente agent gebruikt de fout als bewijs, toont de branches, herkent de remote branch en maakt via de toegestane Git-workflow een tracking branch.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"LLM-learning","href":"/building-deploying-ai-applications/llm-learning/"},{"label":"Agentic workflows en harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"Evals en foutanalyse","href":"/building-deploying-ai-applications/evals-and-error-analysis/"},{"label":"De agentlus","href":"/using-coding-agents/the-agent-loop/"},{"label":"Model, harness, tools en workspace","href":"/using-coding-agents/model-harness-tools-and-workspace/"}]} />
+
+<SourceNote>
+Afgeleid van <code>sources/llm-training-git.md</code>. Verder lezen: <a href="https://arxiv.org/abs/2308.12950">Code Llama</a>, <a href="https://arxiv.org/abs/2203.02155">InstructGPT</a>, <a href="https://arxiv.org/abs/2210.03629">ReAct</a>, <a href="https://arxiv.org/abs/2405.15793">SWE-agent</a> en <a href="https://arxiv.org/abs/2310.06770">SWE-bench</a>.
+</SourceNote>
