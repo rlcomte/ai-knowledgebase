@@ -15,9 +15,10 @@ import EngineeringMode from '@components/EngineeringMode.astro';
 import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
+import contextArchitecture from '../../../assets/context-engineering/context-architecture.svg';
 
 <Definition term={"Context Engineering"}>
-Context engineering is the deliberate construction of the information state available to a model at a particular step of a workflow. It covers system instructions, user task framing, retrieved documents, tool results, memory, conversation history, schemas and constraints, with attention to token budgets, recency, source authority, privacy and the risk of injecting irrelevant or hostile context.
+Context engineering is the discipline of constructing and maintaining the information state from which an AI model operates. It determines which instructions, goals, memories, retrieved knowledge, environmental observations, skills, tool results, policies and interaction history are available at each inference step, how they are represented and prioritized, and how the context evolves as the system interacts with its environment.
 </Definition>
 
 ## Why It Matters
@@ -25,6 +26,36 @@ Context engineering is the deliberate construction of the information state avai
 Context engineering designs the complete information environment available to a model at a particular step: instructions, conversation, retrieved knowledge, tool definitions, state, examples and output constraints.
 
 It also includes selecting, compressing, ordering and refreshing context. The central engineering judgement is deciding what the model needs now, what should remain outside the model, and how stale, conflicting or sensitive context should be handled.
+
+For agentic systems, this becomes dynamic state management across perception, reasoning and action cycles. Agentic context engineering is the dynamic management of the agent's working state as new observations, tool results and decisions arrive.
+
+<figure class="concept-explainer-image">
+  <img src={contextArchitecture.src} alt="Architecture showing model training creating base LLM capabilities, memory, skills and knowledge feeding retrieval and selection, context engineering assembling instructions, state and observations into active context, and the LLM using tools and environment feedback to update the next step." loading="eager" decoding="async" />
+</figure>
+
+## More Than Prompt Wording
+
+Prompt engineering asks how an instruction should be phrased. Context engineering asks the broader runtime question: what should the model know right now, from which sources, with what authority and in what form?
+
+That is why context engineering includes retrieved documents, memory, tool observations, project or organizational policy, conversation state and reusable skills. Prompt wording is one part of the job, not the whole job.
+
+## Context Changes During Work
+
+A coding or workflow agent does not operate from one static prompt. Suppose an agent is asked to upgrade an API client, repair tests and commit the result. At the start, the useful context may be the goal, project rules, active branch, Git policy and the current dependency version.
+
+After the edit, failing tests become more important than the original file listing. After the tests pass, the diff becomes the key evidence. The model can stay the same while the context changes throughout the task.
+
+## Training, Context and Harnesses
+
+Context engineering sits between model learning and agent execution.
+
+| Layer | What it contributes |
+| --- | --- |
+| Model learning | Latent capabilities such as language, coding and reasoning patterns |
+| Context engineering | The current goal, policy, state, memory, retrieved knowledge and observations |
+| Agent engineering | The controlled loop of choosing actions, using tools, observing results and updating state |
+
+This separation matters operationally. Training creates capabilities in model parameters. Context engineering situates those capabilities for the present task. The harness then turns situated reasoning into accountable action.
 
 <EngineeringMode>
 Context engineering turns a model call into a designed information system. Architecture must choose which instructions, memories, retrieved records, tool definitions and user state are available at each step. Design work decides what the model should know and what it must not see. Build work implements selection, ordering and truncation. Operations watch leakage, stale context, latency and cases where missing context causes bad answers.
@@ -38,8 +69,8 @@ Ask what observable evidence would show that this concept has been applied well 
 GitHub Copilot Chat is useful only when the surrounding context is assembled well. The model may need the open file, selected lines, repository search results, test output and team instructions. Without that context design, the same model can give generic advice that ignores the actual codebase.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructions and planning","href":"/using-coding-agents/context-instructions-and-planning/"}]} />
+<RelatedConcepts links={[{"label":"Context Engineering in Practice","href":"/building-deploying-ai-applications/context-engineering-in-practice/"},{"label":"Grounding and RAG","href":"/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructions and planning","href":"/using-coding-agents/context-instructions-and-planning/"}]} />
 
 <SourceNote>
-Further study: OpenAI, <a href="https://platform.openai.com/docs/guides/text-generation">Text generation</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">Context windows</a>.
+Derived in part from sections 24, 25, 27 and 28 of <code>sources/context-engineering.md</code>. Further study: OpenAI, <a href="https://platform.openai.com/docs/guides/text-generation">Text generation</a>, and Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">Context windows</a>.
 </SourceNote>

@@ -15,9 +15,10 @@ import EngineeringMode from '@components/EngineeringMode.astro';
 import RealExample from '@components/RealExample.astro';
 import RelatedConcepts from '@components/RelatedConcepts.astro';
 import SourceNote from '@components/SourceNote.astro';
+import contextArchitecture from '../../../../assets/context-engineering/context-architecture.svg';
 
 <Definition term={"Context engineering"}>
-Context engineering is het doelbewust vormgeven van de informatietoestand die bij een bepaalde stap in een workflow voor een model beschikbaar is. Het omvat systeeminstructies, de kadering van de gebruikersopdracht, opgehaalde documenten, toolresultaten, geheugen, gespreksgeschiedenis, schema's en beperkingen, met aandacht voor tokenbudgetten, actualiteit, bronautoriteit, privacy en het risico op het injecteren van irrelevante of vijandige context.
+Context engineering is de discipline van het construeren en onderhouden van de informatietoestand van waaruit een AI-model opereert. Het bepaalt welke instructies, doelen, herinneringen, opgehaalde kennis, omgevingsobservaties, skills, toolresultaten, beleidsregels en interactiegeschiedenis bij elke inferentiestap beschikbaar zijn, hoe deze worden gerepresenteerd en geprioriteerd, en hoe de context evolueert terwijl het systeem met zijn omgeving interageert.
 </Definition>
 
 ## Waarom dit ertoe doet
@@ -25,6 +26,36 @@ Context engineering is het doelbewust vormgeven van de informatietoestand die bi
 Context engineering ontwerpt de volledige informatieomgeving die op een bepaald moment voor een model beschikbaar is: instructies, gesprek, opgehaalde kennis, tooldefinities, toestand, voorbeelden en outputbeperkingen.
 
 Het omvat ook het selecteren, comprimeren, ordenen en verversen van context. De centrale engineeringafweging is bepalen wat het model nu nodig heeft, wat buiten het model moet blijven, en hoe verouderde, conflicterende of gevoelige context moet worden behandeld.
+
+Voor agentische systemen wordt dit dynamisch state-beheer over cycli van waarnemen, redeneren en handelen. Agentische context engineering is het dynamische beheer van de working state van de agent terwijl nieuwe observaties, toolresultaten en beslissingen binnenkomen.
+
+<figure class="concept-explainer-image">
+  <img src={contextArchitecture.src} alt="Architectuur die toont hoe modeltraining basis-LLM-capaciteiten creëert, hoe geheugen, skills en kennis retrieval en selectie voeden, hoe context engineering instructies, state en observaties assembleert tot actieve context, en hoe de LLM via tools en omgevingsfeedback de volgende stap bijwerkt." loading="eager" decoding="async" />
+</figure>
+
+## Meer dan promptformulering
+
+Prompt engineering vraagt hoe een instructie moet worden geformuleerd. Context engineering stelt de bredere runtimevraag: wat moet het model nu weten, uit welke bronnen, met welk gezag en in welke vorm?
+
+Daarom omvat context engineering ook opgehaalde documenten, geheugen, toolobservaties, project- of organisatiebeleid, gespreksstate en herbruikbare skills. Promptformulering is één onderdeel van het werk, niet het geheel.
+
+## Context verandert tijdens het werk
+
+Een coding- of workflow-agent opereert niet vanuit één statische prompt. Stel dat een agent een API-client moet upgraden, tests moet herstellen en de wijzigingen moet committen. Aan het begin kan de nuttige context bestaan uit het doel, projectregels, de actieve branch, Git-beleid en de huidige dependencyversie.
+
+Na de wijziging worden falende tests belangrijker dan de oorspronkelijke bestandenlijst. Zodra de tests slagen, wordt de diff het belangrijkste bewijs. Het model kan hetzelfde blijven terwijl de context gedurende de taak verandert.
+
+## Training, context en harnesses
+
+Context engineering zit tussen modellearning en agentuitvoering.
+
+| Laag | Bijdrage |
+| --- | --- |
+| Modellearning | Latente capaciteiten zoals taal, programmeren en redeneerpatronen |
+| Context engineering | Het huidige doel, beleid, state, geheugen, opgehaalde kennis en observaties |
+| Agent engineering | De gecontroleerde lus van acties kiezen, tools gebruiken, resultaten observeren en state bijwerken |
+
+Deze scheiding is operationeel belangrijk. Training creëert capaciteiten in modelparameters. Context engineering situeert die capaciteiten voor de huidige taak. De harness zet gesitueerd redeneren vervolgens om in verantwoordbare actie.
 
 <EngineeringMode>
 Context engineering verandert een modelaanroep in een ontworpen informatiesysteem. Architectuur moet kiezen welke instructies, geheugenitems, opgehaalde records, tooldefinities en gebruikersstatus bij iedere stap beschikbaar zijn. Ontwerpwerk bepaalt wat het model moet weten en wat het niet mag zien. Bouwwerk implementeert selectie, ordening en afkapping. Operations monitort lekkage, verouderde context, latentie en gevallen waarin ontbrekende context tot slechte antwoorden leidt.
@@ -38,8 +69,8 @@ Vraag welk observeerbaar bewijs aantoont dat dit concept goed is toegepast in ee
 GitHub Copilot Chat is alleen nuttig wanneer de omringende context goed is samengesteld. Het model kan het geopende bestand, geselecteerde regels, repository-zoekresultaten, testuitvoer en teaminstructies nodig hebben. Zonder dat contextontwerp kan hetzelfde model generiek advies geven dat de feitelijke codebase negeert.
 </RealExample>
 
-<RelatedConcepts links={[{"label":"Grounding en RAG","href":"/nl/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructies en planning","href":"/nl/using-coding-agents/context-instructions-and-planning/"}]} />
+<RelatedConcepts links={[{"label":"Context engineering in de praktijk","href":"/nl/building-deploying-ai-applications/context-engineering-in-practice/"},{"label":"Grounding en RAG","href":"/nl/building-deploying-ai-applications/grounding-and-rag/"},{"label":"Context, instructies en planning","href":"/nl/using-coding-agents/context-instructions-and-planning/"}]} />
 
 <SourceNote>
-Verder lezen: OpenAI, <a href="https://platform.openai.com/docs/guides/text-generation">Text generation</a>, en Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">Context windows</a>.
+Deels afgeleid van secties 24, 25, 27 en 28 van <code>sources/context-engineering.md</code>. Verder lezen: OpenAI, <a href="https://platform.openai.com/docs/guides/text-generation">Text generation</a>, en Anthropic, <a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">Context windows</a>.
 </SourceNote>
