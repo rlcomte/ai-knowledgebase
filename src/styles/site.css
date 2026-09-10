@@ -438,6 +438,62 @@ body {
   line-height: 1.65;
 }
 
+.kb-expandable-image {
+  cursor: zoom-in;
+}
+
+.kb-image-dialog {
+  width: min(96vw, 92rem);
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--kb-outline-variant);
+  border-radius: var(--kb-radius-lg);
+  background: var(--kb-surface);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.35);
+}
+
+.kb-image-dialog::backdrop {
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.kb-image-dialog__frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.kb-image-dialog__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--kb-outline);
+  border-radius: 999px;
+  background: var(--kb-surface);
+  color: var(--kb-on-surface);
+  cursor: pointer;
+  font: 800 1rem/1 var(--sl-font);
+  box-shadow: var(--kb-elevation-1);
+}
+
+.kb-image-dialog__close:hover {
+  background: var(--kb-surface-container);
+}
+
+.kb-image-dialog__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 6rem);
+  height: auto;
+}
+
 .canvas-grid,
 .relationship-map {
   display: grid;

@@ -97,6 +97,7 @@ export default defineConfig({
         { tag: 'meta', attrs: { property: 'og:type', content: 'website' } },
         { tag: 'meta', attrs: { property: 'og:image', content: '/og.svg' } },
         { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+        { tag: 'script', attrs: { src: '/image-dialog.js', defer: true } },
         {
           tag: 'script',
           attrs: { type: 'application/ld+json' },
