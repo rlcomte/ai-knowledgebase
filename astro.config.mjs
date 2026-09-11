@@ -22,13 +22,15 @@ export default defineConfig({
         }
       },
       logo: {
-        src: './src/assets/logo.svg',
-        alt: 'AI Engineering Knowledge Base'
+        src: './src/assets/che-logo.svg',
+        alt: 'Christelijke Hogeschool Ede',
+        replacesTitle: true
       },
       favicon: '/favicon.svg',
       customCss: ['./src/styles/tokens.css', './src/styles/site.css'],
       components: {
-        PageTitle: './src/components/PageTitle.astro'
+        PageTitle: './src/components/PageTitle.astro',
+        Footer: './src/components/Footer.astro'
       },
       tableOfContents: false,
       lastUpdated: false,
