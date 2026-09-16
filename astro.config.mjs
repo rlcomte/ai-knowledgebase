@@ -72,18 +72,18 @@ export default defineConfig({
           items: [{ autogenerate: { directory: 'shaping-the-build' } }]
         },
         {
-          label: 'Real world examples',
-          translations: {
-            nl: 'Praktijkvoorbeelden'
-          },
-          items: [{ autogenerate: { directory: 'real-world-examples' } }]
-        },
-        {
           label: 'Cross-cutting knowledge',
           translations: {
             nl: 'Overkoepelende kennis'
           },
           items: [{ autogenerate: { directory: 'cross-cutting-knowledge' } }]
+        },
+        {
+          label: 'Real world examples',
+          translations: {
+            nl: 'Praktijkvoorbeelden'
+          },
+          items: [{ autogenerate: { directory: 'real-world-examples' } }]
         },
         {
           label: 'Social AI',
