@@ -1,9 +1,10 @@
 ---
 const { entry } = Astro.locals.starlightRoute;
 const hideTitle = entry.data.area === 'Home';
+import StatusBadge from './StatusBadge.astro';
 ---
 
-{!hideTitle && <h1 id="_top">{entry.data.title}</h1>}
+{!hideTitle && <><div class="page-meta"><StatusBadge status={entry.data.status} /><span>{Astro.locals.starlightRoute.locale === 'nl' ? 'Laatst gewijzigd' : 'Last modified'}: {entry.data.lastModified}</span></div><h1 id="_top">{entry.data.title}</h1></>}
 
 <style>
   @layer starlight.core {

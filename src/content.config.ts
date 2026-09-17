@@ -11,6 +11,8 @@ export const collections = {
         area: z.string(),
         order: z.number(),
         tags: z.array(z.string()),
+        status: z.enum(['new', 'updated', 'beta', 'stable']),
+        lastModified: z.string(),
         lastReviewed: z.string()
       })
     })

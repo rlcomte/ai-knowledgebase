@@ -85,6 +85,7 @@ export default defineConfig({
           },
           items: [{ autogenerate: { directory: 'real-world-examples' } }]
         },
+        { label: 'Topic status', translations: { nl: 'Topicstatus' }, link: '/status/' },
         {
           label: 'Social AI',
           translations: {

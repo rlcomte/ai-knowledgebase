@@ -5,9 +5,10 @@
 1. Add or edit an `.mdx` page under `src/content/docs`.
 2. Add or edit the matching Dutch page under `src/content/docs/nl` using the same path.
 3. Include all required frontmatter from `docs/content-model.md`.
-4. Add related-concept links where the topic crosses areas.
-5. Keep source notes accurate and avoid unsupported attribution.
-6. Run `npm run validate:content` and `npm run check:links`.
+4. Set `status` and update `lastModified` for substantive changes.
+5. Add related-concept links where the topic crosses areas.
+6. Keep source notes accurate and avoid unsupported attribution.
+7. Run `npm run validate:content` and `npm run check:links`.
 
 ## Maintaining Dutch Content
 

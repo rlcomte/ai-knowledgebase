@@ -16,10 +16,14 @@ area: Principal section name
 order: 1
 tags:
   - foundation
+status: "stable"
+lastModified: "2026-08-25"
 lastReviewed: "2026-08-25"
 ```
 
 Use concise concept pages for short source concepts. Use overview pages to connect concepts into a story, show the key movement statement, and provide concept navigation.
+
+Status values are `new`, `updated`, `beta` and `stable`. `lastModified` records the last substantive edit; `lastReviewed` records the last source and claim review.
 
 For Dutch pages, translate visible prose, frontmatter `title`, `description` and
 `area`, image `alt` text, related-link labels and overview-card labels. Keep

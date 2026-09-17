@@ -686,7 +686,7 @@ The engineer studies users, work practices, domain rules, organisational constra
 ];
 
 function frontmatter(page) {
-  return `---\ntitle: ${JSON.stringify(page.title)}\ndescription: ${JSON.stringify(page.description)}\narea: ${JSON.stringify(page.area)}\norder: ${page.order}\ntags: ${JSON.stringify(page.tags)}\nlastReviewed: ${JSON.stringify(reviewed)}\nsidebar:\n  order: ${page.order}\n---\n\n`;
+  return `---\ntitle: ${JSON.stringify(page.title)}\ndescription: ${JSON.stringify(page.description)}\narea: ${JSON.stringify(page.area)}\norder: ${page.order}\ntags: ${JSON.stringify(page.tags)}\nstatus: ${JSON.stringify(page.status || 'stable')}\nlastModified: ${JSON.stringify(page.lastModified || reviewed)}\nlastReviewed: ${JSON.stringify(page.lastReviewed || reviewed)}\nsidebar:\n  order: ${page.order}\n---\n\n`;
 }
 
 function writeDoc(path, content) {
@@ -766,6 +766,24 @@ import SourceNote from '@components/SourceNote.astro';
 The four top-level areas follow Andrew Ng's AI Engineering Skills Map. Ng has elaborated Area 1 in more detail; the detailed structures for Areas 2-4 are a reasoned extension for this knowledge base, not a claim of direct attribution or endorsement.
 </SourceNote>
 `);
+
+writeDoc('status', `${frontmatter({
+  title: 'Topic status',
+  description: 'Browse topics by their publication and development status.',
+  area: areas.cross,
+  order: 99,
+  tags: ['reference', 'governance'],
+  lastReviewed: reviewed
+})}import StatusFilter from '@components/StatusFilter.astro';\n\n<StatusFilter />\n`);
+
+writeDoc('nl/status', `${frontmatter({
+  title: 'Topicstatus',
+  description: 'Bekijk topics op basis van hun publicatie- en ontwikkelstatus.',
+  area: 'Overkoepelende kennis',
+  order: 99,
+  tags: ['reference', 'governance'],
+  lastReviewed: reviewed
+})}import StatusFilter from '@components/StatusFilter.astro';\n\n<StatusFilter />\n`);
 
 for (const page of overviewPages) {
   const concepts = conceptList(page.directory).map((concept) => ({
@@ -1031,4 +1049,3 @@ writeDoc('cross-cutting-knowledge/sources', `${frontmatter({
 
 The field changes rapidly. Tool-specific configuration and product behaviour should be dated and periodically verified against primary documentation. The conceptual distinction between problem shaping, AI application behaviour, software quality and agent-assisted implementation is intended to remain more durable.
 `);
-

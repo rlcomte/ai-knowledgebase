@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import StatusBadge from './StatusBadge.astro';
+
+const locale = Astro.locals.starlightRoute.locale;
+const dutch = locale === 'nl';
+const entries = (await getCollection('docs'))
+  .filter((entry) => dutch ? entry.id.startsWith('nl/') : !entry.id.startsWith('nl/'))
+  .filter((entry) => !entry.id.endsWith('/index.mdx') && !entry.id.endsWith('/index.md') && !entry.id.endsWith('status.mdx') && !entry.id.endsWith('status.md'))
+  .filter((entry) => entry.id !== 'index.mdx' && entry.id !== 'index.md')
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+const labels = dutch ? { all: 'Alle', new: 'Nieuw', updated: 'Gewijzigd', beta: 'Beta', stable: 'Stabiel', modified: 'Laatst gewijzigd' } : { all: 'All', new: 'New', updated: 'Updated', beta: 'Beta', stable: 'Stable', modified: 'Last modified' };
+  function href(id: string) {
+  const slug = id.replace(/^nl\//, '').replace(/\.(md|mdx)$/, '');
+  return `${dutch ? '/nl' : ''}/${slug}/`;
+}
+---
+<div class="status-filter" data-status-filter>
+  <label for="status-select">{dutch ? 'Filter op status' : 'Filter by status'}</label>
+  <select id="status-select" data-status-select>
+    <option value="all">{labels.all}</option><option value="new">{labels.new}</option><option value="updated">{labels.updated}</option><option value="beta">{labels.beta}</option><option value="stable">{labels.stable}</option>
+  </select>
+  <div class="status-results" data-status-results>
+    {entries.map((entry) => <article class="status-card" data-status-item={entry.data.status}><div class="status-card__meta"><StatusBadge status={entry.data.status} /><span>{labels.modified}: {entry.data.lastModified}</span></div><h2><a href={href(entry.id)}>{entry.data.title}</a></h2><p>{entry.data.description}</p><small>{entry.data.area}</small></article>)}
+  </div>
+</div>
+<script>
+  const root = document.querySelector('[data-status-filter]');
+  const select = root?.querySelector<HTMLSelectElement>('[data-status-select]');
+  const items = [...(root?.querySelectorAll<HTMLElement>('[data-status-item]') || [])];
+  select?.addEventListener('change', () => { const value = select.value; items.forEach((item) => { item.hidden = value !== 'all' && item.dataset.statusItem !== value; }); });
+</script>
+<style>
+  .status-filter label { display:block; font-weight:650; margin-bottom:.4rem; }
+  select { min-width:12rem; padding:.5rem; border:1px solid var(--sl-color-gray-4); border-radius:.35rem; background:var(--sl-color-bg); color:inherit; }
+  .status-results { display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:1rem; margin-top:1.5rem; }
+  .status-card { border:1px solid var(--sl-color-gray-5); border-radius:.65rem; padding:1rem; }
+  .status-card__meta { display:flex; align-items:center; justify-content:space-between; gap:.5rem; font-size:.8rem; }
+  .status-card h2 { font-size:1.1rem; margin:.8rem 0 .4rem; }
+  .status-card p { margin:0 0 .6rem; }
+  .status-card small { color:var(--sl-color-gray-3); }
+</style>

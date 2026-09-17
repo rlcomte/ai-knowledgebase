@@ -2,7 +2,8 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const root = 'src/content/docs';
-const required = ['title', 'description', 'area', 'order', 'tags', 'lastReviewed'];
+const required = ['title', 'description', 'area', 'order', 'tags', 'lastReviewed', 'status', 'lastModified'];
+const statuses = new Set(['new', 'updated', 'beta', 'stable']);
 const failures = [];
 const englishPages = new Set();
 const dutchPages = new Set();
@@ -33,8 +34,13 @@ function validate(path) {
   for (const key of required) {
     if (!new RegExp(`^${key}:`, 'm').test(match[1])) failures.push(`${rel}: missing ${key}`);
   }
-  if (!/^lastReviewed:\s*["']?2026-08-25["']?\s*$/m.test(match[1])) {
-    failures.push(`${rel}: lastReviewed must be 2026-08-25 for imported foundation content`);
+  const lastReviewed = match[1].match(/^lastReviewed:\s*["']?([^"'\s]+)["']?\s*$/m)?.[1];
+  if (lastReviewed && !/^\d{4}-\d{2}-\d{2}$/.test(lastReviewed)) failures.push(`${rel}: lastReviewed must use YYYY-MM-DD`);
+  const status = match[1].match(/^status:\s*["']?([^"'\s]+)["']?\s*$/m)?.[1];
+  if (status && !statuses.has(status)) failures.push(`${rel}: invalid status ${status}`);
+  const lastModified = match[1].match(/^lastModified:\s*["']?([^"'\s]+)["']?\s*$/m)?.[1];
+  if (lastModified && !/^\d{4}-\d{2}-\d{2}$/.test(lastModified)) {
+    failures.push(`${rel}: lastModified must use YYYY-MM-DD`);
   }
 }
 

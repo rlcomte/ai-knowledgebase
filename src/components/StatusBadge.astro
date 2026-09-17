@@ -1,0 +1,14 @@
+---
+export interface Props { status: string; }
+const { status } = Astro.props;
+const labels = { stable: 'Stable', updated: 'Updated', new: 'New', beta: 'Beta' };
+const label = labels[status as keyof typeof labels] || status;
+---
+<span class={`status-badge status-${status}`} data-status={status}>{label}</span>
+<style>
+  .status-badge { display:inline-flex; align-items:center; border-radius:999px; padding:.2rem .55rem; font-size:.75rem; font-weight:650; letter-spacing:.02em; text-transform:uppercase; }
+  .status-stable { background:#dcfce7; color:#166534; }
+  .status-updated { background:#dbeafe; color:#1d4ed8; }
+  .status-new { background:#e0f2fe; color:#0369a1; }
+  .status-beta { background:#f3e8ff; color:#7e22ce; }
+</style>
