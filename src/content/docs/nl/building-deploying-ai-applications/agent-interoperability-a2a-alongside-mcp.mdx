@@ -1,0 +1,60 @@
+---
+title: "Agentinteroperabiliteit: A2A naast MCP"
+description: "Auditeerbare taakoverdrachten tussen onafhankelijke agents ontwerpen, terwijl MCP tools en data voor elke runtime ontsluit."
+area: "AI-applicaties bouwen en uitrollen"
+order: 13
+tags: ["agents","architecture","governance"]
+lastReviewed: "2026-09-18"
+sidebar:
+  order: 13
+status: "new"
+lastModified: "2026-09-18"
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Agentinteroperabiliteit: A2A naast MCP"}>
+Agent2Agent (A2A) is een open protocol voor communicatie tussen onafhankelijke, mogelijk opaque agent-systemen. Het vult MCP aan: MCP standaardiseert hoe een agent-runtime tools en data bereikt, terwijl A2A standaardiseert hoe een agent een andere agent ontdekt, een taak delegeert en voortgang of resultaat-artifacts ontvangt over runtime- of leveranciersgrenzen heen.
+</Definition>
+
+## Waarom dit ertoe doet
+
+Lokaal toolgebruik en samenwerking tussen remote agents zijn verschillende grenzen. Behandel een remote agent als een externe dienst met gedeclareerde capaciteiten, een eigen identiteit en bevoegdheid, expliciete taakstatus en een observeerbaar contract—niet als een functieaanroep die toevallig tekst teruggeeft.
+
+A2A modelleert de interactie rond vier kernobjecten:
+
+- **Agent Card:** een machineleesbare beschrijving van identiteit, endpoint, skills, ondersteunde interfaces en authenticatievereisten van de remote agent. Zo kan capability discovery vóór delegatie plaatsvinden.
+- **Task:** de stateful eenheid van werk met lifecycle, identifier en optionele context. Een handoff krijgt zo een duurzame plek voor status, annulering en herstel.
+- **Message:** een communicatieronde om een task te starten, verduidelijking te vragen of verdere input te geven. Het is niet de betrouwbare container voor taakuitvoer.
+- **Artifact:** een taakresultaat, zoals tekst, gestructureerde data of een bestand, opgebouwd uit getypeerde onderdelen. Artifacts horen in het omliggende systeem provenance- en validatiemetadata te krijgen.
+
+<EngineeringMode>
+Behandel A2A als een grens van gedistribueerde systemen. Los de Agent Card op en valideer die, authenticeer de caller, autoriseer de gevraagde skill en geef een correlation ID plus de gebruikers- of servicebevoegdheid door die de delegatie mogelijk maakte. Plaats time-outs, begrensde retries, idempotency keys, annulering, concurrency-limieten, backpressure en rate limiting in de harness. Houd MCP-servers achter de eigen machtigingsgrens van de remote agent; een A2A-handoff mag niet automatisch alle tools erven die de caller kan gebruiken.
+</EngineeringMode>
+
+## MCP en A2A samen
+
+Een orchestrerende agent kan MCP gebruiken om lokale context te lezen of een gecontroleerde tool aan te roepen, en daarna A2A gebruiken om werk aan een specialist te delegeren. De specialist kan intern zijn eigen MCP-servers gebruiken. De grens moet duidelijk maken welke agent verantwoordelijk is voor elke actie, welke principal die autoriseerde, welke tools beschikbaar waren en welke artifacts terugkwamen.
+
+Voor end-to-end tracing geef je trace- en spancontext door via de A2A-request, task-updates, MCP-aanroepen en artifact-overdracht. Leg de versie van de Agent Card, task- en context-ID's, message-ID's, skill, bevoegdheid, beleidsbesluiten, retries, latentie, statusovergangen en artifact-hashes vast. Redigeer secrets en gevoelige payloads, maar bewaar genoeg gestructureerd bewijs om te reconstrueren wie wat vroeg, waar het draaide en waarom het resultaat is geaccepteerd.
+
+Streaming en push-notificaties zijn nuttig voor langlopende of eventgedreven workflows, maar voegen bezorgings- en beveiligingsrisico's toe. Authenticeer webhook-requests, valideer de verwachte task-ID en bron, maak notification handling idempotent, bescherm tegen replay en SSRF en herstel gemiste events door taskstatus opnieuw te lezen. Verwar een live stream niet met duurzame bezorging.
+
+<EvaluationCheck>
+Vraag of een test of trace kan aantonen dat een agent via een geldige capability-declaratie is gevonden, met minimale bevoegdheid is aangeroepen, zonder dubbele neveneffecten is geretried en via elke runtimegrens aan het eind-artifact is gekoppeld.
+</EvaluationCheck>
+
+<RealExample>
+Een incidentcoördinator ontdekt via de Agent Card een specialist voor loganalyse en delegeert een onderzoek. De specialist gebruikt MCP om het observability-systeem te bevragen, streamt statusupdates, retourneert een ondertekend findings-artifact en gebruikt dezelfde trace-ID als de coördinator. Een mens keurt elke remediatie-agent goed voordat een aparte A2A-task productie mag wijzigen.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Tool calling en MCP","href":"/nl/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Agentic workflows en harnesses","href":"/nl/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"Operaties in productie, observability, kosten en latentie","href":"/nl/building-deploying-ai-applications/production-operations-observability-cost-and-latency/"},{"label":"Menselijk toezicht en guardrails","href":"/nl/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
+
+<SourceNote>
+Verder lezen: <a href="https://developers.googleblog.com/a2a-a-new-era-of-agent-interoperability/">Google's A2A-aankondiging</a>; de <a href="https://github.com/a2aproject/A2A/blob/main/docs/specification.md">A2A-specificatie</a> en <a href="https://github.com/a2aproject/A2A/blob/main/docs/topics/what-is-a2a.md">A2A-conceptengids</a>; en Google's <a href="https://google.github.io/agents-cli/guide/use-cases/">A2A-use-cases voor Agent Development Kit en agents-cli</a>.
+</SourceNote>

@@ -1,0 +1,60 @@
+---
+title: "Agent Interoperability: A2A Alongside MCP"
+description: "Designing auditable task handoffs between independent agents while MCP exposes tools and data to each runtime."
+area: "Building and deploying AI applications"
+order: 13
+tags: ["agents","architecture","governance"]
+lastReviewed: "2026-09-18"
+sidebar:
+  order: 13
+status: "new"
+lastModified: "2026-09-18"
+---
+
+import Definition from '@components/Definition.astro';
+import EvaluationCheck from '@components/EvaluationCheck.astro';
+import EngineeringMode from '@components/EngineeringMode.astro';
+import RealExample from '@components/RealExample.astro';
+import RelatedConcepts from '@components/RelatedConcepts.astro';
+import SourceNote from '@components/SourceNote.astro';
+
+<Definition term={"Agent Interoperability: A2A Alongside MCP"}>
+Agent2Agent (A2A) is an open protocol for communication between independent, potentially opaque agent systems. It complements MCP: MCP standardises how an agent runtime reaches tools and data, while A2A standardises how one agent discovers another, delegates a task and receives progress or result artifacts across runtime or vendor boundaries.
+</Definition>
+
+## Why It Matters
+
+Local tool use and remote agent collaboration are different boundaries. A remote agent should be treated as an external service with a declared capability, its own identity and authority, explicit task state and an observable contract—not as a function call that happens to return text.
+
+A2A models the interaction around four core objects:
+
+- **Agent Card:** a machine-readable description of the remote agent’s identity, endpoint, skills, supported interfaces and authentication requirements. It enables capability discovery before delegation.
+- **Task:** the stateful unit of work with a lifecycle, identifier and optional context. It gives a handoff a durable place for status, cancellation and recovery.
+- **Message:** a turn of communication used to start a task, request clarification or provide further input. It is not the reliable container for task outputs.
+- **Artifact:** an output of the task, such as text, structured data or a file, composed of typed parts. Artifacts should carry provenance and validation metadata in the surrounding system.
+
+<EngineeringMode>
+Treat A2A as a distributed-systems boundary. Resolve and validate the Agent Card, authenticate the caller, authorise the requested skill and propagate a correlation ID plus the user or service authority that made the delegation possible. Put timeouts, bounded retries, idempotency keys, cancellation, concurrency limits, backpressure and rate limits in the harness. Keep MCP servers behind the remote agent’s own permission boundary; an A2A handoff must not inherit every tool available to the caller.
+</EngineeringMode>
+
+## MCP and A2A Together
+
+An orchestrating agent can use MCP to read local context or call a controlled tool, then use A2A to delegate a task to a specialist agent. The specialist may use its own MCP servers internally. The boundary should make clear which agent is responsible for each action, which principal authorised it, which tools were available and which artifacts came back.
+
+For an end-to-end trace, propagate a trace and span context across the A2A request, task updates, MCP calls and artifact delivery. Record agent-card version, task and context IDs, message IDs, skill, authority, policy decisions, retries, latency, status transitions and artifact hashes. Redact secrets and sensitive payloads while retaining enough structured evidence to reconstruct who asked for what, where it ran and why the result was accepted.
+
+Streaming and push notifications are useful for long-running or event-driven work, but they add delivery and security concerns. Authenticate webhook requests, validate the expected task ID and source, make notification handling idempotent, protect against replay and SSRF, and reconcile missed events by reading task state. Do not confuse a live stream with durable delivery.
+
+<EvaluationCheck>
+Ask whether a test or trace can show that an agent was discovered from a valid capability declaration, invoked with the minimum authority, retried without duplicate side effects, and linked to its final artifact across every runtime boundary.
+</EvaluationCheck>
+
+<RealExample>
+An incident coordinator discovers a log-analysis specialist from its Agent Card and delegates an investigation. The specialist uses MCP to query its observability system, streams status updates, returns a signed findings artifact and records the same trace ID as the coordinator. A human approves any remediation agent before a separate A2A task can change production.
+</RealExample>
+
+<RelatedConcepts links={[{"label":"Tool calling and MCP","href":"/building-deploying-ai-applications/tool-calling-and-mcp/"},{"label":"Agentic workflows and harnesses","href":"/building-deploying-ai-applications/agentic-workflows-and-harnesses/"},{"label":"Production operations, observability, cost and latency","href":"/building-deploying-ai-applications/production-operations-observability-cost-and-latency/"},{"label":"Human oversight and guardrails","href":"/building-deploying-ai-applications/human-oversight-and-guardrails/"}]} />
+
+<SourceNote>
+Further study: <a href="https://developers.googleblog.com/a2a-a-new-era-of-agent-interoperability/">Google’s A2A announcement</a>; the <a href="https://github.com/a2aproject/A2A/blob/main/docs/specification.md">A2A specification</a> and <a href="https://github.com/a2aproject/A2A/blob/main/docs/topics/what-is-a2a.md">A2A concepts guide</a>; and Google’s <a href="https://google.github.io/agents-cli/guide/use-cases/">Agent Development Kit and agents-cli A2A use cases</a>.
+</SourceNote>
